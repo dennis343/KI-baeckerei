@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+ * WissensReich Academy — Base Layer
+ * Minimal resets, accessibility-first defaults.
+ * ============================================ */
+
+@layer base {
+  :root {
+    --bg: 255 255 255;
+    --surface: 250 247 242;
+    --ink: 15 44 89;
+    --brand: 110 63 163;
+    --line: 229 231 235;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-ink-900 font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Respect reduced motion — critical for autism-friendly UX */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus ring — always visible, never removed */
+  *:focus-visible {
+    outline: 3px solid rgb(var(--brand) / 0.55);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Remove default button focus in favor of focus-visible */
+  button:focus,
+  a:focus {
+    outline: none;
+  }
+
+  ::selection {
+    background-color: rgb(var(--brand) / 0.18);
+    color: rgb(var(--ink));
+  }
+
+  /* Headings use display font */
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-ink-900;
+    text-wrap: balance;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply font-sans text-ink-900;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Reusable content container */
+  .prose-lead {
+    @apply text-lead text-ink-500 max-w-prose;
+  }
+
+  /* Skip link — WCAG 2.4.1 */
+  .skip-link {
+    @apply absolute left-4 -top-20 z-[100] bg-white text-ink-900 px-4 py-2 rounded-md shadow-card font-medium;
+    transition: top 120ms ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}

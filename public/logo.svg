@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none">
+  <defs>
+    <linearGradient id="owl-grad" x1="100" y1="0" x2="60" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#D946EF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left horn -->
+  <path d="M56 60 C42 40, 26 22, 16 8 C26 28, 38 42, 52 54 Z" fill="url(#owl-grad)"/>
+  <!-- Right horn -->
+  <path d="M144 60 C158 40, 174 22, 184 8 C174 28, 162 42, 148 54 Z" fill="url(#owl-grad)"/>
+
+  <!-- Head + Body -->
+  <path d="
+    M52 54
+    C52 42, 72 32, 100 32
+    C128 32, 148 42, 148 54
+    C164 62, 176 80, 176 104
+    C176 130, 166 156, 148 176
+    C130 196, 108 210, 88 218
+    C68 210, 46 190, 32 166
+    C18 142, 16 118, 24 96
+    C30 76, 40 66, 52 54
+    Z
+  " fill="url(#owl-grad)"/>
+
+  <!-- Left eye -->
+  <circle cx="76" cy="88" r="20" fill="white"/>
+  <circle cx="80" cy="88" r="9" fill="#2D1B4E"/>
+
+  <!-- Right eye -->
+  <circle cx="124" cy="88" r="20" fill="white"/>
+  <circle cx="128" cy="88" r="9" fill="#2D1B4E"/>
+
+  <!-- Beak -->
+  <path d="M94 112 L100 126 L106 112" fill="#2D1B4E" opacity="0.2"/>
+
+  <!-- Wing feather streaks -->
+  <path d="M30 136 Q56 118 86 102" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+  <path d="M34 158 Q58 140 86 124" stroke="white" stroke-width="5.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M42 178 Q62 160 86 146" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.4"/>
+</svg>
