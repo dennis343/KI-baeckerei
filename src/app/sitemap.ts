@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${SITE_URL}/ki-umsetzung`, lastModified: now, changeFrequency: "monthly", priority: 0.95 },
     { url: `${SITE_URL}/fuer-wen`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/solopreneure`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/unternehmen`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
