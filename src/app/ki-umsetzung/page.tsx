@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { buildMetadata } from "@/lib/metadata";
 import { BreadcrumbJsonLd } from "@/components/ui/BreadcrumbJsonLd";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -40,71 +40,51 @@ export default function KiUmsetzungPage() {
         }}
       />
 
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-ink-900/10 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
-            <div className="text-sm font-semibold text-ink-900">KI-Umsetzung</div>
-            <div className="flex items-center gap-6">
-              <Link href="#stufen" className="text-sm text-ink-600 hover:text-ink-900 transition">
-                Die 5 Wege
-              </Link>
-              <Link href="/#kontakt" className="px-4 h-9 rounded-lg bg-brand-600 text-white text-sm font-medium hover:bg-brand-700 transition flex items-center">
-                Buchen
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* ──────────────────────────────────────────────────
-          HERO — Apple Black, Massive Typography
+          HERO — Black, Massive White Typography
           ─────────────────────────────────────────────── */}
       <section className="relative min-h-[100dvh] flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          {/* Eyebrow — small, uppercase */}
-          <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">
-            Die Antwort auf Agentur
+        <div className="mx-auto max-w-5xl text-center">
+          {/* Eyebrow */}
+          <p className="text-sm font-medium tracking-wide text-white/60 uppercase mb-12">
+            Die Alternative zur Agentur
           </p>
 
-          {/* Main Headline — Massive, with Cyan Gradient */}
-          <h1 className="text-[clamp(3.5rem,12vw,7rem)] font-bold leading-[0.95] tracking-tight">
-            <span className="text-white">Adé Agentur.</span>
-            <br />
-            <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Willkommen, alle
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Möglichkeiten.
-            </span>
+          {/* Main Headline — Pure white, massive, serif */}
+          <h1 className="text-[clamp(3.5rem,14vw,8rem)] font-serif font-bold leading-[1] tracking-tight text-white mb-8">
+            Adé Agentur.
           </h1>
 
+          <h2 className="text-[clamp(2.5rem,10vw,5.5rem)] font-serif font-bold leading-[1.1] tracking-tight text-white">
+            Willkommen, alle{" "}
+            <span className="text-brand-400">Möglichkeiten.</span>
+          </h2>
+
           {/* Subheadline */}
-          <p className="mt-10 text-lg sm:text-xl text-ink-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-12 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light">
             Marketing, Vertrieb, Produkt, Prozesse – in Tagen, nicht Monaten. Mit Ihrem Team. Im eigenen Haus. Volle Kontrolle.
           </p>
 
           {/* Trust line */}
-          <p className="mt-8 text-sm text-ink-400">
+          <p className="mt-8 text-sm text-white/50">
             <span className="inline-flex items-center gap-2">
-              <Check className="w-4 h-4 text-cyan-400" aria-hidden="true" />
+              <Check className="w-4 h-4 text-brand-400" aria-hidden="true" />
               Montag besprochen – Freitag live
             </span>
           </p>
 
-          {/* CTA — Apple minimal style */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* CTA */}
+          <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
               href="/#kontakt"
-              className="px-6 h-11 rounded-lg bg-brand-600 text-white text-sm font-medium hover:bg-brand-700 transition flex items-center gap-2"
+              className="px-8 h-12 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white/90 transition flex items-center gap-2"
             >
               Gratisreport holen
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
             <Link
               href="/#kontakt"
-              className="px-6 h-11 rounded-lg border border-ink-400 text-white text-sm font-medium hover:border-white transition"
+              className="px-8 h-12 rounded-lg border border-white/30 text-white text-sm font-semibold hover:border-white transition"
             >
               Erstgespräch buchen
             </Link>
@@ -113,46 +93,39 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ──────────────────────────────────────────────────
-          THE SHIFT — White background
+          THE SHIFT — White background, Black/Blue Typography
           ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-white px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mx-auto max-w-4xl">
-          {/* Left side — Alt */}
-          <div className="mb-20">
-            <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">Klassisch</p>
-            <h2 className="text-5xl sm:text-6xl font-bold text-ink-900 leading-tight mb-8">
-              So war es.
-            </h2>
-            <p className="text-lg text-ink-600 leading-relaxed max-w-xl">
-              Idee. Briefing. Agentur-Auswahl. Kick-off. Rückfragen. Konzept. Revision. Revision. Revision. Abnahme. Go-Live drei Monate später. Budget weg. Know-how weg. Abhängigkeit bleibt.
-            </p>
-          </div>
+      <section className="relative min-h-screen flex flex-col items-center justify-center bg-white px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-5xl sm:text-6xl font-serif font-bold text-black leading-tight mb-12">
+            So war es.
+          </h2>
+          <p className="text-lg text-black/70 max-w-2xl leading-relaxed mb-6 font-light">
+            Idee. Briefing. Agentur-Auswahl. Kick-off. Rückfragen. Konzept. Revision. Revision. Revision. Abnahme. Go-Live drei Monate später. Budget weg. Know-how weg. Abhängigkeit bleibt.
+          </p>
 
-          {/* Divider */}
-          <div className="h-px bg-line my-20" />
+          <div className="h-px bg-black/10 my-20" />
 
-          {/* Right side — Neu */}
-          <div>
-            <p className="text-xs font-semibold tracking-widest text-brand-600 uppercase mb-8">Neu</p>
-            <h2 className="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-brand-600 to-cyan-500 bg-clip-text text-transparent leading-tight mb-8">
-              So geht es jetzt.
-            </h2>
-            <p className="text-lg text-ink-600 leading-relaxed max-w-xl">
-              Idee. Anforderung klären. Erste Version heute noch. Test. Feedback. Morgen besser. Freitag: live. Know-how sitzt im Team. Agentur kommt nur, wenn gebraucht.
-            </p>
-          </div>
+          <h2 className="text-5xl sm:text-6xl font-serif font-bold text-black leading-tight mb-12">
+            So geht es jetzt.
+          </h2>
+          <p className="text-lg text-brand-600 max-w-2xl leading-relaxed font-light">
+            Idee. Anforderung klären. Erste Version heute noch. Test. Feedback. Morgen besser. Freitag: live. Know-how sitzt im Team. Agentur kommt nur, wenn gebraucht.
+          </p>
         </div>
       </section>
 
       {/* ──────────────────────────────────────────────────
-          6 OUTCOMES — Black, Grid
+          6 OUTCOMES — Black, White Headings, Blue Body
           ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8 py-24">
         <div className="mx-auto max-w-6xl w-full">
-          <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">Was sich ändert</p>
-          <h2 className="text-5xl sm:text-6xl font-bold text-white mb-16 leading-tight">
+          <h2 className="text-5xl sm:text-6xl font-serif font-bold text-white mb-4 leading-tight">
             Sechs Felder.
           </h2>
+          <p className="text-sm text-white/50 uppercase tracking-wide mb-20 font-medium">
+            Was sich konkret ändert
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
@@ -181,9 +154,9 @@ export default function KiUmsetzungPage() {
                 desc: "Kundenreise, Seiten, Prozesse – kein Flickwerk mehr. Ein durchdachtes System.",
               },
             ].map((item, i) => (
-              <div key={i} className="border-t border-ink-800 pt-8">
-                <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                <p className="text-ink-300 leading-relaxed">{item.desc}</p>
+              <div key={i} className="border-t border-white/20 pt-8">
+                <h3 className="text-2xl font-serif font-bold text-white mb-4">{item.title}</h3>
+                <p className="text-base text-brand-300 leading-relaxed font-light">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -191,16 +164,18 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ──────────────────────────────────────────────────
-          5 STAGES — White, Vertical
+          5 STAGES — White background
           ─────────────────────────────────────────────── */}
-      <section id="stufen" className="relative min-h-screen flex flex-col items-center justify-center bg-white px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mx-auto max-w-4xl w-full">
-          <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">Die 5 Wege</p>
-          <h2 className="text-5xl sm:text-6xl font-bold text-ink-900 mb-16 leading-tight">
+      <section id="stufen" className="relative bg-white px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-5xl w-full">
+          <h2 className="text-5xl sm:text-6xl font-serif font-bold text-black leading-tight mb-4">
             Ihr Weg zu schnellerer Umsetzung.
           </h2>
+          <p className="text-sm text-black/50 uppercase tracking-wide mb-20 font-medium">
+            Fünf Wege
+          </p>
 
-          <div className="space-y-16">
+          <div className="space-y-24">
             {[
               {
                 nr: "0",
@@ -263,26 +238,26 @@ export default function KiUmsetzungPage() {
                 ],
               },
             ].map((stufe, idx) => (
-              <div key={idx} className="border-t border-line pt-12">
-                <div className="flex items-start gap-8">
+              <div key={idx} className="border-b border-black/10 pb-20 last:border-0 last:pb-0">
+                <div className="flex items-start gap-12">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-lg bg-black flex items-center justify-center">
-                      <span className="text-3xl font-bold text-white">{stufe.nr}</span>
+                    <div className="w-20 h-20 rounded-lg bg-black flex items-center justify-center">
+                      <span className="text-4xl font-serif font-bold text-white">{stufe.nr}</span>
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-3xl font-bold text-ink-900 mb-2">{stufe.name}</h3>
-                    <p className="text-sm text-brand-600 font-semibold mb-4">{stufe.sub}</p>
-                    <p className="text-lg text-ink-700 mb-6 font-medium">{stufe.nutzen}</p>
-                    <ul className="space-y-2 mb-8">
+                    <h3 className="text-3xl font-serif font-bold text-black mb-2">{stufe.name}</h3>
+                    <p className="text-sm text-brand-600 font-semibold uppercase tracking-wide mb-6">{stufe.sub}</p>
+                    <p className="text-lg text-black font-light mb-8">{stufe.nutzen}</p>
+                    <ul className="space-y-3 mb-10">
                       {stufe.inhalte.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-ink-600">
-                          <span className="w-1 h-1 bg-brand-600 rounded-full mt-2.5 flex-shrink-0" />
+                        <li key={i} className="flex items-start gap-3 text-black/70 font-light">
+                          <span className="w-1.5 h-1.5 bg-brand-600 rounded-full mt-2.5 flex-shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
-                    <Link href="/#kontakt" className="text-sm font-medium text-brand-600 hover:text-brand-700 inline-flex items-center gap-1">
+                    <Link href="/#kontakt" className="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center gap-2">
                       Mehr erfahren
                       <ArrowRight className="w-4 h-4" />
                     </Link>
@@ -295,14 +270,16 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ──────────────────────────────────────────────────
-          FEATURES — Black, Simple
+          FEATURES — Black background
           ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mx-auto max-w-4xl w-full">
-          <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">Überall einsetzbar</p>
-          <h2 className="text-5xl sm:text-6xl font-bold text-white mb-16 leading-tight">
+      <section className="relative bg-black px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-6xl w-full">
+          <h2 className="text-5xl sm:text-6xl font-serif font-bold text-white mb-4 leading-tight">
             Zwölf Einsatzfelder.
           </h2>
+          <p className="text-sm text-white/50 uppercase tracking-wide mb-20 font-medium">
+            Überall einsetzbar
+          </p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
@@ -319,8 +296,8 @@ export default function KiUmsetzungPage() {
               "Vorlagen",
               "Und mehr",
             ].map((feld, i) => (
-              <div key={i} className="border border-ink-800 rounded-lg p-4 text-center">
-                <p className="text-sm font-medium text-ink-300">{feld}</p>
+              <div key={i} className="border border-white/20 rounded-lg p-6 text-center">
+                <p className="text-base font-light text-white">{feld}</p>
               </div>
             ))}
           </div>
@@ -328,16 +305,18 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ──────────────────────────────────────────────────
-          COMPARISON — White
+          COMPARISON — White background
           ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-white px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mx-auto max-w-4xl w-full">
-          <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">Der Unterschied</p>
-          <h2 className="text-5xl sm:text-6xl font-bold text-ink-900 mb-16 leading-tight">
+      <section className="relative bg-white px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-5xl w-full">
+          <h2 className="text-5xl sm:text-6xl font-serif font-bold text-black leading-tight mb-4">
             Klassisch vs. Neu.
           </h2>
+          <p className="text-sm text-black/50 uppercase tracking-wide mb-20 font-medium">
+            Der Unterschied
+          </p>
 
-          <div className="space-y-6">
+          <div className="space-y-10">
             {[
               { label: "Das Problem", alt: "Tool-Schulung", neu: "Umsetzung echter Ziele" },
               { label: "Wer macht", alt: "Externe Agentur", neu: "Ihr Team + Begleitung" },
@@ -345,14 +324,14 @@ export default function KiUmsetzungPage() {
               { label: "Der Weg", alt: "Auftrag → Agentur → Schleifen", neu: "Idee → Klären → Testen → Live" },
               { label: "Die Zeit", alt: "Wochen bis Monate", neu: "Tage bis Wochen" },
             ].map((row, i) => (
-              <div key={i} className="border-b border-line pb-6 last:border-0">
-                <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-3">{row.label}</p>
+              <div key={i} className="border-b border-black/10 pb-10 last:border-0">
+                <p className="text-xs text-black/40 uppercase tracking-widest font-semibold mb-4">{row.label}</p>
                 <div className="grid grid-cols-2 gap-8">
                   <div>
-                    <p className="text-ink-600">{row.alt}</p>
+                    <p className="text-base text-black/60 font-light">{row.alt}</p>
                   </div>
                   <div>
-                    <p className="text-brand-600 font-medium">{row.neu}</p>
+                    <p className="text-base text-brand-600 font-semibold">{row.neu}</p>
                   </div>
                 </div>
               </div>
@@ -362,16 +341,18 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ──────────────────────────────────────────────────
-          FAQ — Black
+          FAQ — Black background
           ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mx-auto max-w-3xl w-full">
-          <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">Fragen</p>
-          <h2 className="text-5xl sm:text-6xl font-bold text-white mb-16 leading-tight">
+      <section className="relative bg-black px-4 sm:px-6 lg:px-8 py-24">
+        <div className="mx-auto max-w-4xl w-full">
+          <h2 className="text-5xl sm:text-6xl font-serif font-bold text-white mb-4 leading-tight">
             Häufig gefragt.
           </h2>
+          <p className="text-sm text-white/50 uppercase tracking-wide mb-20 font-medium">
+            Fragen
+          </p>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {[
               {
                 q: "Passt das auch zu unserer Größe?",
@@ -396,13 +377,13 @@ export default function KiUmsetzungPage() {
             ].map((faq, i) => (
               <details
                 key={i}
-                className="group border-b border-ink-800 pb-6 last:border-0 cursor-pointer"
+                className="group border-t border-white/20 py-6 cursor-pointer"
               >
-                <summary className="flex items-start justify-between gap-4 text-white font-medium">
-                  <span>{faq.q}</span>
-                  <span className="text-cyan-400 transition group-open:rotate-180">▼</span>
+                <summary className="flex items-start justify-between gap-4 text-white font-semibold text-lg">
+                  <span className="text-left">{faq.q}</span>
+                  <span className="text-brand-400 transition group-open:rotate-180 flex-shrink-0">▼</span>
                 </summary>
-                <p className="mt-4 text-ink-300 leading-relaxed">{faq.a}</p>
+                <p className="mt-6 text-brand-300 leading-relaxed font-light">{faq.a}</p>
               </details>
             ))}
           </div>
@@ -412,27 +393,26 @@ export default function KiUmsetzungPage() {
       {/* ──────────────────────────────────────────────────
           FINAL CTA — Black
           ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative bg-black px-4 sm:px-6 lg:px-8 py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold tracking-widest text-ink-400 uppercase mb-8">Nächster Schritt</p>
-          <h2 className="text-6xl sm:text-7xl font-bold text-white mb-8 leading-tight">
+          <h2 className="text-6xl sm:text-7xl font-serif font-bold text-white mb-8 leading-tight">
             Bereit?
           </h2>
-          <p className="text-lg text-ink-300 mb-12 max-w-xl mx-auto">
+          <p className="text-lg text-white/70 mb-16 max-w-xl mx-auto font-light">
             Holen Sie sich kostenlos den Gratisreport – oder buchen Sie sofort ein unverbindliches Erstgespräch.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
               href="/#kontakt"
-              className="px-6 h-11 rounded-lg bg-cyan-500 text-black text-sm font-semibold hover:bg-cyan-400 transition flex items-center gap-2"
+              className="px-8 h-12 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white/90 transition flex items-center gap-2"
             >
               Gratisreport jetzt
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
             <Link
               href="/#kontakt"
-              className="px-6 h-11 rounded-lg border border-cyan-500 text-white text-sm font-medium hover:border-cyan-400 transition"
+              className="px-8 h-12 rounded-lg border border-white/30 text-white text-sm font-semibold hover:border-white transition"
             >
               Erstgespräch buchen
             </Link>
