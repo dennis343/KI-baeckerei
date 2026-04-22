@@ -70,13 +70,19 @@ export function ApplyForm() {
     setAnswers((prev) => ({ ...prev, [stepKey]: value }));
   }
 
+  function labelFor(stepKey: QuickcheckStep["key"]): string {
+    const step = STEPS.find((s) => s.key === stepKey);
+    const value = answers[stepKey];
+    return step?.options.find((o) => o.value === value)?.label ?? "–";
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSending(true);
 
-    const situation = STEPS[0].options.find((o) => o.value === answers.situation)?.label ?? "–";
-    const bremser = STEPS[1].options.find((o) => o.value === answers.bremser)?.label ?? "–";
-    const ziel = STEPS[2].options.find((o) => o.value === answers.ziel)?.label ?? "–";
+    const situation = labelFor("situation");
+    const bremser = labelFor("bremser");
+    const ziel = labelFor("ziel");
 
     const lines = [
       `Name: ${name}`,
