@@ -54,11 +54,11 @@ const STEPS: QuickcheckStep[] = [
 ];
 
 const inputBase =
-  "w-full h-12 bg-white/[0.02] border border-white/15 rounded-xl px-4 text-white placeholder-white/30 " +
+  "w-full h-12 bg-white/[0.02] border border-white/15 rounded-xl px-4 text-white placeholder-white/45 " +
   "focus:border-brand-400 focus:bg-white/[0.04] focus:outline-none focus:ring-4 focus:ring-brand-400/15 transition";
 
 const textareaBase =
-  "w-full bg-white/[0.02] border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 " +
+  "w-full bg-white/[0.02] border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/45 " +
   "focus:border-brand-400 focus:bg-white/[0.04] focus:outline-none focus:ring-4 focus:ring-brand-400/15 transition resize-none";
 
 export function ApplyForm() {
@@ -127,7 +127,7 @@ export function ApplyForm() {
         <h3 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.1] text-white">
           Ihre Bewerbung ist auf dem Weg.
         </h3>
-        <p className="mt-6 text-[15px] sm:text-base text-white/65 font-light leading-relaxed max-w-xl mx-auto">
+        <p className="mt-6 text-[15px] sm:text-base text-white/85 leading-relaxed max-w-xl mx-auto">
           Sobald Ihr E-Mail-Programm die Nachricht abgeschickt hat, melden wir
           uns persönlich — meist innerhalb von 24 Stunden, werktags schneller.
         </p>
@@ -163,7 +163,7 @@ export function ApplyForm() {
                   <p className="text-[15px] font-semibold text-white leading-snug">
                     {s.head}
                   </p>
-                  <p className="mt-1 text-sm text-white/55 font-light leading-relaxed">
+                  <p className="mt-1 text-sm text-white/90 leading-relaxed">
                     {s.sub}
                   </p>
                 </div>
@@ -183,7 +183,7 @@ export function ApplyForm() {
       {/* Progress */}
       <div className="mb-14">
         <div className="flex items-center justify-between mb-3">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/55">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
             Quickcheck · {completedSteps} von {STEPS.length}
           </p>
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300 tabular-nums">
@@ -218,7 +218,7 @@ export function ApplyForm() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-white/45 font-light mb-6 ml-9">
+              <p className="text-sm text-white/85 mb-6 ml-9">
                 {step.hint}
               </p>
               <div className="flex flex-wrap gap-2.5 ml-9">
@@ -260,7 +260,7 @@ export function ApplyForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ml-0 sm:ml-9">
           <label className="block">
-            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
+            <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
               Name *
             </span>
             <input
@@ -274,7 +274,7 @@ export function ApplyForm() {
             />
           </label>
           <label className="block">
-            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
+            <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
               E-Mail *
             </span>
             <input
@@ -288,8 +288,8 @@ export function ApplyForm() {
             />
           </label>
           <label className="block">
-            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
-              Telefon <span className="text-white/30 normal-case tracking-normal font-light">— optional</span>
+            <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
+              Telefon <span className="text-white/90 normal-case tracking-normal">— optional</span>
             </span>
             <input
               type="tel"
@@ -301,8 +301,8 @@ export function ApplyForm() {
             />
           </label>
           <label className="block">
-            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
-              Unternehmen <span className="text-white/30 normal-case tracking-normal font-light">— optional</span>
+            <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
+              Unternehmen <span className="text-white/90 normal-case tracking-normal">— optional</span>
             </span>
             <input
               type="text"
@@ -316,8 +316,8 @@ export function ApplyForm() {
         </div>
 
         <label className="block mt-5 ml-0 sm:ml-9">
-          <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
-            Kurzbeschreibung <span className="text-white/30 normal-case tracking-normal font-light">— optional</span>
+          <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
+            Kurzbeschreibung <span className="text-white/90 normal-case tracking-normal">— optional</span>
           </span>
           <textarea
             value={note}
@@ -342,10 +342,10 @@ export function ApplyForm() {
               { k: "Zuerst umsetzen", v: labelFor("ziel") },
             ].map((row) => (
               <div key={row.k}>
-                <dt className="text-[10px] uppercase tracking-[0.2em] text-white/45 font-semibold mb-1">
+                <dt className="text-[10px] uppercase tracking-[0.2em] text-white/85 font-semibold mb-1">
                   {row.k}
                 </dt>
-                <dd className="text-sm text-white font-light leading-snug">
+                <dd className="text-sm text-white leading-snug">
                   {row.v}
                 </dd>
               </div>
@@ -359,7 +359,7 @@ export function ApplyForm() {
         <button
           type="submit"
           disabled={!canSubmit || sending}
-          className="group inline-flex items-center justify-center gap-3 px-8 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900 disabled:bg-white/15 disabled:text-white/40 disabled:cursor-not-allowed disabled:hover:bg-white/15 w-full sm:w-auto"
+          className="group inline-flex items-center justify-center gap-3 px-8 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900 disabled:bg-white/15 disabled:text-white/85 disabled:cursor-not-allowed disabled:hover:bg-white/15 w-full sm:w-auto"
         >
           {sending ? (
             <>
@@ -375,7 +375,7 @@ export function ApplyForm() {
         </button>
 
         {!canSubmit && !sending && (
-          <p className="text-xs text-white/40 font-light leading-relaxed">
+          <p className="text-xs text-white/85 leading-relaxed">
             {!allQuickcheckDone
               ? `Noch ${STEPS.length - completedSteps} Quickcheck-Antwort${
                   STEPS.length - completedSteps === 1 ? "" : "en"
@@ -384,7 +384,7 @@ export function ApplyForm() {
           </p>
         )}
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-white/45 font-light">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-white/85">
           <span className="inline-flex items-center gap-1.5">
             <Check className="w-3 h-3 text-brand-400" />
             Unverbindlich

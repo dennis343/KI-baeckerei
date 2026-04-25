@@ -1,5 +1,4 @@
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -8,44 +7,39 @@ type LogoProps = {
   tone?: "default" | "light";
 };
 
-export function Logo({ className, tone = "default" }: LogoProps) {
-  const primary = tone === "light" ? "text-white" : "text-ink-900";
-  const accent = tone === "light" ? "text-brand-200" : "text-brand-600";
+/**
+ * KI Bäckerei — reine Wortmarke. Bewusst kein Bildlogo.
+ * Editorial: Display-Serif für „KI", Sans-Caps für „Bäckerei".
+ */
+export function Logo({ className, tone = "light" }: LogoProps) {
+  const ink = tone === "light" ? "text-white" : "text-ink-900";
+  const accent = tone === "light" ? "text-brand-300" : "text-brand-600";
 
   return (
     <Link
       href="/"
+      aria-label="KI Bäckerei — Startseite"
       className={cn(
-        "group inline-flex items-center gap-2 font-display text-xl leading-none tracking-tight",
-        "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-brand-500/45 rounded-md",
+        "group inline-flex items-baseline gap-2 leading-none rounded-md",
+        "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-brand-500/45",
         className,
       )}
-      aria-label="WissensReich Academy — Startseite"
     >
-      <Image
-        src="/logo.svg"
-        alt=""
-        width={36}
-        height={42}
-        className="h-9 w-auto"
-        priority
-      />
-      <span className="flex items-baseline gap-1">
-        <span className={primary}>WissensReich</span>
-        <span className={cn("font-sans text-[0.72em] font-semibold uppercase tracking-[0.16em]", accent)}>
-          Academy
-        </span>
+      <span
+        className={cn(
+          "font-display italic font-semibold text-[1.45rem] tracking-tight",
+          accent,
+        )}
+      >
+        KI
       </span>
       <span
         className={cn(
-          "ml-2 hidden rounded-full border px-2 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-[0.14em] sm:inline-flex",
-          tone === "light"
-            ? "border-white/25 text-white/80"
-            : "border-ink-900/10 bg-cream-100 text-ink-700",
+          "font-sans font-semibold text-[0.78rem] uppercase tracking-[0.22em]",
+          ink,
         )}
-        aria-hidden="true"
       >
-        Start
+        Bäckerei
       </span>
     </Link>
   );

@@ -22,13 +22,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/ueber/blog",
-        destination: "/ueber/veroeffentlichungen",
-        permanent: true,
-      },
-      {
-        source: "/ueber/blog/:slug",
-        destination: "/ueber/veroeffentlichungen/blog/:slug",
+        source: "/ki-umsetzung",
+        destination: "/",
         permanent: true,
       },
     ];

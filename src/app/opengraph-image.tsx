@@ -18,91 +18,93 @@ export default function OpengraphImage() {
           justifyContent: "space-between",
           padding: "72px",
           background:
-            "linear-gradient(135deg, #FBF7F2 0%, #FFFFFF 55%, #F1EDE7 100%)",
+            "radial-gradient(900px 600px at 15% 0%, rgba(110,63,163,0.45), transparent 60%), linear-gradient(135deg, #07070C 0%, #0A0A12 100%)",
+          color: "#ffffff",
         }}
       >
+        {/* Top brand */}
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            color: "#3B2B1F",
+            alignItems: "baseline",
+            gap: "12px",
           }}
         >
-          <div
+          <span
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "56px",
-              height: "56px",
-              borderRadius: "16px",
-              background: "#3B2B1F",
-              color: "#ffffff",
-              fontSize: 26,
-              fontWeight: 700,
-            }}
-          >
-            W
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              lineHeight: 1.1,
-            }}
-          >
-            <span style={{ fontSize: 24, fontWeight: 600 }}>
-              {BRAND.name}
-            </span>
-            <span style={{ fontSize: 16, color: "#6B5C4F" }}>
-              Academy · AZAV-zertifiziert
-            </span>
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            color: "#1C1410",
-          }}
-        >
-          <div
-            style={{
-              fontSize: 24,
+              fontSize: 32,
               fontWeight: 600,
-              color: "#8B5A2B",
-              letterSpacing: 2,
-              textTransform: "uppercase",
-              marginBottom: 16,
+              fontStyle: "italic",
+              color: "#BFA0DD",
+              letterSpacing: -1,
             }}
           >
-            Weiterbildung · Förderung · Begleitung
+            KI
+          </span>
+          <span
+            style={{
+              fontSize: 18,
+              fontWeight: 600,
+              textTransform: "uppercase",
+              letterSpacing: 6,
+              color: "#ffffff",
+            }}
+          >
+            Bäckerei
+          </span>
+        </div>
+
+        {/* Main */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div
+            style={{
+              fontSize: 18,
+              fontWeight: 600,
+              color: "#BFA0DD",
+              letterSpacing: 4,
+              textTransform: "uppercase",
+              marginBottom: 24,
+            }}
+          >
+            Eine neue Kategorie · 4-Wochen-Programm
           </div>
           <div
             style={{
-              fontSize: 60,
-              fontWeight: 700,
-              lineHeight: 1.1,
-              maxWidth: 960,
+              fontSize: 110,
+              fontWeight: 600,
+              fontStyle: "italic",
+              lineHeight: 0.95,
+              letterSpacing: -2,
             }}
           >
-            {BRAND.tagline}
+            Das Zweitsystem.
+          </div>
+          <div
+            style={{
+              fontSize: 28,
+              color: "rgba(255,255,255,0.75)",
+              maxWidth: 960,
+              marginTop: 24,
+              lineHeight: 1.3,
+            }}
+          >
+            Die zweite digitale Arbeitskraft, die aus Fachkompetenz in Stunden
+            Ergebnisse macht.
           </div>
         </div>
 
+        {/* Bottom */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
-            color: "#6B5C4F",
-            fontSize: 20,
+            color: "rgba(255,255,255,0.5)",
+            fontSize: 18,
           }}
         >
-          <span>wissensreich.academy</span>
-          <span>KOMPASS · AVGS · Qualifizierungschancengesetz · INQA</span>
+          <span>ki-baeckerei.de</span>
+          <span>Live · Kleingruppe · Co-Build</span>
         </div>
       </div>
     ),
