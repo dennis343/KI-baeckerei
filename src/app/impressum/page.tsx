@@ -22,21 +22,21 @@ export default function ImpressumPage() {
       <section className="relative z-10 py-24 sm:py-32">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-300/90 mb-4">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-4">
               Rechtliches
             </p>
             <h1 className="font-display text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] tracking-[-0.015em] text-white">
               Impressum
             </h1>
-            <p className="mt-5 text-lg text-white/65 font-light leading-relaxed">
+            <p className="mt-5 text-lg text-white/85 leading-relaxed">
               Angaben gemäß § 5 TMG.
             </p>
-            <p className="mt-2 text-sm text-white/55 font-light">
+            <p className="mt-2 text-sm text-white/90">
               {BRAND.fullName} ist ein Angebot der {BRAND.legal.company}.
             </p>
           </div>
 
-          <div className="mt-14 max-w-3xl space-y-10 text-[15px] leading-relaxed text-white/75">
+          <div className="mt-14 max-w-3xl space-y-10 text-[15px] leading-relaxed text-white/90">
             <section>
               <h2 className="font-display text-lg font-semibold text-white mb-3">
                 Anbieter
@@ -106,7 +106,7 @@ export default function ImpressumPage() {
                 <br />
                 {BRAND.legal.serviceAddress.country}
               </address>
-              <p className="mt-3 text-sm text-white/55">
+              <p className="mt-3 text-sm text-white/90">
                 Diese Adresse dient der Postannahme sowie der organisatorischen
                 und administrativen Abwicklung. Vertragsschluss und
                 Leistungserbringung erfolgen — sofern nicht ausdrücklich

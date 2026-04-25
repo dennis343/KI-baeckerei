@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 /* ============================================
- * WissensReich Academy — Base Layer
- * Minimal resets, accessibility-first defaults.
+ * KI Bäckerei — Base Layer (Dark Premium)
+ * Lesbarkeit zuerst, Editorial-Eleganz danach.
  * ============================================ */
 
 @layer base {
   :root {
-    --bg: 255 255 255;
-    --surface: 250 247 242;
-    --ink: 15 44 89;
-    --brand: 110 63 163;
-    --line: 229 231 235;
+    --bg: 7 7 12;             /* #07070C */
+    --surface: 10 10 18;      /* #0A0A12 */
+    --ink: 255 255 255;
+    --brand: 191 160 221;     /* brand-300 — Akzent auf Dark */
+    --line: 255 255 255 / 0.1;
   }
 
   html,
@@ -27,14 +27,14 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-white text-ink-900 font-sans;
+    @apply bg-[#07070C] text-white font-sans;
     font-feature-settings: "ss01", "cv11";
   }
 
-  /* Respect reduced motion — critical for autism-friendly UX */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -46,36 +46,39 @@
     }
   }
 
-  /* Focus ring — always visible, never removed */
+  /* Focus ring */
   *:focus-visible {
-    outline: 3px solid rgb(var(--brand) / 0.55);
+    outline: 3px solid rgb(191 160 221 / 0.65);
     outline-offset: 2px;
     border-radius: 6px;
   }
 
-  /* Remove default button focus in favor of focus-visible */
   button:focus,
   a:focus {
     outline: none;
   }
 
   ::selection {
-    background-color: rgb(var(--brand) / 0.18);
-    color: rgb(var(--ink));
+    background-color: rgb(191 160 221 / 0.35);
+    color: white;
   }
 
-  /* Headings use display font */
+  /* Headings: erben Farbe vom Body — kein Hard-Override mehr.
+     So bleiben sie auf dunklem Hintergrund weiß und auf hellen
+     Sektionen ggf. dunkel (per Utility-Class überschreibbar). */
   h1,
   h2,
   h3 {
-    @apply font-display text-ink-900;
+    @apply font-display;
+    color: inherit;
     text-wrap: balance;
   }
 
   h4,
   h5,
   h6 {
-    @apply font-sans text-ink-900;
+    @apply font-sans;
+    color: inherit;
   }
 
   p {
@@ -84,14 +87,8 @@
 }
 
 @layer components {
-  /* Reusable content container */
-  .prose-lead {
-    @apply text-lead text-ink-500 max-w-prose;
-  }
-
-  /* Skip link — WCAG 2.4.1 */
   .skip-link {
-    @apply absolute left-4 -top-20 z-[100] bg-white text-ink-900 px-4 py-2 rounded-md shadow-card font-medium;
+    @apply absolute left-4 -top-20 z-[100] bg-white text-black px-4 py-2 rounded-md font-medium;
     transition: top 120ms ease;
   }
 

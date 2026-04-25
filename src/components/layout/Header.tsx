@@ -54,7 +54,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-3 py-2 text-[14px] font-medium text-white/75 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-brand-500/45"
+                className="rounded-lg px-3 py-2 text-[14px] font-medium text-white/90 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-brand-500/45"
               >
                 {item.label}
               </Link>

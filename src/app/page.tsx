@@ -19,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-300/90">
+    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-300">
       {children}
     </p>
   );
@@ -192,7 +192,7 @@ export default function KiUmsetzungPage() {
       <section className="relative z-10 min-h-[100svh] flex flex-col">
         {/* Top meta bar */}
         <div className="relative z-10 border-b border-white/5">
-          <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-6 text-[11px] uppercase tracking-[0.18em] text-white/55">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-6 text-[11px] uppercase tracking-[0.18em] text-white/90">
             <span className="font-semibold">
               KI Bäckerei · Das Zweitsystem
             </span>
@@ -207,17 +207,23 @@ export default function KiUmsetzungPage() {
           {/* Category badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm mb-10">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-400" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/75">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90">
               4-Wochen-Programm · Digitale Kleingruppe · Live
             </span>
           </div>
 
           {/* Wordmark headline */}
-          <h1 className="font-display leading-[0.92] tracking-[-0.02em]">
-            <span className="block text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-[0.3em] text-white/45 mb-6">
+          <h1 className="font-display leading-[0.92] tracking-[-0.02em] text-white">
+            <span className="block text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-[0.3em] text-brand-300 mb-6">
               Eine neue Kategorie
             </span>
-            <span className="block text-[clamp(3.5rem,11vw,9rem)] font-semibold italic">
+            <span
+              className="block text-[clamp(3.5rem,11vw,9rem)] font-semibold italic text-white"
+              style={{
+                textShadow:
+                  "0 0 60px rgba(155,111,198,0.18), 0 0 120px rgba(110,63,163,0.10)",
+              }}
+            >
               Das Zweitsystem.
             </span>
           </h1>
@@ -226,11 +232,11 @@ export default function KiUmsetzungPage() {
           <p className="mt-10 max-w-3xl font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.2] text-white/90">
             Die zweite digitale Arbeitskraft, die aus Ihrer Fachkompetenz in{" "}
             <span className="text-brand-300">Stunden</span> Ergebnisse macht.{" "}
-            <span className="text-white/55">Nicht in Wochen.</span>
+            <span className="text-white/90">Nicht in Wochen.</span>
           </p>
 
           {/* Lead paragraph */}
-          <p className="mt-8 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/65 font-light">
+          <p className="mt-8 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/85">
             Für Unternehmen, Selbstständige, Fachkräfte, Angestellte und Teams,
             die zwischen Idee und Ergebnis keine Wochen mehr verlieren wollen.
             Keine Agentur-Schleifen. Keine endlosen Briefings. Keine
@@ -264,7 +270,7 @@ export default function KiUmsetzungPage() {
               { label: "Investment", value: "1.990 € · statt 2.490 €" },
             ].map((item) => (
               <div key={item.label} className="bg-[#0A0A12] p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 mb-2">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 mb-2">
                   {item.label}
                 </p>
                 <p className="text-sm sm:text-base font-semibold text-white leading-snug">
@@ -277,7 +283,7 @@ export default function KiUmsetzungPage() {
 
         {/* Scroll cue */}
         <div className="relative z-10 border-t border-white/5">
-          <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/40">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/85">
             <span>Scrollen für den Preis des Wartens</span>
             <span>↓</span>
           </div>
@@ -296,7 +302,7 @@ export default function KiUmsetzungPage() {
                 Sie verlieren zu viel Zeit zwischen Idee und Ergebnis.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Der Engpass ist nicht Kreativität. Nicht Strategie. Nicht
               Fachwissen. Der Engpass ist die Strecke dazwischen — und die
               bezahlen Sie jeden Monat, auch wenn niemand sie auf die Rechnung
@@ -340,7 +346,7 @@ export default function KiUmsetzungPage() {
                   <p className="font-display text-xl font-semibold text-white leading-snug">
                     {item.head}
                   </p>
-                  <p className="mt-2 text-sm text-white/55 font-light leading-relaxed">
+                  <p className="mt-2 text-sm text-white/90 leading-relaxed">
                     {item.sub}
                   </p>
                 </div>
@@ -358,7 +364,7 @@ export default function KiUmsetzungPage() {
               </p>
             </div>
             <div className="lg:col-span-2 lg:border-l lg:border-white/10 lg:pl-10">
-              <p className="text-[15px] leading-relaxed text-white/70 font-light">
+              <p className="text-[15px] leading-relaxed text-white/85">
                 <Wordmark className="text-white not-italic font-display font-semibold" />{" "}
                 setzt genau dort an — und schließt die Lücke{" "}
                 <span className="text-brand-300">in 4 Wochen</span>, nicht in
@@ -391,7 +397,7 @@ export default function KiUmsetzungPage() {
                 Das Zweitsystem ist der Verstärker.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Das Zweitsystem ersetzt nicht, was Sie können. Es vervielfacht es.
               Ihr Wissen, Ihr Urteil, Ihr Marktverständnis bleiben der Kern.
               Was sich ändert: die Strecke dahinter.
@@ -403,20 +409,20 @@ export default function KiUmsetzungPage() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1.2fr] gap-6 md:gap-4 items-center">
               {/* Term 1 */}
               <div className="text-center md:text-left">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-3">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
                   Rohstoff
                 </p>
                 <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] text-white font-semibold">
                   Fachkompetenz
                 </p>
-                <p className="mt-2 text-xs text-white/50 font-light">
+                <p className="mt-2 text-xs text-white/85">
                   Erfahrung, Urteil, Marktverständnis.
                 </p>
               </div>
 
               {/* Operator × */}
               <div className="text-center">
-                <span className="font-display text-5xl sm:text-6xl text-brand-400 font-light">
+                <span className="font-display text-5xl sm:text-6xl text-brand-400">
                   ×
                 </span>
               </div>
@@ -429,27 +435,27 @@ export default function KiUmsetzungPage() {
                 <p className="font-display italic text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] text-white font-semibold">
                   Das Zweitsystem
                 </p>
-                <p className="mt-2 text-xs text-white/50 font-light">
+                <p className="mt-2 text-xs text-white/85">
                   Ihre zweite digitale Arbeitskraft.
                 </p>
               </div>
 
               {/* Operator = */}
               <div className="text-center">
-                <span className="font-display text-5xl sm:text-6xl text-white/50 font-light">
+                <span className="font-display text-5xl sm:text-6xl text-white/85">
                   =
                 </span>
               </div>
 
               {/* Result */}
               <div className="text-center md:text-right">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-3">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
                   Ergebnis
                 </p>
                 <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] text-white font-semibold">
                   Reale Umsetzungskraft
                 </p>
-                <p className="mt-2 text-xs text-white/50 font-light">
+                <p className="mt-2 text-xs text-white/85">
                   Sichtbar. Testbar. Am selben Tag.
                 </p>
               </div>
@@ -463,7 +469,7 @@ export default function KiUmsetzungPage() {
                 Aus einer Sprachnachricht am Vormittag wird noch am{" "}
                 <span className="text-brand-300">selben Tag</span>:
               </p>
-              <p className="mt-6 text-sm text-white/55 font-light leading-relaxed max-w-sm">
+              <p className="mt-6 text-sm text-white/90 leading-relaxed max-w-sm">
                 Kein Dummy. Kein Moodboard. Sondern ein Stand, den Sie sehen,
                 prüfen und schärfen können.
               </p>
@@ -482,7 +488,7 @@ export default function KiUmsetzungPage() {
                   className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition"
                 >
                   <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
-                  <span className="text-sm text-white/85 font-light leading-snug">
+                  <span className="text-sm text-white/85 leading-snug">
                     {item}
                   </span>
                 </li>
@@ -514,7 +520,7 @@ export default function KiUmsetzungPage() {
               <br />
               <span className="text-brand-300">zur direkten Linie.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Früher floss jede Idee durch Briefings, Rückfragen und
               Freigaben — Wochen lang, bevor überhaupt etwas Sichtbares
               entstand. Mit Ihrem Zweitsystem verschwindet diese Strecke.
@@ -526,10 +532,10 @@ export default function KiUmsetzungPage() {
             {/* OLD TRACK */}
             <div className="rounded-3xl border border-white/10 bg-white/[0.015] p-8 sm:p-10">
               <div className="flex items-center justify-between mb-10">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85">
                   Alte Welt
                 </p>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
                   Wochen · Monate
                 </span>
               </div>
@@ -544,7 +550,7 @@ export default function KiUmsetzungPage() {
                   { step: "Ergebnis", note: "falls noch relevant" },
                 ].map((n, i, arr) => (
                   <li key={i} className="relative flex items-center gap-4 py-3">
-                    <span className="w-8 text-right font-mono text-xs text-white/30 tabular-nums">
+                    <span className="w-8 text-right font-mono text-xs text-white/90 tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
@@ -555,17 +561,17 @@ export default function KiUmsetzungPage() {
                       }`}
                     />
                     <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-white/5 pb-3">
-                      <span className="font-display text-lg text-white/60 line-through decoration-white/20 decoration-1">
+                      <span className="font-display text-lg text-white/80 line-through decoration-white/20 decoration-1">
                         {n.step}
                       </span>
-                      <span className="text-xs text-white/35 font-light">
+                      <span className="text-xs text-white/80">
                         {n.note}
                       </span>
                     </div>
                   </li>
                 ))}
               </ol>
-              <p className="mt-8 text-sm text-white/45 font-light leading-relaxed">
+              <p className="mt-8 text-sm text-white/85 leading-relaxed">
                 Zwischen „Idee“ und „Ergebnis“ liegt der teuerste Teil des
                 Monats: Zeit, in der nichts Sichtbares entsteht.
               </p>
@@ -628,14 +634,14 @@ export default function KiUmsetzungPage() {
                         <span className="font-display text-lg text-white">
                           {n.step}
                         </span>
-                        <span className="text-xs text-brand-200/80 font-light">
+                        <span className="text-xs text-brand-200">
                           {n.note}
                         </span>
                       </div>
                     </li>
                   ))}
                 </ol>
-                <p className="mt-8 text-sm text-white/75 font-light leading-relaxed">
+                <p className="mt-8 text-sm text-white/90 leading-relaxed">
                   Eine Idee am Vormittag ist am selben Tag sichtbar, testbar
                   und verbesserbar — <span className="text-brand-300">ohne</span>{" "}
                   Briefing-Kette dazwischen.
@@ -647,13 +653,13 @@ export default function KiUmsetzungPage() {
           {/* Tempo comparison row */}
           <div className="mt-10 grid grid-cols-2 rounded-2xl overflow-hidden border border-white/10">
             <div className="p-6 sm:p-8 bg-white/[0.02] text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-2">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-2">
                 Alte Welt
               </p>
-              <p className="font-display text-3xl sm:text-4xl text-white/50">
+              <p className="font-display text-3xl sm:text-4xl text-white/85">
                 3–12 Wochen
               </p>
-              <p className="mt-1 text-xs text-white/40 font-light">
+              <p className="mt-1 text-xs text-white/85">
                 bis etwas Sichtbares existiert
               </p>
             </div>
@@ -664,7 +670,7 @@ export default function KiUmsetzungPage() {
               <p className="font-display text-3xl sm:text-4xl text-white">
                 Stunden
               </p>
-              <p className="mt-1 text-xs text-brand-200/70 font-light">
+              <p className="mt-1 text-xs text-brand-200">
                 bis der erste Stand auf dem Tisch liegt
               </p>
             </div>
@@ -692,7 +698,7 @@ export default function KiUmsetzungPage() {
                 Für Menschen mit Fachwissen.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Sie müssen kein Entwickler sein. Kein IT-Spezialist. Kein
               MIT-Student. Sie müssen Ihre Branche kennen, Ihre Kunden kennen,
               Ihre Aufgaben kennen. <span className="text-white">Den Rest bauen wir gemeinsam.</span>
@@ -732,21 +738,21 @@ export default function KiUmsetzungPage() {
                 className="group relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10 hover:border-brand-400/40 hover:bg-brand-400/[0.03] transition"
               >
                 <div className="flex items-center justify-between mb-8">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
                     {p.tag}
                   </span>
-                  <span className="font-mono text-xs text-white/30 tabular-nums">
+                  <span className="font-mono text-xs text-white/90 tabular-nums">
                     0{i + 1}
                   </span>
                 </div>
                 <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white">
                   {p.head}
                 </h3>
-                <p className="mt-5 text-sm sm:text-[15px] leading-relaxed text-white/65 font-light">
+                <p className="mt-5 text-sm sm:text-[15px] leading-relaxed text-white/85">
                   {p.body}
                 </p>
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <p className="text-[15px] italic text-brand-200 font-light leading-snug">
+                  <p className="text-[15px] italic text-brand-200 leading-snug">
                     {p.line}
                   </p>
                 </div>
@@ -773,10 +779,10 @@ export default function KiUmsetzungPage() {
 
           {/* Anti-audience */}
           <div className="mt-14 border-t border-white/10 pt-10 max-w-3xl">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
               Nicht für Sie, wenn …
             </p>
-            <ul className="space-y-2 text-[15px] text-white/55 font-light leading-relaxed">
+            <ul className="space-y-2 text-[15px] text-white/90 leading-relaxed">
               <li>
                 … Sie einen fertigen Button erwarten, bei dem etwas herausfällt,
                 ohne selbst mitzudenken.
@@ -804,7 +810,7 @@ export default function KiUmsetzungPage() {
               <br />
               <span className="text-brand-300">konkret bewegen.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Kein Tool-Zoo. Keine Buzzword-Liste. Sondern sechs Felder, in
               denen heute die meiste Zeit verloren geht — und die morgen anders
               funktionieren.
@@ -864,7 +870,7 @@ export default function KiUmsetzungPage() {
                 <h3 className="font-display text-xl sm:text-[1.4rem] leading-[1.2] text-white mb-4">
                   {f.head}
                 </h3>
-                <p className="text-sm text-white/65 font-light leading-relaxed">
+                <p className="text-sm text-white/85 leading-relaxed">
                   {f.nutzen}
                 </p>
               </article>
@@ -873,7 +879,7 @@ export default function KiUmsetzungPage() {
 
           {/* Signature scenes */}
           <div className="mt-24">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
               Was vorher undenkbar war, wird Routine
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
@@ -899,7 +905,7 @@ export default function KiUmsetzungPage() {
                   <p className="font-display text-xl sm:text-2xl leading-[1.2] text-white">
                     {s.head}
                   </p>
-                  <p className="mt-4 text-sm text-white/55 font-light leading-relaxed">
+                  <p className="mt-4 text-sm text-white/90 leading-relaxed">
                     {s.body}
                   </p>
                 </div>
@@ -919,7 +925,7 @@ export default function KiUmsetzungPage() {
               <br />
               <span className="text-brand-300">Sie bauen Ihr System.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               In diesen 4 Wochen entsteht keine Theorie und keine Notiz-Sammlung.
               Sondern eine arbeitsfähige Grundlage — gemeinsam aufgebaut,
               transparent erklärt, mit vollem Bauplan in Ihrer Hand.
@@ -980,14 +986,14 @@ export default function KiUmsetzungPage() {
                   <span className="font-mono text-xs text-brand-300 tabular-nums">
                     {p.num}
                   </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/80">
                     {p.bad}
                   </span>
                 </div>
                 <h3 className="font-display text-xl sm:text-[1.4rem] leading-[1.2] text-white mb-4">
                   {p.head}
                 </h3>
-                <p className="text-sm text-white/65 font-light leading-relaxed">
+                <p className="text-sm text-white/85 leading-relaxed">
                   {p.nutzen}
                 </p>
               </article>
@@ -1007,7 +1013,7 @@ export default function KiUmsetzungPage() {
                   Sie verstehen den Bauplan.
                 </span>
               </p>
-              <p className="mt-6 text-[15px] text-white/75 font-light leading-relaxed">
+              <p className="mt-6 text-[15px] text-white/90 leading-relaxed">
                 Sie bekommen nicht ein fertiges Etwas übergeben, das Sie hoffen
                 weiter bedienen zu können. Sie bauen Ihr System mit auf — Stück
                 für Stück, sichtbar, erklärt. Danach gehört es Ihnen.
@@ -1015,7 +1021,7 @@ export default function KiUmsetzungPage() {
               </p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 mb-5">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-5">
                 Was das praktisch heißt
               </p>
               <ul className="space-y-4">
@@ -1027,7 +1033,7 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/80 font-light leading-relaxed"
+                    className="flex items-start gap-3 text-[15px] text-white/80 leading-relaxed"
                   >
                     <Check className="w-4 h-4 mt-1 text-brand-400 flex-shrink-0" />
                     <span>{item}</span>
@@ -1051,7 +1057,7 @@ export default function KiUmsetzungPage() {
                 Acht Live-Termine. Eine arbeitsfähige Grundlage.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Pro Woche zwei Calls: ein Impuls- und Feedback-Call mit 60
               Minuten, ein Umsetzungs-Call mit 90 Minuten. Dazwischen arbeiten
               Sie an Ihrem Stand — mit klarem Was und klarem Wie.
@@ -1101,11 +1107,11 @@ export default function KiUmsetzungPage() {
                       {w.week}
                     </p>
                     <div className="flex flex-col gap-2">
-                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
                         <span className="w-6 h-px bg-white/30" />
                         Impuls · 60 min
                       </span>
-                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
                         <span className="w-6 h-px bg-white/30" />
                         Umsetzung · 90 min
                       </span>
@@ -1117,7 +1123,7 @@ export default function KiUmsetzungPage() {
                     <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white">
                       {w.title}
                     </h3>
-                    <p className="mt-5 text-sm sm:text-[15px] text-white/65 font-light leading-relaxed">
+                    <p className="mt-5 text-sm sm:text-[15px] text-white/85 leading-relaxed">
                       {w.desc}
                     </p>
                   </div>
@@ -1127,7 +1133,7 @@ export default function KiUmsetzungPage() {
                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-3">
                       Das bedeutet für Sie
                     </p>
-                    <p className="text-[15px] text-white font-light leading-relaxed">
+                    <p className="text-[15px] text-white leading-relaxed">
                       {w.outcome}
                     </p>
                   </div>
@@ -1148,7 +1154,7 @@ export default function KiUmsetzungPage() {
                 schauen, was im Alltag wirklich läuft, was hakt und was als
                 nächstes hebelt.
               </p>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/40 whitespace-nowrap">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 whitespace-nowrap">
                 Ohne Aufpreis
               </span>
             </div>
@@ -1163,7 +1169,7 @@ export default function KiUmsetzungPage() {
               { k: "Aufwand zwischen Calls", v: "Sie bestimmen" },
             ].map((c) => (
               <div key={c.k} className="bg-[#0A0A12] p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 mb-2">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 mb-2">
                   {c.k}
                 </p>
                 <p className="text-sm sm:text-base font-semibold text-white leading-snug">
@@ -1195,7 +1201,7 @@ export default function KiUmsetzungPage() {
               <br />
               <span className="text-brand-300">Sondern Umsetzungskraft.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Sie haben kein Notizbuch voller Konzepte. Sie haben eine
               arbeitsfähige Grundlage — und einen anderen Arbeitstag.
             </p>
@@ -1205,7 +1211,7 @@ export default function KiUmsetzungPage() {
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
             {/* Vorher */}
             <div className="bg-[#0A0A12] p-10 sm:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
                 Vor dem Programm
               </p>
               <ul className="space-y-5">
@@ -1218,7 +1224,7 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/55 font-light leading-relaxed"
+                    className="flex items-start gap-3 text-[15px] text-white/90 leading-relaxed"
                   >
                     <span className="mt-2 w-3 h-px bg-white/30 flex-shrink-0" />
                     <span>{item}</span>
@@ -1242,7 +1248,7 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[15px] text-white font-light leading-relaxed"
+                    className="flex items-start gap-3 text-[15px] text-white leading-relaxed"
                   >
                     <Check className="w-4 h-4 mt-1 text-brand-300 flex-shrink-0" />
                     <span>{item}</span>
@@ -1254,7 +1260,7 @@ export default function KiUmsetzungPage() {
 
           {/* What it means in everyday */}
           <div className="mt-20">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
               So sieht ein Arbeitstag mit Zweitsystem aus
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -1290,7 +1296,7 @@ export default function KiUmsetzungPage() {
                   <p className="font-display text-lg sm:text-xl leading-[1.25] text-white">
                     {s.head}
                   </p>
-                  <p className="mt-2 text-sm text-white/55 font-light leading-relaxed">
+                  <p className="mt-2 text-sm text-white/90 leading-relaxed">
                     {s.body}
                   </p>
                 </div>
@@ -1321,7 +1327,7 @@ export default function KiUmsetzungPage() {
                 Damit echte Arbeit echte Wirkung hat.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Die Kleingruppe sorgt dafür, dass nichts in allgemeiner Theorie
               versickert. Sie profitieren von direkter Relevanz, echten
               Beispielen anderer Teilnehmer und gegenseitiger Schärfung — ohne
@@ -1349,7 +1355,7 @@ export default function KiUmsetzungPage() {
                     key={k}
                     className="grid grid-cols-[1fr_auto] gap-6 items-baseline border-b border-white/5 pb-4 last:border-0 last:pb-0"
                   >
-                    <dt className="text-sm text-white/55 font-light">{k}</dt>
+                    <dt className="text-sm text-white/90">{k}</dt>
                     <dd className="text-sm sm:text-[15px] font-semibold text-white text-right">
                       {v}
                     </dd>
@@ -1391,7 +1397,7 @@ export default function KiUmsetzungPage() {
                       <p className="text-[15px] font-semibold text-white leading-snug">
                         {item.head}
                       </p>
-                      <p className="mt-1 text-sm text-white/55 font-light leading-relaxed">
+                      <p className="mt-1 text-sm text-white/90 leading-relaxed">
                         {item.sub}
                       </p>
                     </div>
@@ -1404,7 +1410,7 @@ export default function KiUmsetzungPage() {
           {/* Anti-Voraussetzungen */}
           <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 whitespace-nowrap h-fit">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 whitespace-nowrap h-fit">
                 Was Sie NICHT brauchen
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
@@ -1418,7 +1424,7 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <p
                     key={i}
-                    className="text-[15px] text-white/60 font-light leading-snug"
+                    className="text-[15px] text-white/80 leading-snug"
                   >
                     — {item}
                   </p>
@@ -1449,7 +1455,7 @@ export default function KiUmsetzungPage() {
               <br />
               <span className="text-brand-300">Eine Infrastruktur danach.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Sie zahlen einmal — und besitzen anschließend eine Grundlage, die
               Sie jeden Monat einsetzen. Plus zwei optionale Einstiegswege
               davor, je nachdem, wo Sie heute stehen.
@@ -1465,7 +1471,7 @@ export default function KiUmsetzungPage() {
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                   Hauptprogramm · Einführungspreis
                 </span>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-white/45 font-semibold">
+                <span className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
                   Begrenzte Plätze · Kleingruppe
                 </span>
               </div>
@@ -1476,7 +1482,7 @@ export default function KiUmsetzungPage() {
                   <h3 className="font-display italic text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] text-white">
                     Das Zweitsystem.
                   </h3>
-                  <p className="mt-3 font-display text-xl sm:text-2xl text-white/70">
+                  <p className="mt-3 font-display text-xl sm:text-2xl text-white/85">
                     4 Wochen · 8 Live-Termine · gemeinsamer Aufbau
                   </p>
 
@@ -1492,7 +1498,7 @@ export default function KiUmsetzungPage() {
                     ].map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-3 text-[15px] sm:text-base text-white/85 font-light leading-relaxed"
+                        className="flex items-start gap-3 text-[15px] sm:text-base text-white/85 leading-relaxed"
                       >
                         <Check className="w-4 h-4 mt-1.5 text-brand-300 flex-shrink-0" />
                         <span>{item}</span>
@@ -1503,18 +1509,18 @@ export default function KiUmsetzungPage() {
 
                 {/* Right: Price + CTA */}
                 <div className="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-10 flex flex-col">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 mb-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
                     Ihr Investment
                   </p>
                   <div className="flex items-baseline gap-4 mb-2">
                     <span className="font-display text-[clamp(3rem,6vw,4.5rem)] font-semibold leading-none text-white">
                       1.990&nbsp;€
                     </span>
-                    <span className="text-sm text-white/45 font-light">
+                    <span className="text-sm text-white/85">
                       netto
                     </span>
                   </div>
-                  <p className="text-sm text-white/55 font-light">
+                  <p className="text-sm text-white/90">
                     statt{" "}
                     <span className="line-through decoration-white/30">
                       2.490&nbsp;€
@@ -1526,7 +1532,7 @@ export default function KiUmsetzungPage() {
                     <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300 mb-3">
                       Was passiert nach Klick
                     </p>
-                    <ol className="space-y-2 text-sm text-white/70 font-light">
+                    <ol className="space-y-2 text-sm text-white/85">
                       <li className="flex gap-2">
                         <span className="text-brand-300">01</span> 60-Sekunden-Quickcheck
                       </li>
@@ -1546,7 +1552,7 @@ export default function KiUmsetzungPage() {
                     Platz sichern
                     <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
                   </a>
-                  <p className="mt-4 text-xs text-white/40 font-light text-center">
+                  <p className="mt-4 text-xs text-white/85 text-center">
                     Unverbindlich · keine Vorauszahlung im Quickcheck
                   </p>
                 </div>
@@ -1556,14 +1562,14 @@ export default function KiUmsetzungPage() {
 
           {/* Optional pre-paths */}
           <div className="mt-20">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
               Optional davor — zwei Einstiegswege
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Beratungsanamnese */}
               <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10 hover:border-brand-400/40 transition flex flex-col">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
                     Für Unternehmen
                   </span>
                   <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300">
@@ -1574,7 +1580,7 @@ export default function KiUmsetzungPage() {
                 <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white mb-3">
                   Beratungsanamnese
                 </h3>
-                <p className="text-sm text-white/60 font-light mb-6">
+                <p className="text-sm text-white/80 mb-6">
                   Geförderte Unternehmensberatung als fundierte Anamnese vor dem
                   Hauptprogramm.
                 </p>
@@ -1583,9 +1589,9 @@ export default function KiUmsetzungPage() {
                   <span className="font-display text-[2.75rem] font-semibold text-white leading-none">
                     3.500&nbsp;€
                   </span>
-                  <span className="text-sm text-white/45 font-light">netto</span>
+                  <span className="text-sm text-white/85">netto</span>
                 </div>
-                <p className="text-xs text-white/45 font-light mb-8">
+                <p className="text-xs text-white/85 mb-8">
                   Bis zu 80 % der Kosten können nach Umsetzung erstattet werden
                   (förderprogrammabhängig).
                 </p>
@@ -1599,7 +1605,7 @@ export default function KiUmsetzungPage() {
                   ].map((item, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 text-sm text-white/75 font-light leading-relaxed"
+                      className="flex items-start gap-3 text-sm text-white/90 leading-relaxed"
                     >
                       <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
                       <span>{item}</span>
@@ -1619,7 +1625,7 @@ export default function KiUmsetzungPage() {
               {/* Einstiegsanalyse */}
               <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10 hover:border-brand-400/40 transition flex flex-col">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
                     Für Selbstständige & Privat
                   </span>
                   <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300">
@@ -1630,7 +1636,7 @@ export default function KiUmsetzungPage() {
                 <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white mb-3">
                   Einstiegsanalyse
                 </h3>
-                <p className="text-sm text-white/60 font-light mb-6">
+                <p className="text-sm text-white/80 mb-6">
                   Schlanke, kompakte Standortbestimmung. Verlangt mehr eigenen
                   Einsatz, schafft schnellen Klarstartpunkt.
                 </p>
@@ -1639,9 +1645,9 @@ export default function KiUmsetzungPage() {
                   <span className="font-display text-[2.75rem] font-semibold text-white leading-none">
                     990&nbsp;€
                   </span>
-                  <span className="text-sm text-white/45 font-light">netto</span>
+                  <span className="text-sm text-white/85">netto</span>
                 </div>
-                <p className="text-xs text-white/45 font-light mb-8">
+                <p className="text-xs text-white/85 mb-8">
                   Stipendium von bis zu 500 € möglich · effektiv ab 490 €
                 </p>
 
@@ -1654,7 +1660,7 @@ export default function KiUmsetzungPage() {
                   ].map((item, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 text-sm text-white/75 font-light leading-relaxed"
+                      className="flex items-start gap-3 text-sm text-white/90 leading-relaxed"
                     >
                       <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
                       <span>{item}</span>
@@ -1698,7 +1704,7 @@ export default function KiUmsetzungPage() {
                 Damit Sie nicht in alte Muster zurückfallen.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Optional, kein Muss. Für alle, die nach den 4 Wochen weiterbauen
               wollen — an echten Themen, mit Sparrings-Partner, ohne wieder
               alleine im Wartezimmer zu sitzen.
@@ -1711,13 +1717,13 @@ export default function KiUmsetzungPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
                 {/* Left: name + features */}
                 <div className="lg:col-span-7">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75 mb-6">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90 mb-6">
                     Continuation · Monatlich kündbar
                   </span>
                   <h3 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.05] text-white">
                     Umsetzungswerkstatt &amp; Community
                   </h3>
-                  <p className="mt-4 text-[15px] text-white/60 font-light leading-relaxed max-w-xl">
+                  <p className="mt-4 text-[15px] text-white/80 leading-relaxed max-w-xl">
                     Ein Live-1:1-Slot pro Monat, eine ruhige Community im
                     Hintergrund — und ein monatlicher Gruppen-Call, der den
                     Kopf an den Markt anschließt.
@@ -1747,7 +1753,7 @@ export default function KiUmsetzungPage() {
                           <p className="text-[15px] font-semibold text-white leading-snug">
                             {item.head}
                           </p>
-                          <p className="mt-1 text-sm text-white/55 font-light leading-relaxed">
+                          <p className="mt-1 text-sm text-white/90 leading-relaxed">
                             {item.sub}
                           </p>
                         </div>
@@ -1758,18 +1764,18 @@ export default function KiUmsetzungPage() {
 
                 {/* Right: price + framing */}
                 <div className="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-10 flex flex-col">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 mb-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
                     Optional — nur wenn Sie weiterbauen wollen
                   </p>
                   <div className="flex items-baseline gap-3 mb-2">
                     <span className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-none text-white">
                       999&nbsp;€
                     </span>
-                    <span className="text-sm text-white/45 font-light">
+                    <span className="text-sm text-white/85">
                       / Monat netto
                     </span>
                   </div>
-                  <p className="text-sm text-white/55 font-light mb-8">
+                  <p className="text-sm text-white/90 mb-8">
                     Monatlich kündbar · ab Programm-Ende möglich
                   </p>
 
@@ -1778,7 +1784,7 @@ export default function KiUmsetzungPage() {
                       Sie bleiben nach dem Grundprogramm{" "}
                       <span className="text-brand-300">nicht allein.</span>
                     </p>
-                    <p className="mt-3 text-sm text-white/65 font-light leading-relaxed">
+                    <p className="mt-3 text-sm text-white/85 leading-relaxed">
                       Sie entwickeln Ihre Struktur an echten Themen weiter — und
                       vermeiden den stillen Rückfall in alte Muster aus Warten,
                       Rätseln und Reibung.
@@ -1790,7 +1796,7 @@ export default function KiUmsetzungPage() {
           </div>
 
           {/* Soft note */}
-          <p className="mt-12 text-sm text-white/45 font-light text-center max-w-2xl mx-auto">
+          <p className="mt-12 text-sm text-white/85 text-center max-w-2xl mx-auto">
             Kein Druck, kein Cross-Sell. Wer nach 4 Wochen genug hat, hat genug.
             Wer weiter will, hat einen Ort dafür.
           </p>
@@ -1807,7 +1813,7 @@ export default function KiUmsetzungPage() {
               <br />
               <span className="text-brand-300">Kein Theorie-Kurs.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Die KI Bäckerei baut mit Ihnen ein arbeitsfähiges Zweitsystem auf —
               live, gemeinsam, mit vollem Bauplan. Was Sie bekommen, ist keine
               Schulung und keine Demo. Es ist eine Infrastruktur, die nach den
@@ -1841,7 +1847,7 @@ export default function KiUmsetzungPage() {
                 <h3 className="font-display text-xl sm:text-[1.5rem] leading-[1.2] text-white mb-5">
                   {p.head}
                 </h3>
-                <p className="text-[15px] text-white/65 font-light leading-relaxed">
+                <p className="text-[15px] text-white/85 leading-relaxed">
                   {p.body}
                 </p>
               </div>
@@ -1865,7 +1871,7 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[15px] text-white font-light leading-relaxed"
+                    className="flex items-start gap-3 text-[15px] text-white leading-relaxed"
                   >
                     <Check className="w-4 h-4 mt-1 text-brand-300 flex-shrink-0" />
                     <span>{item}</span>
@@ -1876,7 +1882,7 @@ export default function KiUmsetzungPage() {
 
             {/* What we don't claim */}
             <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 mb-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
                 Was wir nicht behaupten
               </p>
               <ul className="space-y-4">
@@ -1889,7 +1895,7 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/65 font-light leading-relaxed"
+                    className="flex items-start gap-3 text-[15px] text-white/85 leading-relaxed"
                   >
                     <span className="mt-2 w-3 h-px bg-white/30 flex-shrink-0" />
                     <span>{item}</span>
@@ -1920,7 +1926,7 @@ export default function KiUmsetzungPage() {
               <br />
               <span className="text-brand-300">fragen.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
               Ohne Marketing-Antworten. Wir gehen die häufigsten Punkte direkt
               an — damit Sie eine Entscheidung treffen können, die zu Ihnen
               passt.
@@ -1980,12 +1986,12 @@ export default function KiUmsetzungPage() {
                   </span>
                   <span
                     aria-hidden
-                    className="flex-shrink-0 w-7 h-7 rounded-full border border-white/20 flex items-center justify-center text-white/60 transition group-open:bg-brand-500 group-open:border-brand-400 group-open:text-white group-open:rotate-45 mt-0.5"
+                    className="flex-shrink-0 w-7 h-7 rounded-full border border-white/20 flex items-center justify-center text-white/80 transition group-open:bg-brand-500 group-open:border-brand-400 group-open:text-white group-open:rotate-45 mt-0.5"
                   >
                     +
                   </span>
                 </summary>
-                <p className="mt-5 text-[15px] sm:text-base text-white/70 leading-relaxed font-light max-w-3xl">
+                <p className="mt-5 text-[15px] sm:text-base text-white/85 leading-relaxed max-w-3xl">
                   {faq.a}
                 </p>
               </details>
@@ -2016,7 +2022,7 @@ export default function KiUmsetzungPage() {
             verloren geht.
           </p>
 
-          <p className="mt-10 max-w-2xl mx-auto text-[15px] sm:text-base text-white/65 font-light leading-relaxed">
+          <p className="mt-10 max-w-2xl mx-auto text-[15px] sm:text-base text-white/85 leading-relaxed">
             Bauen Sie sich in 4 Wochen das Zweitsystem, das diese Lücke
             schließt. Live, in der Kleingruppe, mit vollem Bauplan. Danach
             gehört es Ihnen — und Ihr Arbeitstag sieht anders aus.
@@ -2038,7 +2044,7 @@ export default function KiUmsetzungPage() {
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-white/40 font-light">
+          <p className="mt-6 text-xs text-white/85">
             Kleingruppe · begrenzte Plätze · Einführungspreis aktiv
           </p>
         </div>
@@ -2058,7 +2064,7 @@ export default function KiUmsetzungPage() {
               Dann persönliches Erstgespräch.
             </span>
           </h2>
-          <p className="mt-6 max-w-2xl text-[15px] sm:text-base text-white/65 font-light leading-relaxed">
+          <p className="mt-6 max-w-2xl text-[15px] sm:text-base text-white/85 leading-relaxed">
             Drei kurze Fragen plus Kontaktdaten. Wir melden uns werktags
             innerhalb von 24 Stunden für ein 15–30-minütiges Erstgespräch.
             Ohne Verkaufsdruck, ohne Vorauszahlung.

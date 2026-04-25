@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="relative z-10 py-24 sm:py-32 min-h-[60vh] flex items-center">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 w-full">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-300/90 mb-4">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-4">
           404
         </p>
         <h1 className="font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white max-w-3xl">
@@ -13,7 +13,7 @@ export default function NotFound() {
           <br />
           <span className="text-brand-300">oder noch nicht.</span>
         </h1>
-        <p className="mt-6 max-w-xl text-lg text-white/65 font-light leading-relaxed">
+        <p className="mt-6 max-w-xl text-lg text-white/85 leading-relaxed">
           Vielleicht wurde sie verschoben oder der Link war unvollständig. Kein
           Problem — hier sind die nächsten Schritte.
         </p>
