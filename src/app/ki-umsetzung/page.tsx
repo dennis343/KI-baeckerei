@@ -64,7 +64,7 @@ export default function KiUmsetzungPage() {
           "@type": "Course",
           name: "Das Zweitsystem — 4-Wochen-Aufbau",
           description:
-            "Das Zweitsystem: 4-Wochen-Kleingruppenprogramm zum gemeinsamen Aufbau einer zweiten digitalen Arbeitskraft.",
+            "Das Zweitsystem: 4-Wochen-Kleingruppenprogramm zum gemeinsamen Aufbau einer zweiten digitalen Arbeitskraft. Kooperation der WissensReich Academy und Eskalator AG.",
           provider: {
             "@type": "Organization",
             name: "WissensReich Academy",
@@ -74,12 +74,121 @@ export default function KiUmsetzungPage() {
           courseMode: "Online",
           learningResourceType: "Live Training",
           numberOfCredits: 8,
-          offers: {
-            "@type": "Offer",
-            price: "1990",
-            priceCurrency: "EUR",
-            url: SITE_URL + "/ki-umsetzung",
-          },
+          offers: [
+            {
+              "@type": "Offer",
+              name: "Hauptprogramm — Einführungspreis",
+              price: "1990",
+              priceCurrency: "EUR",
+              url: SITE_URL + "/ki-umsetzung",
+              category: "Hauptprogramm",
+            },
+            {
+              "@type": "Offer",
+              name: "Beratungsanamnese (für Unternehmen)",
+              price: "3500",
+              priceCurrency: "EUR",
+              url: SITE_URL + "/ki-umsetzung",
+              category: "Vorbau",
+            },
+            {
+              "@type": "Offer",
+              name: "Einstiegsanalyse (für Selbstständige & Privat)",
+              price: "990",
+              priceCurrency: "EUR",
+              url: SITE_URL + "/ki-umsetzung",
+              category: "Vorbau",
+            },
+          ],
+        }}
+      />
+
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Ist das auch etwas für mich, wenn ich nicht technisch bin?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Ja. Sie müssen weder Entwickler noch IT-Spezialist sein. Wichtig sind Branchen- und Kundenkenntnis, ein konkretes Vorhaben und die Bereitschaft, 4 Wochen mitzubauen. Den technischen Teil nehmen wir gemeinsam.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Funktioniert das auch für Angestellte oder nur für Unternehmer?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Beides. Das Programm ist genauso auf Angestellte und Fachkräfte zugeschnitten. Die Förderlogik gilt für Unternehmen, die Programmlogik selbst funktioniert für jeden Erwerbskontext.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Muss ich schon eine konkrete Idee haben?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Eine grobe Richtung reicht. Eine Seite, ein Funnel, ein Prototyp, ein Prozess oder ein neues Angebot — die Schärfung passiert in den ersten Tagen, nicht vor dem Programm.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Wie viel Zeit muss ich pro Woche einplanen?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Pflicht sind die 8 Live-Termine: 4 × 60 min Impuls + 4 × 90 min Umsetzung, also rund 3 Stunden pro Woche live. Zwischen den Calls empfohlen: 2–4 Stunden pro Woche.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Bekomme ich ein System übergeben oder baue ich es selbst mit auf?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sie bauen es mit auf — bewusst. Keine Blackbox, kein Anbieter-Lock-in. Sie verstehen jeden Baustein und können danach eigenständig weiterbauen.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Ist das nur für Marketing oder auch für Prozesse, Angebote, Prototypen und digitale Leistungen?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Alles davon. Angebotsseiten, Vertriebsstrecken, Newsletter, Prototypen, App-Vorstufen, interne Prozesse, Briefings und Wissensstrukturen — überall dort, wo Ideen digital sichtbar oder nutzbar werden müssen.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Wie sicher ist das Ganze?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Schutz-, Zugriffs- und Schlüssellogik werden bewusst Teil des Aufbaus. Ihr System ist auf Ihre realen Anwendungsfälle ausgerichtet, mit klaren Zugriffsrechten und sauberen Datenflüssen.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Was passiert nach den 4 Wochen?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Sie haben ein arbeitsfähiges Grundsystem und können es eigenständig nutzen. Optional: Umsetzungswerkstatt 999 €/Monat (monatlich kündbar) mit 1:1-Slot, Community und Gruppen-Call. Plus Bonus-Follow-up ca. 4 Wochen nach Programmende ohne Aufpreis.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Warum nicht einfach Agentur, Freelancer oder internes Team?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Agentur und Freelancer enden pro Auftrag — Sie zahlen, bekommen ein Artefakt, fangen beim nächsten Vorhaben wieder bei null an. Das Zweitsystem ist Infrastruktur, nicht Auftrag. Es bleibt bei Ihnen, skaliert mit Ihrem Tempo.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Warum ist das mehr als ein normaler KI-Kurs?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Ein Kurs gibt Ihnen Wissen. Sie bauen hier ein arbeitsfähiges System. Am Ende der 4 Wochen haben Sie nicht Notizen, sondern eine Grundlage, die Sie ab Tag 29 produktiv einsetzen.",
+              },
+            },
+          ],
         }}
       />
 
@@ -1692,19 +1801,305 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ TEMPORARY APPLY ANCHOR ═══════════════════════
-           Der restliche Flow (A13–A14) folgt in den nächsten Schritten.
-           Anchor bleibt kompilierbar, damit CTAs funktionieren. */}
+      {/* ═══════════════════════ A13 · KOOPERATION & TRUST ═══════════════════════ */}
+      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>12 · Wer dahinter steht</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Eine Kooperation,
+              <br />
+              <span className="text-brand-300">die zusammen passt.</span>
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+              Zwei Häuser, zwei Stärken, ein gemeinsames Ergebnis. Bildung,
+              die nicht stehen bleibt — und Umsetzung, die nicht spät kommt.
+            </p>
+          </div>
+
+          {/* Partner pair */}
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
+            {/* WissensReich */}
+            <div className="bg-[#0A0A12] p-10 sm:p-12">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-4">
+                Bildung
+              </p>
+              <h3 className="font-display text-2xl sm:text-[1.75rem] leading-[1.15] text-white mb-5">
+                WissensReich Academy
+              </h3>
+              <p className="text-[15px] text-white/70 font-light leading-relaxed mb-8">
+                Steht für Lernen, das im Alltag wirkt — nicht für Zertifikate
+                an der Wand. Verantwortlich für Didaktik, Programmstruktur,
+                Lerngruppe und die Übersetzung von Wissen in Handlungsfähigkeit.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Kuratierte Lernformate für echte Umsetzung",
+                  "Kleingruppen-Live-Begleitung",
+                  "Praxisbezug statt Theorie-Konsum",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-sm text-white/80 font-light"
+                  >
+                    <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Eskalator */}
+            <div className="bg-[#0A0A12] p-10 sm:p-12 lg:border-l lg:border-white/10">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-4">
+                Umsetzung
+              </p>
+              <h3 className="font-display text-2xl sm:text-[1.75rem] leading-[1.15] text-white mb-5">
+                Eskalator AG
+              </h3>
+              <p className="text-[15px] text-white/70 font-light leading-relaxed mb-8">
+                Steht für digitale Umsetzungsstärke und Tempo am Markt.
+                Verantwortlich für Architektur, Schutz- und Zugriffslogik,
+                Use-Case-Schärfung und die technische Substanz hinter dem
+                Zweitsystem.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Architektur, die trägt — auch nach dem Programm",
+                  "Schutz-, Zugriffs- und Sicherheitslogik",
+                  "Tempo: vom Konzept zum Produktiven",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-sm text-white/80 font-light"
+                  >
+                    <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* What we promise vs. what we don't claim */}
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* What we promise */}
+            <div className="rounded-3xl border border-brand-400/30 bg-gradient-to-br from-brand-500/[0.08] to-transparent p-8 sm:p-10">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-6">
+                Was wir versprechen
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Sie bauen Ihr Zweitsystem mit auf — nicht hinter verschlossenen Türen.",
+                  "Sie verstehen den Bauplan und können danach selbst weiterbauen.",
+                  "Sicherheits-, Schutz- und Zugriffslogik sind Teil des Aufbaus, nicht Zugabe.",
+                  "Live-Begleitung in der Kleingruppe, kein Selbstlernkurs.",
+                  "4 Wochen lang volle Aufmerksamkeit — keine Massenabfertigung.",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-[15px] text-white font-light leading-relaxed"
+                  >
+                    <Check className="w-4 h-4 mt-1 text-brand-300 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* What we don't claim */}
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 mb-6">
+                Was wir nicht behaupten
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Keine erfundenen Testimonials oder geschönten Cases.",
+                  "Keine versprochenen Umsatzsprünge oder Garantie-Zahlen.",
+                  "Kein „in 7 Tagen alles automatisiert“-Märchen.",
+                  "Kein „KI ersetzt Ihr Urteilsvermögen“-Pitch.",
+                  "Kein „Sie müssen nichts mehr selbst tun“ — Sie bleiben der Fachkopf.",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-[15px] text-white/65 font-light leading-relaxed"
+                  >
+                    <span className="mt-2 w-3 h-px bg-white/30 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Closing line */}
+          <p className="mt-20 font-display text-[clamp(1.25rem,2vw,1.75rem)] leading-[1.3] text-white/80 max-w-4xl">
+            Vertrauen entsteht nicht durch Schaufenster-Logos.
+            <br />
+            <span className="text-brand-300">
+              Sondern durch Klarheit darüber, was Sie bekommen — und was nicht.
+            </span>
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ A14 · FAQ ═══════════════════════ */}
+      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>13 · Häufige Fragen</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Was Sie sich gerade
+              <br />
+              <span className="text-brand-300">fragen.</span>
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+              Ohne Marketing-Antworten. Wir gehen die häufigsten Punkte direkt
+              an — damit Sie eine Entscheidung treffen können, die zu Ihnen
+              passt.
+            </p>
+          </div>
+
+          <div className="mt-16 max-w-4xl">
+            {[
+              {
+                q: "Ist das auch etwas für mich, wenn ich nicht technisch bin?",
+                a: "Ja, ausdrücklich. Sie müssen weder Entwickler noch IT-Spezialist sein. Wichtig sind Branchen- und Kundenkenntnis, ein konkretes Vorhaben und die Bereitschaft, 4 Wochen mitzubauen. Den technischen Teil nehmen wir gemeinsam.",
+              },
+              {
+                q: "Funktioniert das auch für Angestellte oder nur für Unternehmer?",
+                a: "Beides. Das Programm ist genauso auf Angestellte und Fachkräfte zugeschnitten, die in ihrer Rolle schneller, wirksamer und sichtbarer werden wollen. Die Förderlogik (Beratungsanamnese mit bis zu 80 % Förderung) gilt für Unternehmen — die Programmlogik selbst funktioniert für jeden Erwerbskontext.",
+              },
+              {
+                q: "Muss ich schon eine konkrete Idee haben?",
+                a: "Eine grobe Richtung reicht. Eine Seite, ein Funnel, ein Prototyp, eine Prozesskette, ein neues Angebot — irgendetwas Reales, an dem wir gemeinsam arbeiten können. Die Schärfung passiert in den ersten Tagen, nicht vor dem Programm.",
+              },
+              {
+                q: "Was ist, wenn ich wenig Zeit habe?",
+                a: "Pflicht sind die 8 Live-Termine: 4 × 60 min Impuls + 4 × 90 min Umsetzung. Das sind ca. 3 Stunden pro Woche live. Zwischen den Calls bestimmen Sie selbst — empfohlen sind 2–4 Stunden pro Woche. Mehr macht das System spürbar tragfähiger; weniger ist möglich, kostet aber Tiefe.",
+              },
+              {
+                q: "Bekomme ich ein System übergeben oder baue ich es selbst mit auf?",
+                a: "Sie bauen es mit auf — bewusst. Keine Blackbox, kein Geheimnis, kein Anbieter-Lock-in. Sie verstehen jeden Baustein, der bei Ihnen liegt, und können danach eigenständig weiterbauen. Das ist der Unterschied zwischen einem Auftrag und einer Fähigkeit.",
+              },
+              {
+                q: "Ist das nur für Marketing oder auch für Prozesse, Angebote, Prototypen und digitale Leistungen?",
+                a: "Alles davon. Das Zweitsystem ist nicht „Marketing-Tool“. Es greift überall dort, wo Ideen digital sichtbar, prüfbar oder nutzbar werden müssen: Angebotsseiten, Vertriebsstrecken, Newsletter, Prototypen, App-Vorstufen, interne Prozesse, Briefings, Wissensstrukturen.",
+              },
+              {
+                q: "Wie sicher ist das Ganze?",
+                a: "Schutz-, Zugriffs- und Schlüssellogik werden bewusst Teil des Aufbaus — nicht nachgereicht. Ihr System ist auf Ihre realen Anwendungsfälle ausgerichtet, mit klaren Zugriffsrechten und sauberen Datenflüssen. Wir verkaufen keine „nutzen Sie einfach mal“. Wir bauen mit Ihnen eine kontrollierte Umgebung.",
+              },
+              {
+                q: "Was passiert nach den 4 Wochen?",
+                a: "Sie haben ein arbeitsfähiges Grundsystem und können es eigenständig nutzen — Punkt. Optional gibt es die Umsetzungswerkstatt (999 €/Monat, monatlich kündbar) mit 1:1-Live-Slot, Community und monatlichem Gruppen-Call, falls Sie weiterbauen wollen. Plus eine Bonus-Follow-up-Session ca. 4 Wochen nach Programmende — ohne Aufpreis.",
+              },
+              {
+                q: "Warum nicht einfach Agentur, Freelancer oder internes Team?",
+                a: "Weil Agentur und Freelancer pro Auftrag enden — Sie zahlen, bekommen ein Artefakt, fangen beim nächsten Vorhaben wieder bei null an. Internes Team braucht Zeit, Onboarding, Briefings. Das Zweitsystem ist Infrastruktur, nicht Auftrag. Es bleibt bei Ihnen, skaliert mit Ihrem Tempo und macht Sie unabhängiger — nicht abhängiger.",
+              },
+              {
+                q: "Warum ist das mehr als ein normaler KI-Kurs?",
+                a: "Ein Kurs gibt Ihnen Wissen. Sie bauen hier ein arbeitsfähiges System. Am Ende der 4 Wochen haben Sie nicht Notizen, sondern eine Grundlage, die Sie ab Tag 29 produktiv einsetzen. Außerdem ist kein Kurs, kein Selbstlerner-Format und keine Tool-Demo: Sie arbeiten live, in der Kleingruppe, an Ihrem realen Vorhaben.",
+              },
+            ].map((faq, i) => (
+              <details
+                key={i}
+                className="group border-t border-white/10 last:border-b py-7 cursor-pointer"
+              >
+                <summary className="flex items-start justify-between gap-6 list-none">
+                  <span className="font-display text-lg sm:text-xl text-white leading-snug pr-4">
+                    {faq.q}
+                  </span>
+                  <span
+                    aria-hidden
+                    className="flex-shrink-0 w-7 h-7 rounded-full border border-white/20 flex items-center justify-center text-white/60 transition group-open:bg-brand-500 group-open:border-brand-400 group-open:text-white group-open:rotate-45 mt-0.5"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-5 text-[15px] sm:text-base text-white/70 leading-relaxed font-light max-w-3xl">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ FINAL CTA ═══════════════════════ */}
+      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5 overflow-hidden">
+        {/* Big atmospheric glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(900px 600px at 50% 50%, rgba(110,63,163,0.22), transparent 70%)",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 text-center">
+          <Eyebrow>Letzter Schritt</Eyebrow>
+          <h2 className="mt-6 font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1] tracking-[-0.02em] text-white max-w-5xl mx-auto">
+            Ihre Kompetenz ist nicht das Problem.
+          </h2>
+          <p className="mt-6 font-display italic text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.15] text-brand-300 max-w-4xl mx-auto">
+            Das Problem ist, wie viel davon heute zwischen Idee und Ergebnis
+            verloren geht.
+          </p>
+
+          <p className="mt-10 max-w-2xl mx-auto text-[15px] sm:text-base text-white/65 font-light leading-relaxed">
+            Bauen Sie sich in 4 Wochen das Zweitsystem, das diese Lücke
+            schließt. Live, in der Kleingruppe, mit vollem Bauplan. Danach
+            gehört es Ihnen — und Ihr Arbeitstag sieht anders aus.
+          </p>
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#bewerbung"
+              className="group inline-flex items-center gap-3 px-8 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
+            >
+              Platz im nächsten Durchgang sichern
+              <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="#bewerbung"
+              className="inline-flex items-center gap-3 px-7 h-14 rounded-full border border-white/20 text-white text-[14px] font-semibold tracking-wide transition hover:border-white/70 hover:bg-white/5"
+            >
+              60-Sekunden-Quickcheck
+            </a>
+          </div>
+
+          <p className="mt-6 text-xs text-white/40 font-light">
+            Kleingruppe · begrenzte Plätze · Einführungspreis aktiv
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ APPLY FORM ═══════════════════════ */}
       <section
         id="bewerbung"
-        className="relative z-10 py-28 border-t border-white/10 bg-[#050508]"
+        className="relative z-10 py-28 sm:py-36 border-t border-white/10 bg-[#050508]"
       >
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-10">
           <Eyebrow>Bewerbung</Eyebrow>
-          <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] tracking-[-0.015em] text-white mb-12">
-            Platz im nächsten Durchgang sichern.
+          <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] tracking-[-0.015em] text-white">
+            60-Sekunden-Quickcheck.
+            <br />
+            <span className="text-brand-300">
+              Dann persönliches Erstgespräch.
+            </span>
           </h2>
-          <ApplyForm />
+          <p className="mt-6 max-w-2xl text-[15px] sm:text-base text-white/65 font-light leading-relaxed">
+            Drei kurze Fragen plus Kontaktdaten. Wir melden uns werktags
+            innerhalb von 24 Stunden für ein 15–30-minütiges Erstgespräch.
+            Ohne Verkaufsdruck, ohne Vorauszahlung.
+          </p>
+
+          <div className="mt-14">
+            <ApplyForm />
+          </div>
         </div>
       </section>
     </div>

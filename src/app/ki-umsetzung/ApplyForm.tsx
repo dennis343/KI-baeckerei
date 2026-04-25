@@ -100,7 +100,7 @@ export function ApplyForm() {
       .filter(Boolean)
       .join("\n");
 
-    const subject = "Bewerbung: Digitale Umsetzungsfabrik (4-Wochen-Programm)";
+    const subject = "Bewerbung: Das Zweitsystem (4-Wochen-Programm)";
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
 
     window.location.href = mailto;
