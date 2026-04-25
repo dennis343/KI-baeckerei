@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/ui/BreadcrumbJsonLd";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SITE_URL } from "@/lib/utils";
 import { ApplyForm } from "@/components/apply/ApplyForm";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title: "Das Zweitsystem — die zweite digitale Arbeitskraft",
@@ -33,6 +33,51 @@ function Wordmark({ className = "" }: { className?: string }) {
   );
 }
 
+/** Dekorativer Top-Divider zwischen Sektionen — Gradient mit Brand-Punkt. */
+function SectionDivider({ tone = "brand" }: { tone?: "brand" | "rose" | "emerald" }) {
+  const via =
+    tone === "rose"
+      ? "via-rose-400/40"
+      : tone === "emerald"
+        ? "via-emerald-400/40"
+        : "via-brand-400/40";
+  const dot =
+    tone === "rose" ? "bg-rose-400" : tone === "emerald" ? "bg-emerald-400" : "bg-brand-400";
+  return (
+    <div
+      aria-hidden
+      className="absolute inset-x-0 top-0 z-10 flex items-center justify-center"
+    >
+      <div className={`h-px w-full bg-gradient-to-r from-transparent ${via} to-transparent`} />
+      <div
+        className={`absolute h-1.5 w-1.5 rounded-full ${dot} shadow-[0_0_16px_4px_rgba(155,111,198,0.45)]`}
+      />
+    </div>
+  );
+}
+
+/** Pain-X — runder roter Cross-Marker für Anti-Listen. */
+function PainX({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`inline-flex h-5 w-5 items-center justify-center rounded-full bg-rose-500/15 ring-1 ring-rose-500/40 text-rose-300 flex-shrink-0 ${className}`}
+    >
+      <X className="h-3 w-3" strokeWidth={3} />
+    </span>
+  );
+}
+
+/** Gain-Check — runder grüner Check-Marker für Vorteils-Listen. */
+function GainCheck({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-500/40 text-emerald-300 flex-shrink-0 ${className}`}
+    >
+      <Check className="h-3 w-3" strokeWidth={3} />
+    </span>
+  );
+}
+
 // ────────────────────────────────────────────────────────────────
 // Page
 // ────────────────────────────────────────────────────────────────
@@ -40,15 +85,6 @@ function Wordmark({ className = "" }: { className?: string }) {
 export default function KiUmsetzungPage() {
   return (
     <div className="relative bg-[#07070C] text-white overflow-hidden">
-      {/* Global atmospheric glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0 z-0 opacity-60"
-        style={{
-          background:
-            "radial-gradient(1200px 700px at 15% -10%, rgba(110,63,163,0.22), transparent 60%), radial-gradient(900px 600px at 90% 10%, rgba(110,63,163,0.10), transparent 60%)",
-        }}
-      />
 
       <BreadcrumbJsonLd
         items={[{ name: "Das Zweitsystem", href: "/" }]}
@@ -189,7 +225,15 @@ export default function KiUmsetzungPage() {
       />
 
       {/* ═══════════════════════ A1 · HERO ═══════════════════════ */}
-      <section className="relative z-10 min-h-[100svh] flex flex-col">
+      <section className="relative z-10 min-h-[100svh] flex flex-col bg-[#07070C] overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(1200px 700px at 15% -10%, rgba(110,63,163,0.30), transparent 60%), radial-gradient(900px 600px at 90% 10%, rgba(110,63,163,0.18), transparent 60%)",
+          }}
+        />
         {/* Top meta bar */}
         <div className="relative z-10 border-b border-white/5">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-6 text-[11px] uppercase tracking-[0.18em] text-white/90">
@@ -291,8 +335,18 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A2 · DER PREIS DES WARTENS ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#08080F] overflow-hidden">
+        <SectionDivider tone="rose" />
+        {/* Pain glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(700px 500px at 100% 0%, rgba(244,63,94,0.12), transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>01 · Der eigentliche Schaden</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -338,10 +392,11 @@ export default function KiUmsetzungPage() {
                 sub: "Eine gute Idee am Montag ist am Freitag schon kalt.",
               },
             ].map((item, i) => (
-              <li key={i} className="flex gap-5 border-t border-white/10 pt-6">
-                <span className="font-display text-2xl font-semibold text-brand-400/80 tabular-nums">
-                  0{i + 1}
-                </span>
+              <li
+                key={i}
+                className="flex gap-5 border-t border-rose-500/15 pt-6 group hover:border-rose-500/35 transition"
+              >
+                <PainX className="mt-1.5 h-7 w-7" />
                 <div>
                   <p className="font-display text-xl font-semibold text-white leading-snug">
                     {item.head}
@@ -376,14 +431,15 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A3 · DIE GLEICHUNG ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
+        <SectionDivider tone="brand" />
         {/* Accent glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(700px 400px at 50% 0%, rgba(110,63,163,0.12), transparent 70%)",
+              "radial-gradient(900px 600px at 50% 0%, rgba(110,63,163,0.18), transparent 70%)",
           }}
         />
 
@@ -485,10 +541,10 @@ export default function KiUmsetzungPage() {
               ].map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] p-4 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition"
+                  className="flex items-start gap-3 rounded-xl border border-emerald-500/15 bg-emerald-500/[0.04] p-4 hover:border-emerald-400/40 hover:bg-emerald-400/[0.07] transition"
                 >
-                  <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
-                  <span className="text-sm text-white/85 leading-snug">
+                  <GainCheck className="mt-0.5" />
+                  <span className="text-sm text-white/90 leading-snug">
                     {item}
                   </span>
                 </li>
@@ -511,8 +567,18 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A4 · DIE NEUE REALITÄT — BEFORE / AFTER ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#08080F] overflow-hidden">
+        <SectionDivider tone="brand" />
+        {/* Split glow: red left, emerald right */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(700px 500px at 0% 50%, rgba(244,63,94,0.10), transparent 60%), radial-gradient(700px 500px at 100% 50%, rgba(16,185,129,0.10), transparent 60%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>03 · Die neue Realität</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -530,12 +596,13 @@ export default function KiUmsetzungPage() {
           {/* Two-track flow diagram */}
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* OLD TRACK */}
-            <div className="rounded-3xl border border-white/10 bg-white/[0.015] p-8 sm:p-10">
+            <div className="rounded-3xl border border-rose-500/25 bg-gradient-to-b from-rose-500/[0.06] to-transparent p-8 sm:p-10">
               <div className="flex items-center justify-between mb-10">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85">
+                <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300">
+                  <PainX />
                   Alte Welt
                 </p>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-rose-200/80">
                   Wochen · Monate
                 </span>
               </div>
@@ -550,21 +617,21 @@ export default function KiUmsetzungPage() {
                   { step: "Ergebnis", note: "falls noch relevant" },
                 ].map((n, i, arr) => (
                   <li key={i} className="relative flex items-center gap-4 py-3">
-                    <span className="w-8 text-right font-mono text-xs text-white/90 tabular-nums">
+                    <span className="w-8 text-right font-mono text-xs text-rose-300/90 tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
                       className={`w-2 h-2 rounded-full flex-shrink-0 ${
                         i === arr.length - 1
-                          ? "bg-white/30 ring-4 ring-white/5"
-                          : "bg-white/20"
+                          ? "bg-rose-300 ring-4 ring-rose-500/20"
+                          : "bg-rose-400/70"
                       }`}
                     />
-                    <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-white/5 pb-3">
-                      <span className="font-display text-lg text-white/80 line-through decoration-white/20 decoration-1">
+                    <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-rose-500/10 pb-3">
+                      <span className="font-display text-lg text-white/85 line-through decoration-rose-400/40 decoration-1">
                         {n.step}
                       </span>
-                      <span className="text-xs text-white/80">
+                      <span className="text-xs text-rose-200/75">
                         {n.note}
                       </span>
                     </div>
@@ -573,28 +640,28 @@ export default function KiUmsetzungPage() {
               </ol>
               <p className="mt-8 text-sm text-white/85 leading-relaxed">
                 Zwischen „Idee“ und „Ergebnis“ liegt der teuerste Teil des
-                Monats: Zeit, in der nichts Sichtbares entsteht.
+                Monats: <span className="text-rose-300">Zeit, in der nichts Sichtbares entsteht.</span>
               </p>
             </div>
 
             {/* NEW TRACK */}
-            <div className="relative rounded-3xl border border-brand-400/30 bg-gradient-to-b from-brand-500/[0.08] to-transparent p-8 sm:p-10 overflow-hidden">
-              {/* Accent glow */}
+            <div className="relative rounded-3xl border border-emerald-400/30 bg-gradient-to-b from-emerald-500/[0.08] to-transparent p-8 sm:p-10 overflow-hidden">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(400px 300px at 80% 0%, rgba(110,63,163,0.18), transparent 70%)",
+                    "radial-gradient(400px 300px at 80% 0%, rgba(16,185,129,0.20), transparent 70%)",
                 }}
               />
               <div className="relative">
                 <div className="flex items-center justify-between mb-10">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300">
+                  <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300">
+                    <GainCheck />
                     Mit Zweitsystem
                   </p>
-                  <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-200">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-300 animate-pulse" />
+                  <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-200">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
                     Heute · noch diese Woche
                   </span>
                 </div>
@@ -606,35 +673,29 @@ export default function KiUmsetzungPage() {
                     },
                     { step: "Struktur", note: "in Minuten" },
                     { step: "Entwurf", note: "sofort sichtbar" },
-                    {
-                      step: "Testbarer Stand",
-                      note: "am selben Tag",
-                    },
+                    { step: "Testbarer Stand", note: "am selben Tag" },
                     { step: "Verbesserung", note: "in Echtzeit" },
-                    {
-                      step: "Produktiver Stand",
-                      note: "noch diese Woche",
-                    },
+                    { step: "Produktiver Stand", note: "noch diese Woche" },
                   ].map((n, i, arr) => (
                     <li
                       key={i}
                       className="relative flex items-center gap-4 py-3"
                     >
-                      <span className="w-8 text-right font-mono text-xs text-brand-300 tabular-nums">
+                      <span className="w-8 text-right font-mono text-xs text-emerald-300 tabular-nums">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span
                         className={`w-2 h-2 rounded-full flex-shrink-0 ${
                           i === arr.length - 1
-                            ? "bg-brand-300 ring-4 ring-brand-400/20"
-                            : "bg-brand-400"
+                            ? "bg-emerald-300 ring-4 ring-emerald-400/25"
+                            : "bg-emerald-400"
                         }`}
                       />
-                      <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-brand-400/10 pb-3">
+                      <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-emerald-400/15 pb-3">
                         <span className="font-display text-lg text-white">
                           {n.step}
                         </span>
-                        <span className="text-xs text-brand-200">
+                        <span className="text-xs text-emerald-200">
                           {n.note}
                         </span>
                       </div>
@@ -643,7 +704,7 @@ export default function KiUmsetzungPage() {
                 </ol>
                 <p className="mt-8 text-sm text-white/90 leading-relaxed">
                   Eine Idee am Vormittag ist am selben Tag sichtbar, testbar
-                  und verbesserbar — <span className="text-brand-300">ohne</span>{" "}
+                  und verbesserbar — <span className="text-emerald-300">ohne</span>{" "}
                   Briefing-Kette dazwischen.
                 </p>
               </div>
@@ -652,25 +713,27 @@ export default function KiUmsetzungPage() {
 
           {/* Tempo comparison row */}
           <div className="mt-10 grid grid-cols-2 rounded-2xl overflow-hidden border border-white/10">
-            <div className="p-6 sm:p-8 bg-white/[0.02] text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-2">
+            <div className="p-6 sm:p-8 bg-rose-500/[0.06] text-center">
+              <p className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-2">
+                <PainX />
                 Alte Welt
               </p>
-              <p className="font-display text-3xl sm:text-4xl text-white/85">
+              <p className="font-display text-3xl sm:text-4xl text-white line-through decoration-rose-400/40">
                 3–12 Wochen
               </p>
-              <p className="mt-1 text-xs text-white/85">
+              <p className="mt-1 text-xs text-rose-200/80">
                 bis etwas Sichtbares existiert
               </p>
             </div>
-            <div className="p-6 sm:p-8 bg-brand-500/[0.06] text-center border-l border-brand-400/20">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-2">
+            <div className="p-6 sm:p-8 bg-emerald-500/[0.08] text-center border-l border-emerald-400/25">
+              <p className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-2">
+                <GainCheck />
                 Mit Zweitsystem
               </p>
               <p className="font-display text-3xl sm:text-4xl text-white">
                 Stunden
               </p>
-              <p className="mt-1 text-xs text-brand-200">
+              <p className="mt-1 text-xs text-emerald-200">
                 bis der erste Stand auf dem Tisch liegt
               </p>
             </div>
@@ -687,8 +750,17 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A5 · FÜR WEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0B0B16] overflow-hidden">
+        <SectionDivider tone="brand" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(800px 500px at 100% 50%, rgba(110,63,163,0.08), transparent 65%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>04 · Für wen gemacht</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -778,31 +850,39 @@ export default function KiUmsetzungPage() {
           </div>
 
           {/* Anti-audience */}
-          <div className="mt-14 border-t border-white/10 pt-10 max-w-3xl">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
+          <div className="mt-14 rounded-3xl border border-rose-500/20 bg-rose-500/[0.03] p-8 sm:p-10 max-w-3xl">
+            <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-5">
+              <PainX />
               Nicht für Sie, wenn …
             </p>
-            <ul className="space-y-2 text-[15px] text-white/90 leading-relaxed">
-              <li>
-                … Sie einen fertigen Button erwarten, bei dem etwas herausfällt,
-                ohne selbst mitzudenken.
-              </li>
-              <li>
-                … Sie glauben, Tools ersetzen Urteilsvermögen. Das Zweitsystem
-                verstärkt Kompetenz — es erschafft keine.
-              </li>
-              <li>
-                … Sie nicht bereit sind, 4 Wochen lang echte Live-Arbeit
-                einzubringen.
-              </li>
+            <ul className="space-y-4 text-[15px] text-white/90 leading-relaxed">
+              {[
+                "Sie einen fertigen Button erwarten, bei dem etwas herausfällt, ohne selbst mitzudenken.",
+                "Sie glauben, Tools ersetzen Urteilsvermögen. Das Zweitsystem verstärkt Kompetenz — es erschafft keine.",
+                "Sie nicht bereit sind, 4 Wochen lang echte Live-Arbeit einzubringen.",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <PainX className="mt-1" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════ A6 · ANWENDUNGSFELDER ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#08080F] overflow-hidden">
+        <SectionDivider tone="brand" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(700px 400px at 0% 30%, rgba(110,63,163,0.10), transparent 65%), radial-gradient(700px 400px at 100% 70%, rgba(110,63,163,0.08), transparent 65%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>05 · Anwendungsfelder</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -916,8 +996,17 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A7 · WAS GEMEINSAM AUFGEBAUT WIRD ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
+        <SectionDivider tone="emerald" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(700px 500px at 50% 100%, rgba(16,185,129,0.06), transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>06 · Was gemeinsam entsteht</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -986,7 +1075,8 @@ export default function KiUmsetzungPage() {
                   <span className="font-mono text-xs text-brand-300 tabular-nums">
                     {p.num}
                   </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/80">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-rose-300">
+                    <PainX />
                     {p.bad}
                   </span>
                 </div>
@@ -1020,8 +1110,9 @@ export default function KiUmsetzungPage() {
                 Inklusive der Logik dahinter.
               </p>
             </div>
-            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-5">
+            <div className="rounded-3xl border border-emerald-500/20 bg-emerald-500/[0.04] p-10 sm:p-12">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-5">
+                <GainCheck />
                 Was das praktisch heißt
               </p>
               <ul className="space-y-4">
@@ -1033,9 +1124,9 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/80 leading-relaxed"
+                    className="flex items-start gap-3 text-[15px] text-white/90 leading-relaxed"
                   >
-                    <Check className="w-4 h-4 mt-1 text-brand-400 flex-shrink-0" />
+                    <GainCheck className="mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -1046,8 +1137,14 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A8 · MUSTERREISE 4 WOCHEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#08080F] overflow-hidden">
+        <SectionDivider tone="brand" />
+        {/* Vertical brand accent line */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-32 bottom-32 w-px bg-gradient-to-b from-transparent via-brand-400/30 to-transparent hidden lg:block"
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>07 · Die Musterreise</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -1182,14 +1279,15 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A9 · ERGEBNIS NACH 4 WOCHEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        {/* Accent glow */}
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0B0B16] overflow-hidden">
+        <SectionDivider tone="emerald" />
+        {/* Split: red on left, emerald on right */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(700px 400px at 50% 100%, rgba(110,63,163,0.12), transparent 70%)",
+              "radial-gradient(700px 500px at 0% 50%, rgba(244,63,94,0.08), transparent 65%), radial-gradient(800px 600px at 100% 50%, rgba(16,185,129,0.12), transparent 70%)",
           }}
         />
 
@@ -1210,8 +1308,9 @@ export default function KiUmsetzungPage() {
           {/* Transformation panel */}
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
             {/* Vorher */}
-            <div className="bg-[#0A0A12] p-10 sm:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
+            <div className="bg-gradient-to-br from-rose-500/[0.08] to-transparent p-10 sm:p-12">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-6">
+                <PainX />
                 Vor dem Programm
               </p>
               <ul className="space-y-5">
@@ -1226,7 +1325,7 @@ export default function KiUmsetzungPage() {
                     key={i}
                     className="flex items-start gap-3 text-[15px] text-white/90 leading-relaxed"
                   >
-                    <span className="mt-2 w-3 h-px bg-white/30 flex-shrink-0" />
+                    <PainX className="mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -1234,8 +1333,9 @@ export default function KiUmsetzungPage() {
             </div>
 
             {/* Nachher */}
-            <div className="bg-gradient-to-br from-brand-500/[0.08] to-transparent p-10 sm:p-12 border-l border-brand-400/20">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-6">
+            <div className="bg-gradient-to-br from-emerald-500/[0.10] to-transparent p-10 sm:p-12 border-l border-emerald-400/25">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-6">
+                <GainCheck />
                 Nach 4 Wochen
               </p>
               <ul className="space-y-5">
@@ -1250,7 +1350,7 @@ export default function KiUmsetzungPage() {
                     key={i}
                     className="flex items-start gap-3 text-[15px] text-white leading-relaxed"
                   >
-                    <Check className="w-4 h-4 mt-1 text-brand-300 flex-shrink-0" />
+                    <GainCheck className="mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -1316,8 +1416,9 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A10 · FORMAT & VORAUSSETZUNGEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#08080F] overflow-hidden">
+        <SectionDivider tone="brand" />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>09 · Format & Voraussetzungen</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -1365,8 +1466,9 @@ export default function KiUmsetzungPage() {
             </div>
 
             {/* Was Sie mitbringen */}
-            <div className="rounded-3xl border border-brand-400/25 bg-gradient-to-br from-brand-500/[0.06] to-transparent p-8 sm:p-10">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-8">
+            <div className="rounded-3xl border border-emerald-400/25 bg-gradient-to-br from-emerald-500/[0.07] to-transparent p-8 sm:p-10">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-8">
+                <GainCheck />
                 Was Sie mitbringen
               </p>
               <ul className="space-y-5">
@@ -1390,9 +1492,9 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-4 border-b border-white/5 pb-4 last:border-0 last:pb-0"
+                    className="flex items-start gap-4 border-b border-emerald-500/10 pb-4 last:border-0 last:pb-0"
                   >
-                    <Check className="w-4 h-4 mt-1 text-brand-300 flex-shrink-0" />
+                    <GainCheck className="mt-0.5" />
                     <div>
                       <p className="text-[15px] font-semibold text-white leading-snug">
                         {item.head}
@@ -1408,12 +1510,13 @@ export default function KiUmsetzungPage() {
           </div>
 
           {/* Anti-Voraussetzungen */}
-          <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
+          <div className="mt-10 rounded-3xl border border-rose-500/20 bg-rose-500/[0.04] p-8 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 whitespace-nowrap h-fit">
+              <span className="inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-rose-300 whitespace-nowrap h-fit">
+                <PainX />
                 Was Sie NICHT brauchen
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
                 {[
                   "Programmiererfahrung",
                   "IT-Vorkenntnisse",
@@ -1422,21 +1525,23 @@ export default function KiUmsetzungPage() {
                   "Mitarbeiter, die nebenher zuarbeiten",
                   "„KI-Wissen“ aus Kursen oder Büchern",
                 ].map((item, i) => (
-                  <p
+                  <li
                     key={i}
-                    className="text-[15px] text-white/80 leading-snug"
+                    className="flex items-start gap-3 text-[15px] text-white/85 leading-snug"
                   >
-                    — {item}
-                  </p>
+                    <PainX className="mt-0.5" />
+                    <span>{item}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════ A11 · PREISARCHITEKTUR ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
+        <SectionDivider tone="brand" />
         {/* Spotlight */}
         <div
           aria-hidden
@@ -1693,8 +1798,9 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A12 · UMSETZUNGSWERKSTATT (CONTINUATION) ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#08080F] overflow-hidden">
+        <SectionDivider tone="brand" />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>11 · Nach dem Programm — wenn Sie wollen</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -1804,8 +1910,17 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A13 · WAS UNS ANDERS MACHT ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0B0B16] overflow-hidden">
+        <SectionDivider tone="emerald" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(700px 500px at 100% 100%, rgba(16,185,129,0.06), transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>12 · Was uns anders macht</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -1857,8 +1972,9 @@ export default function KiUmsetzungPage() {
           {/* What we promise vs. what we don't claim */}
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* What we promise */}
-            <div className="rounded-3xl border border-brand-400/30 bg-gradient-to-br from-brand-500/[0.08] to-transparent p-8 sm:p-10">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-6">
+            <div className="rounded-3xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/[0.08] to-transparent p-8 sm:p-10">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-6">
+                <GainCheck />
                 Was wir versprechen
               </p>
               <ul className="space-y-4">
@@ -1873,7 +1989,7 @@ export default function KiUmsetzungPage() {
                     key={i}
                     className="flex items-start gap-3 text-[15px] text-white leading-relaxed"
                   >
-                    <Check className="w-4 h-4 mt-1 text-brand-300 flex-shrink-0" />
+                    <GainCheck className="mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -1881,8 +1997,9 @@ export default function KiUmsetzungPage() {
             </div>
 
             {/* What we don't claim */}
-            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
+            <div className="rounded-3xl border border-rose-500/25 bg-gradient-to-br from-rose-500/[0.06] to-transparent p-8 sm:p-10">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-6">
+                <PainX />
                 Was wir nicht behaupten
               </p>
               <ul className="space-y-4">
@@ -1895,9 +2012,9 @@ export default function KiUmsetzungPage() {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/85 leading-relaxed"
+                    className="flex items-start gap-3 text-[15px] text-white/90 leading-relaxed"
                   >
-                    <span className="mt-2 w-3 h-px bg-white/30 flex-shrink-0" />
+                    <PainX className="mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -1917,8 +2034,9 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ A14 · FAQ ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#08080F] overflow-hidden">
+        <SectionDivider tone="brand" />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>13 · Häufige Fragen</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
@@ -2001,14 +2119,15 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ FINAL CTA ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5 overflow-hidden">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
+        <SectionDivider tone="brand" />
         {/* Big atmospheric glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(900px 600px at 50% 50%, rgba(110,63,163,0.22), transparent 70%)",
+              "radial-gradient(1100px 700px at 50% 50%, rgba(110,63,163,0.30), transparent 70%)",
           }}
         />
 
