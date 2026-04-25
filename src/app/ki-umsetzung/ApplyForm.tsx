@@ -8,50 +8,58 @@ type OptionValue = string;
 
 type QuickcheckStep = {
   key: "situation" | "bremser" | "ziel";
-  label: string;
   question: string;
+  hint: string;
   options: { value: OptionValue; label: string }[];
 };
 
 const STEPS: QuickcheckStep[] = [
   {
     key: "situation",
-    label: "Wo stehen Sie?",
-    question: "Wer sind Sie gerade?",
+    question: "Wo stehen Sie gerade?",
+    hint: "Damit wir den richtigen Einstiegsweg vorschlagen können.",
     options: [
       { value: "unternehmen", label: "Unternehmen mit Team" },
       { value: "selbststaendig", label: "Selbstständig / Solo" },
       { value: "angestellt", label: "Angestellt / Fachkraft" },
       { value: "team-lead", label: "Team-Lead / Projektverantwortlich" },
-      { value: "gruender", label: "Gründer / Idee in Arbeit" },
+      { value: "gruender", label: "Gründer · Idee in Arbeit" },
     ],
   },
   {
     key: "bremser",
-    label: "Was bremst am meisten?",
     question: "Was kostet Sie aktuell die meiste Zeit?",
+    hint: "Eine Antwort reicht — die, die Sie am meisten ärgert.",
     options: [
-      { value: "agentur-schleifen", label: "Lange Agentur- und Abstimmungsschleifen" },
+      { value: "agentur-schleifen", label: "Agentur- und Abstimmungsschleifen" },
       { value: "unklare-anforderungen", label: "Unklare Anforderungen & Briefings" },
       { value: "keine-zeit", label: "Zu wenig Zeit für eigene Umsetzung" },
-      { value: "abhaengigkeit", label: "Abhängigkeit von externen Dienstleistern" },
-      { value: "umsetzungsluecke", label: "Idee ist da – Umsetzung fehlt" },
+      { value: "abhaengigkeit", label: "Abhängigkeit von Externen" },
+      { value: "umsetzungsluecke", label: "Idee da · Umsetzung fehlt" },
     ],
   },
   {
     key: "ziel",
-    label: "Was zuerst umsetzen?",
     question: "Welches Vorhaben soll zuerst real werden?",
+    hint: "Etwas Konkretes hilft uns, den Erstcall zielgerichtet zu führen.",
     options: [
       { value: "angebotsseite", label: "Angebots- oder Landingpage" },
-      { value: "customer-journey", label: "Customer Journey & Vertriebsstrecke" },
-      { value: "prototyp", label: "Digitaler Prototyp / App" },
+      { value: "customer-journey", label: "Customer Journey · Vertriebsstrecke" },
+      { value: "prototyp", label: "Digitaler Prototyp · App" },
       { value: "prozesse", label: "Interne Prozesse & Strukturen" },
-      { value: "newsletter", label: "Newsletter- & Follow-up-Logik" },
-      { value: "offen", label: "Noch offen – möchte einordnen" },
+      { value: "newsletter", label: "Newsletter · Follow-up-Logik" },
+      { value: "offen", label: "Noch offen · möchte einordnen" },
     ],
   },
 ];
+
+const inputBase =
+  "w-full h-12 bg-white/[0.02] border border-white/15 rounded-xl px-4 text-white placeholder-white/30 " +
+  "focus:border-brand-400 focus:bg-white/[0.04] focus:outline-none focus:ring-4 focus:ring-brand-400/15 transition";
+
+const textareaBase =
+  "w-full bg-white/[0.02] border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 " +
+  "focus:border-brand-400 focus:bg-white/[0.04] focus:outline-none focus:ring-4 focus:ring-brand-400/15 transition resize-none";
 
 export function ApplyForm() {
   const [answers, setAnswers] = React.useState<Record<string, OptionValue>>({});
@@ -112,86 +120,147 @@ export function ApplyForm() {
 
   if (sent) {
     return (
-      <div className="mx-auto max-w-2xl text-center py-16">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-400/20 mb-8">
-          <Check className="w-8 h-8 text-brand-400" />
+      <div className="mx-auto max-w-2xl text-center py-12">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-500/15 ring-4 ring-brand-400/10 mb-10">
+          <Check className="w-7 h-7 text-brand-300" />
         </div>
-        <h3 className="text-4xl font-serif font-bold text-white mb-6">
-          Danke – Ihre Bewerbung ist auf dem Weg.
+        <h3 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.1] text-white">
+          Ihre Bewerbung ist auf dem Weg.
         </h3>
-        <p className="text-lg text-white/80 font-light leading-relaxed">
-          Sobald Ihr E-Mail-Programm die Nachricht abgeschickt hat, melden wir uns persönlich bei
-          Ihnen – meist innerhalb von 24 Stunden, werktags schneller.
+        <p className="mt-6 text-[15px] sm:text-base text-white/65 font-light leading-relaxed max-w-xl mx-auto">
+          Sobald Ihr E-Mail-Programm die Nachricht abgeschickt hat, melden wir
+          uns persönlich — meist innerhalb von 24 Stunden, werktags schneller.
         </p>
+
+        {/* Was als nächstes passiert */}
+        <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-7 text-left">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-5">
+            Was als nächstes passiert
+          </p>
+          <ol className="space-y-4">
+            {[
+              {
+                num: "01",
+                head: "Wir lesen Ihre Bewerbung.",
+                sub: "Quickcheck plus Notiz, falls Sie eine geschickt haben.",
+              },
+              {
+                num: "02",
+                head: "Wir melden uns für ein 15–30-min-Erstgespräch.",
+                sub: "Per Telefon oder Video — was Ihnen lieber ist.",
+              },
+              {
+                num: "03",
+                head: "Sie entscheiden in Ruhe.",
+                sub: "Kein Verkaufsdruck. Kein Closing-Skript.",
+              },
+            ].map((s) => (
+              <li key={s.num} className="flex gap-4">
+                <span className="font-mono text-xs text-brand-300 tabular-nums pt-1">
+                  {s.num}
+                </span>
+                <div>
+                  <p className="text-[15px] font-semibold text-white leading-snug">
+                    {s.head}
+                  </p>
+                  <p className="mt-1 text-sm text-white/55 font-light leading-relaxed">
+                    {s.sub}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     );
   }
 
-  const canSubmit = name.trim() && email.trim() && completedSteps === STEPS.length;
+  const allQuickcheckDone = completedSteps === STEPS.length;
+  const canSubmit = name.trim() && email.trim() && allQuickcheckDone;
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-3xl" noValidate>
       {/* Progress */}
-      <div className="mb-12">
+      <div className="mb-14">
         <div className="flex items-center justify-between mb-3">
-          <p className="text-xs text-white/50 uppercase tracking-widest font-semibold">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/55">
             Quickcheck · {completedSteps} von {STEPS.length}
           </p>
-          <p className="text-xs text-white/50 font-semibold">{progress} %</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300 tabular-nums">
+            {progress}%
+          </p>
         </div>
-        <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
+        <div className="h-[3px] w-full rounded-full bg-white/10 overflow-hidden">
           <div
-            className="h-full bg-brand-400 transition-all duration-300"
+            className="h-full bg-gradient-to-r from-brand-500 to-brand-300 transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
       {/* Quickcheck steps */}
-      <div className="space-y-12 mb-16">
-        {STEPS.map((step, idx) => (
-          <div key={step.key}>
-            <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-xs text-brand-400 font-bold tabular-nums">
-                0{idx + 1}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                {step.question}
-              </h3>
+      <div className="space-y-14 mb-16">
+        {STEPS.map((step, idx) => {
+          const done = Boolean(answers[step.key]);
+          return (
+            <div key={step.key}>
+              <div className="flex items-baseline gap-4 mb-3">
+                <span className="font-mono text-xs text-brand-300 tabular-nums">
+                  0{idx + 1}
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl text-white leading-snug">
+                  {step.question}
+                </h3>
+                {done && (
+                  <span className="ml-auto inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300">
+                    <Check className="w-3.5 h-3.5" />
+                    erledigt
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-white/45 font-light mb-6 ml-9">
+                {step.hint}
+              </p>
+              <div className="flex flex-wrap gap-2.5 ml-9">
+                {step.options.map((opt) => {
+                  const selected = answers[step.key] === opt.value;
+                  return (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() => selectOption(step.key, opt.value)}
+                      className={`group inline-flex items-center gap-2 px-5 py-3 rounded-full text-[13px] sm:text-sm font-medium border transition ${
+                        selected
+                          ? "bg-brand-500 text-white border-brand-400 shadow-[0_0_0_4px_rgba(110,63,163,0.18)]"
+                          : "border-white/15 text-white/85 hover:border-white/35 hover:bg-white/[0.04]"
+                      }`}
+                      aria-pressed={selected}
+                    >
+                      {selected && <Check className="w-3.5 h-3.5" />}
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-              {step.options.map((opt) => {
-                const selected = answers[step.key] === opt.value;
-                return (
-                  <button
-                    key={opt.value}
-                    type="button"
-                    onClick={() => selectOption(step.key, opt.value)}
-                    className={`px-5 py-3 rounded-full text-sm font-medium border transition ${
-                      selected
-                        ? "bg-white text-black border-white"
-                        : "border-white/30 text-white hover:border-white hover:bg-white/5"
-                    }`}
-                    aria-pressed={selected}
-                  >
-                    {selected && <Check className="inline w-4 h-4 mr-2 -mt-0.5" />}
-                    {opt.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Contact fields */}
-      <div className="border-t border-white/20 pt-12 mb-10">
-        <h3 className="text-2xl font-serif font-bold text-white mb-8">
-          Wie erreichen wir Sie?
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="border-t border-white/10 pt-12 mb-10">
+        <div className="flex items-baseline gap-4 mb-8">
+          <span className="font-mono text-xs text-brand-300 tabular-nums">
+            04
+          </span>
+          <h3 className="font-display text-xl sm:text-2xl text-white">
+            Wie erreichen wir Sie?
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ml-0 sm:ml-9">
           <label className="block">
-            <span className="text-xs text-white/60 uppercase tracking-wide font-semibold mb-2 block">
+            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
               Name *
             </span>
             <input
@@ -199,12 +268,13 @@ export function ApplyForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full h-12 bg-transparent border border-white/30 rounded-lg px-4 text-white placeholder-white/30 focus:border-white focus:outline-none transition"
+              autoComplete="name"
+              className={inputBase}
               placeholder="Ihr Name"
             />
           </label>
           <label className="block">
-            <span className="text-xs text-white/60 uppercase tracking-wide font-semibold mb-2 block">
+            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
               E-Mail *
             </span>
             <input
@@ -212,74 +282,131 @@ export function ApplyForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full h-12 bg-transparent border border-white/30 rounded-lg px-4 text-white placeholder-white/30 focus:border-white focus:outline-none transition"
+              autoComplete="email"
+              className={inputBase}
               placeholder="ihre@email.de"
             />
           </label>
           <label className="block">
-            <span className="text-xs text-white/60 uppercase tracking-wide font-semibold mb-2 block">
-              Telefon
+            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
+              Telefon <span className="text-white/30 normal-case tracking-normal font-light">— optional</span>
             </span>
             <input
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full h-12 bg-transparent border border-white/30 rounded-lg px-4 text-white placeholder-white/30 focus:border-white focus:outline-none transition"
+              autoComplete="tel"
+              className={inputBase}
               placeholder="+49 …"
             />
           </label>
           <label className="block">
-            <span className="text-xs text-white/60 uppercase tracking-wide font-semibold mb-2 block">
-              Unternehmen
+            <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
+              Unternehmen <span className="text-white/30 normal-case tracking-normal font-light">— optional</span>
             </span>
             <input
               type="text"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
-              className="w-full h-12 bg-transparent border border-white/30 rounded-lg px-4 text-white placeholder-white/30 focus:border-white focus:outline-none transition"
-              placeholder="Optional"
+              autoComplete="organization"
+              className={inputBase}
+              placeholder="Firma · Verein · Praxis"
             />
           </label>
         </div>
-        <label className="block mt-5">
-          <span className="text-xs text-white/60 uppercase tracking-wide font-semibold mb-2 block">
-            Kurzbeschreibung (optional)
+
+        <label className="block mt-5 ml-0 sm:ml-9">
+          <span className="text-[10px] text-white/55 uppercase tracking-[0.18em] font-semibold mb-2 block">
+            Kurzbeschreibung <span className="text-white/30 normal-case tracking-normal font-light">— optional</span>
           </span>
           <textarea
             value={note}
             onChange={(e) => setNote(e.target.value)}
             rows={3}
-            className="w-full bg-transparent border border-white/30 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:border-white focus:outline-none transition resize-none"
-            placeholder="Was möchten Sie in den 4 Wochen konkret umsetzen?"
+            className={textareaBase}
+            placeholder="Worum geht es konkret? Was wäre der ideale Stand nach 4 Wochen?"
           />
         </label>
       </div>
 
+      {/* Summary preview when complete */}
+      {allQuickcheckDone && (
+        <div className="mb-10 rounded-2xl border border-brand-400/25 bg-gradient-to-br from-brand-500/[0.06] to-transparent p-6 sm:p-7">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-5">
+            Zusammenfassung Ihres Quickchecks
+          </p>
+          <dl className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4">
+            {[
+              { k: "Ausgangslage", v: labelFor("situation") },
+              { k: "Größter Bremser", v: labelFor("bremser") },
+              { k: "Zuerst umsetzen", v: labelFor("ziel") },
+            ].map((row) => (
+              <div key={row.k}>
+                <dt className="text-[10px] uppercase tracking-[0.2em] text-white/45 font-semibold mb-1">
+                  {row.k}
+                </dt>
+                <dd className="text-sm text-white font-light leading-snug">
+                  {row.v}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
+
       {/* Submit */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+      <div className="flex flex-col gap-5">
         <button
           type="submit"
           disabled={!canSubmit || sending}
-          className="px-8 h-14 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white/90 transition flex items-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+          className="group inline-flex items-center justify-center gap-3 px-8 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900 disabled:bg-white/15 disabled:text-white/40 disabled:cursor-not-allowed disabled:hover:bg-white/15 w-full sm:w-auto"
         >
           {sending ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              Wird gesendet…
+              Wird gesendet …
             </>
           ) : (
             <>
-              Bewerbung absenden
-              <ArrowRight className="w-4 h-4" />
+              Platz im nächsten Durchgang sichern
+              <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </>
           )}
         </button>
-        <p className="text-xs text-white/50 leading-relaxed">
-          Unverbindlich · Wir antworten werktags innerhalb von 24 h ·{" "}
-          <a href="/datenschutz" className="underline hover:text-white">
+
+        {!canSubmit && !sending && (
+          <p className="text-xs text-white/40 font-light leading-relaxed">
+            {!allQuickcheckDone
+              ? `Noch ${STEPS.length - completedSteps} Quickcheck-Antwort${
+                  STEPS.length - completedSteps === 1 ? "" : "en"
+                } offen.`
+              : "Bitte Name und E-Mail eintragen."}
+          </p>
+        )}
+
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-white/45 font-light">
+          <span className="inline-flex items-center gap-1.5">
+            <Check className="w-3 h-3 text-brand-400" />
+            Unverbindlich
+          </span>
+          <span className="text-white/20">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            <Check className="w-3 h-3 text-brand-400" />
+            Antwort werktags innerhalb 24 h
+          </span>
+          <span className="text-white/20">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            <Check className="w-3 h-3 text-brand-400" />
+            Kein Verkaufsdruck
+          </span>
+          <span className="text-white/20">·</span>
+          <a
+            href="/datenschutz"
+            className="underline decoration-white/20 underline-offset-4 hover:text-white hover:decoration-white"
+          >
             Datenschutz
           </a>
-        </p>
+        </div>
       </div>
     </form>
   );
