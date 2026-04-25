@@ -9,7 +9,6 @@ import { FEATURES } from "@/lib/utils";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { QuickCheckProvider } from "@/components/providers/QuickCheckProvider";
 import { ConsentProvider } from "@/components/providers/ConsentProvider";
 import { ConsentScripts } from "@/components/providers/ConsentScripts";
 import "./globals.css";
@@ -21,8 +20,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
-  colorScheme: "light",
+  themeColor: "#07070C",
+  colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
 };
@@ -52,7 +51,7 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/manifest.webmanifest" />
       </head>
-      <body className="min-h-screen bg-white text-ink-900 antialiased">
+      <body className="min-h-screen bg-[#07070C] text-white antialiased">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:inline-flex focus:h-11 focus:items-center focus:justify-center focus:rounded-xl focus:bg-brand-600 focus:px-5 focus:text-[14px] focus:font-medium focus:text-white focus:outline-none focus:ring-[3px] focus:ring-brand-500/45"
@@ -63,13 +62,11 @@ export default function RootLayout({
         <JsonLd data={websiteJsonLd()} />
         <ConsentProvider>
           <ConsentScripts gtmId={gtmId} metaPixelId={metaPixelId} />
-          <QuickCheckProvider>
-            <Header />
-            <main id="main" className="relative">
-              {children}
-            </main>
-            <Footer />
-          </QuickCheckProvider>
+          <Header />
+          <main id="main" className="relative">
+            {children}
+          </main>
+          <Footer />
         </ConsentProvider>
       </body>
     </html>
