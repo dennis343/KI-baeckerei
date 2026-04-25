@@ -804,8 +804,408 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
+      {/* ═══════════════════════ A7 · WAS GEMEINSAM AUFGEBAUT WIRD ═══════════════════════ */}
+      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>06 · Was gemeinsam entsteht</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Sie bauen kein Programm.
+              <br />
+              <span className="text-brand-300">Sie bauen Ihr System.</span>
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+              In diesen 4 Wochen entsteht keine Theorie und keine Notiz-Sammlung.
+              Sondern eine arbeitsfähige Grundlage — gemeinsam aufgebaut,
+              transparent erklärt, mit vollem Bauplan in Ihrer Hand.
+            </p>
+          </div>
+
+          {/* Build pillars */}
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {[
+              {
+                num: "01",
+                head: "Eine klare Arbeitslogik",
+                nutzen:
+                  "Damit Ideen nicht im Nebel hängen, sondern Bahn aufnehmen. Sie wissen jederzeit, wohin ein Gedanke fließt — und was als nächstes passiert.",
+                bad: "Kein Tool-Chaos.",
+              },
+              {
+                num: "02",
+                head: "Ein abgestimmtes Zusammenspiel",
+                nutzen:
+                  "Die digitalen Bausteine greifen ineinander, statt nebeneinander zu existieren. Ein Stand entsteht aus einem Eingang — nicht aus fünf parallelen Werkzeugen.",
+                bad: "Kein Frankenstein-Stack.",
+              },
+              {
+                num: "03",
+                head: "Saubere Grundlagen für sichere Nutzung",
+                nutzen:
+                  "Damit Daten, Inhalte und Logik kontrolliert bleiben. Sie wissen, was wo liegt — und wer zugreifen kann. Ruhe statt nervöses Drüber-Schauen.",
+                bad: "Kein offenes Scheunentor.",
+              },
+              {
+                num: "04",
+                head: "Fokus auf echte Anwendungsfälle",
+                nutzen:
+                  "Statt Demos und Halbgares entsteht jeder Baustein an Ihrem realen Problem. Das System trägt von Tag eins, weil es gegen Ihre Wirklichkeit gebaut wurde.",
+                bad: "Keine Spielerei.",
+              },
+              {
+                num: "05",
+                head: "Schutz- und Zugriffslogik",
+                nutzen:
+                  "Schlüsselstrukturen, Rechte, Sichtbarkeiten — bewusst gesetzt. So bleibt Wirkung hoch und Risiko niedrig, auch wenn das Team wächst oder Externe zuarbeiten.",
+                bad: "Keine Datenleckage.",
+              },
+              {
+                num: "06",
+                head: "Präzise Use-Case-Ausrichtung",
+                nutzen:
+                  "Ihr Zweitsystem ist nicht generisch. Es ist auf Ihre Branche, Ihre Sprache, Ihre Kunden zugeschnitten. Ergebnisse klingen nach Ihnen — nicht nach Standard-KI.",
+                bad: "Keine Allzweckwaffe.",
+              },
+            ].map((p, i) => (
+              <article
+                key={i}
+                className="lg:col-span-6 xl:col-span-4 rounded-3xl border border-white/10 bg-white/[0.02] p-7 sm:p-8 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition flex flex-col"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-mono text-xs text-brand-300 tabular-nums">
+                    {p.num}
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
+                    {p.bad}
+                  </span>
+                </div>
+                <h3 className="font-display text-xl sm:text-[1.4rem] leading-[1.2] text-white mb-4">
+                  {p.head}
+                </h3>
+                <p className="text-sm text-white/65 font-light leading-relaxed">
+                  {p.nutzen}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          {/* No-blackbox manifesto */}
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+            <div className="rounded-3xl border border-brand-400/30 bg-gradient-to-br from-brand-500/[0.1] to-transparent p-10 sm:p-12">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-5">
+                Das Versprechen
+              </p>
+              <p className="font-display text-2xl sm:text-3xl leading-[1.2] text-white">
+                Kein Blackbox-Produkt.
+                <br />
+                <span className="text-brand-200">
+                  Sie verstehen den Bauplan.
+                </span>
+              </p>
+              <p className="mt-6 text-[15px] text-white/75 font-light leading-relaxed">
+                Sie bekommen nicht ein fertiges Etwas übergeben, das Sie hoffen
+                weiter bedienen zu können. Sie bauen Ihr System mit auf — Stück
+                für Stück, sichtbar, erklärt. Danach gehört es Ihnen.
+                Inklusive der Logik dahinter.
+              </p>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10 sm:p-12">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45 mb-5">
+                Was das praktisch heißt
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Sie können nach 4 Wochen ohne uns weiterarbeiten.",
+                  "Sie können das System eigenständig auf neue Themen ausrichten.",
+                  "Sie sind nicht an einen Anbieter, eine Agentur oder eine Lizenz gefesselt.",
+                  "Sie können andere im Team befähigen — weil Sie selbst verstehen, was läuft.",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-[15px] text-white/80 font-light leading-relaxed"
+                  >
+                    <Check className="w-4 h-4 mt-1 text-brand-400 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ A8 · MUSTERREISE 4 WOCHEN ═══════════════════════ */}
+      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>07 · Die Musterreise</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Vier Wochen.
+              <br />
+              <span className="text-brand-300">
+                Acht Live-Termine. Eine arbeitsfähige Grundlage.
+              </span>
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+              Pro Woche zwei Calls: ein Impuls- und Feedback-Call mit 60
+              Minuten, ein Umsetzungs-Call mit 90 Minuten. Dazwischen arbeiten
+              Sie an Ihrem Stand — mit klarem Was und klarem Wie.
+            </p>
+          </div>
+
+          {/* Weeks timeline */}
+          <ol className="mt-20 space-y-6">
+            {[
+              {
+                week: "Woche 01",
+                title: "Verstehen, einordnen, aufsetzen.",
+                desc: "Digitales Mindset, Positionierung, Prioritäten, Grundsetup. Sie bauen ein System, das zu Ihrem Business, Ihrer Rolle und Ihren echten Anforderungen passt.",
+                outcome:
+                  "Sie verlieren keine Zeit mehr durch unklare Strukturen. Was Sie aufsetzen, trägt — und Ihre Ideen können überhaupt erst sauber Fahrt aufnehmen.",
+              },
+              {
+                week: "Woche 02",
+                title: "Anforderungen in brauchbare Systeme übersetzen.",
+                desc: "Aus Gedanken, Sprachnachrichten und Fachwissen werden belastbare Anforderungen, Seitenstrukturen, Prozesslogiken und digitale Entwürfe.",
+                outcome:
+                  "Sie hoffen nicht mehr, dass andere verstehen, was Sie meinen. Sie bringen Ihre Ideen selbst in eine Form, die direkt weiterverarbeitet werden kann.",
+              },
+              {
+                week: "Woche 03",
+                title: "Ergebnisse sichtbar und nutzbar machen.",
+                desc: "Reale Vorstufen, Prototypen und erste testbare Ergebnisse entstehen. Sie reden nicht mehr über Möglichkeiten — Sie zeigen sie.",
+                outcome:
+                  "Sie kommen in einen Zustand, in dem man Dinge wirklich sehen, prüfen und schärfen kann. Statt Annahmen zu diskutieren, schärfen Sie an realen Ständen.",
+              },
+              {
+                week: "Woche 04",
+                title: "System festigen und produktiv nutzen.",
+                desc: "Persönliches Grundsystem finalisieren. Schutz- und Nutzungslogik schärfen. Definieren, wie damit im Alltag oder im Unternehmen gearbeitet wird.",
+                outcome:
+                  "Sie gehen nicht mit Notizen heraus, sondern mit einer arbeitsfähigen Struktur, die Sie ab Tag 29 produktiv nutzen können.",
+              },
+            ].map((w, i) => (
+              <li
+                key={i}
+                className="group rounded-3xl border border-white/10 bg-white/[0.02] hover:border-brand-400/30 hover:bg-brand-400/[0.03] transition p-8 sm:p-10"
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  {/* Left rail */}
+                  <div className="lg:col-span-3">
+                    <p className="font-mono text-xs text-brand-300 tracking-[0.2em] mb-3">
+                      {w.week}
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                        <span className="w-6 h-px bg-white/30" />
+                        Impuls · 60 min
+                      </span>
+                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                        <span className="w-6 h-px bg-white/30" />
+                        Umsetzung · 90 min
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title + desc */}
+                  <div className="lg:col-span-5">
+                    <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white">
+                      {w.title}
+                    </h3>
+                    <p className="mt-5 text-sm sm:text-[15px] text-white/65 font-light leading-relaxed">
+                      {w.desc}
+                    </p>
+                  </div>
+
+                  {/* Outcome */}
+                  <div className="lg:col-span-4 lg:border-l lg:border-white/10 lg:pl-8">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-3">
+                      Das bedeutet für Sie
+                    </p>
+                    <p className="text-[15px] text-white font-light leading-relaxed">
+                      {w.outcome}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          {/* Bonus follow-up */}
+          <div className="mt-10 rounded-3xl border border-brand-400/25 bg-gradient-to-r from-brand-500/[0.08] via-transparent to-transparent p-8 sm:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 items-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-200 whitespace-nowrap">
+                Bonus
+              </span>
+              <p className="font-display text-xl sm:text-2xl leading-[1.3] text-white">
+                Ca. 4 Wochen nach Ende: gemeinsame{" "}
+                <span className="text-brand-300">Follow-up-Session</span> — wir
+                schauen, was im Alltag wirklich läuft, was hakt und was als
+                nächstes hebelt.
+              </p>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/40 whitespace-nowrap">
+                Ohne Aufpreis
+              </span>
+            </div>
+          </div>
+
+          {/* Format strip */}
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
+            {[
+              { k: "Format", v: "Digitale Kleingruppe" },
+              { k: "Live-Termine", v: "8 + 1 Bonus" },
+              { k: "Pro Woche", v: "60 min + 90 min" },
+              { k: "Aufwand zwischen Calls", v: "Sie bestimmen" },
+            ].map((c) => (
+              <div key={c.k} className="bg-[#0A0A12] p-5 sm:p-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40 mb-2">
+                  {c.k}
+                </p>
+                <p className="text-sm sm:text-base font-semibold text-white leading-snug">
+                  {c.v}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ A9 · ERGEBNIS NACH 4 WOCHEN ═══════════════════════ */}
+      <section className="relative z-10 py-28 sm:py-36 border-t border-white/5">
+        {/* Accent glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(700px 400px at 50% 100%, rgba(110,63,163,0.12), transparent 70%)",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>08 · Das Ergebnis</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Nach 4 Wochen ist nicht Wissen entstanden.
+              <br />
+              <span className="text-brand-300">Sondern Umsetzungskraft.</span>
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/65 font-light">
+              Sie haben kein Notizbuch voller Konzepte. Sie haben eine
+              arbeitsfähige Grundlage — und einen anderen Arbeitstag.
+            </p>
+          </div>
+
+          {/* Transformation panel */}
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
+            {/* Vorher */}
+            <div className="bg-[#0A0A12] p-10 sm:p-12">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-6">
+                Vor dem Programm
+              </p>
+              <ul className="space-y-5">
+                {[
+                  "Ideen versanden zwischen Briefing und Umsetzung.",
+                  "Externe Dienstleister sind Engpass und Kostenfaktor.",
+                  "Sie reden über Lösungen — sehen können Sie sie selten.",
+                  "Tempo hängt am Kalender anderer Leute.",
+                  "Wirkung ist Zufall, nicht Methode.",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-[15px] text-white/55 font-light leading-relaxed"
+                  >
+                    <span className="mt-2 w-3 h-px bg-white/30 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Nachher */}
+            <div className="bg-gradient-to-br from-brand-500/[0.08] to-transparent p-10 sm:p-12 border-l border-brand-400/20">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-6">
+                Nach 4 Wochen
+              </p>
+              <ul className="space-y-5">
+                {[
+                  "Aus Sprachnachricht oder Idee wird in Stunden ein Stand.",
+                  "Sie sind unabhängiger von Agenturen und Wartezimmer-Logik.",
+                  "Sie zeigen Lösungen, statt sie zu erklären.",
+                  "Tempo bestimmen Sie selbst.",
+                  "Wirkung wird wiederholbar — weil Sie das System dahinter besitzen.",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-[15px] text-white font-light leading-relaxed"
+                  >
+                    <Check className="w-4 h-4 mt-1 text-brand-300 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* What it means in everyday */}
+          <div className="mt-20">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/40 mb-6">
+              So sieht ein Arbeitstag mit Zweitsystem aus
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {[
+                {
+                  time: "08:42",
+                  head: "Sprachnachricht im Auto: neue Angebotsidee.",
+                  body: "Stichpunkte, kein Skript. 90 Sekunden.",
+                },
+                {
+                  time: "10:15",
+                  head: "Erste Struktur und Entwurf liegen vor.",
+                  body: "Sektionen, Texte, Aufbau, Buchungslogik — testbar.",
+                },
+                {
+                  time: "14:30",
+                  head: "Sie schärfen anhand des realen Stands.",
+                  body: "Statt zu beschreiben, was anders sein sollte: anpassen.",
+                },
+                {
+                  time: "17:00",
+                  head: "Stand geht an Kollegen oder Kunden raus.",
+                  body: "Nicht als Mockup. Als ein Ding, das funktioniert.",
+                },
+              ].map((s, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7"
+                >
+                  <p className="font-mono text-xs text-brand-300 tracking-[0.2em] mb-3">
+                    {s.time}
+                  </p>
+                  <p className="font-display text-lg sm:text-xl leading-[1.25] text-white">
+                    {s.head}
+                  </p>
+                  <p className="mt-2 text-sm text-white/55 font-light leading-relaxed">
+                    {s.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Closer */}
+          <p className="mt-20 font-display text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.25] text-white max-w-4xl">
+            Was vor 4 Wochen ein Briefing gewesen wäre,
+            <br />
+            <span className="text-brand-300">
+              ist heute ein erledigter Punkt.
+            </span>
+          </p>
+        </div>
+      </section>
+
       {/* ═══════════════════════ TEMPORARY APPLY ANCHOR ═══════════════════════
-           Der restliche Flow (A7–A14) folgt in den nächsten Schritten.
+           Der restliche Flow (A10–A14) folgt in den nächsten Schritten.
            Anchor bleibt kompilierbar, damit CTAs funktionieren. */}
       <section
         id="bewerbung"
