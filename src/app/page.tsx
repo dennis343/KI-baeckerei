@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/ui/BreadcrumbJsonLd";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SITE_URL } from "@/lib/utils";
 import { ApplyForm } from "@/components/apply/ApplyForm";
+import { TidyCalEmbed } from "@/components/apply/TidyCalEmbed";
 import { ArrowRight, Check, X } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
@@ -2180,25 +2181,175 @@ export default function KiUmsetzungPage() {
       {/* ═══════════════════════ APPLY FORM ═══════════════════════ */}
       <section
         id="bewerbung"
-        className="relative z-10 py-28 sm:py-36 border-t border-white/10 bg-[#050508]"
+        className="relative z-10 py-24 sm:py-32 bg-[#050508] overflow-hidden"
       >
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-10">
-          <Eyebrow>Bewerbung</Eyebrow>
-          <h2 className="mt-6 font-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] tracking-[-0.015em] text-white">
-            60-Sekunden-Quickcheck.
-            <br />
-            <span className="text-brand-300">
-              Dann persönliches Erstgespräch.
-            </span>
-          </h2>
-          <p className="mt-6 max-w-2xl text-[15px] sm:text-base text-white/85 leading-relaxed">
-            Drei kurze Fragen plus Kontaktdaten. Wir melden uns werktags
-            innerhalb von 24 Stunden für ein 15–30-minütiges Erstgespräch.
-            Ohne Verkaufsdruck, ohne Vorauszahlung.
-          </p>
+        <SectionDivider tone="brand" />
 
-          <div className="mt-14">
-            <ApplyForm />
+        {/* Spotlight glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(1100px 700px at 50% 0%, rgba(110,63,163,0.30), transparent 70%)",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          {/* Hero header */}
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-200">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-300 animate-pulse" />
+              Bewerbung · nächster Durchgang
+            </span>
+            <h2 className="mt-8 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.02em] text-white">
+              Sichern Sie Ihren Platz.
+              <br />
+              <span className="text-brand-300">Zwei Wege — Sie wählen.</span>
+            </h2>
+            <p className="mt-6 text-[15px] sm:text-base text-white/85 leading-relaxed">
+              Quickcheck mit Antwort innerhalb 24 Stunden — oder direkt einen
+              Strategietermin im Kalender greifen, wenn es schnell gehen soll.
+            </p>
+          </div>
+
+          {/* Step-Indicator */}
+          <div className="mt-14 max-w-3xl mx-auto">
+            <ol className="flex items-stretch justify-between gap-2 sm:gap-4">
+              {[
+                { n: "01", t: "Quickcheck oder Termin" },
+                { n: "02", t: "Erstgespräch (15–30 min)" },
+                { n: "03", t: "Platz im Durchgang" },
+              ].map((s, i, arr) => (
+                <li
+                  key={s.n}
+                  className="flex-1 flex items-center gap-2 sm:gap-4"
+                >
+                  <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.03] px-3 sm:px-5 py-3 sm:py-4">
+                    <p className="font-mono text-[10px] text-brand-300 tabular-nums tracking-[0.2em]">
+                      {s.n}
+                    </p>
+                    <p className="mt-1 text-[12px] sm:text-sm font-semibold text-white leading-tight">
+                      {s.t}
+                    </p>
+                  </div>
+                  {i < arr.length - 1 && (
+                    <div
+                      aria-hidden
+                      className="hidden sm:block h-px w-6 bg-gradient-to-r from-brand-400/60 to-transparent"
+                    />
+                  )}
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {/* Two lanes: Quickcheck (left) + TidyCal (right) */}
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* PFAD A — QUICKCHECK */}
+            <article className="relative rounded-[2rem] border border-brand-400/30 bg-gradient-to-br from-brand-500/[0.10] via-brand-500/[0.03] to-transparent p-1 overflow-hidden">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(500px 400px at 0% 0%, rgba(110,63,163,0.16), transparent 70%)",
+                }}
+              />
+              <div className="relative rounded-[1.85rem] bg-[#0A0A14]/85 backdrop-blur-sm p-7 sm:p-10">
+                <div className="flex items-center justify-between mb-8">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
+                    Pfad A · Empfohlen
+                  </span>
+                  <span className="font-mono text-xs text-brand-300 tabular-nums">
+                    60s
+                  </span>
+                </div>
+                <h3 className="font-display text-2xl sm:text-[1.85rem] leading-[1.1] text-white">
+                  Quickcheck.
+                </h3>
+                <p className="mt-3 text-sm text-white/85 leading-relaxed">
+                  Drei kurze Fragen plus Kontaktdaten. Wir melden uns werktags
+                  innerhalb von 24 Stunden für ein 15–30-minütiges
+                  Erstgespräch. Kein Verkaufsdruck.
+                </p>
+
+                <div className="mt-10">
+                  <ApplyForm />
+                </div>
+              </div>
+            </article>
+
+            {/* PFAD B — TIDYCAL */}
+            <article className="relative rounded-[2rem] border border-emerald-400/35 bg-gradient-to-br from-emerald-500/[0.10] via-emerald-500/[0.03] to-transparent p-1 overflow-hidden">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(500px 400px at 100% 0%, rgba(16,185,129,0.18), transparent 70%)",
+                }}
+              />
+              <div className="relative rounded-[1.85rem] bg-[#0A0A14]/85 backdrop-blur-sm p-7 sm:p-10">
+                <div className="flex items-center justify-between mb-8">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    Pfad B · Direkt
+                  </span>
+                  <span className="font-mono text-xs text-emerald-300 tabular-nums">
+                    Live-Kalender
+                  </span>
+                </div>
+                <h3 className="font-display text-2xl sm:text-[1.85rem] leading-[1.1] text-white">
+                  Ungeduldig?
+                  <br />
+                  <span className="text-emerald-300">
+                    Strategietermin direkt sichern.
+                  </span>
+                </h3>
+                <p className="mt-3 text-sm text-white/85 leading-relaxed">
+                  Sie wissen schon, dass Sie reden wollen? Greifen Sie sich
+                  einen freien Slot im Kalender. Wir treffen uns dort und
+                  klären in 15–30 Minuten, ob das Programm zu Ihnen passt.
+                </p>
+
+                {/* Kalender-Container */}
+                <div className="mt-10 rounded-2xl border border-white/10 bg-white p-3 sm:p-4">
+                  <TidyCalEmbed />
+                </div>
+
+                <p className="mt-4 text-xs text-white/85 text-center">
+                  Buchung erfolgt über{" "}
+                  <span className="text-emerald-300 font-semibold">
+                    eskalator.ag
+                  </span>{" "}
+                  · Termin direkt in Ihrem Kalender bestätigt
+                </p>
+              </div>
+            </article>
+          </div>
+
+          {/* Trust strip below */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-white/85">
+            <span className="inline-flex items-center gap-2">
+              <Check className="w-3.5 h-3.5 text-brand-300" />
+              Unverbindlich
+            </span>
+            <span className="text-white/85">·</span>
+            <span className="inline-flex items-center gap-2">
+              <Check className="w-3.5 h-3.5 text-brand-300" />
+              Kein Verkaufsdruck
+            </span>
+            <span className="text-white/85">·</span>
+            <span className="inline-flex items-center gap-2">
+              <Check className="w-3.5 h-3.5 text-brand-300" />
+              Antwort werktags &lt; 24 h
+            </span>
+            <span className="text-white/85">·</span>
+            <span className="inline-flex items-center gap-2">
+              <Check className="w-3.5 h-3.5 text-brand-300" />
+              Begrenzte Plätze pro Durchgang
+            </span>
           </div>
         </div>
       </section>
