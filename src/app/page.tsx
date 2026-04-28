@@ -1265,497 +1265,283 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ A11 · PREISARCHITEKTUR ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
+      {/* ═══════════════════════ S9 · DETAIL-PRICING ═══════════════════════ */}
+      <section
+        id="pakete-detail"
+        className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden scroll-mt-24"
+      >
         <SectionDivider tone="brand" />
-        {/* Spotlight */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(800px 500px at 50% 20%, rgba(110,63,163,0.18), transparent 70%)",
+              "radial-gradient(900px 600px at 50% 0%, rgba(110,63,163,0.18), transparent 70%), radial-gradient(700px 500px at 100% 80%, rgba(110,63,163,0.10), transparent 70%)",
           }}
         />
-
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
-            <Eyebrow>10 · Investment</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
-              Eine Investition.
+            <Eyebrow>08 · Pakete im Detail</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Zwei Einstiege.
               <br />
-              <span className="text-brand-300">Eine Infrastruktur danach.</span>
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
-              Sie zahlen einmal — und besitzen anschließend eine Grundlage, die
-              Sie jeden Monat einsetzen. Plus zwei optionale Einstiegswege
-              davor, je nachdem, wo Sie heute stehen.
-            </p>
-          </div>
-
-          {/* MAIN ANCHOR — Hauptprogramm */}
-          <div className="mt-20 relative rounded-[2rem] border border-brand-400/40 bg-gradient-to-br from-brand-500/[0.12] via-brand-500/[0.04] to-transparent p-1">
-            <div className="rounded-[1.85rem] bg-[#0A0A12]/80 backdrop-blur-sm p-8 sm:p-12 lg:p-14">
-              {/* Top ribbon */}
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
-                <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  Hauptprogramm · Einführungspreis
-                </span>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
-                  Begrenzte Plätze · Kleingruppe
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                {/* Left: Title + stack */}
-                <div className="lg:col-span-7">
-                  <h3 className="font-display italic text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] text-white">
-                    Das Zweitsystem.
-                  </h3>
-                  <p className="mt-3 font-display text-xl sm:text-2xl text-white/85">
-                    4 Wochen · 8 Live-Termine · gemeinsamer Aufbau
-                  </p>
-
-                  <ul className="mt-10 space-y-4">
-                    {[
-                      "4 Wochen Live-Begleitung in der Kleingruppe",
-                      "8 Live-Termine: 4 × Impuls (60 min) + 4 × Umsetzung (90 min)",
-                      "Co-Build Ihres persönlichen Zweitsystems — mit Bauplan",
-                      "Schutz-, Zugriffs- und Use-Case-Architektur",
-                      "Echte Live-Arbeit an Ihren realen Vorhaben",
-                      "Bonus: Follow-up-Session ca. 4 Wochen nach Programmende",
-                      "Sie behalten das System nach den 4 Wochen — komplett",
-                    ].map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-[15px] sm:text-base text-white/85 leading-relaxed"
-                      >
-                        <Check className="w-4 h-4 mt-1.5 text-brand-300 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Right: Price + CTA */}
-                <div className="lg:col-span-5 lg:border-l lg:border-white/10 lg:pl-10 flex flex-col">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
-                    Ihr Investment
-                  </p>
-                  <div className="flex items-baseline gap-4 mb-2">
-                    <span className="font-display text-[clamp(3rem,6vw,4.5rem)] font-semibold leading-none text-white">
-                      1.990&nbsp;€
-                    </span>
-                    <span className="text-sm text-white/85">
-                      netto
-                    </span>
-                  </div>
-                  <p className="text-sm text-white/90">
-                    statt{" "}
-                    <span className="line-through decoration-white/30">
-                      2.490&nbsp;€
-                    </span>{" "}
-                    · Einführungspreis aktiv
-                  </p>
-
-                  <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300 mb-3">
-                      Was passiert nach Klick
-                    </p>
-                    <ol className="space-y-2 text-sm text-white/85">
-                      <li className="flex gap-2">
-                        <span className="text-brand-300">01</span> 60-Sekunden-Quickcheck
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-brand-300">02</span> Persönliches Erstgespräch (15–30 min)
-                      </li>
-                      <li className="flex gap-2">
-                        <span className="text-brand-300">03</span> Platz im nächsten Durchgang
-                      </li>
-                    </ol>
-                  </div>
-
-                  <a
-                    href="#bewerbung"
-                    className="group mt-8 inline-flex items-center justify-center gap-3 px-7 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900 w-full"
-                  >
-                    Platz sichern
-                    <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
-                  </a>
-                  <p className="mt-4 text-xs text-white/85 text-center">
-                    Unverbindlich · keine Vorauszahlung im Quickcheck
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Optional pre-paths */}
-          <div className="mt-20">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
-              Optional davor — zwei Einstiegswege
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Beratungsanamnese */}
-              <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10 hover:border-brand-400/40 transition flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
-                    Für Unternehmen
-                  </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300">
-                    Bis zu 80 % förderbar
-                  </span>
-                </div>
-
-                <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white mb-3">
-                  Beratungsanamnese
-                </h3>
-                <p className="text-sm text-white/80 mb-6">
-                  Geförderte Unternehmensberatung als fundierte Anamnese vor dem
-                  Hauptprogramm.
-                </p>
-
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-display text-[2.75rem] font-semibold text-white leading-none">
-                    3.500&nbsp;€
-                  </span>
-                  <span className="text-sm text-white/85">netto</span>
-                </div>
-                <p className="text-xs text-white/85 mb-8">
-                  Bis zu 80 % der Kosten können nach Umsetzung erstattet werden
-                  (förderprogrammabhängig).
-                </p>
-
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Aufnahme von Status quo und bisherigen Bemühungen",
-                    "Erstanalyse der konkreten Möglichkeiten",
-                    "Bewertung der wichtigsten Bereiche und Prioritäten",
-                    "Fundierte Grundlage für die anschließende Umsetzung",
-                  ].map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-sm text-white/90 leading-relaxed"
-                    >
-                      <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="#bewerbung"
-                  className="mt-auto inline-flex items-center gap-2 text-sm text-brand-300 hover:text-brand-200 font-semibold"
-                >
-                  Beratungsanamnese anfragen{" "}
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </article>
-
-              {/* Einstiegsanalyse */}
-              <article className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10 hover:border-brand-400/40 transition flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
-                    Für Selbstständige & Privat
-                  </span>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300">
-                    Stipendium bis 500 €
-                  </span>
-                </div>
-
-                <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white mb-3">
-                  Einstiegsanalyse
-                </h3>
-                <p className="text-sm text-white/80 mb-6">
-                  Schlanke, kompakte Standortbestimmung. Verlangt mehr eigenen
-                  Einsatz, schafft schnellen Klarstartpunkt.
-                </p>
-
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-display text-[2.75rem] font-semibold text-white leading-none">
-                    990&nbsp;€
-                  </span>
-                  <span className="text-sm text-white/85">netto</span>
-                </div>
-                <p className="text-xs text-white/85 mb-8">
-                  Stipendium von bis zu 500 € möglich · effektiv ab 490 €
-                </p>
-
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Klärung Ihrer Ausgangslage",
-                    "Identifikation Ihrer realen Anwendungsfelder",
-                    "Konkreter Startpunkt und Priorisierung",
-                    "Klare Empfehlung zum Einstieg ins Hauptprogramm",
-                  ].map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 text-sm text-white/90 leading-relaxed"
-                    >
-                      <Check className="w-4 h-4 mt-0.5 text-brand-400 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="#bewerbung"
-                  className="mt-auto inline-flex items-center gap-2 text-sm text-brand-300 hover:text-brand-200 font-semibold"
-                >
-                  Einstiegsanalyse anfragen{" "}
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </article>
-            </div>
-          </div>
-
-          {/* Anti-cost framing */}
-          <div className="mt-16 max-w-3xl">
-            <p className="font-display text-xl sm:text-2xl leading-[1.3] text-white/85">
-              Zum Vergleich: ein einzelner Agentur-Auftrag für eine
-              Angebotsseite, einen Funnel oder einen Prototyp liegt regelmäßig
-              jenseits dieser Investition —{" "}
-              <span className="text-brand-300">und endet, wenn er endet.</span>{" "}
-              Das Zweitsystem endet nicht. Es bleibt.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ A12 · UMSETZUNGSWERKSTATT (CONTINUATION) ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
-        <SectionDivider tone="brand" />
-        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <Eyebrow>11 · Nach dem Programm — wenn Sie wollen</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
-              Die Umsetzungswerkstatt.
-              <br />
-              <span className="text-brand-700">
-                Damit Sie nicht in alte Muster zurückfallen.
+              <span className="text-brand-300">
+                Drei Umsetzungsgrade. Ein Anschluss.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
-              Optional, kein Muss. Für alle, die nach den 4 Wochen weiterbauen
-              wollen — an echten Themen, mit Sparrings-Partner, ohne wieder
-              alleine im Wartezimmer zu sitzen.
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/85">
+              Je nach Förderzugang, Tempo und gewünschter Entlastung wählen Sie
+              den passenden Weg. Im Strategietermin klären wir
+              gemeinsam, welcher zu Ihnen passt.
             </p>
           </div>
 
-          {/* Continuation card */}
-          <div className="mt-20 rounded-[2rem] border border-ink-900/10 bg-gradient-to-br from-white/[0.04] to-transparent p-1">
-            <div className="rounded-[1.85rem] bg-white p-8 sm:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                {/* Left: name + features */}
-                <div className="lg:col-span-7">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-ink-900/15 bg-ink-900/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-800 mb-6">
-                    Continuation · Monatlich kündbar
-                  </span>
-                  <h3 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.05] text-ink-900">
-                    Umsetzungswerkstatt &amp; Community
-                  </h3>
-                  <p className="mt-4 text-[15px] text-ink-800 leading-relaxed max-w-xl">
-                    Ein Live-1:1-Slot pro Monat, eine ruhige Community im
-                    Hintergrund — und ein monatlicher Gruppen-Call, der den
-                    Kopf an den Markt anschließt.
-                  </p>
+          {/* EINSTIEGE */}
+          <div className="mt-16">
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="font-mono text-xs text-brand-300 tabular-nums">01</span>
+              <h3 className="font-display text-2xl text-white">
+                Einstieg — zuerst Klarheit schaffen
+              </h3>
+            </div>
 
-                  <ul className="mt-10 space-y-4">
-                    {[
-                      {
-                        head: "1:1 Live-Umsetzungs-Call (bis 2 Stunden) pro Monat",
-                        sub: "Arbeit am konkreten Problem, Prioritäten, Technik und Marktvorteil. Review echter Ergebnisse, direkte Optimierung.",
-                      },
-                      {
-                        head: "Community-Zugang mit gemeinsamer Messenger-Gruppe",
-                        sub: "Updates, kurze Impulse, schnelle Sparring-Fragen — ohne Lärm, ohne Zwang.",
-                      },
-                      {
-                        head: "Bonus: monatlicher Gruppen-Call",
-                        sub: "Digitales Mindset, Trends und Neuerungen — eingeordnet, nicht hinterhergehetzt.",
-                      },
-                    ].map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-4 border-t border-ink-900/10 pt-4 first:border-0 first:pt-0"
-                      >
-                        <Check className="w-4 h-4 mt-1 text-brand-700 flex-shrink-0" />
-                        <div>
-                          <p className="text-[15px] font-semibold text-ink-900 leading-snug">
-                            {item.head}
-                          </p>
-                          <p className="mt-1 text-sm text-ink-800 leading-relaxed">
-                            {item.sub}
-                          </p>
-                        </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+              {ENTRY_OFFERS.map((o) => (
+                <article
+                  key={o.id}
+                  className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 sm:p-9 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition flex flex-col"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
+                      {o.badge}
+                    </span>
+                    {o.funding && (
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
+                        <Sparkles className="w-3 h-3" />
+                        {o.funding}
+                      </span>
+                    )}
+                  </div>
+                  <h4 className="font-display text-2xl sm:text-[1.7rem] text-white leading-[1.15]">
+                    {o.name}
+                  </h4>
+                  <p className="mt-3 text-sm text-white/80 leading-relaxed">
+                    {o.tagline}
+                  </p>
+                  <p className="mt-6 font-display text-3xl sm:text-4xl text-white tabular-nums">
+                    {o.priceLabel}
+                  </p>
+                  <p className="mt-1 text-xs text-white/65 leading-relaxed">
+                    {o.forWho}
+                  </p>
+                  <ul className="mt-6 space-y-3 flex-1">
+                    {o.bullets.map((b, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-white/85 leading-relaxed">
+                        <GainCheck className="mt-1" />
+                        <span>{b}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                {/* Right: price + framing */}
-                <div className="lg:col-span-5 lg:border-l lg:border-ink-900/10 lg:pl-10 flex flex-col">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-800 mb-3">
-                    Optional — nur wenn Sie weiterbauen wollen
-                  </p>
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <span className="font-display text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-none text-ink-900">
-                      999&nbsp;€
-                    </span>
-                    <span className="text-sm text-ink-800">
-                      / Monat netto
-                    </span>
-                  </div>
-                  <p className="text-sm text-ink-800 mb-8">
-                    Monatlich kündbar · ab Programm-Ende möglich
-                  </p>
-
-                  <div className="rounded-2xl border border-brand-600/25 bg-brand-500/[0.06] p-6">
-                    <p className="font-display text-lg sm:text-xl leading-[1.25] text-ink-900">
-                      Sie bleiben nach dem Grundprogramm{" "}
-                      <span className="text-brand-700">nicht allein.</span>
-                    </p>
-                    <p className="mt-3 text-sm text-ink-800 leading-relaxed">
-                      Sie entwickeln Ihre Struktur an echten Themen weiter — und
-                      vermeiden den stillen Rückfall in alte Muster aus Warten,
-                      Rätseln und Reibung.
-                    </p>
-                  </div>
-                </div>
-              </div>
+                  <a
+                    href={`#bewerbung?paket=${o.id}`}
+                    className="group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:bg-white hover:text-black"
+                  >
+                    {o.cta}
+                    <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                  </a>
+                </article>
+              ))}
             </div>
-          </div>
 
-          {/* Soft note */}
-          <p className="mt-12 text-sm text-ink-800 text-center max-w-2xl mx-auto">
-            Kein Druck, kein Cross-Sell. Wer nach 4 Wochen genug hat, hat genug.
-            Wer weiter will, hat einen Ort dafür.
-          </p>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ A13 · WAS UNS ANDERS MACHT ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-[#0B0B16] overflow-hidden">
-        <SectionDivider tone="emerald" />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(700px 500px at 100% 100%, rgba(16,185,129,0.14), transparent 70%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <Eyebrow>12 · Was uns anders macht</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
-              Kein Tool-Verkauf.
-              <br />
-              <span className="text-brand-300">Kein Theorie-Kurs.</span>
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
-              Die KI Bäckerei baut mit Ihnen ein arbeitsfähiges Zweitsystem auf —
-              live, gemeinsam, mit vollem Bauplan. Was Sie bekommen, ist keine
-              Schulung und keine Demo. Es ist eine Infrastruktur, die nach den
-              4 Wochen weiterläuft.
+            <p className="mt-5 text-xs text-white/65 leading-relaxed max-w-3xl">
+              Die fundierte Unternehmensanamnese ist eine eigenständige
+              Beratungsleistung.{" "}
+              <span className="text-white/85">
+                Ob und wie Sie danach mit uns weiterarbeiten, entscheiden Sie
+                frei.
+              </span>
             </p>
           </div>
 
-          {/* Substanz-Pillars */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
-            {[
-              {
-                eyebrow: "Live · Klein",
-                head: "Sie sitzen nicht in einer Aufzeichnung.",
-                body: "Maximal kleine Gruppe. Live-Arbeit an Ihrem realen Vorhaben. Direktes Sparring statt Selbstlern-Modul.",
-              },
-              {
-                eyebrow: "Co-Build",
-                head: "Sie bauen mit — nicht zugucken.",
-                body: "Jeder Baustein entsteht sichtbar mit Ihnen. Kein Blackbox-Produkt. Sie verstehen, was Sie nutzen.",
-              },
-              {
-                eyebrow: "Bleibend",
-                head: "Sie behalten das System.",
-                body: "Nach den 4 Wochen gehört Ihnen die Infrastruktur. Inklusive Bauplan. Ohne Anbieter-Lock-in.",
-              },
-            ].map((p, i) => (
-              <div key={i} className="bg-[#0A0A12] p-10 sm:p-12">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-4">
-                  {p.eyebrow}
+          {/* UMSETZUNGSPAKETE */}
+          <div className="mt-20">
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="font-mono text-xs text-brand-300 tabular-nums">02</span>
+              <h3 className="font-display text-2xl text-white">
+                Umsetzung — drei Tiefen, ein gemeinsames Ergebnis
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+              {IMPLEMENTATION_OFFERS.map((o) => {
+                const isConcierge = o.id === "donefor-you-lite";
+                const isHighlight = o.highlight;
+                return (
+                  <article
+                    key={o.id}
+                    className={`relative rounded-3xl p-7 sm:p-9 flex flex-col transition ${
+                      isConcierge
+                        ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent"
+                        : isHighlight
+                          ? "border border-brand-400/50 bg-gradient-to-b from-brand-500/[0.12] to-brand-500/[0.02] lg:scale-[1.02]"
+                          : "border border-white/10 bg-white/[0.02] hover:border-brand-400/40 hover:bg-brand-400/[0.04]"
+                    }`}
+                  >
+                    {isHighlight && !isConcierge && (
+                      <span className="absolute -top-3 left-7 inline-flex items-center gap-1.5 rounded-full bg-brand-500 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                        Empfohlen
+                      </span>
+                    )}
+                    {isConcierge && (
+                      <span className="absolute -top-3 left-7 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-950">
+                        <Sparkles className="w-3 h-3" />
+                        Concierge · maximale Entlastung
+                      </span>
+                    )}
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
+                        {o.badge}
+                      </span>
+                    </div>
+                    <h4 className="font-display text-xl sm:text-2xl text-white leading-[1.15]">
+                      {o.name}
+                    </h4>
+                    <p className="mt-3 text-sm text-white/80 leading-relaxed">
+                      {o.tagline}
+                    </p>
+                    <p className="mt-6 font-display text-3xl sm:text-4xl text-white tabular-nums">
+                      {o.priceLabel}
+                    </p>
+                    <p className="mt-1 text-xs text-white/65 leading-relaxed">
+                      {o.forWho}
+                    </p>
+                    <ul className="mt-6 space-y-3 flex-1">
+                      {o.bullets.map((b, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm text-white/85 leading-relaxed">
+                          <GainCheck className="mt-1" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={`#bewerbung?paket=${o.id}`}
+                      className={`group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition ${
+                        isConcierge
+                          ? "bg-amber-400 text-amber-950 hover:bg-amber-300"
+                          : isHighlight
+                            ? "bg-white text-black hover:bg-brand-200"
+                            : "border border-white/20 text-white hover:bg-white hover:text-black"
+                      }`}
+                    >
+                      {o.cta}
+                      <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                    </a>
+                  </article>
+                );
+              })}
+            </div>
+
+            {/* Vergleichszeile */}
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-7">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-4">
+                Im Klartext
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-[14px] sm:text-[15px] text-white/85 leading-relaxed">
+                <p>
+                  <span className="font-semibold text-white">Kompakt</span> ist
+                  für Selbststeuerer.
                 </p>
-                <h3 className="font-display text-xl sm:text-[1.5rem] leading-[1.2] text-white mb-5">
-                  {p.head}
-                </h3>
-                <p className="text-[15px] text-white/85 leading-relaxed">
-                  {p.body}
+                <p>
+                  <span className="font-semibold text-white">With You</span> ist
+                  für Mit-Umsetzer.
+                </p>
+                <p>
+                  <span className="font-semibold text-white">
+                    Done for You Lite
+                  </span>{" "}
+                  ist für Unternehmen, die maximale Entlastung wollen.
                 </p>
               </div>
-            ))}
-          </div>
-
-          {/* What we promise vs. what we don't claim */}
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* What we promise */}
-            <div className="rounded-3xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/[0.08] to-transparent p-8 sm:p-10">
-              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-6">
-                <GainCheck />
-                Was wir versprechen
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Sie bauen Ihr Zweitsystem mit auf — nicht hinter verschlossenen Türen.",
-                  "Sie verstehen den Bauplan und können danach selbst weiterbauen.",
-                  "Sicherheits-, Schutz- und Zugriffslogik sind Teil des Aufbaus, nicht Zugabe.",
-                  "Live-Begleitung in der Kleingruppe, kein Selbstlernkurs.",
-                  "4 Wochen lang volle Aufmerksamkeit — keine Massenabfertigung.",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] text-white leading-relaxed"
-                  >
-                    <GainCheck className="mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* What we don't claim */}
-            <div className="rounded-3xl border border-rose-500/25 bg-gradient-to-br from-rose-500/[0.06] to-transparent p-8 sm:p-10">
-              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-6">
-                <PainX />
-                Was wir nicht behaupten
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Keine erfundenen Testimonials oder geschönten Cases.",
-                  "Keine versprochenen Umsatzsprünge oder Garantie-Zahlen.",
-                  "Kein „in 7 Tagen alles automatisiert“-Märchen.",
-                  "Kein „KI ersetzt Ihr Urteilsvermögen“-Pitch.",
-                  "Kein „Sie müssen nichts mehr selbst tun“ — Sie bleiben der Fachkopf.",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/90 leading-relaxed"
-                  >
-                    <PainX className="mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
 
-          {/* Closing line */}
-          <p className="mt-20 font-display text-[clamp(1.25rem,2vw,1.75rem)] leading-[1.3] text-white/80 max-w-4xl">
-            Vertrauen entsteht nicht durch Schaufenster-Logos.
-            <br />
-            <span className="text-brand-300">
-              Sondern durch Klarheit darüber, was Sie bekommen — und was nicht.
-            </span>
-          </p>
+          {/* ANSCHLUSS — Premium-Umsetzungsbegleitung */}
+          <div className="mt-16">
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="font-mono text-xs text-brand-300 tabular-nums">03</span>
+              <h3 className="font-display text-2xl text-white">
+                Anschluss — damit die Maschine im Alltag scharf bleibt
+              </h3>
+            </div>
+
+            <article className="rounded-3xl border border-white/10 bg-gradient-to-r from-brand-500/[0.08] via-white/[0.02] to-transparent p-7 sm:p-9">
+              <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 items-start">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
+                      {SUBSCRIPTION_OFFER.badge}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-white/65">
+                      monatlich kündbar
+                    </span>
+                  </div>
+                  <h4 className="font-display text-2xl sm:text-[1.7rem] text-white leading-[1.15]">
+                    {SUBSCRIPTION_OFFER.name}
+                  </h4>
+                  <p className="mt-3 text-sm text-white/80 leading-relaxed">
+                    {SUBSCRIPTION_OFFER.tagline}
+                  </p>
+                  <p className="mt-5 font-display text-3xl sm:text-4xl text-white tabular-nums">
+                    {SUBSCRIPTION_OFFER.priceLabel}
+                    <span className="text-base sm:text-lg text-white/65 font-sans font-normal ml-1">
+                      {SUBSCRIPTION_OFFER.priceSuffix}
+                    </span>
+                  </p>
+                  <p className="mt-1 text-xs text-white/65 leading-relaxed">
+                    {SUBSCRIPTION_OFFER.forWho}
+                  </p>
+                </div>
+                <ul className="space-y-3">
+                  {SUBSCRIPTION_OFFER.bullets.map((b, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-sm text-white/85 leading-relaxed"
+                    >
+                      <GainCheck className="mt-1" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                href={`#bewerbung?paket=${SUBSCRIPTION_OFFER.id}`}
+                className="group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:bg-white hover:text-black"
+              >
+                {SUBSCRIPTION_OFFER.cta}
+                <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+              </a>
+            </article>
+          </div>
+
+          {/* CTA-Anker zum Bewerbungsformular */}
+          <div className="mt-16 text-center">
+            <p className="font-display text-[clamp(1.4rem,2.4vw,1.875rem)] leading-[1.25] text-white max-w-3xl mx-auto">
+              Welcher Weg passt zu Ihnen?
+              <br />
+              <span className="text-brand-300">
+                Klären wir im Strategietermin.
+              </span>
+            </p>
+            <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="#bewerbung"
+                className="group inline-flex items-center gap-3 px-7 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
+              >
+                Strategietermin sichern
+                <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
