@@ -8,9 +8,10 @@ import { TidyCalEmbed } from "@/components/apply/TidyCalEmbed";
 import { ArrowRight, Check, X } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Das Zweitsystem — die zweite digitale Arbeitskraft",
+  title:
+    "Digitale Umsetzungsmaschine — Steuern Sie Ihr Business aus der Hosentasche",
   description:
-    "Das Zweitsystem: In 4 Wochen bauen Sie gemeinsam eine zweite digitale Arbeitskraft auf — die aus Ihrer Fachkompetenz in Stunden Ergebnisse macht. Nicht in Wochen.",
+    "Bauen Sie eine digitale Umsetzungsmaschine, mit der aus Ideen, Sprachnachrichten und Anforderungen sichtbare Ergebnisse werden — schneller, eigenständiger und mit deutlich weniger Abhängigkeit von Agenturen, IT-Dienstleistern und internen Engpässen.",
   path: "/",
 });
 
@@ -96,49 +97,70 @@ export default function KiUmsetzungPage() {
     <div className="relative bg-[#07070C] text-white overflow-hidden">
 
       <BreadcrumbJsonLd
-        items={[{ name: "Das Zweitsystem", href: "/" }]}
+        items={[{ name: "Digitale Umsetzungsmaschine", href: "/" }]}
       />
 
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "Course",
-          name: "Das Zweitsystem — 4-Wochen-Aufbau",
+          "@type": "Service",
+          name: "Digitale Umsetzungsmaschine",
           description:
-            "Das Zweitsystem: 4-Wochen-Kleingruppenprogramm der KI Bäckerei zum gemeinsamen Aufbau einer zweiten digitalen Arbeitskraft.",
+            "Programm- und Beratungsleistungen der KI Bäckerei zum Aufbau einer digitalen Umsetzungsmaschine: aus Ideen, Sprachnachrichten und Anforderungen entstehen sichtbare Ergebnisse — schneller, eigenständiger und mit weniger Dienstleisterabhängigkeit.",
           provider: {
             "@type": "Organization",
             name: "KI Bäckerei",
             url: SITE_URL,
           },
-          duration: "P4W",
-          courseMode: "Online",
-          learningResourceType: "Live Training",
-          numberOfCredits: 8,
+          areaServed: "DE",
           offers: [
             {
               "@type": "Offer",
-              name: "Hauptprogramm — Einführungspreis",
-              price: "1990",
-              priceCurrency: "EUR",
-              url: SITE_URL,
-              category: "Hauptprogramm",
-            },
-            {
-              "@type": "Offer",
-              name: "Beratungsanamnese (für Unternehmen)",
+              name: "Fundierte Unternehmensanamnese",
               price: "3500",
               priceCurrency: "EUR",
               url: SITE_URL,
-              category: "Vorbau",
+              category: "Einstieg · Beratung",
             },
             {
               "@type": "Offer",
-              name: "Einstiegsanalyse (für Selbstständige & Privat)",
+              name: "Kompakte Einstiegsanalyse",
               price: "990",
               priceCurrency: "EUR",
               url: SITE_URL,
-              category: "Vorbau",
+              category: "Einstieg · Schlank",
+            },
+            {
+              "@type": "Offer",
+              name: "Umsetzungsfabrik Kompakt",
+              price: "1990",
+              priceCurrency: "EUR",
+              url: SITE_URL,
+              category: "Umsetzung · Selbststeuerer",
+            },
+            {
+              "@type": "Offer",
+              name: "Digitale Umsetzungsmaschine With You",
+              price: "8500",
+              priceCurrency: "EUR",
+              url: SITE_URL,
+              category: "Umsetzung · Mit-Umsetzer",
+            },
+            {
+              "@type": "Offer",
+              name: "Done for You Lite",
+              price: "24900",
+              priceCurrency: "EUR",
+              url: SITE_URL,
+              category: "Umsetzung · Concierge",
+            },
+            {
+              "@type": "Offer",
+              name: "Premium-Umsetzungsbegleitung",
+              price: "999",
+              priceCurrency: "EUR",
+              url: SITE_URL,
+              category: "Anschluss · monatlich",
             },
           ],
         }}
@@ -233,68 +255,70 @@ export default function KiUmsetzungPage() {
         }}
       />
 
-      {/* ═══════════════════════ A1 · HERO ═══════════════════════ */}
+      {/* ═══════════════════════ S1 · HERO ═══════════════════════ */}
       <section className="relative z-10 min-h-[100svh] flex flex-col bg-[#07070C] overflow-hidden">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(1200px 700px at 15% -10%, rgba(110,63,163,0.30), transparent 60%), radial-gradient(900px 600px at 90% 10%, rgba(110,63,163,0.18), transparent 60%)",
+              "radial-gradient(1200px 700px at 15% -10%, rgba(110,63,163,0.32), transparent 60%), radial-gradient(900px 600px at 90% 10%, rgba(110,63,163,0.18), transparent 60%)",
           }}
         />
+
         {/* Top meta bar */}
         <div className="relative z-10 border-b border-white/5">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-6 text-[11px] uppercase tracking-[0.18em] text-white/90">
             <span className="font-semibold">
-              KI Bäckerei · Das Zweitsystem
+              KI Bäckerei · Digitale Umsetzungsmaschine
             </span>
             <span className="hidden sm:inline-flex items-center gap-2 font-semibold">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
-              Einführungspreis aktiv
+              Anamnese · Programm · Begleitung
             </span>
           </div>
         </div>
 
-        <div className="relative z-10 flex-1 mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10 pt-20 lg:pt-28 pb-24">
-          {/* Category badge */}
+        <div className="relative z-10 flex-1 mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10 pt-16 lg:pt-24 pb-20">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm mb-10">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-400" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90">
-              4-Wochen-Programm · Digitale Kleingruppe · Live
+              Für Unternehmen · Selbstständige · Fachkräfte · Angestellte · Teams
             </span>
           </div>
 
-          {/* Wordmark headline */}
-          <h1 className="font-display leading-[0.92] tracking-[-0.02em] text-white">
+          {/* Hero headline */}
+          <h1 className="font-display leading-[0.95] tracking-[-0.02em] text-white">
             <span className="block text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-[0.3em] text-brand-300 mb-6">
-              Eine neue Kategorie
+              Digitale Umsetzungsmaschine
             </span>
             <span
-              className="block text-[clamp(3.5rem,11vw,9rem)] font-semibold italic text-white"
+              className="block text-[clamp(2.75rem,8.5vw,6.75rem)] font-semibold text-white"
               style={{
                 textShadow:
                   "0 0 60px rgba(155,111,198,0.18), 0 0 120px rgba(110,63,163,0.14)",
               }}
             >
-              Das Zweitsystem.
+              Steuern Sie Ihr Business
+              <br />
+              <span className="italic text-brand-200">aus der Hosentasche.</span>
             </span>
           </h1>
 
           {/* Subhead */}
-          <p className="mt-10 max-w-3xl font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.2] text-white/90">
-            Die zweite digitale Arbeitskraft, die aus Ihrer Fachkompetenz in{" "}
-            <span className="text-brand-300">Stunden</span> Ergebnisse macht.{" "}
-            <span className="text-white/90">Nicht in Wochen.</span>
+          <p className="mt-10 max-w-3xl font-display text-[clamp(1.25rem,2.4vw,1.875rem)] leading-[1.25] text-white/90">
+            Bauen Sie eine digitale Umsetzungsmaschine, mit der aus Ideen,
+            Sprachnachrichten und Anforderungen{" "}
+            <span className="text-brand-300">sichtbare Ergebnisse</span> werden —
+            schneller, eigenständiger und mit deutlich weniger Abhängigkeit von
+            Agenturen, IT-Dienstleistern und internen Engpässen.
           </p>
 
           {/* Lead paragraph */}
           <p className="mt-8 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/85">
-            Für Unternehmen, Selbstständige, Fachkräfte, Angestellte und Teams,
-            die zwischen Idee und Ergebnis keine Wochen mehr verlieren wollen.
-            Keine Agentur-Schleifen. Keine endlosen Briefings. Keine
-            Freigabe-Pingpongs. Sondern eine eigene Umsetzungsinfrastruktur —
-            gemeinsam aufgebaut, danach Ihnen gehörend.
+            Ihre Fachkompetenz bleibt der Rohstoff. Die Umsetzungsmaschine macht
+            daraus, was sonst Wochen durch Briefings und Freigaben gewandert
+            wäre. Anamnese zuerst — danach der passende Umsetzungsweg.
           </p>
 
           {/* CTAs */}
@@ -303,24 +327,24 @@ export default function KiUmsetzungPage() {
               href="#bewerbung"
               className="group inline-flex items-center gap-3 px-7 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
             >
-              Platz sichern
+              Strategietermin sichern
               <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#bewerbung"
+              href="#pakete"
               className="inline-flex items-center gap-3 px-7 h-14 rounded-full border border-white/20 text-white text-[14px] font-semibold tracking-wide transition hover:border-white/70 hover:bg-white/5"
             >
-              60-Sekunden-Quickcheck
+              Pakete ansehen
             </a>
           </div>
 
-          {/* Proof bar */}
+          {/* Proof / Orientation bar */}
           <div className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10">
             {[
-              { label: "Format", value: "Digitale Kleingruppe" },
-              { label: "Dauer", value: "4 Wochen · 8 Live-Termine" },
-              { label: "Rhythmus", value: "2 Sessions pro Woche" },
-              { label: "Investment", value: "1.990 € · statt 2.490 €" },
+              { label: "Einstieg", value: "Anamnese · ggf. förderfähig" },
+              { label: "Format", value: "Live · digitale Kleingruppe" },
+              { label: "Umsetzung", value: "Kompakt · With You · Done for You" },
+              { label: "Ergebnis", value: "Eigene Umsetzungsfähigkeit" },
             ].map((item) => (
               <div key={item.label} className="bg-[#0A0A12] p-5 sm:p-6">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85 mb-2">
@@ -337,27 +361,26 @@ export default function KiUmsetzungPage() {
         {/* Scroll cue */}
         <div className="relative z-10 border-t border-white/5">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-white/85">
-            <span>Scrollen für den Preis des Wartens</span>
+            <span>Scrollen — was zwischen Idee und Ergebnis verloren geht</span>
             <span>↓</span>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════ A2 · DER PREIS DES WARTENS ═══════════════════════ */}
+      {/* ═══════════════════════ S2 · PROBLEM ═══════════════════════ */}
       <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
         <SectionDivider tone="rose" />
-        {/* Pain glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(700px 500px at 100% 0%, rgba(244,63,94,0.18), transparent 70%)",
+              "radial-gradient(700px 500px at 100% 0%, rgba(244,63,94,0.16), transparent 70%)",
           }}
         />
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
-            <Eyebrow>01 · Der eigentliche Schaden</Eyebrow>
+            <Eyebrow>01 · Das eigentliche Problem</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
               Sie haben nicht zu wenig Ideen.
               <br />
@@ -366,39 +389,39 @@ export default function KiUmsetzungPage() {
               </span>
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
-              Der Engpass ist nicht Kreativität. Nicht Strategie. Nicht
-              Fachwissen. Der Engpass ist die Strecke dazwischen — und die
+              Der Engpass ist nicht Fachwissen, nicht Strategie, nicht
+              Kreativität. Der Engpass ist die Strecke dazwischen — und die
               bezahlen Sie jeden Monat, auch wenn niemand sie auf die Rechnung
               schreibt.
             </p>
           </div>
 
-          {/* Cost grid */}
-          <ul className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-10">
+          {/* Pain grid — kürzer, härter, präziser */}
+          <ul className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-8">
             {[
               {
                 head: "Briefings, die zu vier Briefings werden.",
-                sub: "Ein Gedanke wird dreimal erklärt, bevor überhaupt jemand weitermacht.",
+                sub: "Ein Gedanke wird dreimal erklärt, bevor jemand weitermacht.",
               },
               {
                 head: "Rückfragen, die zu Meetings werden.",
                 sub: "Aus 15 Minuten Klarheit wird ein Termin in zwei Wochen.",
               },
               {
-                head: "Freigaben, die zu Korrekturrunden werden.",
-                sub: "Man korrigiert Artefakte, statt Wirkung zu schaffen.",
+                head: "Dienstleister-Wartezeit, in der nichts entsteht.",
+                sub: "Kapazität, Slot, Ressourcen — Ihre Idee steht in der Schlange.",
               },
               {
-                head: "Dienstleister, die Wochen brauchen, um zu verstehen.",
-                sub: "Ihr Fachwissen wird in Briefings übersetzt — und dabei verdünnt.",
+                head: "Freigabe-Pingpong, das Energie frisst.",
+                sub: "Man korrigiert Artefakte, statt Wirkung zu erzeugen.",
               },
               {
-                head: "Übergaben, in denen die Hälfte der Idee verdampft.",
-                sub: "Was bei Ihnen klar war, kommt bei anderen verwaschen an.",
-              },
-              {
-                head: "Momentum, das stirbt, bevor etwas Sichtbares entsteht.",
+                head: "Ideen verlieren Momentum.",
                 sub: "Eine gute Idee am Montag ist am Freitag schon kalt.",
+              },
+              {
+                head: "Fachwissen verdampft in Übergaben.",
+                sub: "Was bei Ihnen klar war, kommt bei anderen verwaschen an.",
               },
             ].map((item, i) => (
               <li
@@ -419,7 +442,7 @@ export default function KiUmsetzungPage() {
           </ul>
 
           {/* Closer */}
-          <div className="mt-24 grid grid-cols-1 lg:grid-cols-5 gap-10 items-center border-t border-ink-900/10 pt-14">
+          <div className="mt-20 grid grid-cols-1 lg:grid-cols-5 gap-10 items-center border-t border-ink-900/10 pt-12">
             <div className="lg:col-span-3">
               <p className="font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.15] text-ink-900">
                 Verlorene Zeit. Verlorene Geschwindigkeit.
@@ -429,10 +452,15 @@ export default function KiUmsetzungPage() {
             </div>
             <div className="lg:col-span-2 lg:border-l lg:border-ink-900/10 lg:pl-10">
               <p className="text-[15px] leading-relaxed text-ink-800">
-                <Wordmark className="text-ink-900 not-italic font-display font-semibold" />{" "}
-                setzt genau dort an — und schließt die Lücke{" "}
-                <span className="text-brand-700">in 4 Wochen</span>, nicht in
-                4 Quartalen.
+                Genau dort setzt die{" "}
+                <span className="font-display italic font-semibold text-ink-900">
+                  digitale Umsetzungsmaschine
+                </span>{" "}
+                an — sie schließt die Lücke{" "}
+                <span className="text-brand-700">
+                  zwischen Idee und sichtbarem Ergebnis
+                </span>
+                .
               </p>
             </div>
           </div>
