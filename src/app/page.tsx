@@ -1123,6 +1123,148 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
+      {/* ═══════════════════════ S8 · WIRTSCHAFTLICHE RELATIVIERUNG ═══════════════════════ */}
+      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden">
+        <SectionDivider tone="brand" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(800px 500px at 0% 20%, rgba(110,63,163,0.10), transparent 65%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>07 · Wirtschaftliche Einordnung</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+              Was Unternehmen heute
+              <br />
+              <span className="text-brand-700">
+                für digitale Umsetzung bezahlen.
+              </span>
+            </h2>
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-ink-800">
+              Ein einziges externes Projekt kostet oft mehr als der Aufbau
+              Ihrer eigenen digitalen Umsetzungsfähigkeit. Der Unterschied:{" "}
+              <span className="text-ink-900 font-semibold">
+                Nach dem Projekt ist das Geld weg. Nach unserem Programm bleibt
+                die Fähigkeit im Unternehmen.
+              </span>
+            </p>
+            <p className="mt-3 text-xs text-ink-700">
+              Folgende Werte sind realistische Orientierungswerte aus dem
+              Markt — keine harten Garantien.
+            </p>
+          </div>
+
+          {/* 9 Cost benchmarks */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {COST_BENCHMARKS.map((b, i) => (
+              <article
+                key={b.title}
+                className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-600/40 transition"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <span className="font-mono text-xs text-brand-700 tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="font-display text-base sm:text-lg leading-[1.25] text-ink-900 mb-3">
+                  {b.title}
+                </h3>
+                <p className="font-display text-xl sm:text-2xl text-brand-700 tabular-nums leading-tight">
+                  {b.range}
+                </p>
+                {b.recurring && (
+                  <p className="mt-3 text-xs text-ink-700 leading-relaxed border-t border-ink-900/10 pt-3">
+                    {b.recurring}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+
+          {/* Value-Shift */}
+          <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="rounded-3xl border border-rose-400/40 bg-gradient-to-b from-rose-50 to-transparent p-7 sm:p-9">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-700 mb-5">
+                <PainX />
+                Klassisch
+              </p>
+              <h3 className="font-display text-xl sm:text-2xl text-ink-900 leading-snug">
+                Sie kaufen ein einzelnes Projekt.
+              </h3>
+              <p className="mt-4 text-sm text-ink-800 leading-relaxed">
+                Danach brauchen Sie für die nächste Änderung, Variante oder Idee
+                oft wieder externe Hilfe. Ergebnis: Wieder briefen. Wieder
+                warten. Wieder zahlen.
+              </p>
+            </div>
+            <div className="relative rounded-3xl border border-emerald-500/40 bg-gradient-to-b from-emerald-50 to-transparent p-7 sm:p-9">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-700 mb-5">
+                <GainCheck />
+                Mit der Umsetzungsmaschine
+              </p>
+              <h3 className="font-display text-xl sm:text-2xl text-ink-900 leading-snug">
+                Sie bauen eine Fähigkeit auf.
+              </h3>
+              <p className="mt-4 text-sm text-ink-800 leading-relaxed">
+                Ideen schneller strukturieren, digitale Vorstufen selbst
+                erzeugen, Dienstleister besser steuern, Ergebnisse schneller
+                prüfen, Varianten schneller testen — immer wieder, ohne erneut
+                bei null zu starten.
+              </p>
+            </div>
+          </div>
+
+          {/* Kernsatz */}
+          <p className="mt-10 font-display text-[clamp(1.4rem,2.6vw,2rem)] leading-[1.25] text-ink-900 max-w-4xl">
+            <span className="text-ink-900">
+              Eine Agentur baut Ihnen ein Ergebnis.
+            </span>
+            <br />
+            <span className="text-brand-700">
+              Wir bauen mit Ihnen die Fähigkeit, immer wieder Ergebnisse
+              entstehen zu lassen.
+            </span>
+          </p>
+
+          {/* Amortisation */}
+          <div className="mt-12 rounded-3xl border border-ink-900/10 bg-white p-7 sm:p-10">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-700 mb-5">
+              Wann sich das amortisiert
+            </p>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3 text-[14px] sm:text-[15px] text-ink-800 leading-relaxed">
+              {[
+                "Wenn eine Agenturschleife vermieden wird",
+                "Wenn ein App-Projekt erst prototypisiert wird, bevor 25.000 € – 150.000 € fließen",
+                "Wenn eine Landingpage nicht komplett extern beauftragt werden muss",
+                "Wenn Anforderungen so klar werden, dass Dienstleister weniger Schleifen brauchen",
+                "Wenn monatliche Retainer und Abstimmungen reduziert werden",
+                "Wenn Entscheidungen schneller fallen und Marktchancen früher getestet werden",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <GainCheck className="mt-1" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 pt-5 border-t border-ink-900/10 text-sm text-ink-700 leading-relaxed">
+              Wir reduzieren keine Dienstleister komplett. Wir reduzieren{" "}
+              <span className="text-ink-900 font-semibold">
+                blinde Abhängigkeit
+              </span>{" "}
+              und erhöhen{" "}
+              <span className="text-ink-900 font-semibold">
+                interne Umsetzungsfähigkeit
+              </span>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════════════ A11 · PREISARCHITEKTUR ═══════════════════════ */}
       <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
         <SectionDivider tone="brand" />
