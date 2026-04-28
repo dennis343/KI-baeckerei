@@ -3,21 +3,33 @@
 import * as React from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { CONTACT_EMAIL } from "@/lib/utils";
+import { ALL_OFFERS } from "@/lib/offers";
 
 type OptionValue = string;
 
 type QuickcheckStep = {
-  key: "situation" | "bremser" | "ziel";
+  key: "paket" | "situation" | "bremser" | "ziel";
   question: string;
   hint: string;
   options: { value: OptionValue; label: string }[];
 };
 
+const PAKET_OPTIONS: { value: string; label: string }[] = [
+  ...ALL_OFFERS.map((o) => ({ value: o.id, label: o.shortName })),
+  { value: "unsicher", label: "Noch unsicher · bitte beraten" },
+];
+
 const STEPS: QuickcheckStep[] = [
+  {
+    key: "paket",
+    question: "Welches Angebot interessiert Sie?",
+    hint: "Wählen Sie Ihre erste Tendenz — wir klären im Gespräch, ob es passt.",
+    options: PAKET_OPTIONS,
+  },
   {
     key: "situation",
     question: "Wo stehen Sie gerade?",
-    hint: "Damit wir den richtigen Einstiegsweg vorschlagen können.",
+    hint: "Damit wir den Strategietermin zielgerichtet vorbereiten können.",
     options: [
       { value: "unternehmen", label: "Unternehmen mit Team" },
       { value: "selbststaendig", label: "Selbstständig / Solo" },
@@ -61,6 +73,16 @@ const textareaBase =
   "w-full bg-white/[0.02] border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/45 " +
   "focus:border-brand-400 focus:bg-white/[0.04] focus:outline-none focus:ring-4 focus:ring-brand-400/15 transition resize-none";
 
+/** Liest paket-id aus dem URL-Hash, falls vorhanden (z.B. "#bewerbung?paket=kompakt"). */
+function readPaketFromHash(): string | null {
+  if (typeof window === "undefined") return null;
+  const hash = window.location.hash;
+  const match = hash.match(/[?&]paket=([^&]+)/);
+  if (!match) return null;
+  const candidate = decodeURIComponent(match[1]);
+  return PAKET_OPTIONS.some((o) => o.value === candidate) ? candidate : null;
+}
+
 export function ApplyForm() {
   const [answers, setAnswers] = React.useState<Record<string, OptionValue>>({});
   const [name, setName] = React.useState("");
@@ -70,6 +92,20 @@ export function ApplyForm() {
   const [note, setNote] = React.useState("");
   const [sending, setSending] = React.useState(false);
   const [sent, setSent] = React.useState(false);
+
+  // Paket aus URL-Hash übernehmen, wenn der Nutzer von einer Pricing-Card kommt.
+  React.useEffect(() => {
+    const fromHash = readPaketFromHash();
+    if (fromHash) {
+      setAnswers((prev) => ({ ...prev, paket: fromHash }));
+    }
+    function onHashChange() {
+      const next = readPaketFromHash();
+      if (next) setAnswers((prev) => ({ ...prev, paket: next }));
+    }
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   const completedSteps = STEPS.filter((s) => answers[s.key]).length;
   const progress = Math.round((completedSteps / STEPS.length) * 100);
@@ -88,6 +124,7 @@ export function ApplyForm() {
     e.preventDefault();
     setSending(true);
 
+    const paket = labelFor("paket");
     const situation = labelFor("situation");
     const bremser = labelFor("bremser");
     const ziel = labelFor("ziel");
@@ -99,6 +136,7 @@ export function ApplyForm() {
       company && `Unternehmen: ${company}`,
       "",
       "— Quickcheck —",
+      `Interesse: ${paket}`,
       `Ausgangslage: ${situation}`,
       `Größter Bremser: ${bremser}`,
       `Zuerst umsetzen: ${ziel}`,
@@ -108,7 +146,7 @@ export function ApplyForm() {
       .filter(Boolean)
       .join("\n");
 
-    const subject = "Bewerbung: Das Zweitsystem (4-Wochen-Programm)";
+    const subject = `Strategietermin: Digitale Umsetzungsmaschine (${paket})`;
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
 
     window.location.href = mailto;
@@ -125,14 +163,13 @@ export function ApplyForm() {
           <Check className="w-7 h-7 text-brand-300" />
         </div>
         <h3 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.1] text-white">
-          Ihre Bewerbung ist auf dem Weg.
+          Ihre Anfrage ist auf dem Weg.
         </h3>
         <p className="mt-6 text-[15px] sm:text-base text-white/85 leading-relaxed max-w-xl mx-auto">
           Sobald Ihr E-Mail-Programm die Nachricht abgeschickt hat, melden wir
-          uns persönlich — meist innerhalb von 24 Stunden, werktags schneller.
+          uns persönlich — werktags meist innerhalb von 24 Stunden.
         </p>
 
-        {/* Was als nächstes passiert */}
         <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-7 text-left">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-5">
             Was als nächstes passiert
@@ -141,13 +178,13 @@ export function ApplyForm() {
             {[
               {
                 num: "01",
-                head: "Wir lesen Ihre Bewerbung.",
+                head: "Wir lesen Ihre Anfrage.",
                 sub: "Quickcheck plus Notiz, falls Sie eine geschickt haben.",
               },
               {
                 num: "02",
-                head: "Wir melden uns für ein 15–30-min-Erstgespräch.",
-                sub: "Per Telefon oder Video — was Ihnen lieber ist.",
+                head: "Wir melden uns für ein 15–30-min-Strategiegespräch.",
+                sub: "Per Telefon oder Video — Sie wählen.",
               },
               {
                 num: "03",
@@ -180,8 +217,7 @@ export function ApplyForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-3xl" noValidate>
-      {/* Progress */}
-      <div className="mb-14">
+      <div className="mb-12">
         <div className="flex items-center justify-between mb-3">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
             Quickcheck · {completedSteps} von {STEPS.length}
@@ -198,8 +234,7 @@ export function ApplyForm() {
         </div>
       </div>
 
-      {/* Quickcheck steps */}
-      <div className="space-y-14 mb-16">
+      <div className="space-y-12 mb-14">
         {STEPS.map((step, idx) => {
           const done = Boolean(answers[step.key]);
           return (
@@ -218,9 +253,7 @@ export function ApplyForm() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-white/85 mb-6 ml-9">
-                {step.hint}
-              </p>
+              <p className="text-sm text-white/85 mb-5 ml-9">{step.hint}</p>
               <div className="flex flex-wrap gap-2.5 ml-9">
                 {step.options.map((opt) => {
                   const selected = answers[step.key] === opt.value;
@@ -247,11 +280,10 @@ export function ApplyForm() {
         })}
       </div>
 
-      {/* Contact fields */}
-      <div className="border-t border-white/10 pt-12 mb-10">
-        <div className="flex items-baseline gap-4 mb-8">
+      <div className="border-t border-white/10 pt-10 mb-10">
+        <div className="flex items-baseline gap-4 mb-7">
           <span className="font-mono text-xs text-brand-300 tabular-nums">
-            04
+            05
           </span>
           <h3 className="font-display text-xl sm:text-2xl text-white">
             Wie erreichen wir Sie?
@@ -289,7 +321,10 @@ export function ApplyForm() {
           </label>
           <label className="block">
             <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
-              Telefon <span className="text-white/90 normal-case tracking-normal">— optional</span>
+              Telefon{" "}
+              <span className="text-white/90 normal-case tracking-normal">
+                — optional
+              </span>
             </span>
             <input
               type="tel"
@@ -302,7 +337,10 @@ export function ApplyForm() {
           </label>
           <label className="block">
             <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
-              Unternehmen <span className="text-white/90 normal-case tracking-normal">— optional</span>
+              Unternehmen{" "}
+              <span className="text-white/90 normal-case tracking-normal">
+                — optional
+              </span>
             </span>
             <input
               type="text"
@@ -317,44 +355,44 @@ export function ApplyForm() {
 
         <label className="block mt-5 ml-0 sm:ml-9">
           <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
-            Kurzbeschreibung <span className="text-white/90 normal-case tracking-normal">— optional</span>
+            Kurzbeschreibung{" "}
+            <span className="text-white/90 normal-case tracking-normal">
+              — optional
+            </span>
           </span>
           <textarea
             value={note}
             onChange={(e) => setNote(e.target.value)}
             rows={3}
             className={textareaBase}
-            placeholder="Worum geht es konkret? Was wäre der ideale Stand nach 4 Wochen?"
+            placeholder="Worum geht es konkret? Welcher Use Case soll zuerst real werden?"
           />
         </label>
       </div>
 
-      {/* Summary preview when complete */}
       {allQuickcheckDone && (
         <div className="mb-10 rounded-2xl border border-brand-400/25 bg-gradient-to-br from-brand-500/[0.06] to-transparent p-6 sm:p-7">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-5">
             Zusammenfassung Ihres Quickchecks
           </p>
-          <dl className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4">
+          <dl className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-4">
             {[
+              { k: "Interesse", v: labelFor("paket") },
               { k: "Ausgangslage", v: labelFor("situation") },
-              { k: "Größter Bremser", v: labelFor("bremser") },
+              { k: "Bremser", v: labelFor("bremser") },
               { k: "Zuerst umsetzen", v: labelFor("ziel") },
             ].map((row) => (
               <div key={row.k}>
                 <dt className="text-[10px] uppercase tracking-[0.2em] text-white/85 font-semibold mb-1">
                   {row.k}
                 </dt>
-                <dd className="text-sm text-white leading-snug">
-                  {row.v}
-                </dd>
+                <dd className="text-sm text-white leading-snug">{row.v}</dd>
               </div>
             ))}
           </dl>
         </div>
       )}
 
-      {/* Submit */}
       <div className="flex flex-col gap-5">
         <button
           type="submit"
@@ -368,7 +406,7 @@ export function ApplyForm() {
             </>
           ) : (
             <>
-              Platz im nächsten Durchgang sichern
+              Strategietermin anfragen
               <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </>
           )}

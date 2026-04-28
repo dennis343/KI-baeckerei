@@ -179,82 +179,66 @@ export default function KiUmsetzungPage() {
           mainEntity: [
             {
               "@type": "Question",
-              name: "Ist das auch etwas für mich, wenn ich nicht technisch bin?",
+              name: "Muss ich technisch sein?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Ja. Sie müssen weder Entwickler noch IT-Spezialist sein. Wichtig sind Branchen- und Kundenkenntnis, ein konkretes Vorhaben und die Bereitschaft, 4 Wochen mitzubauen. Den technischen Teil nehmen wir gemeinsam.",
+                text: "Nein. Sie müssen weder Entwickler noch IT-Spezialist sein. Wichtig sind Branchen- und Kundenkenntnis, ein konkretes Vorhaben und die Bereitschaft, an realen Use Cases mitzuarbeiten. Den technischen Teil bauen wir gemeinsam.",
               },
             },
             {
               "@type": "Question",
-              name: "Funktioniert das auch für Angestellte oder nur für Unternehmer?",
+              name: "Ist die fundierte Unternehmensanamnese verpflichtend für ein Umsetzungspaket?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Beides. Das Programm ist genauso auf Angestellte und Fachkräfte zugeschnitten. Die Förderlogik gilt für Unternehmen, die Programmlogik selbst funktioniert für jeden Erwerbskontext.",
+                text: "Nein. Die Anamnese ist eine eigenständige Beratungsleistung. Sie schafft Klarheit über Engpässe, Prioritäten und Handlungsfelder. Eine anschließende Umsetzung mit uns ist möglich, aber nicht verpflichtend.",
               },
             },
             {
               "@type": "Question",
-              name: "Muss ich schon eine konkrete Idee haben?",
+              name: "Was ist der Unterschied zwischen Kompakt, With You und Done for You Lite?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Eine grobe Richtung reicht. Eine Seite, ein Funnel, ein Prototyp, ein Prozess oder ein neues Angebot — die Schärfung passiert in den ersten Tagen, nicht vor dem Programm.",
+                text: "Kompakt (1.990 €) gibt den Bauplan für Selbststeuerer. With You (8.500 €) baut die Maschine gemeinsam mit Mit-Umsetzern auf. Done for You Lite (24.900 €) richtet sie für Sie ein, schult Ihr Team und begleitet die ersten Einsätze — für maximale Entlastung.",
               },
             },
             {
               "@type": "Question",
-              name: "Wie viel Zeit muss ich pro Woche einplanen?",
+              name: "Was bekomme ich bei Done for You Lite konkret eingerichtet?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Pflicht sind die 8 Live-Termine: 4 × 60 min Impuls + 4 × 90 min Umsetzung, also rund 3 Stunden pro Woche live. Zwischen den Calls empfohlen: 2–4 Stunden pro Woche.",
+                text: "Voller Umfang aus With You plus: Einrichtung der Zugänge, Verbindung relevanter Accounts, Erstjustierung der Arbeitslogik, Anlage erster Projektdaten und Prompt-Strukturen, Übergabe eines benutzbaren Startsystems. Zusätzlich: 2 Monate Premium-Umsetzungsbegleitung und 2 exklusive 1:1-Team-Schulungswochen am echten System.",
               },
             },
             {
               "@type": "Question",
-              name: "Bekomme ich ein System übergeben oder baue ich es selbst mit auf?",
+              name: "Was passiert nach dem Programm?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Sie bauen es mit auf — bewusst. Keine Blackbox, kein Anbieter-Lock-in. Sie verstehen jeden Baustein und können danach eigenständig weiterbauen.",
+                text: "Sie haben ein benutzbares Grundsystem, das Sie eigenständig nutzen. Optional: Premium-Umsetzungsbegleitung 999 €/Monat (1 × 90 min 1:1, monatlich kündbar) mit Community-Zugang, Messenger-Gruppe und monatlichem Gruppen-Call.",
               },
             },
             {
               "@type": "Question",
-              name: "Ist das nur für Marketing oder auch für Prozesse, Angebote, Prototypen und digitale Leistungen?",
+              name: "Ersetzt das Agenturen und Dienstleister?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Alles davon. Angebotsseiten, Vertriebsstrecken, Newsletter, Prototypen, App-Vorstufen, interne Prozesse, Briefings und Wissensstrukturen — überall dort, wo Ideen digital sichtbar oder nutzbar werden müssen.",
+                text: "Nein. Wir reduzieren blinde Abhängigkeit und erhöhen interne Umsetzungsfähigkeit. Sie können Dienstleister präziser briefen, Vorstufen selbst erzeugen und Varianten schneller testen.",
               },
             },
             {
               "@type": "Question",
-              name: "Wie sicher ist das Ganze?",
+              name: "Ist das auch für Angestellte und Fachkräfte geeignet?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Schutz-, Zugriffs- und Schlüssellogik werden bewusst Teil des Aufbaus. Ihr System ist auf Ihre realen Anwendungsfälle ausgerichtet, mit klaren Zugriffsrechten und sauberen Datenflüssen.",
+                text: "Ja. Die Programmlogik funktioniert für jeden Erwerbskontext. Die Förderlogik der Anamnese richtet sich an Unternehmen — die Umsetzungspakete sind für Unternehmen, Selbstständige, Fachkräfte, Angestellte und Teams gleichermaßen wirksam.",
               },
             },
             {
               "@type": "Question",
-              name: "Was passiert nach den 4 Wochen?",
+              name: "Wie vertraulich sind sensible Daten?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Sie haben ein arbeitsfähiges Grundsystem und können es eigenständig nutzen. Optional: Umsetzungswerkstatt 999 €/Monat (monatlich kündbar) mit 1:1-Slot, Community und Gruppen-Call. Plus Bonus-Follow-up ca. 4 Wochen nach Programmende ohne Aufpreis.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Warum nicht einfach Agentur, Freelancer oder internes Team?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Agentur und Freelancer enden pro Auftrag — Sie zahlen, bekommen ein Artefakt, fangen beim nächsten Vorhaben wieder bei null an. Das Zweitsystem ist Infrastruktur, nicht Auftrag. Es bleibt bei Ihnen, skaliert mit Ihrem Tempo.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Warum ist das mehr als ein normaler KI-Kurs?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Ein Kurs gibt Ihnen Wissen. Sie bauen hier ein arbeitsfähiges System. Am Ende der 4 Wochen haben Sie nicht Notizen, sondern eine Grundlage, die Sie ab Tag 29 produktiv einsetzen.",
+                text: "Schutz-, Zugriffs- und Schlüssellogik werden bewusst Teil des Aufbaus. Bei Done for You Lite arbeiten wir in den Team-Schulungswochen 1:1 mit dem Unternehmen, nicht in der Gruppe — sodass auch reale Daten, Prozesse, Geschäftsgeheimnisse und Marktvorteile vertraulich behandelt werden.",
               },
             },
           ],
@@ -1545,73 +1529,64 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ A14 · FAQ ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
+      {/* ═══════════════════════ S10 · FAQ ═══════════════════════ */}
+      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden">
         <SectionDivider tone="brand" />
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
-            <Eyebrow>13 · Häufige Fragen</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+            <Eyebrow>09 · Häufige Fragen</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
               Was Sie sich gerade
               <br />
               <span className="text-brand-700">fragen.</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
-              Ohne Marketing-Antworten. Wir gehen die häufigsten Punkte direkt
-              an — damit Sie eine Entscheidung treffen können, die zu Ihnen
-              passt.
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-ink-800">
+              Direkte Antworten auf die häufigsten Punkte — damit Sie eine
+              Entscheidung treffen können, die zu Ihnen passt.
             </p>
           </div>
 
-          <div className="mt-16 max-w-4xl">
+          <div className="mt-12 max-w-4xl">
             {[
               {
-                q: "Ist das auch etwas für mich, wenn ich nicht technisch bin?",
-                a: "Ja, ausdrücklich. Sie müssen weder Entwickler noch IT-Spezialist sein. Wichtig sind Branchen- und Kundenkenntnis, ein konkretes Vorhaben und die Bereitschaft, 4 Wochen mitzubauen. Den technischen Teil nehmen wir gemeinsam.",
+                q: "Muss ich technisch sein?",
+                a: "Nein. Sie müssen weder Entwickler noch IT-Spezialist sein. Wichtig sind Branchen- und Kundenkenntnis, ein konkretes Vorhaben und die Bereitschaft, an realen Use Cases mitzuarbeiten. Den technischen Teil bauen wir gemeinsam.",
               },
               {
-                q: "Funktioniert das auch für Angestellte oder nur für Unternehmer?",
-                a: "Beides. Das Programm ist genauso auf Angestellte und Fachkräfte zugeschnitten, die in ihrer Rolle schneller, wirksamer und sichtbarer werden wollen. Die Förderlogik (Beratungsanamnese mit bis zu 80 % Förderung) gilt für Unternehmen — die Programmlogik selbst funktioniert für jeden Erwerbskontext.",
+                q: "Ist die fundierte Unternehmensanamnese verpflichtend für ein Umsetzungspaket?",
+                a: "Nein. Die Anamnese ist eine eigenständige Beratungsleistung. Sie schafft Klarheit über Engpässe, Prioritäten und mögliche Handlungsfelder. Eine anschließende Umsetzung mit uns ist möglich, aber nicht verpflichtend — Sie entscheiden frei, ob und wie Sie weiterarbeiten.",
               },
               {
-                q: "Muss ich schon eine konkrete Idee haben?",
-                a: "Eine grobe Richtung reicht. Eine Seite, ein Funnel, ein Prototyp, eine Prozesskette, ein neues Angebot — irgendetwas Reales, an dem wir gemeinsam arbeiten können. Die Schärfung passiert in den ersten Tagen, nicht vor dem Programm.",
+                q: "Was ist der Unterschied zwischen Kompakt, With You und Done for You Lite?",
+                a: "Kompakt (1.990 €) gibt Ihnen den Bauplan — für Selbststeuerer, die anschließend selbst weiterbauen. With You (8.500 €) baut die Maschine gemeinsam mit Ihnen auf — für Mit-Umsetzer, die wirklich tief einsteigen wollen. Done for You Lite (24.900 €) richtet die Maschine für Sie ein, schult Ihr Team und begleitet die ersten echten Einsätze — für Unternehmen, die maximale Entlastung wollen.",
               },
               {
-                q: "Was ist, wenn ich wenig Zeit habe?",
-                a: "Pflicht sind die 8 Live-Termine: 4 × 60 min Impuls + 4 × 90 min Umsetzung. Das sind ca. 3 Stunden pro Woche live. Zwischen den Calls bestimmen Sie selbst — empfohlen sind 2–4 Stunden pro Woche. Mehr macht das System spürbar tragfähiger; weniger ist möglich, kostet aber Tiefe.",
+                q: "Was bekomme ich bei Done for You Lite konkret eingerichtet?",
+                a: "Voller Umfang aus With You plus: Einrichtung notwendiger Zugänge, Verbindung relevanter Accounts, Erstjustierung der Arbeitslogik, Anlage erster Projektdaten und Prompt-Strukturen, Ausrichtung auf Ihren konkreten Use Case und Übergabe eines benutzbaren Startsystems. Zusätzlich enthalten: 2 Monate Premium-Umsetzungsbegleitung (1 × 90 min 1:1 pro Monat) und 2 exklusive 1:1-Team-Schulungswochen am echten System.",
               },
               {
-                q: "Bekomme ich ein System übergeben oder baue ich es selbst mit auf?",
-                a: "Sie bauen es mit auf — bewusst. Keine Blackbox, kein Geheimnis, kein Anbieter-Lock-in. Sie verstehen jeden Baustein, der bei Ihnen liegt, und können danach eigenständig weiterbauen. Das ist der Unterschied zwischen einem Auftrag und einer Fähigkeit.",
+                q: "Was passiert nach dem Programm?",
+                a: "Sie haben ein benutzbares Grundsystem, das Sie eigenständig nutzen können. Optional: die Premium-Umsetzungsbegleitung für 999 €/Monat (90 min 1:1, monatlich kündbar) mit Community-Zugang, Messenger-Gruppe und monatlichem Gruppen-Call — für alle, die nach dem Programm dranbleiben wollen.",
               },
               {
-                q: "Ist das nur für Marketing oder auch für Prozesse, Angebote, Prototypen und digitale Leistungen?",
-                a: "Alles davon. Das Zweitsystem ist nicht „Marketing-Tool“. Es greift überall dort, wo Ideen digital sichtbar, prüfbar oder nutzbar werden müssen: Angebotsseiten, Vertriebsstrecken, Newsletter, Prototypen, App-Vorstufen, interne Prozesse, Briefings, Wissensstrukturen.",
+                q: "Ersetzt das Agenturen und Dienstleister?",
+                a: "Nein, und das ist auch nicht das Ziel. Wir reduzieren blinde Abhängigkeit und erhöhen Ihre interne Umsetzungsfähigkeit. Sie können Dienstleister präziser briefen, Vorstufen selbst erzeugen und Varianten schneller testen — Agenturen werden für die richtigen Dinge eingesetzt, nicht für Schleifen.",
               },
               {
-                q: "Wie sicher ist das Ganze?",
-                a: "Schutz-, Zugriffs- und Schlüssellogik werden bewusst Teil des Aufbaus — nicht nachgereicht. Ihr System ist auf Ihre realen Anwendungsfälle ausgerichtet, mit klaren Zugriffsrechten und sauberen Datenflüssen. Wir verkaufen keine „nutzen Sie einfach mal“. Wir bauen mit Ihnen eine kontrollierte Umgebung.",
+                q: "Ist das auch für Angestellte und Fachkräfte geeignet?",
+                a: "Ja. Das Programm funktioniert für jeden Erwerbskontext, in dem Ideen schneller in sichtbare Ergebnisse fließen sollen. Die Förderlogik der Anamnese richtet sich an Unternehmen — die Umsetzungspakete selbst sind für Unternehmen, Selbstständige, Fachkräfte, Angestellte und Teams gleichermaßen wirksam.",
               },
               {
-                q: "Was passiert nach den 4 Wochen?",
-                a: "Sie haben ein arbeitsfähiges Grundsystem und können es eigenständig nutzen — Punkt. Optional gibt es die Umsetzungswerkstatt (999 €/Monat, monatlich kündbar) mit 1:1-Live-Slot, Community und monatlichem Gruppen-Call, falls Sie weiterbauen wollen. Plus eine Bonus-Follow-up-Session ca. 4 Wochen nach Programmende — ohne Aufpreis.",
-              },
-              {
-                q: "Warum nicht einfach Agentur, Freelancer oder internes Team?",
-                a: "Weil Agentur und Freelancer pro Auftrag enden — Sie zahlen, bekommen ein Artefakt, fangen beim nächsten Vorhaben wieder bei null an. Internes Team braucht Zeit, Onboarding, Briefings. Das Zweitsystem ist Infrastruktur, nicht Auftrag. Es bleibt bei Ihnen, skaliert mit Ihrem Tempo und macht Sie unabhängiger — nicht abhängiger.",
-              },
-              {
-                q: "Warum ist das mehr als ein normaler KI-Kurs?",
-                a: "Ein Kurs gibt Ihnen Wissen. Sie bauen hier ein arbeitsfähiges System. Am Ende der 4 Wochen haben Sie nicht Notizen, sondern eine Grundlage, die Sie ab Tag 29 produktiv einsetzen. Außerdem ist kein Kurs, kein Selbstlerner-Format und keine Tool-Demo: Sie arbeiten live, in der Kleingruppe, an Ihrem realen Vorhaben.",
+                q: "Wie vertraulich sind sensible Daten?",
+                a: "Schutz-, Zugriffs- und Schlüssellogik werden bewusst Teil des Aufbaus — nicht nachgereicht. Bei Done for You Lite arbeiten wir in den Team-Schulungswochen 1:1 mit Ihrem Unternehmen, nicht in der Gruppe, sodass auch reale Daten, Prozesse, Geschäftsgeheimnisse und Marktvorteile vertraulich behandelt werden können.",
               },
             ].map((faq, i) => (
               <details
                 key={i}
-                className="group border-t border-ink-900/10 last:border-b py-7 cursor-pointer"
+                className="group border-t border-ink-900/10 last:border-b py-6 cursor-pointer"
               >
                 <summary className="flex items-start justify-between gap-6 list-none">
-                  <span className="font-display text-lg sm:text-xl text-ink-900 leading-snug pr-4">
+                  <span className="font-display text-lg text-ink-900 leading-snug pr-4">
                     {faq.q}
                   </span>
                   <span
@@ -1621,7 +1596,7 @@ export default function KiUmsetzungPage() {
                     +
                   </span>
                 </summary>
-                <p className="mt-5 text-[15px] sm:text-base text-ink-800 leading-relaxed max-w-3xl">
+                <p className="mt-4 text-[15px] text-ink-800 leading-relaxed max-w-3xl">
                   {faq.a}
                 </p>
               </details>
@@ -1630,53 +1605,52 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ FINAL CTA ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-white overflow-hidden">
+      {/* ═══════════════════════ S11 · FINAL CTA ═══════════════════════ */}
+      <section className="relative z-10 py-24 sm:py-32 bg-white overflow-hidden">
         <SectionDivider tone="brand" />
-        {/* Big atmospheric glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(1100px 700px at 50% 50%, rgba(110,63,163,0.30), transparent 70%)",
+              "radial-gradient(1100px 700px at 50% 50%, rgba(110,63,163,0.28), transparent 70%)",
           }}
         />
 
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 text-center">
           <Eyebrow>Letzter Schritt</Eyebrow>
-          <h2 className="mt-6 font-display text-[clamp(2.5rem,6vw,5rem)] leading-[1] tracking-[-0.02em] text-ink-900 max-w-5xl mx-auto">
-            Ihre Kompetenz ist nicht das Problem.
+          <h2 className="mt-6 font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.02] tracking-[-0.02em] text-ink-900 max-w-5xl mx-auto">
+            Wenn Sie Ihr Business
+            <br />
+            nicht länger über Warteschleifen steuern wollen,
           </h2>
-          <p className="mt-6 font-display italic text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.15] text-brand-700 max-w-4xl mx-auto">
-            Das Problem ist, wie viel davon heute zwischen Idee und Ergebnis
-            verloren geht.
+          <p className="mt-6 font-display italic text-[clamp(1.4rem,2.6vw,2rem)] leading-[1.15] text-brand-700 max-w-4xl mx-auto">
+            starten Sie mit Klarheit.
           </p>
 
-          <p className="mt-10 max-w-2xl mx-auto text-[15px] sm:text-base text-ink-800 leading-relaxed">
-            Bauen Sie sich in 4 Wochen das Zweitsystem, das diese Lücke
-            schließt. Live, in der Kleingruppe, mit vollem Bauplan. Danach
-            gehört es Ihnen — und Ihr Arbeitstag sieht anders aus.
+          <p className="mt-8 max-w-2xl mx-auto text-[15px] sm:text-base text-ink-800 leading-relaxed">
+            Strategietermin sichern, gemeinsam den passenden Weg klären — und
+            danach Ihre eigene Umsetzungsmaschine aufbauen.
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#bewerbung"
-              className="group inline-flex items-center gap-3 px-8 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
+              className="group inline-flex items-center gap-3 px-8 h-14 rounded-full bg-ink-900 text-white text-[14px] font-semibold tracking-wide transition hover:bg-brand-700"
             >
-              Platz im nächsten Durchgang sichern
+              Strategietermin sichern
               <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#bewerbung"
-              className="inline-flex items-center gap-3 px-7 h-14 rounded-full border border-ink-900/20 text-ink-900 text-[14px] font-semibold tracking-wide transition hover:border-white/70 hover:bg-ink-900/5"
+              href="#pakete-detail"
+              className="inline-flex items-center gap-3 px-7 h-14 rounded-full border border-ink-900/20 text-ink-900 text-[14px] font-semibold tracking-wide transition hover:bg-ink-900/5"
             >
-              60-Sekunden-Quickcheck
+              Pakete vergleichen
             </a>
           </div>
 
           <p className="mt-6 text-xs text-ink-800">
-            Kleingruppe · begrenzte Plätze · Einführungspreis aktiv
+            Anamnese · Kompakt · With You · Done for You Lite · Premium-Begleitung
           </p>
         </div>
       </section>
@@ -1703,16 +1677,16 @@ export default function KiUmsetzungPage() {
           <div className="text-center max-w-3xl mx-auto">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-200">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-300 animate-pulse" />
-              Bewerbung · nächster Durchgang
+              Strategietermin sichern
             </span>
             <h2 className="mt-8 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.02em] text-white">
-              Sichern Sie Ihren Platz.
+              Klärungsgespräch.
               <br />
               <span className="text-brand-300">Zwei Wege — Sie wählen.</span>
             </h2>
             <p className="mt-6 text-[15px] sm:text-base text-white/85 leading-relaxed">
-              Quickcheck mit Antwort innerhalb 24 Stunden — oder direkt einen
-              Strategietermin im Kalender greifen, wenn es schnell gehen soll.
+              Quickcheck mit Paket-Auswahl und Antwort innerhalb 24 Stunden — oder
+              direkt einen Strategietermin im Kalender greifen.
             </p>
           </div>
 
@@ -1721,8 +1695,8 @@ export default function KiUmsetzungPage() {
             <ol className="flex items-stretch justify-between gap-2 sm:gap-4">
               {[
                 { n: "01", t: "Quickcheck oder Termin" },
-                { n: "02", t: "Erstgespräch (15–30 min)" },
-                { n: "03", t: "Platz im Durchgang" },
+                { n: "02", t: "Strategiegespräch (15–30 min)" },
+                { n: "03", t: "Passender Weg & Start" },
               ].map((s, i, arr) => (
                 <li
                   key={s.n}
@@ -1762,19 +1736,19 @@ export default function KiUmsetzungPage() {
               <div className="relative rounded-[1.85rem] bg-[#0A0A14]/85 backdrop-blur-sm p-7 sm:p-10">
                 <div className="flex items-center justify-between mb-8">
                   <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
-                    Pfad A · Empfohlen
+                    Pfad A · Mit Paket-Auswahl
                   </span>
                   <span className="font-mono text-xs text-brand-300 tabular-nums">
-                    60s
+                    ~90s
                   </span>
                 </div>
                 <h3 className="font-display text-2xl sm:text-[1.85rem] leading-[1.1] text-white">
                   Quickcheck.
                 </h3>
                 <p className="mt-3 text-sm text-white/85 leading-relaxed">
-                  Drei kurze Fragen plus Kontaktdaten. Wir melden uns werktags
-                  innerhalb von 24 Stunden für ein 15–30-minütiges
-                  Erstgespräch. Kein Verkaufsdruck.
+                  Vier kurze Fragen — Paket-Tendenz, Ausgangslage, Bremser, erstes
+                  Vorhaben — plus Kontaktdaten. Wir melden uns werktags innerhalb
+                  von 24 Stunden für ein 15–30-minütiges Strategiegespräch.
                 </p>
 
                 <div className="mt-10">
