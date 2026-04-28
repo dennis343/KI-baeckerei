@@ -674,7 +674,7 @@ export default function KiUmsetzungPage() {
               <span className="text-brand-300">Dann der passende Umsetzungsweg.</span>
             </h2>
             <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/85">
-              Es gibt nicht „den einen Kurs". Es gibt zwei Einstiege und drei
+              Es gibt nicht „den einen Kurs“. Es gibt zwei Einstiege und drei
               Umsetzungsgrade — Sie wählen je nach Förderzugang, Tempo und
               gewünschter Entlastung. Die ausführliche Paketansicht folgt weiter
               unten.
@@ -998,7 +998,7 @@ export default function KiUmsetzungPage() {
 
           {/* Closer */}
           <p className="mt-14 font-display text-[clamp(1.4rem,2.4vw,1.875rem)] leading-[1.25] text-ink-900 max-w-4xl">
-            Nicht in der Reihenfolge „erst alles klären, dann alles bauen" —{" "}
+            Nicht in der Reihenfolge „erst alles klären, dann alles bauen“ —{" "}
             <span className="text-brand-700">
               parallel, sichtbar, iterativ.
             </span>
@@ -1060,7 +1060,7 @@ export default function KiUmsetzungPage() {
               },
               {
                 head: "Sauberer Übergang in den Alltag",
-                sub: "Nicht „nach dem Programm sehen wir weiter", sondern: ab Tag 29 produktiv einsetzbar.",
+                sub: "Nicht „nach dem Programm sehen wir weiter“, sondern: ab Tag 29 produktiv einsetzbar.",
               },
             ].map((b, i) => (
               <li

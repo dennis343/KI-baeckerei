@@ -78,7 +78,7 @@ function readPaketFromHash(): string | null {
   if (typeof window === "undefined") return null;
   const hash = window.location.hash;
   const match = hash.match(/[?&]paket=([^&]+)/);
-  if (!match) return null;
+  if (!match || !match[1]) return null;
   const candidate = decodeURIComponent(match[1]);
   return PAKET_OPTIONS.some((o) => o.value === candidate) ? candidate : null;
 }
