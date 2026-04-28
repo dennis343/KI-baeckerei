@@ -270,10 +270,15 @@ export default function KiUmsetzungPage() {
         </div>
 
         <div className="relative z-10 flex-1 mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10 pt-16 lg:pt-24 pb-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm mb-10">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-400" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90">
-              Für Unternehmen · Selbstständige · Fachkräfte · Angestellte · Teams
+          <div className="inline-flex items-start sm:items-center gap-2 rounded-2xl sm:rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 sm:py-1.5 backdrop-blur-sm mb-10 max-w-full">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-400 mt-1.5 sm:mt-0 flex-shrink-0" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90 leading-snug">
+              <span className="sm:hidden">
+                Für Unternehmen, Selbstständige, Fachkräfte, Angestellte &amp; Teams
+              </span>
+              <span className="hidden sm:inline">
+                Für Unternehmen · Selbstständige · Fachkräfte · Angestellte · Teams
+              </span>
             </span>
           </div>
 
@@ -491,8 +496,8 @@ export default function KiUmsetzungPage() {
           {/* Vorher / Nachher — Tracks */}
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Vorher */}
-            <div className="rounded-3xl border border-rose-400/30 bg-gradient-to-b from-rose-500/[0.05] to-transparent p-8 sm:p-10">
-              <div className="flex items-center justify-between mb-8">
+            <div className="rounded-3xl border border-rose-400/30 bg-gradient-to-b from-rose-500/[0.05] to-transparent p-6 sm:p-10">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 justify-between mb-8">
                 <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300">
                   <PainX />
                   Vorher
@@ -521,8 +526,8 @@ export default function KiUmsetzungPage() {
                           : "bg-rose-400/70"
                       }`}
                     />
-                    <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-rose-400/15 pb-3">
-                      <span className="font-display text-lg text-white/85 line-through decoration-rose-400/70 decoration-1">
+                    <div className="flex-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 sm:gap-3 border-b border-rose-400/15 pb-3">
+                      <span className="font-display text-base sm:text-lg text-white/85 line-through decoration-rose-400/70 decoration-1">
                         {n.step}
                       </span>
                       <span className="text-xs text-rose-300/80">
@@ -541,7 +546,7 @@ export default function KiUmsetzungPage() {
             </div>
 
             {/* Nachher */}
-            <div className="relative rounded-3xl border border-emerald-400/35 bg-gradient-to-b from-emerald-500/[0.06] to-transparent p-8 sm:p-10 overflow-hidden">
+            <div className="relative rounded-3xl border border-emerald-400/35 bg-gradient-to-b from-emerald-500/[0.06] to-transparent p-6 sm:p-10 overflow-hidden">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0"
@@ -551,7 +556,7 @@ export default function KiUmsetzungPage() {
                 }}
               />
               <div className="relative">
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 justify-between mb-8">
                   <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300">
                     <GainCheck />
                     Mit Umsetzungsmaschine
@@ -587,8 +592,8 @@ export default function KiUmsetzungPage() {
                             : "bg-emerald-400"
                         }`}
                       />
-                      <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-emerald-400/15 pb-3">
-                        <span className="font-display text-lg text-white">
+                      <div className="flex-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5 sm:gap-3 border-b border-emerald-400/15 pb-3">
+                        <span className="font-display text-base sm:text-lg text-white">
                           {n.step}
                         </span>
                         <span className="text-xs text-emerald-300">
@@ -1293,9 +1298,9 @@ export default function KiUmsetzungPage() {
               {ENTRY_OFFERS.map((o) => (
                 <article
                   key={o.id}
-                  className="rounded-3xl border border-white/10 bg-white/[0.02] p-7 sm:p-9 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition flex flex-col"
+                  className="rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-9 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition flex flex-col"
                 >
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 justify-between mb-6">
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
                       {o.badge}
                     </span>
@@ -1327,8 +1332,8 @@ export default function KiUmsetzungPage() {
                     ))}
                   </ul>
                   <a
-                    href={`#bewerbung?paket=${o.id}`}
-                    className="group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:bg-white hover:text-black"
+                    href={`?paket=${o.id}#bewerbung`}
+                    className="group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:bg-white hover:text-black w-full sm:w-auto"
                   >
                     {o.cta}
                     <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
@@ -1363,7 +1368,7 @@ export default function KiUmsetzungPage() {
                 return (
                   <article
                     key={o.id}
-                    className={`relative rounded-3xl p-7 sm:p-9 flex flex-col transition ${
+                    className={`relative rounded-3xl p-6 sm:p-9 flex flex-col transition ${
                       isConcierge
                         ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent"
                         : isHighlight
@@ -1377,9 +1382,12 @@ export default function KiUmsetzungPage() {
                       </span>
                     )}
                     {isConcierge && (
-                      <span className="absolute -top-3 left-7 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-950">
+                      <span className="absolute -top-3 left-5 sm:left-7 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-950">
                         <Sparkles className="w-3 h-3" />
-                        Concierge · maximale Entlastung
+                        <span className="sm:hidden">Concierge</span>
+                        <span className="hidden sm:inline">
+                          Concierge · maximale Entlastung
+                        </span>
                       </span>
                     )}
                     <div className="flex items-center justify-between mb-6">
@@ -1408,8 +1416,8 @@ export default function KiUmsetzungPage() {
                       ))}
                     </ul>
                     <a
-                      href={`#bewerbung?paket=${o.id}`}
-                      className={`group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition ${
+                      href={`?paket=${o.id}#bewerbung`}
+                      className={`group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition w-full sm:w-auto ${
                         isConcierge
                           ? "bg-amber-400 text-amber-950 hover:bg-amber-300"
                           : isHighlight
@@ -1498,7 +1506,7 @@ export default function KiUmsetzungPage() {
                 </ul>
               </div>
               <a
-                href={`#bewerbung?paket=${SUBSCRIPTION_OFFER.id}`}
+                href={`?paket=${SUBSCRIPTION_OFFER.id}#bewerbung`}
                 className="group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:bg-white hover:text-black"
               >
                 {SUBSCRIPTION_OFFER.cta}
@@ -1658,7 +1666,7 @@ export default function KiUmsetzungPage() {
       {/* ═══════════════════════ APPLY FORM ═══════════════════════ */}
       <section
         id="bewerbung"
-        className="relative z-10 py-24 sm:py-32 bg-[#050508] overflow-hidden"
+        className="relative z-10 py-24 sm:py-32 bg-[#050508] overflow-hidden scroll-mt-24"
       >
         <SectionDivider tone="brand" />
 

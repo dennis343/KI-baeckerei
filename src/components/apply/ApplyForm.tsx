@@ -73,13 +73,20 @@ const textareaBase =
   "w-full bg-white/[0.02] border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/45 " +
   "focus:border-brand-400 focus:bg-white/[0.04] focus:outline-none focus:ring-4 focus:ring-brand-400/15 transition resize-none";
 
-/** Liest paket-id aus dem URL-Hash, falls vorhanden (z.B. "#bewerbung?paket=kompakt"). */
-function readPaketFromHash(): string | null {
+/**
+ * Liest die paket-id aus URL-Search-Params (`?paket=kompakt#bewerbung`) oder
+ * Hash (`#bewerbung?paket=kompakt`). Zuerst Search-Params, weil das die
+ * primäre Verlinkung der Pricing-Cards ist; Hash als Fallback.
+ */
+function readPaketFromUrl(): string | null {
   if (typeof window === "undefined") return null;
+  const search = window.location.search;
+  const searchMatch = search.match(/[?&]paket=([^&]+)/);
   const hash = window.location.hash;
-  const match = hash.match(/[?&]paket=([^&]+)/);
-  if (!match || !match[1]) return null;
-  const candidate = decodeURIComponent(match[1]);
+  const hashMatch = hash.match(/[?&]paket=([^&]+)/);
+  const raw = searchMatch?.[1] ?? hashMatch?.[1];
+  if (!raw) return null;
+  const candidate = decodeURIComponent(raw);
   return PAKET_OPTIONS.some((o) => o.value === candidate) ? candidate : null;
 }
 
@@ -93,14 +100,14 @@ export function ApplyForm() {
   const [sending, setSending] = React.useState(false);
   const [sent, setSent] = React.useState(false);
 
-  // Paket aus URL-Hash übernehmen, wenn der Nutzer von einer Pricing-Card kommt.
+  // Paket aus URL übernehmen, wenn der Nutzer von einer Pricing-Card kommt.
   React.useEffect(() => {
-    const fromHash = readPaketFromHash();
-    if (fromHash) {
-      setAnswers((prev) => ({ ...prev, paket: fromHash }));
+    const initial = readPaketFromUrl();
+    if (initial) {
+      setAnswers((prev) => ({ ...prev, paket: initial }));
     }
     function onHashChange() {
-      const next = readPaketFromHash();
+      const next = readPaketFromUrl();
       if (next) setAnswers((prev) => ({ ...prev, paket: next }));
     }
     window.addEventListener("hashchange", onHashChange);
