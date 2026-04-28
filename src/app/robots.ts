@@ -7,16 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/api/",
-          "/_next/",
-          "/vertriebskarte",
-          "/impressum",
-          "/datenschutz",
-          "/agb",
-        ],
+        disallow: ["/api/", "/_next/", "/vertriebskarte"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

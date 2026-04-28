@@ -25,7 +25,28 @@ export function buildMetadata({
     title: fullTitle,
     description,
     metadataBase: new URL(SITE_URL),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { "de-DE": url, "x-default": url },
+    },
+    keywords: [
+      "Digitale Umsetzungsmaschine",
+      "KI Bäckerei",
+      "Digitalisierung",
+      "BAFA Anamnese",
+      "Unternehmensanamnese",
+      "Customer Journey",
+      "Landingpage Aufbau",
+      "Sales Funnel",
+      "Prozessdigitalisierung",
+      "KI Beratung",
+      "KI Programm",
+      "Automatisierung",
+    ],
+    authors: [{ name: BRAND.fullName }],
+    creator: BRAND.fullName,
+    publisher: BRAND.legal.company,
+    category: "business",
     openGraph: {
       type: "website",
       locale: "de_DE",
@@ -33,11 +54,21 @@ export function buildMetadata({
       siteName: BRAND.fullName,
       title: fullTitle,
       description,
+      images: [
+        {
+          url: `${SITE_URL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${BRAND.fullName} — ${BRAND.tagline}`,
+          type: "image/png",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [`${SITE_URL}/opengraph-image`],
     },
     robots: noIndex
       ? { index: false, follow: true }
@@ -61,39 +92,84 @@ export function buildMetadata({
 }
 
 /**
- * Organization JSON-LD for the KI Bäckerei brand. Pflichtfelder
- * verweisen auf die rechtlich verantwortliche Gesellschaft.
+ * Organization JSON-LD — Hauptentität, auf die andere Schemas via @id referenzieren.
  */
+const ORG_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+const WEBPAGE_ID = `${SITE_URL}/#webpage`;
+const SERVICE_ID = `${SITE_URL}/#service`;
+
+export const SCHEMA_IDS = {
+  organization: ORG_ID,
+  website: WEBSITE_ID,
+  webpage: WEBPAGE_ID,
+  service: SERVICE_ID,
+} as const;
+
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
+    "@id": ORG_ID,
     name: BRAND.fullName,
     alternateName: BRAND.name,
+    legalName: BRAND.legal.company,
     url: SITE_URL,
-    logo: `${SITE_URL}/icon.svg`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/icon.svg`,
+      width: 512,
+      height: 512,
+    },
     image: `${SITE_URL}/opengraph-image`,
     description: BRAND.description,
+    slogan: BRAND.tagline,
     email: BRAND.legal.email,
     telephone: BRAND.legal.phone,
+    vatID: BRAND.legal.taxId,
+    foundingLocation: {
+      "@type": "Place",
+      name: BRAND.legal.city,
+    },
+    founders: BRAND.legal.managingDirectors.map((name) => ({
+      "@type": "Person",
+      name,
+    })),
     address: {
       "@type": "PostalAddress",
       streetAddress: BRAND.legal.address,
-      addressLocality: BRAND.legal.city,
+      postalCode: BRAND.legal.city.split(" ")[0],
+      addressLocality: BRAND.legal.city.split(" ").slice(1).join(" "),
       addressCountry: "DE",
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Deutschland",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: BRAND.legal.email,
-      telephone: BRAND.legal.phone,
-      contactType: "customer service",
-      availableLanguage: "German",
-      areaServed: "DE",
-    },
+    areaServed: [
+      { "@type": "Country", name: "Deutschland" },
+      { "@type": "Country", name: "Österreich" },
+      { "@type": "Country", name: "Schweiz" },
+    ],
+    knowsLanguage: ["de", "en"],
+    knowsAbout: [
+      "Digitale Umsetzungsmaschine",
+      "KI-gestützte Geschäftsprozesse",
+      "Digitale Transformation",
+      "BAFA-Förderung",
+      "Customer Journey Design",
+      "Landingpages und Conversion-Optimierung",
+      "Sales-Funnel-Aufbau",
+      "Prototyping",
+      "Prozessdigitalisierung",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        email: BRAND.legal.email,
+        telephone: BRAND.legal.phone,
+        contactType: "customer service",
+        availableLanguage: ["German", "English"],
+        areaServed: ["DE", "AT", "CH"],
+      },
+    ],
+    sameAs: [],
   } as const;
 }
 
@@ -101,14 +177,20 @@ export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": WEBSITE_ID,
     name: BRAND.fullName,
     alternateName: BRAND.name,
     url: SITE_URL,
     inLanguage: "de-DE",
-    publisher: {
-      "@type": "Organization",
-      name: BRAND.fullName,
-      url: SITE_URL,
+    description: BRAND.description,
+    publisher: { "@id": ORG_ID },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
     },
   } as const;
 }
