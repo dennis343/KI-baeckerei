@@ -96,4 +96,114 @@
   .skip-link:focus {
     top: 1rem;
   }
+
+  /* Subtle dot-grid pattern for darker editorial sections. */
+  .bg-dotgrid {
+    background-image: radial-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .bg-dotgrid-dark {
+    background-image: radial-gradient(rgb(15 15 25 / 0.07) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  /* Premium accent: animated conic ring used on the Quickcheck recommendation. */
+  .ring-glow-brand {
+    position: relative;
+  }
+
+  .ring-glow-brand::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from 140deg,
+      rgb(191 160 221 / 0.85),
+      rgb(110 63 163 / 0.25),
+      rgb(191 160 221 / 0.85)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    animation: spin-slow 14s linear infinite;
+  }
+
+  /* Soft shimmer on hover for premium CTAs. */
+  .shimmer-on-hover {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-on-hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgb(255 255 255 / 0.18) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    transition: transform 700ms ease;
+    pointer-events: none;
+  }
+
+  .shimmer-on-hover:hover::after {
+    transform: translateX(120%);
+  }
+
+  /* Entry reveal — used via the .reveal-on-scroll class with IntersectionObserver. */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  .animate-float-soft {
+    animation: float-soft 5.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ring-glow-brand::before,
+    .animate-float-soft {
+      animation: none !important;
+    }
+    .reveal-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 }

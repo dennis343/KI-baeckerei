@@ -90,7 +90,12 @@ function readPaketFromUrl(): string | null {
   return PAKET_OPTIONS.some((o) => o.value === candidate) ? candidate : null;
 }
 
-export function ApplyForm() {
+type ApplyFormProps = {
+  layout?: "default" | "wide";
+};
+
+export function ApplyForm({ layout = "default" }: ApplyFormProps = {}) {
+  const isWide = layout === "wide";
   const [answers, setAnswers] = React.useState<Record<string, OptionValue>>({});
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -229,11 +234,11 @@ export function ApplyForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto max-w-3xl"
+      className={`mx-auto ${isWide ? "max-w-none" : "max-w-3xl"}`}
       noValidate
       aria-label="Strategietermin anfragen"
     >
-      <div className="mb-12">
+      <div className={isWide ? "mb-8" : "mb-12"}>
         <div className="flex items-center justify-between mb-3">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
             Quickcheck · {completedSteps} von {STEPS.length}
@@ -257,7 +262,13 @@ export function ApplyForm() {
         </div>
       </div>
 
-      <div className="space-y-12 mb-14">
+      <div
+        className={
+          isWide
+            ? "grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 mb-12"
+            : "space-y-12 mb-14"
+        }
+      >
         {STEPS.map((step, idx) => {
           const done = Boolean(answers[step.key]);
           const groupLabelId = `quickcheck-q-${step.key}`;
@@ -335,7 +346,11 @@ export function ApplyForm() {
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ml-0 sm:ml-9">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 ${
+            isWide ? "lg:grid-cols-4" : ""
+          } gap-5 ml-0 sm:ml-9`}
+        >
           <label className="block">
             <span className="text-[10px] text-white/90 uppercase tracking-[0.18em] font-semibold mb-2 block">
               Name *
