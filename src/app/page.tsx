@@ -1607,6 +1607,7 @@ export default function KiUmsetzungPage() {
                       "Co-Build Ihres persönlichen Zweitsystems — mit Bauplan",
                       "Schutz-, Zugriffs- und Use-Case-Architektur",
                       "Echte Live-Arbeit an Ihren realen Vorhaben",
+                      "Laufende Tool-Kosten unter 100 €/Monat — ersetzen klassische Marketing- und Entwickleragenturen",
                       "Bonus: Follow-up-Session ca. 4 Wochen nach Programmende",
                       "Sie behalten das System nach den 4 Wochen — komplett",
                     ].map((item, i) => (
@@ -1794,14 +1795,34 @@ export default function KiUmsetzungPage() {
           </div>
 
           {/* Anti-cost framing */}
-          <div className="mt-16 max-w-3xl">
-            <p className="font-display text-xl sm:text-2xl leading-[1.3] text-white/85">
-              Zum Vergleich: ein einzelner Agentur-Auftrag für eine
-              Angebotsseite, einen Funnel oder einen Prototyp liegt regelmäßig
-              jenseits dieser Investition —{" "}
-              <span className="text-brand-300">und endet, wenn er endet.</span>{" "}
-              Das Zweitsystem endet nicht. Es bleibt.
-            </p>
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 max-w-3xl">
+              <p className="font-display text-xl sm:text-2xl leading-[1.3] text-white/85">
+                Zum Vergleich: ein einzelner Agentur-Auftrag für eine
+                Angebotsseite, einen Funnel oder einen Prototyp liegt regelmäßig
+                jenseits dieser Investition —{" "}
+                <span className="text-brand-300">und endet, wenn er endet.</span>{" "}
+                Das Zweitsystem endet nicht. Es bleibt.
+              </p>
+            </div>
+
+            {/* Tool-cost punch box */}
+            <aside className="rounded-2xl border border-emerald-400/35 bg-gradient-to-br from-emerald-500/[0.10] via-emerald-500/[0.03] to-transparent p-7">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-4">
+                <GainCheck />
+                Laufende Kosten
+              </p>
+              <p className="font-display text-3xl sm:text-4xl leading-[1.05] text-white tabular-nums">
+                &lt; 100&nbsp;€<span className="text-white/70 text-2xl">/Monat</span>
+              </p>
+              <p className="mt-3 text-sm text-white/85 leading-relaxed">
+                Tool-Kosten danach. Damit ersetzen Sie ganze{" "}
+                <span className="text-emerald-300 font-semibold">
+                  Marketing- und Entwickleragenturen
+                </span>{" "}
+                — und behalten die Kontrolle.
+              </p>
+            </aside>
           </div>
         </div>
       </section>

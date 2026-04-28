@@ -59,8 +59,9 @@
   }
 
   ::selection {
-    background-color: rgb(191 160 221 / 0.35);
-    color: white;
+    background-color: rgb(110 63 163);
+    color: rgb(255 255 255);
+    text-shadow: none;
   }
 
   /* Headings: erben Farbe vom Body — kein Hard-Override mehr.
