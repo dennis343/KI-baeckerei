@@ -2014,51 +2014,43 @@ export default function KiUmsetzungPage() {
               </span>
             </div>
 
-            {/* PFAD B — TIDYCAL · SECONDARY (stacked: header on top, calendar full-width below) */}
-            <Reveal as="article" delay={80} className="relative">
+            {/* PFAD B — TIDYCAL · SECONDARY (zentriert, kompakt — TidyCal rendert kompakter in moderater Breite) */}
+            <Reveal as="article" delay={80} className="relative mx-auto w-full max-w-3xl">
               <div className="relative rounded-[1.75rem] border border-white/10 bg-white/[0.025] backdrop-blur-sm overflow-hidden">
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-0"
                   style={{
                     background:
-                      "radial-gradient(640px 320px at 100% 0%, rgba(16,185,129,0.10), transparent 70%)",
+                      "radial-gradient(540px 300px at 100% 0%, rgba(16,185,129,0.10), transparent 70%)",
                   }}
                 />
-                <div className="relative p-6 sm:p-8 lg:p-10">
-                  {/* HEADER STRIP — full width */}
-                  <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-4 sm:gap-6 items-center">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
+                <div className="relative p-6 sm:p-8">
+                  {/* HEADER STRIP — kompakt */}
+                  <div className="flex items-start gap-4">
+                    <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
                       <CalendarClock aria-hidden="true" className="h-5 w-5" />
                     </span>
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-200">
                         Pfad B · Direkt buchen
                       </span>
-                      <h3 className="mt-3 font-display text-xl sm:text-2xl lg:text-3xl leading-[1.15] text-white">
+                      <h3 className="mt-3 font-display text-xl sm:text-2xl leading-[1.2] text-white">
                         Schon entschieden?{" "}
                         <span className="text-emerald-300">
                           Slot direkt greifen.
                         </span>
                       </h3>
+                      <p className="mt-2 text-sm text-white/75 leading-relaxed">
+                        Live-Kalender · Termin direkt in Ihrem Kalender bestätigt
+                        · Buchung über{" "}
+                        <span className="text-emerald-300 font-semibold">eskalator.ag</span>.
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-[13px] text-white/70 leading-relaxed sm:text-right max-w-[260px] sm:justify-self-end">
-                      Live-Kalender · Buchung über{" "}
-                      <span className="text-emerald-300 font-semibold">
-                        eskalator.ag
-                      </span>{" "}
-                      · Termin direkt im Kalender.
-                    </p>
                   </div>
 
-                  {/* DIVIDER */}
-                  <div
-                    aria-hidden
-                    className="my-6 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent"
-                  />
-
-                  {/* CALENDAR — full width */}
-                  <div className="rounded-2xl border border-white/10 bg-white p-3 sm:p-4">
+                  {/* CALENDAR — fixed-height embed, scrollt intern */}
+                  <div className="mt-7 rounded-2xl border border-white/10 bg-white p-3 sm:p-4">
                     <TidyCalEmbed />
                   </div>
                 </div>

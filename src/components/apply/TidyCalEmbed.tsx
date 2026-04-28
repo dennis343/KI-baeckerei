@@ -33,7 +33,7 @@ export function TidyCalEmbed() {
 
   return (
     <div
-      className="tidycal-embed min-h-[640px]"
+      className="tidycal-embed h-[680px] overflow-y-auto overflow-x-hidden"
       data-path="team/eskalator-ag/ki-fabrik"
     />
   );
