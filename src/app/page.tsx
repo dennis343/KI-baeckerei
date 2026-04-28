@@ -5,7 +5,13 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { SITE_URL } from "@/lib/utils";
 import { ApplyForm } from "@/components/apply/ApplyForm";
 import { TidyCalEmbed } from "@/components/apply/TidyCalEmbed";
-import { ArrowRight, Check, X } from "lucide-react";
+import {
+  ENTRY_OFFERS,
+  IMPLEMENTATION_OFFERS,
+  SUBSCRIPTION_OFFER,
+  COST_BENCHMARKS,
+} from "@/lib/offers";
+import { ArrowRight, Check, X, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = buildMetadata({
   title:
@@ -657,6 +663,168 @@ export default function KiUmsetzungPage() {
             <span className="text-brand-300">
               — durch eine Maschine, die im Hintergrund mitarbeitet.
             </span>
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ S4 · PRICING-OVERVIEW (kompakt) ═══════════════════════ */}
+      <section
+        id="pakete"
+        className="relative z-10 py-24 sm:py-32 bg-[#07070C] overflow-hidden scroll-mt-24"
+      >
+        <SectionDivider tone="brand" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(900px 500px at 50% 0%, rgba(110,63,163,0.16), transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>03 · Erste Orientierung</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Erst Klarheit.
+              <br />
+              <span className="text-brand-300">Dann der passende Umsetzungsweg.</span>
+            </h2>
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/85">
+              Es gibt nicht „den einen Kurs". Es gibt zwei Einstiege und drei
+              Umsetzungsgrade — Sie wählen je nach Förderzugang, Tempo und
+              gewünschter Entlastung. Die ausführliche Paketansicht folgt weiter
+              unten.
+            </p>
+          </div>
+
+          {/* Einstiege */}
+          <div className="mt-14">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70 mb-5">
+              Einstieg · zuerst Klarheit schaffen
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {ENTRY_OFFERS.map((o) => (
+                <article
+                  key={o.id}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-7 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
+                      {o.badge}
+                    </span>
+                    <span className="font-display text-lg text-white tabular-nums">
+                      {o.priceLabel}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-xl text-white leading-snug">
+                    {o.shortName}
+                  </h3>
+                  <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                    {o.tagline}
+                  </p>
+                  {o.funding && (
+                    <p className="mt-3 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-emerald-300">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      {o.funding}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* BAFA-konformer Hinweis */}
+          <div className="mt-6 rounded-2xl border border-emerald-400/20 bg-emerald-500/[0.04] p-5 sm:p-6">
+            <p className="text-sm sm:text-[15px] leading-relaxed text-white/85">
+              <span className="font-semibold text-emerald-300">Wichtig:</span>{" "}
+              Die fundierte Unternehmensanamnese ist eine eigenständige
+              Beratungsleistung. Sie schafft Klarheit über Engpässe,
+              Prioritäten und mögliche Handlungsfelder.{" "}
+              <span className="text-white">
+                Eine anschließende Umsetzung mit uns ist möglich, aber nicht
+                verpflichtend.
+              </span>
+            </p>
+          </div>
+
+          {/* Umsetzungspakete */}
+          <div className="mt-14">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70 mb-5">
+              Umsetzungswege · drei Tiefen
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {IMPLEMENTATION_OFFERS.map((o) => (
+                <article
+                  key={o.id}
+                  className={`relative rounded-2xl border p-6 sm:p-7 transition ${
+                    o.highlight
+                      ? "border-brand-400/50 bg-gradient-to-b from-brand-500/[0.10] to-brand-500/[0.02]"
+                      : "border-white/10 bg-white/[0.02] hover:border-brand-400/40 hover:bg-brand-400/[0.04]"
+                  }`}
+                >
+                  {o.highlight && (
+                    <span className="absolute -top-3 left-6 inline-flex items-center gap-1.5 rounded-full bg-brand-500 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                      Empfohlen
+                    </span>
+                  )}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
+                      {o.badge}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-xl text-white leading-snug">
+                    {o.shortName}
+                  </h3>
+                  <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                    {o.tagline}
+                  </p>
+                  <p className="mt-5 font-display text-2xl text-white tabular-nums">
+                    {o.priceLabel}
+                  </p>
+                  <p className="mt-1 text-xs text-white/70 leading-relaxed">
+                    {o.forWho}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA-Bar */}
+          <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+            <div>
+              <p className="font-display text-xl text-white leading-snug">
+                Welcher Weg passt?
+              </p>
+              <p className="mt-1 text-sm text-white/80 leading-relaxed">
+                Im Strategietermin klären wir Förderpfad, passendes Paket und
+                ersten Use Case.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="#bewerbung"
+                className="group inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full bg-white text-black text-[13px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
+              >
+                Strategietermin sichern
+                <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href="#pakete-detail"
+                className="inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:border-white/70 hover:bg-white/5"
+              >
+                Pakete im Detail
+              </a>
+            </div>
+          </div>
+
+          {/* Anschluss-Hinweis */}
+          <p className="mt-6 text-xs text-white/65 leading-relaxed max-w-3xl">
+            Anschluss nach dem Programm:{" "}
+            <span className="text-white/85">
+              {SUBSCRIPTION_OFFER.shortName}
+            </span>{" "}
+            · {SUBSCRIPTION_OFFER.priceLabel}
+            {SUBSCRIPTION_OFFER.priceSuffix} · monatlich kündbar.
           </p>
         </div>
       </section>
