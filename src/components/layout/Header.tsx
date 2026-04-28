@@ -66,7 +66,7 @@ export function Header() {
               href="/#bewerbung"
               className="hidden sm:inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white px-5 text-[13px] font-semibold text-black transition hover:bg-brand-200 hover:text-ink-900"
             >
-              Platz sichern
+              Strategietermin sichern
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <button
@@ -119,7 +119,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             className="mt-auto inline-flex items-center justify-center gap-2 h-14 rounded-full bg-white text-black text-[14px] font-semibold transition hover:bg-brand-200"
           >
-            Platz sichern
+            Strategietermin sichern
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
