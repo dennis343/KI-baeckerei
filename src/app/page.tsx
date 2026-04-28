@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/metadata";
+import { buildMetadata, SCHEMA_IDS } from "@/lib/metadata";
 import { BreadcrumbJsonLd } from "@/components/ui/BreadcrumbJsonLd";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SITE_URL } from "@/lib/utils";
@@ -106,67 +106,191 @@ export default function KiUmsetzungPage() {
         items={[{ name: "Digitale Umsetzungsmaschine", href: "/" }]}
       />
 
+      {/* WebPage + Service + HowTo + Course + AggregateOffer als @graph,
+          mit @id-Verlinkung auf Organization (in layout.tsx) und WebSite. */}
       <JsonLd
         data={{
           "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Digitale Umsetzungsmaschine",
-          description:
-            "Programm- und Beratungsleistungen der KI Bäckerei zum Aufbau einer digitalen Umsetzungsmaschine: aus Ideen, Sprachnachrichten und Anforderungen entstehen sichtbare Ergebnisse — schneller, eigenständiger und mit weniger Dienstleisterabhängigkeit.",
-          provider: {
-            "@type": "Organization",
-            name: "KI Bäckerei",
-            url: SITE_URL,
-          },
-          areaServed: "DE",
-          offers: [
+          "@graph": [
             {
-              "@type": "Offer",
-              name: "Fundierte Unternehmensanamnese",
-              price: "3500",
-              priceCurrency: "EUR",
+              "@type": "WebPage",
+              "@id": SCHEMA_IDS.webpage,
               url: SITE_URL,
-              category: "Einstieg · Beratung",
+              name: "Digitale Umsetzungsmaschine — Steuern Sie Ihr Business aus der Hosentasche",
+              description:
+                "Bauen Sie eine digitale Umsetzungsmaschine, mit der aus Ideen, Sprachnachrichten und Anforderungen sichtbare Ergebnisse werden — schneller, eigenständiger und mit deutlich weniger Abhängigkeit von Agenturen, IT-Dienstleistern und internen Engpässen.",
+              inLanguage: "de-DE",
+              isPartOf: { "@id": SCHEMA_IDS.website },
+              about: { "@id": SCHEMA_IDS.service },
+              primaryImageOfPage: `${SITE_URL}/opengraph-image`,
+              datePublished: "2025-09-01",
+              dateModified: new Date().toISOString().split("T")[0],
+              speakable: {
+                "@type": "SpeakableSpecification",
+                cssSelector: ["h1", "h2", "[data-speakable]"],
+              },
+              mainEntity: { "@id": SCHEMA_IDS.service },
             },
             {
-              "@type": "Offer",
-              name: "Kompakte Einstiegsanalyse",
-              price: "990",
-              priceCurrency: "EUR",
+              "@type": "Service",
+              "@id": SCHEMA_IDS.service,
+              name: "Digitale Umsetzungsmaschine",
+              alternateName: [
+                "Digitale Umsetzungsfabrik",
+                "Inhouse-Umsetzungsmaschine",
+                "Idee-zu-Realität-System",
+              ],
+              serviceType: "Digitale Transformation, KI-gestützte Umsetzung",
+              category: "Business Consulting",
+              description:
+                "Programm- und Beratungsleistungen zum Aufbau einer digitalen Umsetzungsmaschine: aus Ideen, Sprachnachrichten und Anforderungen werden sichtbare Ergebnisse — schneller, eigenständiger und mit weniger Dienstleisterabhängigkeit.",
               url: SITE_URL,
-              category: "Einstieg · Schlank",
+              provider: { "@id": SCHEMA_IDS.organization },
+              areaServed: [
+                { "@type": "Country", name: "Deutschland" },
+                { "@type": "Country", name: "Österreich" },
+                { "@type": "Country", name: "Schweiz" },
+              ],
+              audience: [
+                { "@type": "BusinessAudience", audienceType: "Unternehmen" },
+                { "@type": "Audience", audienceType: "Selbstständige" },
+                { "@type": "Audience", audienceType: "Fachkräfte" },
+                { "@type": "Audience", audienceType: "Angestellte" },
+                { "@type": "Audience", audienceType: "Teams" },
+              ],
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Angebotsleiter Digitale Umsetzungsmaschine",
+                itemListElement: [
+                  ...ENTRY_OFFERS.map((o) => ({
+                    "@type": "Offer",
+                    name: o.name,
+                    description: o.tagline,
+                    price: String(o.priceNumeric),
+                    priceCurrency: "EUR",
+                    category: o.badge,
+                    url: `${SITE_URL}#pakete-detail`,
+                    eligibleRegion: { "@type": "Country", name: "Deutschland" },
+                  })),
+                  ...IMPLEMENTATION_OFFERS.map((o) => ({
+                    "@type": "Offer",
+                    name: o.name,
+                    description: o.tagline,
+                    price: String(o.priceNumeric),
+                    priceCurrency: "EUR",
+                    category: o.badge,
+                    url: `${SITE_URL}#pakete-detail`,
+                    eligibleRegion: { "@type": "Country", name: "Deutschland" },
+                  })),
+                  {
+                    "@type": "Offer",
+                    name: SUBSCRIPTION_OFFER.name,
+                    description: SUBSCRIPTION_OFFER.tagline,
+                    price: String(SUBSCRIPTION_OFFER.priceNumeric),
+                    priceCurrency: "EUR",
+                    category: SUBSCRIPTION_OFFER.badge,
+                    url: `${SITE_URL}#pakete-detail`,
+                    priceSpecification: {
+                      "@type": "UnitPriceSpecification",
+                      price: String(SUBSCRIPTION_OFFER.priceNumeric),
+                      priceCurrency: "EUR",
+                      unitCode: "MON",
+                      billingDuration: "P1M",
+                    },
+                  },
+                ],
+              },
             },
+            // HowTo — extrem gut für AI Search Extraction
             {
-              "@type": "Offer",
-              name: "Umsetzungsfabrik Kompakt",
-              price: "1990",
-              priceCurrency: "EUR",
-              url: SITE_URL,
-              category: "Umsetzung · Selbststeuerer",
+              "@type": "HowTo",
+              name: "Aus Idee wird testbare Realität — der Umsetzungsprozess",
+              description:
+                "Sechsstufiger Prozess, mit dem aus einer Sprachnachricht oder Idee am Vormittag noch am selben Tag ein testbarer Stand wird.",
+              totalTime: "PT1D",
+              tool: [
+                { "@type": "HowToTool", name: "Sprachnachricht oder Notiz" },
+                { "@type": "HowToTool", name: "Digitale Umsetzungsmaschine" },
+              ],
+              step: [
+                {
+                  "@type": "HowToStep",
+                  position: 1,
+                  name: "Sprachnachricht oder Idee",
+                  text: "Eine Idee in 5 Minuten am Vormittag erfassen — als Sprachnachricht oder Notiz.",
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 2,
+                  name: "Struktur",
+                  text: "Aus der Eingabe entsteht in Minuten eine klare Struktur — keine Briefingschleife.",
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 3,
+                  name: "Entwurf",
+                  text: "Auf Basis der Struktur entsteht ein erster sichtbarer Entwurf — sofort prüfbar.",
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 4,
+                  name: "Testbarer Stand",
+                  text: "Am selben Tag liegt ein testbarer Stand vor — kein Mockup, sondern eine echte Vorstufe.",
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 5,
+                  name: "Verbesserung in Echtzeit",
+                  text: "Anpassungen erfolgen in Echtzeit — ohne Korrekturrunde, ohne Termin in zwei Wochen.",
+                },
+                {
+                  "@type": "HowToStep",
+                  position: 6,
+                  name: "Produktiver Stand",
+                  text: "Noch in derselben Woche steht ein produktiv nutzbarer Stand bereit.",
+                },
+              ],
             },
+            // Course-Schemas pro Umsetzungspaket — ranken besser für „Programm/Kurs"-Suchen
+            ...IMPLEMENTATION_OFFERS.map((o) => ({
+              "@type": "Course",
+              name: o.name,
+              description: o.tagline,
+              provider: { "@id": SCHEMA_IDS.organization },
+              educationalLevel: "Professional",
+              inLanguage: "de-DE",
+              hasCourseInstance: {
+                "@type": "CourseInstance",
+                courseMode: "online",
+                courseWorkload: o.id === "kompakt" ? "PT12H" : "PT24H",
+                location: {
+                  "@type": "VirtualLocation",
+                  url: SITE_URL,
+                },
+              },
+              offers: {
+                "@type": "Offer",
+                price: String(o.priceNumeric),
+                priceCurrency: "EUR",
+                category: o.badge,
+                availability: "https://schema.org/InStock",
+                url: `${SITE_URL}#pakete-detail`,
+              },
+            })),
+            // ItemList für Cost-Benchmarks — ein- und ausklappbar gut für AI-Snippets
             {
-              "@type": "Offer",
-              name: "Digitale Umsetzungsmaschine With You",
-              price: "8500",
-              priceCurrency: "EUR",
-              url: SITE_URL,
-              category: "Umsetzung · Mit-Umsetzer",
-            },
-            {
-              "@type": "Offer",
-              name: "Done for You Lite",
-              price: "24900",
-              priceCurrency: "EUR",
-              url: SITE_URL,
-              category: "Umsetzung · Concierge",
-            },
-            {
-              "@type": "Offer",
-              name: "Premium-Umsetzungsbegleitung",
-              price: "999",
-              priceCurrency: "EUR",
-              url: SITE_URL,
-              category: "Anschluss · monatlich",
+              "@type": "ItemList",
+              name: "Was Unternehmen heute für digitale Umsetzung bezahlen — Orientierungswerte",
+              description:
+                "Realistische Marktorientierung für externe Digitalprojekte. Werte sind Orientierungsspannen, keine Garantien.",
+              itemListOrder: "https://schema.org/ItemListOrderAscending",
+              numberOfItems: COST_BENCHMARKS.length,
+              itemListElement: COST_BENCHMARKS.map((b, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: b.title,
+                description: `${b.range}${b.recurring ? ` · ${b.recurring}` : ""}`,
+              })),
             },
           ],
         }}
@@ -176,6 +300,10 @@ export default function KiUmsetzungPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          "@id": `${SITE_URL}/#faq`,
+          isPartOf: { "@id": SCHEMA_IDS.webpage },
+          inLanguage: "de-DE",
+          about: { "@id": SCHEMA_IDS.service },
           mainEntity: [
             {
               "@type": "Question",
@@ -246,7 +374,7 @@ export default function KiUmsetzungPage() {
       />
 
       {/* ═══════════════════════ S1 · HERO ═══════════════════════ */}
-      <section className="relative z-10 min-h-[100svh] flex flex-col bg-[#07070C] overflow-hidden">
+      <section className="relative z-10 min-h-[100svh] flex flex-col bg-[#07070C] overflow-hidden" aria-labelledby="section-hero">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
@@ -283,7 +411,7 @@ export default function KiUmsetzungPage() {
           </div>
 
           {/* Hero headline */}
-          <h1 className="font-display leading-[0.95] tracking-[-0.02em] text-white">
+          <h1 className="font-display leading-[0.95] tracking-[-0.02em] text-white" id="section-hero">
             <span className="block text-[11px] sm:text-xs font-sans font-semibold uppercase tracking-[0.3em] text-brand-300 mb-6">
               Digitale Umsetzungsmaschine
             </span>
@@ -323,7 +451,7 @@ export default function KiUmsetzungPage() {
               className="group inline-flex items-center gap-3 px-7 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
             >
               Strategietermin sichern
-              <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+              <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </a>
             <a
               href="#pakete"
@@ -363,7 +491,7 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S2 · PROBLEM ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
+      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden" aria-labelledby="section-problem">
         <SectionDivider tone="rose" />
         <div
           aria-hidden
@@ -376,7 +504,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>01 · Das eigentliche Problem</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900" id="section-problem">
               Sie haben nicht zu wenig Ideen.
               <br />
               <span className="text-brand-700">
@@ -463,7 +591,7 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S3 · NEUE REALITÄT ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
+      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden" aria-labelledby="section-neue-realitaet">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -477,7 +605,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>02 · Die neue Realität</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white" id="section-neue-realitaet">
               Aus Idee wird Struktur.
               <br />
               Aus Struktur wird Entwurf.
@@ -660,7 +788,7 @@ export default function KiUmsetzungPage() {
       <section
         id="pakete"
         className="relative z-10 py-24 sm:py-32 bg-[#07070C] overflow-hidden scroll-mt-24"
-      >
+       aria-labelledby="section-pakete-uebersicht">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -673,7 +801,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>03 · Erste Orientierung</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white" id="section-pakete-uebersicht">
               Erst Klarheit.
               <br />
               <span className="text-brand-300">Dann der passende Umsetzungsweg.</span>
@@ -713,7 +841,7 @@ export default function KiUmsetzungPage() {
                   </p>
                   {o.funding && (
                     <p className="mt-3 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-emerald-300">
-                      <Sparkles className="w-3.5 h-3.5" />
+                      <Sparkles aria-hidden="true" className="w-3.5 h-3.5" />
                       {o.funding}
                     </p>
                   )}
@@ -795,7 +923,7 @@ export default function KiUmsetzungPage() {
                 className="group inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full bg-white text-black text-[13px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
               >
                 Strategietermin sichern
-                <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
               </a>
               <a
                 href="#pakete-detail"
@@ -819,7 +947,7 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S5 · FÜR WEN ═══════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32 bg-[#0B0B16] overflow-hidden">
+      <section className="relative z-10 py-24 sm:py-32 bg-[#0B0B16] overflow-hidden" aria-labelledby="section-fuer-wen">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -832,7 +960,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>04 · Für wen das ist</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white" id="section-fuer-wen">
               Sie müssen kein Technik-Nerd sein.
               <br />
               <span className="text-brand-300">
@@ -911,7 +1039,7 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S6 · WAS DAMIT MÖGLICH WIRD ═══════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden">
+      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden" aria-labelledby="section-moeglich">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -924,7 +1052,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>05 · Was damit möglich wird</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900" id="section-moeglich">
               Aus Ideen werden Dinge,
               <br />
               <span className="text-brand-700">
@@ -1012,7 +1140,7 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S7 · WAS GEMEINSAM ENTSTEHT ═══════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32 bg-[#0A0A14] overflow-hidden">
+      <section className="relative z-10 py-24 sm:py-32 bg-[#0A0A14] overflow-hidden" aria-labelledby="section-was-entsteht">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -1025,7 +1153,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>06 · Was gemeinsam entsteht</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white" id="section-was-entsteht">
               Keine Blackbox. Kein Tool-Chaos.
               <br />
               <span className="text-brand-300">
@@ -1113,7 +1241,7 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S8 · WIRTSCHAFTLICHE RELATIVIERUNG ═══════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden">
+      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden" aria-labelledby="section-wirtschaftlich">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -1126,7 +1254,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>07 · Wirtschaftliche Einordnung</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900" id="section-wirtschaftlich">
               Was Unternehmen heute
               <br />
               <span className="text-brand-700">
@@ -1258,7 +1386,7 @@ export default function KiUmsetzungPage() {
       <section
         id="pakete-detail"
         className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden scroll-mt-24"
-      >
+       aria-labelledby="section-pakete-detail">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -1271,7 +1399,7 @@ export default function KiUmsetzungPage() {
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>08 · Pakete im Detail</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white" id="section-pakete-detail">
               Zwei Einstiege.
               <br />
               <span className="text-brand-300">
@@ -1306,7 +1434,7 @@ export default function KiUmsetzungPage() {
                     </span>
                     {o.funding && (
                       <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
-                        <Sparkles className="w-3 h-3" />
+                        <Sparkles aria-hidden="true" className="w-3 h-3" />
                         {o.funding}
                       </span>
                     )}
@@ -1336,7 +1464,7 @@ export default function KiUmsetzungPage() {
                     className="group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:bg-white hover:text-black w-full sm:w-auto"
                   >
                     {o.cta}
-                    <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                    <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
                   </a>
                 </article>
               ))}
@@ -1383,7 +1511,7 @@ export default function KiUmsetzungPage() {
                     )}
                     {isConcierge && (
                       <span className="absolute -top-3 left-5 sm:left-7 inline-flex items-center gap-1.5 rounded-full bg-amber-400 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-950">
-                        <Sparkles className="w-3 h-3" />
+                        <Sparkles aria-hidden="true" className="w-3 h-3" />
                         <span className="sm:hidden">Concierge</span>
                         <span className="hidden sm:inline">
                           Concierge · maximale Entlastung
@@ -1426,7 +1554,7 @@ export default function KiUmsetzungPage() {
                       }`}
                     >
                       {o.cta}
-                      <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                      <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
                     </a>
                   </article>
                 );
@@ -1510,7 +1638,7 @@ export default function KiUmsetzungPage() {
                 className="group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full border border-white/20 text-white text-[13px] font-semibold tracking-wide transition hover:bg-white hover:text-black"
               >
                 {SUBSCRIPTION_OFFER.cta}
-                <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
               </a>
             </article>
           </div>
@@ -1530,7 +1658,7 @@ export default function KiUmsetzungPage() {
                 className="group inline-flex items-center gap-3 px-7 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900"
               >
                 Strategietermin sichern
-                <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
               </a>
             </div>
           </div>
@@ -1538,12 +1666,12 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S10 · FAQ ═══════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden">
+      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden" aria-labelledby="section-faq">
         <SectionDivider tone="brand" />
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
             <Eyebrow>09 · Häufige Fragen</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900" id="section-faq">
               Was Sie sich gerade
               <br />
               <span className="text-brand-700">fragen.</span>
@@ -1614,7 +1742,7 @@ export default function KiUmsetzungPage() {
       </section>
 
       {/* ═══════════════════════ S11 · FINAL CTA ═══════════════════════ */}
-      <section className="relative z-10 py-24 sm:py-32 bg-white overflow-hidden">
+      <section className="relative z-10 py-24 sm:py-32 bg-white overflow-hidden" aria-labelledby="section-final-cta">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -1627,7 +1755,7 @@ export default function KiUmsetzungPage() {
 
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10 text-center">
           <Eyebrow>Letzter Schritt</Eyebrow>
-          <h2 className="mt-6 font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.02] tracking-[-0.02em] text-ink-900 max-w-5xl mx-auto">
+          <h2 className="mt-6 font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.02] tracking-[-0.02em] text-ink-900 max-w-5xl mx-auto" id="section-final-cta">
             Wenn Sie Ihr Business
             <br />
             nicht länger über Warteschleifen steuern wollen,
@@ -1647,7 +1775,7 @@ export default function KiUmsetzungPage() {
               className="group inline-flex items-center gap-3 px-8 h-14 rounded-full bg-ink-900 text-white text-[14px] font-semibold tracking-wide transition hover:bg-brand-700"
             >
               Strategietermin sichern
-              <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+              <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
             </a>
             <a
               href="#pakete-detail"
@@ -1667,7 +1795,7 @@ export default function KiUmsetzungPage() {
       <section
         id="bewerbung"
         className="relative z-10 py-24 sm:py-32 bg-[#050508] overflow-hidden scroll-mt-24"
-      >
+       aria-labelledby="section-bewerbung">
         <SectionDivider tone="brand" />
 
         {/* Spotlight glow */}
@@ -1687,7 +1815,7 @@ export default function KiUmsetzungPage() {
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-300 animate-pulse" />
               Strategietermin sichern
             </span>
-            <h2 className="mt-8 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.02em] text-white">
+            <h2 className="mt-8 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.02em] text-white" id="section-bewerbung">
               Klärungsgespräch.
               <br />
               <span className="text-brand-300">Zwei Wege — Sie wählen.</span>

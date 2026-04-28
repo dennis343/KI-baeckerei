@@ -165,9 +165,13 @@ export function ApplyForm() {
 
   if (sent) {
     return (
-      <div className="mx-auto max-w-2xl text-center py-12">
+      <div
+        className="mx-auto max-w-2xl text-center py-12"
+        role="status"
+        aria-live="polite"
+      >
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-500/15 ring-4 ring-brand-400/10 mb-10">
-          <Check className="w-7 h-7 text-brand-300" />
+          <Check aria-hidden="true" className="w-7 h-7 text-brand-300" />
         </div>
         <h3 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] leading-[1.1] text-white">
           Ihre Anfrage ist auf dem Weg.
@@ -223,7 +227,12 @@ export function ApplyForm() {
   const canSubmit = name.trim() && email.trim() && allQuickcheckDone;
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto max-w-3xl" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      className="mx-auto max-w-3xl"
+      noValidate
+      aria-label="Strategietermin anfragen"
+    >
       <div className="mb-12">
         <div className="flex items-center justify-between mb-3">
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/90">
@@ -233,7 +242,14 @@ export function ApplyForm() {
             {progress}%
           </p>
         </div>
-        <div className="h-[3px] w-full rounded-full bg-white/10 overflow-hidden">
+        <div
+          className="h-[3px] w-full rounded-full bg-white/10 overflow-hidden"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={progress}
+          aria-label={`Quickcheck-Fortschritt: ${completedSteps} von ${STEPS.length} Antworten gegeben`}
+        >
           <div
             className="h-full bg-gradient-to-r from-brand-500 to-brand-300 transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
@@ -244,24 +260,43 @@ export function ApplyForm() {
       <div className="space-y-12 mb-14">
         {STEPS.map((step, idx) => {
           const done = Boolean(answers[step.key]);
+          const groupLabelId = `quickcheck-q-${step.key}`;
+          const hintId = `quickcheck-hint-${step.key}`;
           return (
-            <div key={step.key}>
+            <fieldset
+              key={step.key}
+              className="border-0 p-0 m-0"
+              aria-labelledby={groupLabelId}
+              aria-describedby={hintId}
+            >
               <div className="flex items-baseline gap-4 mb-3">
-                <span className="font-mono text-xs text-brand-300 tabular-nums">
+                <span
+                  className="font-mono text-xs text-brand-300 tabular-nums"
+                  aria-hidden="true"
+                >
                   0{idx + 1}
                 </span>
-                <h3 className="font-display text-xl sm:text-2xl text-white leading-snug">
+                <legend
+                  id={groupLabelId}
+                  className="font-display text-xl sm:text-2xl text-white leading-snug"
+                >
                   {step.question}
-                </h3>
+                </legend>
                 {done && (
                   <span className="ml-auto inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-300">
-                    <Check className="w-3.5 h-3.5" />
-                    erledigt
+                    <Check aria-hidden="true" className="w-3.5 h-3.5" />
+                    <span className="sr-only">Frage beantwortet:</span>erledigt
                   </span>
                 )}
               </div>
-              <p className="text-sm text-white/85 mb-5 ml-9">{step.hint}</p>
-              <div className="flex flex-wrap gap-2.5 ml-9">
+              <p id={hintId} className="text-sm text-white/85 mb-5 ml-9">
+                {step.hint}
+              </p>
+              <div
+                className="flex flex-wrap gap-2.5 ml-9"
+                role="radiogroup"
+                aria-labelledby={groupLabelId}
+              >
                 {step.options.map((opt) => {
                   const selected = answers[step.key] === opt.value;
                   return (
@@ -274,15 +309,18 @@ export function ApplyForm() {
                           ? "bg-brand-500 text-white border-brand-400 shadow-[0_0_0_4px_rgba(110,63,163,0.18)]"
                           : "border-white/15 text-white/85 hover:border-white/35 hover:bg-white/[0.04]"
                       }`}
-                      aria-pressed={selected}
+                      role="radio"
+                      aria-checked={selected}
                     >
-                      {selected && <Check className="w-3.5 h-3.5" />}
+                      {selected && (
+                        <Check aria-hidden="true" className="w-3.5 h-3.5" />
+                      )}
                       {opt.label}
                     </button>
                   );
                 })}
               </div>
-            </div>
+            </fieldset>
           );
         })}
       </div>
@@ -307,6 +345,7 @@ export function ApplyForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              aria-required="true"
               autoComplete="name"
               className={inputBase}
               placeholder="Ihr Name"
@@ -321,7 +360,9 @@ export function ApplyForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              aria-required="true"
               autoComplete="email"
+              inputMode="email"
               className={inputBase}
               placeholder="ihre@email.de"
             />
@@ -404,30 +445,37 @@ export function ApplyForm() {
         <button
           type="submit"
           disabled={!canSubmit || sending}
+          aria-busy={sending}
           className="group inline-flex items-center justify-center gap-3 px-8 h-14 rounded-full bg-white text-black text-[14px] font-semibold tracking-wide transition hover:bg-brand-200 hover:text-ink-900 disabled:bg-white/15 disabled:text-white/85 disabled:cursor-not-allowed disabled:hover:bg-white/15 w-full sm:w-auto"
         >
           {sending ? (
             <>
-              <Loader2 className="w-4 h-4 animate-spin" />
+              <Loader2 aria-hidden="true" className="w-4 h-4 animate-spin" />
               Wird gesendet …
             </>
           ) : (
             <>
               Strategietermin anfragen
-              <ArrowRight className="w-4 h-4 transition group-hover:translate-x-0.5" />
+              <ArrowRight
+                aria-hidden="true"
+                className="w-4 h-4 transition group-hover:translate-x-0.5"
+              />
             </>
           )}
         </button>
 
-        {!canSubmit && !sending && (
-          <p className="text-xs text-white/85 leading-relaxed">
-            {!allQuickcheckDone
+        <p
+          aria-live="polite"
+          className="text-xs text-white/85 leading-relaxed min-h-[1rem]"
+        >
+          {!canSubmit && !sending
+            ? !allQuickcheckDone
               ? `Noch ${STEPS.length - completedSteps} Quickcheck-Antwort${
                   STEPS.length - completedSteps === 1 ? "" : "en"
                 } offen.`
-              : "Bitte Name und E-Mail eintragen."}
-          </p>
-        )}
+              : "Bitte Name und E-Mail eintragen."
+            : ""}
+        </p>
 
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-white/85">
           <span className="inline-flex items-center gap-1.5">
