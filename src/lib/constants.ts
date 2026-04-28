@@ -10,9 +10,9 @@ export const BRAND = {
   name: "KI Bäckerei",
   fullName: "KI Bäckerei",
   tagline:
-    "Das Zweitsystem — die zweite digitale Arbeitskraft für Ihren Markt.",
+    "Digitale Umsetzungsmaschine — Steuern Sie Ihr Business aus der Hosentasche.",
   description:
-    "KI Bäckerei: 4-Wochen-Programm, in dem Sie gemeinsam mit uns Ihr eigenes Zweitsystem aufbauen — die zweite digitale Arbeitskraft, die aus Fachkompetenz in Stunden Ergebnisse macht.",
+    "KI Bäckerei: Wir bauen mit Ihnen Ihre digitale Umsetzungsmaschine — damit aus Ideen, Sprachnachrichten und Anforderungen sichtbare Ergebnisse werden, schneller, eigenständiger und mit deutlich weniger Abhängigkeit von Agenturen und Dienstleistern.",
   legal: {
     operator: "KI Bäckerei ist ein Angebot der",
     company: "WissensReich Academy UG (haftungsbeschränkt)",
