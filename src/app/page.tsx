@@ -1900,7 +1900,7 @@ export default function KiUmsetzungPage() {
 
           {/* Two lanes — Pfad A (Quickcheck, primary) clearly above Pfad B (Termin, alternative) */}
           <div className="mt-16 space-y-10 sm:space-y-12">
-            {/* PFAD A — QUICKCHECK · HERO */}
+            {/* PFAD A — QUICKCHECK · HERO (stacked: header on top, form full-width below) */}
             <Reveal as="article" className="relative">
               <div
                 aria-hidden
@@ -1910,7 +1910,7 @@ export default function KiUmsetzungPage() {
                     "radial-gradient(900px 500px at 50% 50%, rgba(110,63,163,0.18), transparent 70%)",
                 }}
               />
-              {/* Top tag floating above the card */}
+              {/* Floating recommendation tag */}
               <div className="relative flex justify-center">
                 <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/50 bg-brand-500/15 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-200 shadow-[0_8px_24px_-12px_rgba(110,63,163,0.6)]">
                   <Sparkles aria-hidden="true" className="h-3 w-3" />
@@ -1920,13 +1920,12 @@ export default function KiUmsetzungPage() {
 
               <div className="ring-glow-brand relative mt-5 rounded-[2.25rem] p-[1.5px]">
                 <div className="relative rounded-[2.18rem] bg-[#0A0A14]/95 backdrop-blur-sm overflow-hidden">
-                  {/* Inner glow */}
                   <div
                     aria-hidden
                     className="pointer-events-none absolute inset-0"
                     style={{
                       background:
-                        "radial-gradient(700px 420px at 50% 0%, rgba(110,63,163,0.22), transparent 70%)",
+                        "radial-gradient(900px 460px at 50% 0%, rgba(110,63,163,0.22), transparent 70%)",
                     }}
                   />
                   <div
@@ -1934,59 +1933,67 @@ export default function KiUmsetzungPage() {
                     className="pointer-events-none absolute inset-0 bg-dotgrid opacity-60"
                   />
 
-                  <div className="relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 p-7 sm:p-10 lg:p-14">
-                    {/* Left — pitch */}
-                    <div className="lg:pr-2">
-                      <div className="flex flex-wrap items-center justify-between gap-3">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
-                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-                          Pfad A · Quickcheck
-                        </span>
-                        <span className="font-mono text-xs text-brand-200 tabular-nums">
-                          ~90 Sek.
-                        </span>
+                  <div className="relative p-6 sm:p-9 lg:p-12">
+                    {/* HEADER STRIP — full width on top */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_auto] gap-7 lg:gap-12 items-end">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
+                            <span className="inline-block h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                            Pfad A · Quickcheck
+                          </span>
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-[11px] tabular-nums text-brand-200">
+                            ~90 Sek.
+                          </span>
+                        </div>
+
+                        <h3 className="mt-5 font-display text-[clamp(2rem,4.4vw,3.5rem)] leading-[1.02] tracking-[-0.02em] text-white">
+                          Quickcheck.{" "}
+                          <span className="text-brand-300">
+                            Antwort innerhalb 24&nbsp;h.
+                          </span>
+                        </h3>
+
+                        <p className="mt-4 max-w-2xl text-[15px] sm:text-base text-white/85 leading-relaxed">
+                          Vier kurze Fragen — Paket-Tendenz, Ausgangslage,
+                          Bremser, erstes Vorhaben — plus Kontaktdaten. Wir
+                          melden uns werktags innerhalb von 24&nbsp;Stunden für ein
+                          15–30-minütiges Strategiegespräch.
+                        </p>
                       </div>
 
-                      <h3 className="mt-7 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] tracking-[-0.02em] text-white">
-                        Quickcheck.
-                        <br />
-                        <span className="text-brand-300">
-                          Antwort innerhalb 24&nbsp;h.
-                        </span>
-                      </h3>
-
-                      <p className="mt-5 text-[15px] text-white/85 leading-relaxed">
-                        Vier kurze Fragen — Paket-Tendenz, Ausgangslage, Bremser,
-                        erstes Vorhaben — plus Kontaktdaten. Wir melden uns
-                        werktags innerhalb von 24&nbsp;Stunden für ein 15–30-minütiges
-                        Strategiegespräch.
-                      </p>
-
-                      {/* Mini value-list */}
-                      <ul className="mt-7 space-y-3 text-[14px] text-white/85">
-                        <li className="flex items-start gap-3">
-                          <GainCheck className="mt-0.5" />
-                          <span>Vorab abgestimmt — wir kommen vorbereitet ins Gespräch.</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <GainCheck className="mt-0.5" />
-                          <span>Kein Verkaufsdruck. Keine Telefonschleife.</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <GainCheck className="mt-0.5" />
-                          <span>Antwort werktags &lt; 24&nbsp;Stunden — schriftlich verbindlich.</span>
-                        </li>
+                      {/* Trust pills column on lg+, inline below paragraph on smaller */}
+                      <ul className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2 lg:gap-2.5 lg:min-w-[260px]">
+                        {[
+                          "Vorab abgestimmt",
+                          "Kein Verkaufsdruck",
+                          "Antwort werktags < 24 h",
+                        ].map((line) => (
+                          <li
+                            key={line}
+                            className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[12.5px] text-white/85"
+                          >
+                            <GainCheck />
+                            <span>{line}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
-                    {/* Right — form */}
+                    {/* DIVIDER */}
+                    <div
+                      aria-hidden
+                      className="my-8 lg:my-10 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+                    />
+
+                    {/* FORM — full width below header */}
                     <div className="relative">
                       <div
                         aria-hidden
-                        className="pointer-events-none absolute -inset-2 rounded-[2rem] bg-gradient-to-br from-brand-400/20 via-transparent to-transparent blur-xl"
+                        className="pointer-events-none absolute -inset-1 rounded-[1.85rem] bg-gradient-to-br from-brand-400/15 via-transparent to-transparent blur-2xl"
                       />
-                      <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 backdrop-blur-sm">
-                        <ApplyForm />
+                      <div className="relative rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.025] p-5 sm:p-7 lg:p-9 backdrop-blur-sm">
+                        <ApplyForm layout="wide" />
                       </div>
                     </div>
                   </div>
@@ -2007,42 +2014,50 @@ export default function KiUmsetzungPage() {
               </span>
             </div>
 
-            {/* PFAD B — TIDYCAL · SECONDARY */}
+            {/* PFAD B — TIDYCAL · SECONDARY (stacked: header on top, calendar full-width below) */}
             <Reveal as="article" delay={80} className="relative">
-              <div className="relative mx-auto max-w-4xl rounded-[1.75rem] border border-white/10 bg-white/[0.025] backdrop-blur-sm overflow-hidden">
+              <div className="relative rounded-[1.75rem] border border-white/10 bg-white/[0.025] backdrop-blur-sm overflow-hidden">
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-0"
                   style={{
                     background:
-                      "radial-gradient(420px 280px at 100% 0%, rgba(16,185,129,0.10), transparent 70%)",
+                      "radial-gradient(640px 320px at 100% 0%, rgba(16,185,129,0.10), transparent 70%)",
                   }}
                 />
-                <div className="relative grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 sm:gap-8 p-6 sm:p-8">
-                  {/* Left rail — pitch */}
-                  <div className="lg:max-w-xs">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
-                        <CalendarClock aria-hidden="true" className="h-5 w-5" />
-                      </span>
+                <div className="relative p-6 sm:p-8 lg:p-10">
+                  {/* HEADER STRIP — full width */}
+                  <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] gap-4 sm:gap-6 items-center">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
+                      <CalendarClock aria-hidden="true" className="h-5 w-5" />
+                    </span>
+                    <div>
                       <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-200">
-                        Pfad B · Direkt
+                        Pfad B · Direkt buchen
                       </span>
+                      <h3 className="mt-3 font-display text-xl sm:text-2xl lg:text-3xl leading-[1.15] text-white">
+                        Schon entschieden?{" "}
+                        <span className="text-emerald-300">
+                          Slot direkt greifen.
+                        </span>
+                      </h3>
                     </div>
-                    <h3 className="mt-4 font-display text-xl sm:text-2xl leading-[1.2] text-white">
-                      Schon entschieden?{" "}
-                      <span className="text-emerald-300">
-                        Slot direkt greifen.
-                      </span>
-                    </h3>
-                    <p className="mt-2 text-sm text-white/75 leading-relaxed">
-                      Live-Kalender · Termin direkt in Ihrem Kalender bestätigt
-                      · Buchung über{" "}
-                      <span className="text-emerald-300 font-semibold">eskalator.ag</span>.
+                    <p className="text-xs sm:text-[13px] text-white/70 leading-relaxed sm:text-right max-w-[260px] sm:justify-self-end">
+                      Live-Kalender · Buchung über{" "}
+                      <span className="text-emerald-300 font-semibold">
+                        eskalator.ag
+                      </span>{" "}
+                      · Termin direkt im Kalender.
                     </p>
                   </div>
 
-                  {/* Calendar embed */}
+                  {/* DIVIDER */}
+                  <div
+                    aria-hidden
+                    className="my-6 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent"
+                  />
+
+                  {/* CALENDAR — full width */}
                   <div className="rounded-2xl border border-white/10 bg-white p-3 sm:p-4">
                     <TidyCalEmbed />
                   </div>
