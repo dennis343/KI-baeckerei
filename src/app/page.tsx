@@ -829,8 +829,8 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ A5 · FÜR WEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-[#0B0B16] overflow-hidden">
+      {/* ═══════════════════════ S5 · FÜR WEN ═══════════════════════ */}
+      <section className="relative z-10 py-24 sm:py-32 bg-[#0B0B16] overflow-hidden">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
@@ -842,104 +842,74 @@ export default function KiUmsetzungPage() {
         />
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
-            <Eyebrow>04 · Für wen gemacht</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
-              Nicht für Technik-Nerds.
+            <Eyebrow>04 · Für wen das ist</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Sie müssen kein Technik-Nerd sein.
               <br />
               <span className="text-brand-300">
-                Für Menschen mit Fachwissen.
+                Sie müssen Ihre Branche, Ihre Kunden und Ihre Aufgaben kennen.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
-              Sie müssen kein Entwickler sein. Kein IT-Spezialist. Kein
-              MIT-Student. Sie müssen Ihre Branche kennen, Ihre Kunden kennen,
-              Ihre Aufgaben kennen. <span className="text-white">Den Rest bauen wir gemeinsam.</span>
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/85">
+              Den Bauplan entwickeln wir gemeinsam. Funktioniert für Unternehmen,
+              Selbstständige, Fachkräfte, Angestellte und Teams — die Tiefe
+              wählen Sie über das Paket.
             </p>
           </div>
 
-          {/* Audience segments */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* 5 Zielgruppen */}
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 tag: "Unternehmen",
-                head: "Sie wollen schneller kommunizieren, verkaufen und umsetzen.",
-                body: "Ihr Team verliert heute Tage in Abstimmungen und externer Dienstleistung. Mit dem Zweitsystem wird aus einem Meeting direkt ein Entwurf — nicht ein Ticket für die nächste Woche.",
-                line: "Geschwindigkeit wird zum Wettbewerbsvorteil, nicht zur Zufallsvariable.",
+                line: "Schneller kommunizieren, verkaufen und umsetzen — ohne Tage in Abstimmungen zu verlieren.",
               },
               {
                 tag: "Selbstständige",
-                head: "Sie wollen mit kleinem Team wirken wie ein großes.",
-                body: "Sie haben die Kompetenz. Was fehlt, ist die Umsetzungsbreite. Das Zweitsystem gibt Ihnen die zweite Arbeitskraft, ohne dass jemand eingestellt wird.",
-                line: "Sie skalieren Ihre Wirkung — nicht Ihre Fixkosten.",
+                line: "Mit kleinem Team wirken wie ein großes — Wirkung skalieren, nicht Fixkosten.",
               },
               {
-                tag: "Angestellte & Fachkräfte",
-                head: "Sie wollen in Ihrem Job schneller, wirksamer, wertvoller werden.",
-                body: "Während andere noch auf Zuarbeit warten, liefern Sie. Angebote, Präsentationen, Entwürfe, Prototypen — sauber, schnell, eigenständig. Sie werden nicht austauschbar. Sie werden unverzichtbar.",
-                line: "Kein Buzzword im Lebenslauf. Eine reale Fähigkeit auf dem Tisch.",
+                tag: "Fachkräfte",
+                line: "Ihre Expertise sichtbar machen — Angebote, Entwürfe, Vorstufen am gleichen Tag.",
               },
               {
-                tag: "Teams & Projektverantwortliche",
-                head: "Sie wollen bessere Briefings, klarere Strukturen, schnellere Ergebnisse.",
-                body: "Das Zweitsystem nimmt die Reibung zwischen Idee, Briefing und Umsetzung raus — für alle im Team. Übergaben werden reproduzierbar, Projekte planbarer, Qualität steigt.",
-                line: "Weniger Chaos. Mehr Output. Gleiche Teamgröße.",
+                tag: "Angestellte",
+                line: "Im Job schneller, wirksamer, wertvoller werden — eine reale Fähigkeit auf dem Tisch.",
               },
-            ].map((p, i) => (
+              {
+                tag: "Teams",
+                line: "Bessere Briefings, klarere Strukturen, schnellere Übergaben — gleiche Größe, mehr Output.",
+              },
+              {
+                tag: "Projektverantwortliche",
+                line: "Reibung zwischen Idee, Briefing und Umsetzung rausnehmen — reproduzierbar planbar.",
+              },
+            ].map((p) => (
               <article
-                key={i}
-                className="group relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 sm:p-10 hover:border-brand-400/40 hover:bg-brand-400/[0.03] transition"
+                key={p.tag}
+                className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition"
               >
-                <div className="flex items-center justify-between mb-8">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
-                    {p.tag}
-                  </span>
-                  <span className="font-mono text-xs text-white/90 tabular-nums">
-                    0{i + 1}
-                  </span>
-                </div>
-                <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-white">
-                  {p.head}
-                </h3>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
+                  {p.tag}
+                </span>
                 <p className="mt-5 text-sm sm:text-[15px] leading-relaxed text-white/85">
-                  {p.body}
+                  {p.line}
                 </p>
-                <div className="mt-8 pt-6 border-t border-white/10">
-                  <p className="text-[15px] italic text-brand-200 leading-snug">
-                    {p.line}
-                  </p>
-                </div>
               </article>
             ))}
           </div>
 
-          {/* Relief card */}
-          <div className="mt-10 rounded-3xl border border-brand-400/25 bg-gradient-to-r from-brand-500/[0.08] via-transparent to-transparent p-8 sm:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8 items-start">
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-200 whitespace-nowrap">
-                Wichtig zu wissen
-              </span>
-              <p className="font-display text-xl sm:text-2xl leading-[1.3] text-white">
-                Sie bekommen{" "}
-                <span className="text-brand-300">keine Blackbox</span> übergeben.
-                Sie bauen Ihr Zweitsystem gemeinsam mit auf — und verstehen
-                danach den Bauplan. Das macht Sie{" "}
-                <span className="text-white">dauerhaft eigenständig</span>, nicht
-                abhängig.
-              </p>
-            </div>
-          </div>
-
           {/* Anti-audience */}
-          <div className="mt-14 rounded-3xl border border-rose-500/20 bg-rose-500/[0.03] p-8 sm:p-10 max-w-3xl">
-            <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-5">
+          <div className="mt-12 rounded-2xl border border-rose-500/20 bg-rose-500/[0.03] p-6 sm:p-7 max-w-3xl">
+            <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-4">
               <PainX />
               Nicht für Sie, wenn …
             </p>
-            <ul className="space-y-4 text-[15px] text-white/90 leading-relaxed">
+            <ul className="space-y-3 text-[14px] sm:text-[15px] text-white/85 leading-relaxed">
               {[
-                "Sie einen fertigen Button erwarten, bei dem etwas herausfällt, ohne selbst mitzudenken.",
-                "Sie glauben, Tools ersetzen Urteilsvermögen. Das Zweitsystem verstärkt Kompetenz — es erschafft keine.",
-                "Sie nicht bereit sind, 4 Wochen lang echte Live-Arbeit einzubringen.",
+                "Sie einen Knopfdruck erwarten, bei dem Ergebnisse herausfallen, ohne mitzudenken.",
+                "Sie glauben, Tools ersetzen Urteilsvermögen — die Maschine verstärkt Kompetenz, sie erschafft keine.",
+                "Sie nicht bereit sind, an realen Use Cases mitzuarbeiten.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <PainX className="mt-1" />
@@ -951,669 +921,203 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ A6 · ANWENDUNGSFELDER ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
+      {/* ═══════════════════════ S6 · WAS DAMIT MÖGLICH WIRD ═══════════════════════ */}
+      <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden">
         <SectionDivider tone="brand" />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(700px 400px at 0% 30%, rgba(110,63,163,0.14), transparent 65%), radial-gradient(700px 400px at 100% 70%, rgba(110,63,163,0.12), transparent 65%)",
+              "radial-gradient(700px 400px at 0% 30%, rgba(110,63,163,0.12), transparent 65%), radial-gradient(700px 400px at 100% 70%, rgba(110,63,163,0.10), transparent 65%)",
           }}
         />
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
-            <Eyebrow>05 · Anwendungsfelder</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
-              Was Sie mit Ihrem Zweitsystem
+            <Eyebrow>05 · Was damit möglich wird</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+              Aus Ideen werden Dinge,
               <br />
-              <span className="text-brand-700">konkret bewegen.</span>
+              <span className="text-brand-700">
+                die Ihr Markt sehen, klicken und buchen kann.
+              </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
-              Kein Tool-Zoo. Keine Buzzword-Liste. Sondern sechs Felder, in
-              denen heute die meiste Zeit verloren geht — und die morgen anders
-              funktionieren.
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-ink-800">
+              Kein Tool-Zoo. Keine Buzzword-Liste. Sondern konkrete Bausteine,
+              die heute mit Wartezeit, Briefings und Dienstleisterabhängigkeit
+              entstehen — und morgen aus der Hosentasche.
             </p>
           </div>
 
-          {/* Fields */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Outcome grid */}
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 num: "01",
-                head: "Homepages & Social-Media-Präsenz",
-                nutzen:
-                  "Ihre Seite zeigt in Sekunden, warum jemand bei Ihnen richtig ist — statt Besucher zu verwirren, die dann abspringen.",
+                head: "Angebotsseiten, die Anfragen erzeugen",
+                sub: "Klar, konvertierend, mit Buchungslogik.",
               },
               {
                 num: "02",
-                head: "Landingpages & Angebotsseiten",
-                nutzen:
-                  "Aus Interesse werden Anfragen, Termine, Käufe. Mit klarem Aufbau, Buchungslogik und einer Mechanik, die nicht nur „schön“ ist, sondern konvertiert.",
+                head: "Landingpages mit Termin- und Kauf-Mechanik",
+                sub: "Sichtbar testen, schneller iterieren.",
               },
               {
                 num: "03",
                 head: "Digitale Vertriebsstrecken",
-                nutzen:
-                  "Lose Aufmerksamkeit wird zu konkreter Nachfrage. Leser werden zu Leads, Leads werden zu Kunden — ohne dass Sie täglich hinterherlaufen.",
+                sub: "Aufmerksamkeit → Lead → Kunde, ohne tägliches Hinterherlaufen.",
               },
               {
                 num: "04",
-                head: "Follow-up & Newsletter-Systeme",
-                nutzen:
-                  "Kontakte versanden nicht mehr. Vertrauen baut sich auf. Menschen, die heute „vielleicht“ sagen, kommen in drei Monaten als „ja“ zurück.",
+                head: "Follow-up- und Newsletter-Systeme",
+                sub: "Vertrauen bauen, ohne dass Kontakte versanden.",
               },
               {
                 num: "05",
-                head: "Prototypen für Apps, Tools, Services",
-                nutzen:
-                  "Sie zeigen eine Idee — nicht als Mockup, sondern als anklickbare Vorstufe. Überzeugen Entscheider, testen mit echten Nutzern, schärfen in Tagen statt Monaten.",
+                head: "App-/Tool-Prototypen",
+                sub: "Anklickbare Vorstufen, bevor 25.000 € extern fließen.",
               },
               {
                 num: "06",
-                head: "Interne Prozesse & Briefings",
-                nutzen:
-                  "Reibung raus, Übergaben sauber, Wissen reproduzierbar. Arbeit, die heute an Einzelpersonen hängt, wird skalierbar — ohne dass jemand sich nackt fühlt.",
+                head: "Interne Steuerungsboards",
+                sub: "Aufträge, Prozesse, Daten — sauber an einem Ort.",
               },
-            ].map((f, i) => (
+              {
+                num: "07",
+                head: "Prozess- und Briefingstrukturen",
+                sub: "Reibung raus, Übergaben reproduzierbar.",
+              },
+              {
+                num: "08",
+                head: "Sichtbare Vorstufen für Leistungen",
+                sub: "Was möglich wird, sehen — bevor andere noch Anforderungsdokumente schreiben.",
+              },
+            ].map((f) => (
               <article
-                key={i}
-                className="group relative rounded-2xl border border-ink-900/10 bg-white p-7 hover:border-brand-600/40 hover:bg-brand-50 transition"
+                key={f.num}
+                className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-600/40 hover:bg-brand-50 transition"
               >
-                <div className="flex items-start justify-between mb-5">
+                <div className="flex items-start justify-between mb-4">
                   <span className="font-mono text-xs text-brand-700 tabular-nums">
                     {f.num}
                   </span>
-                  <span className="w-8 h-px bg-white/20 mt-2 group-hover:bg-brand-400 transition" />
                 </div>
-                <h3 className="font-display text-xl sm:text-[1.4rem] leading-[1.2] text-ink-900 mb-4">
+                <h3 className="font-display text-lg leading-[1.2] text-ink-900 mb-3">
                   {f.head}
                 </h3>
                 <p className="text-sm text-ink-800 leading-relaxed">
-                  {f.nutzen}
+                  {f.sub}
                 </p>
               </article>
             ))}
-          </div>
-
-          {/* Signature scenes */}
-          <div className="mt-24">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-800 mb-6">
-              Was vorher undenkbar war, wird Routine
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-900/10 rounded-3xl overflow-hidden border border-ink-900/10">
-              {[
-                {
-                  head: "Angebotsseite + Buchung + Newsletter — in kurzer Zeit.",
-                  body: "Nicht in der Reihenfolge „erst alles klären, dann alles bauen“. Sondern parallel, sichtbar, iterativ.",
-                },
-                {
-                  head: "Nach dem Meeting liegt der Prototyp auf dem Tisch.",
-                  body: "Während oder kurz nach einem Termin steht ein erster testbarer Stand. Nicht in zwei Wochen. Jetzt.",
-                },
-                {
-                  head: "Leistungen sichtbar, bevor der klassische Prozess fertig ist.",
-                  body: "Sie zeigen, was möglich wird — während andere noch Anforderungsdokumente schreiben.",
-                },
-                {
-                  head: "Mehr Funktionen und Bausteine schon früh mitdenken.",
-                  body: "Statt „erst Mindestversion, später Rest“ entsteht eine Lösung, die von Anfang an Tiefe hat — ohne Mehrkosten.",
-                },
-              ].map((s, i) => (
-                <div key={i} className="bg-white p-8 sm:p-10">
-                  <p className="font-display text-xl sm:text-2xl leading-[1.2] text-ink-900">
-                    {s.head}
-                  </p>
-                  <p className="mt-4 text-sm text-ink-800 leading-relaxed">
-                    {s.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ A7 · WAS GEMEINSAM AUFGEBAUT WIRD ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
-        <SectionDivider tone="emerald" />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(700px 500px at 50% 100%, rgba(16,185,129,0.14), transparent 70%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <Eyebrow>06 · Was gemeinsam entsteht</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
-              Sie bauen kein Programm.
-              <br />
-              <span className="text-brand-300">Sie bauen Ihr System.</span>
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
-              In diesen 4 Wochen entsteht keine Theorie und keine Notiz-Sammlung.
-              Sondern eine arbeitsfähige Grundlage — gemeinsam aufgebaut,
-              transparent erklärt, mit vollem Bauplan in Ihrer Hand.
-            </p>
-          </div>
-
-          {/* Build pillars */}
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {[
-              {
-                num: "01",
-                head: "Eine klare Arbeitslogik",
-                nutzen:
-                  "Damit Ideen nicht im Nebel hängen, sondern Bahn aufnehmen. Sie wissen jederzeit, wohin ein Gedanke fließt — und was als nächstes passiert.",
-                bad: "Kein Tool-Chaos.",
-              },
-              {
-                num: "02",
-                head: "Ein abgestimmtes Zusammenspiel",
-                nutzen:
-                  "Die digitalen Bausteine greifen ineinander, statt nebeneinander zu existieren. Ein Stand entsteht aus einem Eingang — nicht aus fünf parallelen Werkzeugen.",
-                bad: "Kein Frankenstein-Stack.",
-              },
-              {
-                num: "03",
-                head: "Saubere Grundlagen für sichere Nutzung",
-                nutzen:
-                  "Damit Daten, Inhalte und Logik kontrolliert bleiben. Sie wissen, was wo liegt — und wer zugreifen kann. Ruhe statt nervöses Drüber-Schauen.",
-                bad: "Kein offenes Scheunentor.",
-              },
-              {
-                num: "04",
-                head: "Fokus auf echte Anwendungsfälle",
-                nutzen:
-                  "Statt Demos und Halbgares entsteht jeder Baustein an Ihrem realen Problem. Das System trägt von Tag eins, weil es gegen Ihre Wirklichkeit gebaut wurde.",
-                bad: "Keine Spielerei.",
-              },
-              {
-                num: "05",
-                head: "Schutz- und Zugriffslogik",
-                nutzen:
-                  "Schlüsselstrukturen, Rechte, Sichtbarkeiten — bewusst gesetzt. So bleibt Wirkung hoch und Risiko niedrig, auch wenn das Team wächst oder Externe zuarbeiten.",
-                bad: "Keine Datenleckage.",
-              },
-              {
-                num: "06",
-                head: "Präzise Use-Case-Ausrichtung",
-                nutzen:
-                  "Ihr Zweitsystem ist nicht generisch. Es ist auf Ihre Branche, Ihre Sprache, Ihre Kunden zugeschnitten. Ergebnisse klingen nach Ihnen — nicht nach Standard-KI.",
-                bad: "Keine Allzweckwaffe.",
-              },
-            ].map((p, i) => (
-              <article
-                key={i}
-                className="lg:col-span-6 xl:col-span-4 rounded-3xl border border-white/10 bg-white/[0.02] p-7 sm:p-8 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-xs text-brand-300 tabular-nums">
-                    {p.num}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-rose-300">
-                    <PainX />
-                    {p.bad}
-                  </span>
-                </div>
-                <h3 className="font-display text-xl sm:text-[1.4rem] leading-[1.2] text-white mb-4">
-                  {p.head}
-                </h3>
-                <p className="text-sm text-white/85 leading-relaxed">
-                  {p.nutzen}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          {/* No-blackbox manifesto */}
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
-            <div className="rounded-3xl border border-brand-400/30 bg-gradient-to-br from-brand-500/[0.1] to-transparent p-10 sm:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-5">
-                Das Versprechen
-              </p>
-              <p className="font-display text-2xl sm:text-3xl leading-[1.2] text-white">
-                Kein Blackbox-Produkt.
-                <br />
-                <span className="text-brand-200">
-                  Sie verstehen den Bauplan.
-                </span>
-              </p>
-              <p className="mt-6 text-[15px] text-white/90 leading-relaxed">
-                Sie bekommen nicht ein fertiges Etwas übergeben, das Sie hoffen
-                weiter bedienen zu können. Sie bauen Ihr System mit auf — Stück
-                für Stück, sichtbar, erklärt. Danach gehört es Ihnen.
-                Inklusive der Logik dahinter.
-              </p>
-            </div>
-            <div className="rounded-3xl border border-emerald-500/20 bg-emerald-500/[0.04] p-10 sm:p-12">
-              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-5">
-                <GainCheck />
-                Was das praktisch heißt
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Sie können nach 4 Wochen ohne uns weiterarbeiten.",
-                  "Sie können das System eigenständig auf neue Themen ausrichten.",
-                  "Sie sind nicht an einen Anbieter, eine Agentur oder eine Lizenz gefesselt.",
-                  "Sie können andere im Team befähigen — weil Sie selbst verstehen, was läuft.",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/90 leading-relaxed"
-                  >
-                    <GainCheck className="mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ A8 · MUSTERREISE 4 WOCHEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
-        <SectionDivider tone="brand" />
-        {/* Vertical brand accent line */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-32 bottom-32 w-px bg-gradient-to-b from-transparent via-brand-400/30 to-transparent hidden lg:block"
-        />
-        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <Eyebrow>07 · Die Musterreise</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
-              Vier Wochen.
-              <br />
-              <span className="text-brand-700">
-                Acht Live-Termine. Eine arbeitsfähige Grundlage.
-              </span>
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
-              Pro Woche zwei Calls: ein Impuls- und Feedback-Call mit 60
-              Minuten, ein Umsetzungs-Call mit 90 Minuten. Dazwischen arbeiten
-              Sie an Ihrem Stand — mit klarem Was und klarem Wie.
-            </p>
-          </div>
-
-          {/* Weeks timeline */}
-          <ol className="mt-20 space-y-6">
-            {[
-              {
-                week: "Woche 01",
-                title: "Verstehen, einordnen, aufsetzen.",
-                desc: "Digitales Mindset, Positionierung, Prioritäten, Grundsetup. Sie bauen ein System, das zu Ihrem Business, Ihrer Rolle und Ihren echten Anforderungen passt.",
-                outcome:
-                  "Sie verlieren keine Zeit mehr durch unklare Strukturen. Was Sie aufsetzen, trägt — und Ihre Ideen können überhaupt erst sauber Fahrt aufnehmen.",
-              },
-              {
-                week: "Woche 02",
-                title: "Anforderungen in brauchbare Systeme übersetzen.",
-                desc: "Aus Gedanken, Sprachnachrichten und Fachwissen werden belastbare Anforderungen, Seitenstrukturen, Prozesslogiken und digitale Entwürfe.",
-                outcome:
-                  "Sie hoffen nicht mehr, dass andere verstehen, was Sie meinen. Sie bringen Ihre Ideen selbst in eine Form, die direkt weiterverarbeitet werden kann.",
-              },
-              {
-                week: "Woche 03",
-                title: "Ergebnisse sichtbar und nutzbar machen.",
-                desc: "Reale Vorstufen, Prototypen und erste testbare Ergebnisse entstehen. Sie reden nicht mehr über Möglichkeiten — Sie zeigen sie.",
-                outcome:
-                  "Sie kommen in einen Zustand, in dem man Dinge wirklich sehen, prüfen und schärfen kann. Statt Annahmen zu diskutieren, schärfen Sie an realen Ständen.",
-              },
-              {
-                week: "Woche 04",
-                title: "System festigen und produktiv nutzen.",
-                desc: "Persönliches Grundsystem finalisieren. Schutz- und Nutzungslogik schärfen. Definieren, wie damit im Alltag oder im Unternehmen gearbeitet wird.",
-                outcome:
-                  "Sie gehen nicht mit Notizen heraus, sondern mit einer arbeitsfähigen Struktur, die Sie ab Tag 29 produktiv nutzen können.",
-              },
-            ].map((w, i) => (
-              <li
-                key={i}
-                className="group rounded-3xl border border-ink-900/10 bg-white hover:border-brand-600/30 hover:bg-brand-50 transition p-8 sm:p-10"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                  {/* Left rail */}
-                  <div className="lg:col-span-3">
-                    <p className="font-mono text-xs text-brand-700 tracking-[0.2em] mb-3">
-                      {w.week}
-                    </p>
-                    <div className="flex flex-col gap-2">
-                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-800">
-                        <span className="w-6 h-px bg-white/30" />
-                        Impuls · 60 min
-                      </span>
-                      <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-800">
-                        <span className="w-6 h-px bg-white/30" />
-                        Umsetzung · 90 min
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Title + desc */}
-                  <div className="lg:col-span-5">
-                    <h3 className="font-display text-2xl sm:text-[1.7rem] leading-[1.15] text-ink-900">
-                      {w.title}
-                    </h3>
-                    <p className="mt-5 text-sm sm:text-[15px] text-ink-800 leading-relaxed">
-                      {w.desc}
-                    </p>
-                  </div>
-
-                  {/* Outcome */}
-                  <div className="lg:col-span-4 lg:border-l lg:border-ink-900/10 lg:pl-8">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-700 mb-3">
-                      Das bedeutet für Sie
-                    </p>
-                    <p className="text-[15px] text-ink-900 leading-relaxed">
-                      {w.outcome}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          {/* Bonus follow-up */}
-          <div className="mt-10 rounded-3xl border border-brand-600/25 bg-gradient-to-r from-brand-50 via-transparent to-transparent p-8 sm:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-6 items-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand-600/40 bg-brand-500/10 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-700 whitespace-nowrap">
-                Bonus
-              </span>
-              <p className="font-display text-xl sm:text-2xl leading-[1.3] text-ink-900">
-                Ca. 4 Wochen nach Ende: gemeinsame{" "}
-                <span className="text-brand-700">Follow-up-Session</span> — wir
-                schauen, was im Alltag wirklich läuft, was hakt und was als
-                nächstes hebelt.
-              </p>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-800 whitespace-nowrap">
-                Ohne Aufpreis
-              </span>
-            </div>
-          </div>
-
-          {/* Format strip */}
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-ink-900/10 rounded-2xl overflow-hidden border border-ink-900/10">
-            {[
-              { k: "Format", v: "Digitale Kleingruppe" },
-              { k: "Live-Termine", v: "8 + 1 Bonus" },
-              { k: "Pro Woche", v: "60 min + 90 min" },
-              { k: "Aufwand zwischen Calls", v: "Sie bestimmen" },
-            ].map((c) => (
-              <div key={c.k} className="bg-white p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-800 mb-2">
-                  {c.k}
-                </p>
-                <p className="text-sm sm:text-base font-semibold text-ink-900 leading-snug">
-                  {c.v}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ A9 · ERGEBNIS NACH 4 WOCHEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-[#0B0B16] overflow-hidden">
-        <SectionDivider tone="emerald" />
-        {/* Split: red on left, emerald on right */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(700px 500px at 0% 50%, rgba(244,63,94,0.14), transparent 65%), radial-gradient(800px 600px at 100% 50%, rgba(16,185,129,0.20), transparent 70%)",
-          }}
-        />
-
-        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <Eyebrow>08 · Das Ergebnis</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
-              Nach 4 Wochen ist nicht Wissen entstanden.
-              <br />
-              <span className="text-brand-300">Sondern Umsetzungskraft.</span>
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
-              Sie haben kein Notizbuch voller Konzepte. Sie haben eine
-              arbeitsfähige Grundlage — und einen anderen Arbeitstag.
-            </p>
-          </div>
-
-          {/* Transformation panel */}
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/10 rounded-3xl overflow-hidden border border-white/10">
-            {/* Vorher */}
-            <div className="bg-gradient-to-br from-rose-500/[0.08] to-transparent p-10 sm:p-12">
-              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-6">
-                <PainX />
-                Vor dem Programm
-              </p>
-              <ul className="space-y-5">
-                {[
-                  "Ideen versanden zwischen Briefing und Umsetzung.",
-                  "Externe Dienstleister sind Engpass und Kostenfaktor.",
-                  "Sie reden über Lösungen — sehen können Sie sie selten.",
-                  "Tempo hängt am Kalender anderer Leute.",
-                  "Wirkung ist Zufall, nicht Methode.",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] text-white/90 leading-relaxed"
-                  >
-                    <PainX className="mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Nachher */}
-            <div className="bg-gradient-to-br from-emerald-500/[0.10] to-transparent p-10 sm:p-12 border-l border-emerald-400/25">
-              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-6">
-                <GainCheck />
-                Nach 4 Wochen
-              </p>
-              <ul className="space-y-5">
-                {[
-                  "Aus Sprachnachricht oder Idee wird in Stunden ein Stand.",
-                  "Sie sind unabhängiger von Agenturen und Wartezimmer-Logik.",
-                  "Sie zeigen Lösungen, statt sie zu erklären.",
-                  "Tempo bestimmen Sie selbst.",
-                  "Wirkung wird wiederholbar — weil Sie das System dahinter besitzen.",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] text-white leading-relaxed"
-                  >
-                    <GainCheck className="mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* What it means in everyday */}
-          <div className="mt-20">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-6">
-              So sieht ein Arbeitstag mit Zweitsystem aus
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {[
-                {
-                  time: "08:42",
-                  head: "Sprachnachricht im Auto: neue Angebotsidee.",
-                  body: "Stichpunkte, kein Skript. 90 Sekunden.",
-                },
-                {
-                  time: "10:15",
-                  head: "Erste Struktur und Entwurf liegen vor.",
-                  body: "Sektionen, Texte, Aufbau, Buchungslogik — testbar.",
-                },
-                {
-                  time: "14:30",
-                  head: "Sie schärfen anhand des realen Stands.",
-                  body: "Statt zu beschreiben, was anders sein sollte: anpassen.",
-                },
-                {
-                  time: "17:00",
-                  head: "Stand geht an Kollegen oder Kunden raus.",
-                  body: "Nicht als Mockup. Als ein Ding, das funktioniert.",
-                },
-              ].map((s, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7"
-                >
-                  <p className="font-mono text-xs text-brand-300 tracking-[0.2em] mb-3">
-                    {s.time}
-                  </p>
-                  <p className="font-display text-lg sm:text-xl leading-[1.25] text-white">
-                    {s.head}
-                  </p>
-                  <p className="mt-2 text-sm text-white/90 leading-relaxed">
-                    {s.body}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Closer */}
-          <p className="mt-20 font-display text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.25] text-white max-w-4xl">
-            Was vor 4 Wochen ein Briefing gewesen wäre,
-            <br />
-            <span className="text-brand-300">
-              ist heute ein erledigter Punkt.
+          <p className="mt-14 font-display text-[clamp(1.4rem,2.4vw,1.875rem)] leading-[1.25] text-ink-900 max-w-4xl">
+            Nicht in der Reihenfolge „erst alles klären, dann alles bauen" —{" "}
+            <span className="text-brand-700">
+              parallel, sichtbar, iterativ.
             </span>
           </p>
         </div>
       </section>
 
-      {/* ═══════════════════════ A10 · FORMAT & VORAUSSETZUNGEN ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
+      {/* ═══════════════════════ S7 · WAS GEMEINSAM ENTSTEHT ═══════════════════════ */}
+      <section className="relative z-10 py-24 sm:py-32 bg-[#0A0A14] overflow-hidden">
         <SectionDivider tone="brand" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(900px 500px at 50% 0%, rgba(110,63,163,0.16), transparent 70%)",
+          }}
+        />
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
-            <Eyebrow>09 · Format & Voraussetzungen</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
-              Live. Klein. Online.
+            <Eyebrow>06 · Was gemeinsam entsteht</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.015em] text-white">
+              Keine Blackbox. Kein Tool-Chaos.
               <br />
-              <span className="text-brand-700">
-                Damit echte Arbeit echte Wirkung hat.
+              <span className="text-brand-300">
+                Eine Maschine, die Sie verstehen.
               </span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
-              Die Kleingruppe sorgt dafür, dass nichts in allgemeiner Theorie
-              versickert. Sie profitieren von direkter Relevanz, echten
-              Beispielen anderer Teilnehmer und gegenseitiger Schärfung — ohne
-              in Anonymität zu verschwinden.
+            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-white/85">
+              Sie bauen Ihre Umsetzungsmaschine bewusst mit auf — mit klarer
+              Arbeitslogik, sauberer Schutz- und Zugriffslogik und präziser
+              Ausrichtung auf Ihre echten Use Cases. Danach können Sie
+              eigenständig weiterbauen.
             </p>
           </div>
 
-          {/* Spec table */}
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Format */}
-            <div className="rounded-3xl border border-ink-900/10 bg-white p-8 sm:p-10">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-700 mb-8">
-                Format
-              </p>
-              <dl className="space-y-5">
-                {[
-                  ["Setting", "Digital · Live · Kleingruppe"],
-                  ["Laufzeit", "4 Wochen + 1 Bonus-Termin"],
-                  ["Live-Termine", "8 Sessions · 12 Stunden"],
-                  ["Pro Woche", "60 min Impuls + 90 min Umsetzung"],
-                  ["Sprache", "Deutsch"],
-                  ["Aufwand zwischen Calls", "Sie bestimmen — empfohlen 2–4 h"],
-                ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="grid grid-cols-[1fr_auto] gap-6 items-baseline border-b border-ink-900/5 pb-4 last:border-0 last:pb-0"
-                  >
-                    <dt className="text-sm text-ink-800">{k}</dt>
-                    <dd className="text-sm sm:text-[15px] font-semibold text-ink-900 text-right">
-                      {v}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+          {/* Building blocks */}
+          <ul className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              {
+                head: "Klare Arbeitslogik",
+                sub: "Wie kommen Idee, Daten, Sprache und Output zusammen — verständlich für Sie und Ihr Team.",
+              },
+              {
+                head: "Abgestimmtes Zusammenspiel",
+                sub: "Digitale Bausteine, die ineinander greifen, statt ein Tool-Zoo, der nebeneinander her läuft.",
+              },
+              {
+                head: "Sichere Nutzung",
+                sub: "Schutz-, Zugriffs- und Schlüssellogik werden bewusst Teil des Aufbaus — keine Schatten-IT.",
+              },
+              {
+                head: "Präzise Use-Case-Ausrichtung",
+                sub: "Auf Ihre Branche, Ihre Sprache, Ihre Kunden zugeschnitten — Ergebnisse klingen nach Ihnen.",
+              },
+              {
+                head: "Daten- und Wissensgrundlage",
+                sub: "Ihre Inhalte, Ihre Beispiele, Ihre Marktrealität — die Maschine arbeitet mit dem, was wirklich relevant ist.",
+              },
+              {
+                head: "Sauberer Übergang in den Alltag",
+                sub: "Nicht „nach dem Programm sehen wir weiter", sondern: ab Tag 29 produktiv einsetzbar.",
+              },
+            ].map((b, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:border-brand-400/40 hover:bg-brand-400/[0.04] transition"
+              >
+                <GainCheck className="mt-1" />
+                <div>
+                  <p className="font-display text-lg text-white leading-snug">
+                    {b.head}
+                  </p>
+                  <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                    {b.sub}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
 
-            {/* Was Sie mitbringen */}
-            <div className="rounded-3xl border border-emerald-500/40 bg-gradient-to-br from-emerald-50 to-transparent p-8 sm:p-10">
-              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-700 mb-8">
-                <GainCheck />
-                Was Sie mitbringen
-              </p>
-              <ul className="space-y-5">
-                {[
-                  {
-                    head: "Branchen- und Kundenkenntnis",
-                    sub: "Sie wissen, für wen Sie arbeiten und worum es bei Ihnen geht.",
-                  },
-                  {
-                    head: "Ein konkretes Vorhaben",
-                    sub: "Eine Seite, ein Prozess, ein Prototyp, ein Funnel — irgendetwas Reales.",
-                  },
-                  {
-                    head: "Bereitschaft mitzubauen",
-                    sub: "Sie wollen verstehen, nicht nur konsumieren. 4 Wochen lang.",
-                  },
-                  {
-                    head: "Laptop mit stabiler Verbindung",
-                    sub: "Den Rest klären wir in Woche 1.",
-                  },
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-4 border-b border-emerald-500/10 pb-4 last:border-0 last:pb-0"
-                  >
-                    <GainCheck className="mt-0.5" />
-                    <div>
-                      <p className="text-[15px] font-semibold text-ink-900 leading-snug">
-                        {item.head}
-                      </p>
-                      <p className="mt-1 text-sm text-ink-800 leading-relaxed">
-                        {item.sub}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Anti-Voraussetzungen */}
-          <div className="mt-10 rounded-3xl border border-rose-400/60 bg-rose-50 p-8 sm:p-10">
-            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-8">
-              <span className="inline-flex items-center gap-2 rounded-full border border-rose-500/60 bg-rose-100 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-rose-700 whitespace-nowrap h-fit">
-                <PainX />
-                Was Sie NICHT brauchen
+          {/* Eskalations-Hinweis With You / Done for You Lite */}
+          <div className="mt-10 rounded-2xl border border-brand-400/30 bg-gradient-to-r from-brand-500/[0.10] via-transparent to-transparent p-6 sm:p-7">
+            <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 items-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-200 whitespace-nowrap h-fit">
+                Tiefe wählen
               </span>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3">
-                {[
-                  "Programmiererfahrung",
-                  "IT-Vorkenntnisse",
-                  "Fertige Strategie",
-                  "Großes Budget für Tools",
-                  "Mitarbeiter, die nebenher zuarbeiten",
-                  "„KI-Wissen“ aus Kursen oder Büchern",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[15px] text-ink-800 leading-snug"
-                  >
-                    <PainX className="mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <p className="font-display text-lg sm:text-xl leading-[1.3] text-white">
+                  <span className="text-white/80">Kompakt</span> gibt Ihnen den
+                  Bauplan.{" "}
+                  <span className="text-brand-300">With You</span> baut mit
+                  Ihnen die Maschine.{" "}
+                  <span className="text-white">Done for You Lite</span> richtet
+                  sie für Sie ein, schult Ihr Team und begleitet die ersten
+                  echten Einsätze.
+                </p>
+                <p className="mt-3 text-sm text-white/70 leading-relaxed">
+                  Wertschätzend abgegrenzt: Kompakt ist für Selbststeuerer.
+                  With You für Mit-Umsetzer. Done for You Lite für Unternehmen,
+                  die maximale Entlastung wollen.
+                </p>
+              </div>
             </div>
           </div>
         </div>
