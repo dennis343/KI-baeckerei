@@ -467,179 +467,47 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ A3 · DIE GLEICHUNG ═══════════════════════ */}
+      {/* ═══════════════════════ S3 · NEUE REALITÄT ═══════════════════════ */}
       <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden">
         <SectionDivider tone="brand" />
-        {/* Accent glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(900px 600px at 50% 0%, rgba(110,63,163,0.18), transparent 70%)",
+              "radial-gradient(900px 600px at 50% 0%, rgba(110,63,163,0.18), transparent 70%), radial-gradient(700px 500px at 100% 80%, rgba(16,185,129,0.10), transparent 70%)",
           }}
         />
 
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl">
-            <Eyebrow>02 · Die Kernlogik</Eyebrow>
+            <Eyebrow>02 · Die neue Realität</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-white">
-              Ihre Fachkompetenz ist der Rohstoff.
+              Aus Idee wird Struktur.
+              <br />
+              Aus Struktur wird Entwurf.
               <br />
               <span className="text-brand-300">
-                Das Zweitsystem ist der Verstärker.
+                Aus Entwurf wird testbare Realität.
               </span>
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/85">
-              Das Zweitsystem ersetzt nicht, was Sie können. Es vervielfacht es.
-              Ihr Wissen, Ihr Urteil, Ihr Marktverständnis bleiben der Kern.
-              Was sich ändert: die Strecke dahinter.
+              Ihre Fachkompetenz bleibt der Rohstoff. Was sich ändert, ist die
+              Strecke dahinter — von Sprachnachricht zu sichtbarem Stand, ohne
+              Briefing-Kaskade dazwischen.
             </p>
           </div>
 
-          {/* The equation */}
-          <div className="mt-20 rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8 sm:p-12 lg:p-16">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1.2fr] gap-6 md:gap-4 items-center">
-              {/* Term 1 */}
-              <div className="text-center md:text-left">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
-                  Rohstoff
-                </p>
-                <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] text-white font-semibold">
-                  Fachkompetenz
-                </p>
-                <p className="mt-2 text-xs text-white/85">
-                  Erfahrung, Urteil, Marktverständnis.
-                </p>
-              </div>
-
-              {/* Operator × */}
-              <div className="text-center">
-                <span className="font-display text-5xl sm:text-6xl text-brand-400">
-                  ×
-                </span>
-              </div>
-
-              {/* Term 2 */}
-              <div className="text-center">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-3">
-                  Verstärker
-                </p>
-                <p className="font-display italic text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] text-white font-semibold">
-                  Das Zweitsystem
-                </p>
-                <p className="mt-2 text-xs text-white/85">
-                  Ihre zweite digitale Arbeitskraft.
-                </p>
-              </div>
-
-              {/* Operator = */}
-              <div className="text-center">
-                <span className="font-display text-5xl sm:text-6xl text-white/85">
-                  =
-                </span>
-              </div>
-
-              {/* Result */}
-              <div className="text-center md:text-right">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/85 mb-3">
-                  Ergebnis
-                </p>
-                <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] text-white font-semibold">
-                  Reale Umsetzungskraft
-                </p>
-                <p className="mt-2 text-xs text-white/85">
-                  Sichtbar. Testbar. Am selben Tag.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* What comes out */}
-          <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-5">
-              <p className="font-display text-2xl sm:text-3xl leading-[1.2] text-white">
-                Aus einer Sprachnachricht am Vormittag wird noch am{" "}
-                <span className="text-brand-300">selben Tag</span>:
-              </p>
-              <p className="mt-6 text-sm text-white/90 leading-relaxed max-w-sm">
-                Kein Dummy. Kein Moodboard. Sondern ein Stand, den Sie sehen,
-                prüfen und schärfen können.
-              </p>
-            </div>
-            <ul className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {[
-                "Eine überzeugende Angebots- oder Landingpage",
-                "Eine saubere Customer-Journey-Struktur",
-                "Ein erster nutzbarer App- oder Tool-Prototyp",
-                "Ein funktionierender Newsletter- und Follow-up-Entwurf",
-                "Eine präzise Prozess- oder Briefing-Struktur",
-                "Eine buchbare Mechanik für Termine oder Käufe",
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-3 rounded-xl border border-emerald-500/15 bg-emerald-500/[0.04] p-4 hover:border-emerald-400/40 hover:bg-emerald-400/[0.07] transition"
-                >
-                  <GainCheck className="mt-0.5" />
-                  <span className="text-sm text-white/90 leading-snug">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Kicker */}
-          <p className="mt-20 font-display text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.25] text-white/80 max-w-4xl">
-            Nicht nach Monaten. Nicht nach endlosen Briefings.
-            <br />
-            <span className="text-white">
-              Sondern in einer Geschwindigkeit, die vorher undenkbar war —
-            </span>{" "}
-            <span className="text-brand-300">
-              weil die Strecke dazwischen einfach nicht mehr existiert.
-            </span>
-          </p>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ A4 · DIE NEUE REALITÄT — BEFORE / AFTER ═══════════════════════ */}
-      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
-        <SectionDivider tone="brand" />
-        {/* Split glow: red left, emerald right */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(700px 500px at 0% 50%, rgba(244,63,94,0.16), transparent 60%), radial-gradient(700px 500px at 100% 50%, rgba(16,185,129,0.18), transparent 60%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-          <div className="max-w-4xl">
-            <Eyebrow>03 · Die neue Realität</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
-              Von der Strecke dazwischen —
-              <br />
-              <span className="text-brand-700">zur direkten Linie.</span>
-            </h2>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
-              Früher floss jede Idee durch Briefings, Rückfragen und
-              Freigaben — Wochen lang, bevor überhaupt etwas Sichtbares
-              entstand. Mit Ihrem Zweitsystem verschwindet diese Strecke.
-            </p>
-          </div>
-
-          {/* Two-track flow diagram */}
+          {/* Vorher / Nachher — Tracks */}
           <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* OLD TRACK */}
-            <div className="rounded-3xl border border-rose-400/70 bg-gradient-to-b from-rose-50 to-transparent p-8 sm:p-10">
-              <div className="flex items-center justify-between mb-10">
-                <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-700">
+            {/* Vorher */}
+            <div className="rounded-3xl border border-rose-400/30 bg-gradient-to-b from-rose-500/[0.05] to-transparent p-8 sm:p-10">
+              <div className="flex items-center justify-between mb-8">
+                <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300">
                   <PainX />
-                  Alte Welt
+                  Vorher
                 </p>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-rose-700/85">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-rose-300/80">
                   Wochen · Monate
                 </span>
               </div>
@@ -649,63 +517,64 @@ export default function KiUmsetzungPage() {
                   { step: "Briefing", note: "wird geschrieben" },
                   { step: "Rückfragen", note: "kommen zurück" },
                   { step: "Warten", note: "auf Kapazität" },
-                  { step: "Abstimmung", note: "Termin in 2 Wochen" },
                   { step: "Korrekturrunden", note: "Artefakt statt Wirkung" },
                   { step: "Ergebnis", note: "falls noch relevant" },
                 ].map((n, i, arr) => (
                   <li key={i} className="relative flex items-center gap-4 py-3">
-                    <span className="w-8 text-right font-mono text-xs text-rose-700/90 tabular-nums">
+                    <span className="w-7 text-right font-mono text-xs text-rose-300/80 tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
                       className={`w-2 h-2 rounded-full flex-shrink-0 ${
                         i === arr.length - 1
-                          ? "bg-rose-300 ring-4 ring-rose-200"
+                          ? "bg-rose-300 ring-4 ring-rose-300/20"
                           : "bg-rose-400/70"
                       }`}
                     />
-                    <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-rose-500/10 pb-3">
-                      <span className="font-display text-lg text-ink-800 line-through decoration-rose-500 decoration-1">
+                    <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-rose-400/15 pb-3">
+                      <span className="font-display text-lg text-white/85 line-through decoration-rose-400/70 decoration-1">
                         {n.step}
                       </span>
-                      <span className="text-xs text-rose-700/80">
+                      <span className="text-xs text-rose-300/80">
                         {n.note}
                       </span>
                     </div>
                   </li>
                 ))}
               </ol>
-              <p className="mt-8 text-sm text-ink-800 leading-relaxed">
-                Zwischen „Idee“ und „Ergebnis“ liegt der teuerste Teil des
-                Monats: <span className="text-rose-700">Zeit, in der nichts Sichtbares entsteht.</span>
+              <p className="mt-8 text-sm text-white/80 leading-relaxed">
+                Zwischen Idee und Ergebnis liegt der teuerste Teil des Monats —{" "}
+                <span className="text-rose-300">
+                  Zeit, in der nichts Sichtbares entsteht.
+                </span>
               </p>
             </div>
 
-            {/* NEW TRACK */}
-            <div className="relative rounded-3xl border border-emerald-500/50 bg-gradient-to-b from-emerald-50 to-transparent p-8 sm:p-10 overflow-hidden">
+            {/* Nachher */}
+            <div className="relative rounded-3xl border border-emerald-400/35 bg-gradient-to-b from-emerald-500/[0.06] to-transparent p-8 sm:p-10 overflow-hidden">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(400px 300px at 80% 0%, rgba(16,185,129,0.20), transparent 70%)",
+                    "radial-gradient(400px 300px at 80% 0%, rgba(16,185,129,0.18), transparent 70%)",
                 }}
               />
               <div className="relative">
-                <div className="flex items-center justify-between mb-10">
-                  <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-700">
+                <div className="flex items-center justify-between mb-8">
+                  <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300">
                     <GainCheck />
-                    Mit Zweitsystem
+                    Mit Umsetzungsmaschine
                   </p>
-                  <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                  <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-300">
                     <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                    Heute · noch diese Woche
+                    Heute · diese Woche
                   </span>
                 </div>
                 <ol className="space-y-0.5">
                   {[
                     {
-                      step: "Idee oder Sprachnachricht",
+                      step: "Sprachnachricht oder Idee",
                       note: "5 Minuten am Vormittag",
                     },
                     { step: "Struktur", note: "in Minuten" },
@@ -718,69 +587,75 @@ export default function KiUmsetzungPage() {
                       key={i}
                       className="relative flex items-center gap-4 py-3"
                     >
-                      <span className="w-8 text-right font-mono text-xs text-emerald-700 tabular-nums">
+                      <span className="w-7 text-right font-mono text-xs text-emerald-300 tabular-nums">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span
                         className={`w-2 h-2 rounded-full flex-shrink-0 ${
                           i === arr.length - 1
-                            ? "bg-emerald-300 ring-4 ring-emerald-200"
+                            ? "bg-emerald-300 ring-4 ring-emerald-300/20"
                             : "bg-emerald-400"
                         }`}
                       />
-                      <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-emerald-300/50 pb-3">
-                        <span className="font-display text-lg text-ink-900">
+                      <div className="flex-1 flex items-baseline justify-between gap-3 border-b border-emerald-400/15 pb-3">
+                        <span className="font-display text-lg text-white">
                           {n.step}
                         </span>
-                        <span className="text-xs text-emerald-700">
+                        <span className="text-xs text-emerald-300">
                           {n.note}
                         </span>
                       </div>
                     </li>
                   ))}
                 </ol>
-                <p className="mt-8 text-sm text-ink-800 leading-relaxed">
-                  Eine Idee am Vormittag ist am selben Tag sichtbar, testbar
-                  und verbesserbar — <span className="text-emerald-700">ohne</span>{" "}
-                  Briefing-Kette dazwischen.
+                <p className="mt-8 text-sm text-white/80 leading-relaxed">
+                  Eine Idee am Vormittag ist am selben Tag sichtbar, testbar und
+                  verbesserbar —{" "}
+                  <span className="text-emerald-300">
+                    ohne Briefing-Kette dazwischen.
+                  </span>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Tempo comparison row */}
-          <div className="mt-10 grid grid-cols-2 rounded-2xl overflow-hidden border border-ink-900/10">
-            <div className="p-6 sm:p-8 bg-rose-100/70 text-center">
-              <p className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-700 mb-2">
+          {/* Tempo-Vergleich */}
+          <div className="mt-10 grid grid-cols-2 rounded-2xl overflow-hidden border border-white/10">
+            <div className="p-6 sm:p-8 bg-rose-500/[0.06] text-center">
+              <p className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-rose-300 mb-2">
                 <PainX />
-                Alte Welt
+                Vorher
               </p>
-              <p className="font-display text-3xl sm:text-4xl text-ink-900 line-through decoration-rose-500">
+              <p className="font-display text-3xl sm:text-4xl text-white/85 line-through decoration-rose-400">
                 3–12 Wochen
               </p>
-              <p className="mt-1 text-xs text-rose-700/85">
+              <p className="mt-1 text-xs text-rose-300/85">
                 bis etwas Sichtbares existiert
               </p>
             </div>
-            <div className="p-6 sm:p-8 bg-emerald-100/70 text-center border-l border-emerald-500/40">
-              <p className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-700 mb-2">
+            <div className="p-6 sm:p-8 bg-emerald-500/[0.06] text-center border-l border-emerald-400/30">
+              <p className="inline-flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-2">
                 <GainCheck />
-                Mit Zweitsystem
+                Nachher
               </p>
-              <p className="font-display text-3xl sm:text-4xl text-ink-900">
+              <p className="font-display text-3xl sm:text-4xl text-white">
                 Stunden
               </p>
-              <p className="mt-1 text-xs text-emerald-700">
+              <p className="mt-1 text-xs text-emerald-300">
                 bis der erste Stand auf dem Tisch liegt
               </p>
             </div>
           </div>
 
-          <p className="mt-20 font-display text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.25] text-ink-900 max-w-4xl">
-            Das ist nicht „schneller arbeiten“.
+          {/* Closer-Kicker */}
+          <p className="mt-20 font-display text-[clamp(1.5rem,2.5vw,2rem)] leading-[1.25] text-white/85 max-w-4xl">
+            Fachkompetenz wird nicht ersetzt.
             <br />
-            <span className="text-brand-700">
-              Das ist eine andere Geometrie des Arbeitstages.
+            <span className="text-white">
+              Sie wird verstärkt, beschleunigt und vervielfacht
+            </span>{" "}
+            <span className="text-brand-300">
+              — durch eine Maschine, die im Hintergrund mitarbeitet.
             </span>
           </p>
         </div>
