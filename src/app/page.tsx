@@ -11,7 +11,9 @@ import {
   SUBSCRIPTION_OFFER,
   COST_BENCHMARKS,
 } from "@/lib/offers";
-import { ArrowRight, Check, X, Sparkles } from "lucide-react";
+import { ArrowRight, Check, X, Sparkles, CalendarClock } from "lucide-react";
+import { FreeSnapSlider } from "@/components/ui/FreeSnapSlider";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = buildMetadata({
   title:
@@ -1066,67 +1068,106 @@ export default function KiUmsetzungPage() {
             </p>
           </div>
 
-          {/* Outcome grid */}
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                num: "01",
-                head: "Angebotsseiten, die Anfragen erzeugen",
-                sub: "Klar, konvertierend, mit Buchungslogik.",
-              },
-              {
-                num: "02",
-                head: "Landingpages mit Termin- und Kauf-Mechanik",
-                sub: "Sichtbar testen, schneller iterieren.",
-              },
-              {
-                num: "03",
-                head: "Digitale Vertriebsstrecken",
-                sub: "Aufmerksamkeit → Lead → Kunde, ohne tägliches Hinterherlaufen.",
-              },
-              {
-                num: "04",
-                head: "Follow-up- und Newsletter-Systeme",
-                sub: "Vertrauen bauen, ohne dass Kontakte versanden.",
-              },
-              {
-                num: "05",
-                head: "App-/Tool-Prototypen",
-                sub: "Anklickbare Vorstufen, bevor 25.000 € extern fließen.",
-              },
-              {
-                num: "06",
-                head: "Interne Steuerungsboards",
-                sub: "Aufträge, Prozesse, Daten — sauber an einem Ort.",
-              },
-              {
-                num: "07",
-                head: "Prozess- und Briefingstrukturen",
-                sub: "Reibung raus, Übergaben reproduzierbar.",
-              },
-              {
-                num: "08",
-                head: "Sichtbare Vorstufen für Leistungen",
-                sub: "Was möglich wird, sehen — bevor andere noch Anforderungsdokumente schreiben.",
-              },
-            ].map((f) => (
-              <article
-                key={f.num}
-                className="rounded-2xl border border-ink-900/10 bg-white p-6 hover:border-brand-600/40 hover:bg-brand-50 transition"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <span className="font-mono text-xs text-brand-700 tabular-nums">
-                    {f.num}
-                  </span>
-                </div>
-                <h3 className="font-display text-lg leading-[1.2] text-ink-900 mb-3">
-                  {f.head}
-                </h3>
-                <p className="text-sm text-ink-800 leading-relaxed">
-                  {f.sub}
-                </p>
-              </article>
-            ))}
+          {/* Outcome showcase — keen-slider Free-Snap */}
+          <div className="mt-14 -mx-4 sm:-mx-6 lg:-mx-10 px-4 sm:px-6 lg:px-10">
+            <div className="mb-5 flex items-center justify-between">
+              <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-700">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-600" />
+                Acht Bausteine · ziehen oder klicken
+              </span>
+              <span className="hidden sm:inline-flex text-[10px] font-mono uppercase tracking-[0.2em] text-ink-700">
+                01 — 08
+              </span>
+            </div>
+
+            <FreeSnapSlider
+              ariaLabel="Bausteine, die mit der Umsetzungsmaschine entstehen"
+              slidesPerView={1.15}
+              spacing={16}
+              origin="auto"
+              showArrows
+              showDots
+              navTone="dark"
+              breakpoints={{
+                "(min-width: 640px)": { slidesPerView: 2.1, spacing: 18 },
+                "(min-width: 1024px)": { slidesPerView: 3, spacing: 22 },
+                "(min-width: 1280px)": { slidesPerView: 3.4, spacing: 24 },
+              }}
+            >
+              {[
+                {
+                  num: "01",
+                  head: "Angebotsseiten, die Anfragen erzeugen",
+                  sub: "Klar, konvertierend, mit Buchungslogik.",
+                },
+                {
+                  num: "02",
+                  head: "Landingpages mit Termin- und Kauf-Mechanik",
+                  sub: "Sichtbar testen, schneller iterieren.",
+                },
+                {
+                  num: "03",
+                  head: "Digitale Vertriebsstrecken",
+                  sub: "Aufmerksamkeit → Lead → Kunde, ohne tägliches Hinterherlaufen.",
+                },
+                {
+                  num: "04",
+                  head: "Follow-up- und Newsletter-Systeme",
+                  sub: "Vertrauen bauen, ohne dass Kontakte versanden.",
+                },
+                {
+                  num: "05",
+                  head: "App-/Tool-Prototypen",
+                  sub: "Anklickbare Vorstufen, bevor 25.000 € extern fließen.",
+                },
+                {
+                  num: "06",
+                  head: "Interne Steuerungsboards",
+                  sub: "Aufträge, Prozesse, Daten — sauber an einem Ort.",
+                },
+                {
+                  num: "07",
+                  head: "Prozess- und Briefingstrukturen",
+                  sub: "Reibung raus, Übergaben reproduzierbar.",
+                },
+                {
+                  num: "08",
+                  head: "Sichtbare Vorstufen für Leistungen",
+                  sub: "Was möglich wird, sehen — bevor andere noch Anforderungsdokumente schreiben.",
+                },
+              ].map((f) => (
+                <article
+                  key={f.num}
+                  className="group relative h-full rounded-3xl border border-ink-900/10 bg-white p-7 sm:p-8 transition duration-300 hover:-translate-y-1 hover:border-brand-600/40 hover:shadow-[0_22px_60px_-30px_rgba(110,63,163,0.45)]"
+                >
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition duration-500 group-hover:opacity-100"
+                    style={{
+                      background:
+                        "radial-gradient(420px 220px at 0% 0%, rgba(110,63,163,0.08), transparent 70%)",
+                    }}
+                  />
+                  <div className="relative">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-50 font-mono text-xs font-semibold text-brand-700 tabular-nums ring-1 ring-brand-600/15">
+                        {f.num}
+                      </span>
+                      <ArrowRight
+                        aria-hidden="true"
+                        className="h-4 w-4 text-brand-700/0 transition duration-300 group-hover:text-brand-700 group-hover:translate-x-1"
+                      />
+                    </div>
+                    <h3 className="mt-6 font-display text-lg leading-[1.2] text-ink-900">
+                      {f.head}
+                    </h3>
+                    <p className="mt-3 text-sm text-ink-800 leading-relaxed">
+                      {f.sub}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </FreeSnapSlider>
           </div>
 
           {/* Closer */}
@@ -1857,89 +1898,157 @@ export default function KiUmsetzungPage() {
             </ol>
           </div>
 
-          {/* Two lanes: Quickcheck (left) + TidyCal (right) */}
-          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* PFAD A — QUICKCHECK */}
-            <article className="relative rounded-[2rem] border border-brand-400/30 bg-gradient-to-br from-brand-500/[0.10] via-brand-500/[0.03] to-transparent p-1 overflow-hidden">
+          {/* Two lanes — Pfad A (Quickcheck, primary) clearly above Pfad B (Termin, alternative) */}
+          <div className="mt-16 space-y-10 sm:space-y-12">
+            {/* PFAD A — QUICKCHECK · HERO */}
+            <Reveal as="article" className="relative">
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0"
+                className="pointer-events-none absolute -inset-x-6 -inset-y-10 hidden lg:block"
                 style={{
                   background:
-                    "radial-gradient(500px 400px at 0% 0%, rgba(110,63,163,0.16), transparent 70%)",
+                    "radial-gradient(900px 500px at 50% 50%, rgba(110,63,163,0.18), transparent 70%)",
                 }}
               />
-              <div className="relative rounded-[1.85rem] bg-[#0A0A14]/85 backdrop-blur-sm p-7 sm:p-10">
-                <div className="flex items-center justify-between mb-8">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
-                    Pfad A · Mit Paket-Auswahl
-                  </span>
-                  <span className="font-mono text-xs text-brand-300 tabular-nums">
-                    ~90s
-                  </span>
-                </div>
-                <h3 className="font-display text-2xl sm:text-[1.85rem] leading-[1.1] text-white">
-                  Quickcheck.
-                </h3>
-                <p className="mt-3 text-sm text-white/85 leading-relaxed">
-                  Vier kurze Fragen — Paket-Tendenz, Ausgangslage, Bremser, erstes
-                  Vorhaben — plus Kontaktdaten. Wir melden uns werktags innerhalb
-                  von 24 Stunden für ein 15–30-minütiges Strategiegespräch.
-                </p>
+              {/* Top tag floating above the card */}
+              <div className="relative flex justify-center">
+                <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/50 bg-brand-500/15 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-200 shadow-[0_8px_24px_-12px_rgba(110,63,163,0.6)]">
+                  <Sparkles aria-hidden="true" className="h-3 w-3" />
+                  Empfohlen · So starten 9 von 10
+                </span>
+              </div>
 
-                <div className="mt-10">
-                  <ApplyForm />
+              <div className="ring-glow-brand relative mt-5 rounded-[2.25rem] p-[1.5px]">
+                <div className="relative rounded-[2.18rem] bg-[#0A0A14]/95 backdrop-blur-sm overflow-hidden">
+                  {/* Inner glow */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0"
+                    style={{
+                      background:
+                        "radial-gradient(700px 420px at 50% 0%, rgba(110,63,163,0.22), transparent 70%)",
+                    }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-dotgrid opacity-60"
+                  />
+
+                  <div className="relative grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 p-7 sm:p-10 lg:p-14">
+                    {/* Left — pitch */}
+                    <div className="lg:pr-2">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
+                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                          Pfad A · Quickcheck
+                        </span>
+                        <span className="font-mono text-xs text-brand-200 tabular-nums">
+                          ~90 Sek.
+                        </span>
+                      </div>
+
+                      <h3 className="mt-7 font-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.02] tracking-[-0.02em] text-white">
+                        Quickcheck.
+                        <br />
+                        <span className="text-brand-300">
+                          Antwort innerhalb 24&nbsp;h.
+                        </span>
+                      </h3>
+
+                      <p className="mt-5 text-[15px] text-white/85 leading-relaxed">
+                        Vier kurze Fragen — Paket-Tendenz, Ausgangslage, Bremser,
+                        erstes Vorhaben — plus Kontaktdaten. Wir melden uns
+                        werktags innerhalb von 24&nbsp;Stunden für ein 15–30-minütiges
+                        Strategiegespräch.
+                      </p>
+
+                      {/* Mini value-list */}
+                      <ul className="mt-7 space-y-3 text-[14px] text-white/85">
+                        <li className="flex items-start gap-3">
+                          <GainCheck className="mt-0.5" />
+                          <span>Vorab abgestimmt — wir kommen vorbereitet ins Gespräch.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <GainCheck className="mt-0.5" />
+                          <span>Kein Verkaufsdruck. Keine Telefonschleife.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <GainCheck className="mt-0.5" />
+                          <span>Antwort werktags &lt; 24&nbsp;Stunden — schriftlich verbindlich.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Right — form */}
+                    <div className="relative">
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute -inset-2 rounded-[2rem] bg-gradient-to-br from-brand-400/20 via-transparent to-transparent blur-xl"
+                      />
+                      <div className="relative rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8 backdrop-blur-sm">
+                        <ApplyForm />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </article>
+            </Reveal>
 
-            {/* PFAD B — TIDYCAL */}
-            <article className="relative rounded-[2rem] border border-emerald-400/35 bg-gradient-to-br from-emerald-500/[0.10] via-emerald-500/[0.03] to-transparent p-1 overflow-hidden">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(500px 400px at 100% 0%, rgba(16,185,129,0.18), transparent 70%)",
-                }}
-              />
-              <div className="relative rounded-[1.85rem] bg-[#0A0A14]/85 backdrop-blur-sm p-7 sm:p-10">
-                <div className="flex items-center justify-between mb-8">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    Pfad B · Direkt
-                  </span>
-                  <span className="font-mono text-xs text-emerald-300 tabular-nums">
-                    Live-Kalender
-                  </span>
+            {/* DIVIDER — "oder" */}
+            <div
+              aria-hidden
+              className="relative flex items-center justify-center"
+            >
+              <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+              <span className="relative inline-flex items-center gap-3 rounded-full border border-white/10 bg-[#050508] px-5 py-1.5 font-mono text-[10px] uppercase tracking-[0.32em] text-white/60">
+                <span className="inline-block h-1 w-1 rounded-full bg-white/40" />
+                oder
+                <span className="inline-block h-1 w-1 rounded-full bg-white/40" />
+              </span>
+            </div>
+
+            {/* PFAD B — TIDYCAL · SECONDARY */}
+            <Reveal as="article" delay={80} className="relative">
+              <div className="relative mx-auto max-w-4xl rounded-[1.75rem] border border-white/10 bg-white/[0.025] backdrop-blur-sm overflow-hidden">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(420px 280px at 100% 0%, rgba(16,185,129,0.10), transparent 70%)",
+                  }}
+                />
+                <div className="relative grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 sm:gap-8 p-6 sm:p-8">
+                  {/* Left rail — pitch */}
+                  <div className="lg:max-w-xs">
+                    <div className="flex items-center gap-3">
+                      <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
+                        <CalendarClock aria-hidden="true" className="h-5 w-5" />
+                      </span>
+                      <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-200">
+                        Pfad B · Direkt
+                      </span>
+                    </div>
+                    <h3 className="mt-4 font-display text-xl sm:text-2xl leading-[1.2] text-white">
+                      Schon entschieden?{" "}
+                      <span className="text-emerald-300">
+                        Slot direkt greifen.
+                      </span>
+                    </h3>
+                    <p className="mt-2 text-sm text-white/75 leading-relaxed">
+                      Live-Kalender · Termin direkt in Ihrem Kalender bestätigt
+                      · Buchung über{" "}
+                      <span className="text-emerald-300 font-semibold">eskalator.ag</span>.
+                    </p>
+                  </div>
+
+                  {/* Calendar embed */}
+                  <div className="rounded-2xl border border-white/10 bg-white p-3 sm:p-4">
+                    <TidyCalEmbed />
+                  </div>
                 </div>
-                <h3 className="font-display text-2xl sm:text-[1.85rem] leading-[1.1] text-white">
-                  Ungeduldig?
-                  <br />
-                  <span className="text-emerald-300">
-                    Strategietermin direkt sichern.
-                  </span>
-                </h3>
-                <p className="mt-3 text-sm text-white/85 leading-relaxed">
-                  Sie wissen schon, dass Sie reden wollen? Greifen Sie sich
-                  einen freien Slot im Kalender. Wir treffen uns dort und
-                  klären in 15–30 Minuten, ob das Programm zu Ihnen passt.
-                </p>
-
-                {/* Kalender-Container */}
-                <div className="mt-10 rounded-2xl border border-white/10 bg-white p-3 sm:p-4">
-                  <TidyCalEmbed />
-                </div>
-
-                <p className="mt-4 text-xs text-white/85 text-center">
-                  Buchung erfolgt über{" "}
-                  <span className="text-emerald-300 font-semibold">
-                    eskalator.ag
-                  </span>{" "}
-                  · Termin direkt in Ihrem Kalender bestätigt
-                </p>
               </div>
-            </article>
+            </Reveal>
           </div>
 
           {/* Trust strip below */}
