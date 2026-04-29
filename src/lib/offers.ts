@@ -7,6 +7,11 @@
 
 export type OfferTier = "entry" | "implementation" | "subscription";
 
+export type OfferFeature = {
+  label: string;
+  value: string;
+};
+
 export type Offer = {
   id: string;
   tier: OfferTier;
@@ -14,12 +19,16 @@ export type Offer = {
   name: string;
   shortName: string;
   tagline: string;
+  shortTagline?: string;
+  plusLogic?: string;
   priceLabel: string;
   priceNumeric: number;
   priceSuffix?: string;
   funding?: string;
   forWho: string;
   bullets: string[];
+  features?: OfferFeature[];
+  bonusFeatures?: OfferFeature[];
   highlight?: boolean;
   cta: string;
 };
@@ -72,10 +81,23 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
     badge: "Für Selbststeuerer",
     name: "Umsetzungsfabrik Kompakt",
     shortName: "Kompakt",
-    tagline: "Kompakt gibt Ihnen den Bauplan.",
+    tagline:
+      "Sie profitieren von Bauplan, Grundjustierung und erster praktischer Umsetzung.",
+    shortTagline:
+      "Sie profitieren von Bauplan, Grundjustierung und erster Einrichtung.",
+    plusLogic: "Basis · Sie bauen danach selbst weiter",
     priceLabel: "1.990 € netto",
     priceNumeric: 1990,
     forWho: "Für alle, die selbst weiterbauen wollen — schlank und fokussiert.",
+    features: [
+      { label: "Dauer & Modus", value: "3 Wochen · 4 Live-Termine · digitale Kleingruppe" },
+      { label: "Impuls & Feedback", value: "3 × 60 Minuten Impuls- und Feedbackcalls" },
+      { label: "Umsetzung", value: "1 × 90 Minuten Umsetzungscall" },
+      { label: "Systemtiefe", value: "Grundjustierung Ihrer digitalen Arbeitslogik" },
+      { label: "Praxisbezug", value: "Erste praktische Umsetzung an einem konkreten Vorhaben" },
+      { label: "Ergebnis", value: "Fahrplan für eigenständiges Weiterarbeiten" },
+      { label: "Begleitgrad", value: "Sie setzen danach überwiegend selbstständig weiter um" },
+    ],
     bullets: [
       "3 Wochen · 4 Live-Termine · digitale Kleingruppe",
       "3 × 60 min Impuls- und Feedbackcalls",
@@ -92,11 +114,40 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
     badge: "Empfohlen · Mit-Umsetzer",
     name: "Digitale Umsetzungsmaschine With You",
     shortName: "With You",
-    tagline: "With You baut mit Ihnen die Maschine.",
+    tagline:
+      "Wir bauen gemeinsam Ihre Maschine und starten diese an echten Anwendungsfällen.",
+    shortTagline:
+      "Wir bauen gemeinsam Ihre Maschine und starten sie an echten Anwendungsfällen.",
+    plusLogic: "+ Volle Umsetzungsbegleitung",
     priceLabel: "8.500 € netto",
     priceNumeric: 8500,
     forWho: "Für aktive Mit-Umsetzer, die wirklich tief einsteigen wollen.",
     highlight: true,
+    features: [
+      { label: "Dauer & Modus", value: "4 Wochen · 8 Live-Termine · digitale Kleingruppe" },
+      { label: "Impuls & Feedback", value: "4 × 60 Minuten Impuls- und Feedbackcalls" },
+      { label: "Umsetzung", value: "4 × 90 Minuten Umsetzungscalls" },
+      {
+        label: "Systemtiefe",
+        value: "Volle Musterreise vom Use Case bis zum Grundsystem",
+      },
+      {
+        label: "Praxisbezug",
+        value: "Intensive Arbeit an echten Anforderungen aus Ihrem Alltag",
+      },
+      { label: "Ergebnis", value: "Benutzbares Grundsystem am Ende des Programms" },
+      {
+        label: "Begleitgrad",
+        value:
+          "Gemeinsame Umsetzung mit deutlich mehr Führung, Feedback und Transfer",
+      },
+    ],
+    bonusFeatures: [
+      {
+        label: "Plus",
+        value: "Stärkere Justierung Ihrer digitalen Umsetzungsmaschine",
+      },
+    ],
     bullets: [
       "4 Wochen · 8 Live-Termine · digitale Kleingruppe",
       "4 × 60 min Impuls- und Feedbackcalls",
@@ -114,11 +165,50 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
     badge: "Premium · Concierge",
     name: "Done for You Lite",
     shortName: "Done for You Lite",
-    tagline: "Done for You Lite richtet die Maschine für Sie ein.",
+    tagline:
+      "Sie erhalten eine benutzbare Maschine, die wir für Sie einrichten und auf Ihr Unternehmen individualisieren.",
+    shortTagline:
+      "Sie erhalten eine benutzbare Maschine, die wir einrichten und auf Ihr Unternehmen individualisieren.",
+    plusLogic: "+ Einrichtung · Team-Schulung · 2 Monate Begleitung",
     priceLabel: "24.900 € netto",
     priceNumeric: 24900,
     forWho:
       "Für Unternehmen, die maximale Entlastung und ein benutzbares Startsystem wollen.",
+    features: [
+      {
+        label: "Dauer & Modus",
+        value: "+ 2 exklusive Team-Schulungswochen",
+      },
+      { label: "Impuls & Feedback", value: "Voller Umfang inklusive" },
+      {
+        label: "Umsetzung",
+        value: "+ Zusätzliche 1:1-Feinschliff-Phase",
+      },
+      {
+        label: "Systemtiefe",
+        value: "Einrichtung notwendiger Zugänge und Verbindung relevanter Accounts",
+      },
+      {
+        label: "Praxisbezug",
+        value: "Anlage erster Projektdaten und Prompt-Strukturen",
+      },
+      { label: "Ergebnis", value: "Übergabe eines benutzbaren Startsystems" },
+      {
+        label: "Begleitgrad",
+        value: "2 Monate Premium-Umsetzungsbegleitung inklusive",
+      },
+    ],
+    bonusFeatures: [
+      {
+        label: "Team-Fokus",
+        value: "Exklusive 1:1-Team-Schulung am echten System",
+      },
+      {
+        label: "Vertraulichkeit",
+        value:
+          "Arbeit an realen Daten, Prozessen und Marktvorteilen ohne Gruppensetting",
+      },
+    ],
     bullets: [
       "Voller Umfang aus „With You“",
       "Einrichtung notwendiger Zugänge & Verbindung relevanter Accounts",
