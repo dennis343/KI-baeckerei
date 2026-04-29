@@ -866,16 +866,21 @@ export default function KiUmsetzungPage() {
             </p>
           </div>
 
-          {/* Umsetzungspakete */}
+          {/* Umsetzungspakete — kompakte Vergleichskarten */}
           <div className="mt-14">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70 mb-5">
-              Umsetzungswege · drei Tiefen
-            </p>
+            <div className="mb-5 flex items-baseline justify-between gap-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70">
+                Umsetzungswege · drei Tiefen
+              </p>
+              <p className="hidden sm:block text-[10px] uppercase tracking-[0.18em] text-white/55">
+                Kompakt → With You → Done for You Lite
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {IMPLEMENTATION_OFFERS.map((o) => (
                 <article
                   key={o.id}
-                  className={`relative rounded-2xl border p-6 sm:p-7 transition ${
+                  className={`group relative flex flex-col rounded-2xl border p-6 sm:p-7 transition ${
                     o.highlight
                       ? "border-brand-400/50 bg-gradient-to-b from-brand-500/[0.10] to-brand-500/[0.02]"
                       : "border-white/10 bg-white/[0.02] hover:border-brand-400/40 hover:bg-brand-400/[0.04]"
@@ -886,21 +891,30 @@ export default function KiUmsetzungPage() {
                       Empfohlen
                     </span>
                   )}
-                  <div className="flex items-center justify-between mb-3">
+                  {/* Row 1: category badge */}
+                  <div className="flex items-center min-h-[1.75rem]">
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
                       {o.badge}
                     </span>
                   </div>
-                  <h3 className="font-display text-xl text-white leading-snug">
+
+                  {/* Row 2: name */}
+                  <h3 className="mt-3 font-display text-xl text-white leading-snug md:min-h-[3.5rem]">
                     {o.shortName}
                   </h3>
-                  <p className="mt-2 text-sm text-white/80 leading-relaxed">
-                    {o.tagline}
+
+                  {/* Row 3: short tagline */}
+                  <p className="mt-2 text-sm text-white/80 leading-relaxed md:min-h-[5.5rem]">
+                    {o.shortTagline ?? o.tagline}
                   </p>
+
+                  {/* Row 4: price */}
                   <p className="mt-5 font-display text-2xl text-white tabular-nums">
                     {o.priceLabel}
                   </p>
-                  <p className="mt-1 text-xs text-white/70 leading-relaxed">
+
+                  {/* Row 5: price text (forWho) */}
+                  <p className="mt-1 text-xs text-white/70 leading-relaxed md:min-h-[2.75rem]">
                     {o.forWho}
                   </p>
                 </article>
@@ -1530,14 +1544,39 @@ export default function KiUmsetzungPage() {
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {/* Value-Ladder Vergleichssatz oberhalb der Karten */}
+            <div className="mb-8 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-3">
+                Plus-Logik · Was sich von Stufe zu Stufe ändert
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-3 text-[14px] sm:text-[15px] leading-relaxed">
+                <p className="text-white/85">
+                  <span className="font-semibold text-white">Kompakt</span> gibt
+                  Ihnen den Bauplan.
+                </p>
+                <p className="text-white/85">
+                  <span className="font-semibold text-white">With You</span> baut
+                  mit Ihnen die Maschine.
+                </p>
+                <p className="text-white/85">
+                  <span className="font-semibold text-white">
+                    Done for You Lite
+                  </span>{" "}
+                  richtet sie für Sie ein und schult Ihr Team daran.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
               {IMPLEMENTATION_OFFERS.map((o) => {
                 const isConcierge = o.id === "donefor-you-lite";
                 const isHighlight = o.highlight;
+                const features = o.features ?? [];
+                const bonusFeatures = o.bonusFeatures ?? [];
                 return (
                   <article
                     key={o.id}
-                    className={`relative rounded-3xl p-6 sm:p-9 flex flex-col transition ${
+                    className={`relative flex h-full flex-col rounded-3xl p-6 sm:p-9 transition ${
                       isConcierge
                         ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent"
                         : isHighlight
@@ -1559,34 +1598,123 @@ export default function KiUmsetzungPage() {
                         </span>
                       </span>
                     )}
-                    <div className="flex items-center justify-between mb-6">
+
+                    {/* Row 1: category badge */}
+                    <div className="flex items-center min-h-[1.875rem]">
                       <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
                         {o.badge}
                       </span>
                     </div>
-                    <h4 className="font-display text-xl sm:text-2xl text-white leading-[1.15]">
+
+                    {/* Row 2: name */}
+                    <h4 className="mt-5 font-display text-xl sm:text-2xl text-white leading-[1.15] lg:min-h-[3.75rem]">
                       {o.name}
                     </h4>
-                    <p className="mt-3 text-sm text-white/80 leading-relaxed">
+
+                    {/* Row 3: tagline */}
+                    <p className="mt-3 text-sm text-white/80 leading-relaxed lg:min-h-[6rem]">
                       {o.tagline}
                     </p>
-                    <p className="mt-6 font-display text-3xl sm:text-4xl text-white tabular-nums">
-                      {o.priceLabel}
-                    </p>
-                    <p className="mt-1 text-xs text-white/65 leading-relaxed">
-                      {o.forWho}
-                    </p>
-                    <ul className="mt-6 space-y-3 flex-1">
-                      {o.bullets.map((b, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-white/85 leading-relaxed">
-                          <GainCheck className="mt-1" />
-                          <span>{b}</span>
+
+                    {/* Row 4: price + forWho */}
+                    <div className="mt-6 lg:min-h-[6.5rem]">
+                      <p className="font-display text-3xl sm:text-4xl text-white tabular-nums">
+                        {o.priceLabel}
+                      </p>
+                      <p className="mt-1 text-xs text-white/65 leading-relaxed">
+                        {o.forWho}
+                      </p>
+                    </div>
+
+                    {/* Row 5: plus-logic hint (immer reservierte Höhe für Alignment) */}
+                    <div className="mt-5 lg:min-h-[4rem]">
+                      {o.plusLogic ? (
+                        <div
+                          className={`inline-flex items-start gap-2 rounded-xl border px-3.5 py-2 text-[12px] font-medium leading-snug ${
+                            isConcierge
+                              ? "border-amber-300/40 bg-amber-500/[0.08] text-amber-100"
+                              : "border-brand-400/35 bg-brand-500/[0.08] text-brand-100"
+                          }`}
+                        >
+                          <span
+                            className={`mt-0.5 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                              isConcierge
+                                ? "bg-amber-400/30 text-amber-100"
+                                : "bg-brand-400/30 text-brand-100"
+                            }`}
+                            aria-hidden="true"
+                          >
+                            +
+                          </span>
+                          <span>{o.plusLogic}</span>
+                        </div>
+                      ) : (
+                        <span className="block text-[12px] uppercase tracking-[0.2em] text-white/40">
+                          Basis-Stufe
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Row 6: features (1fr — fills available space) */}
+                    <ul className="mt-7 flex-1 space-y-4">
+                      {features.map((f) => (
+                        <li key={f.label} className="grid grid-cols-1 gap-1.5">
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-300/85">
+                            {f.label}
+                          </span>
+                          <span className="flex items-start gap-2.5 text-sm text-white/90 leading-snug">
+                            <GainCheck className="mt-0.5" />
+                            <span>{f.value}</span>
+                          </span>
                         </li>
                       ))}
                     </ul>
+
+                    {/* Row 7: bonus features (nur gerendert, wenn Inhalt vorhanden) */}
+                    {bonusFeatures.length > 0 && (
+                      <div
+                        className={`mt-6 rounded-2xl border p-4 ${
+                          isConcierge
+                            ? "border-amber-300/30 bg-amber-500/[0.06]"
+                            : "border-brand-400/25 bg-brand-500/[0.05]"
+                        }`}
+                      >
+                        <p
+                          className={`text-[10px] font-semibold uppercase tracking-[0.18em] mb-3 ${
+                            isConcierge ? "text-amber-200" : "text-brand-300"
+                          }`}
+                        >
+                          + Premium-Plus
+                        </p>
+                        <ul className="space-y-2.5">
+                          {bonusFeatures.map((f) => (
+                            <li
+                              key={f.label}
+                              className="grid grid-cols-1 gap-1"
+                            >
+                              <span
+                                className={`text-[10px] font-semibold uppercase tracking-[0.14em] ${
+                                  isConcierge
+                                    ? "text-amber-200/80"
+                                    : "text-brand-200/80"
+                                }`}
+                              >
+                                {f.label}
+                              </span>
+                              <span className="flex items-start gap-2.5 text-[13px] text-white/90 leading-snug">
+                                <GainCheck className="mt-0.5" />
+                                <span>{f.value}</span>
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Row 8: CTA — `flex-1` auf der Features-Liste schiebt diesen Block ans Karten-Ende */}
                     <a
                       href={`?paket=${o.id}#bewerbung`}
-                      className={`group mt-7 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition w-full sm:w-auto ${
+                      className={`group mt-8 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition w-full ${
                         isConcierge
                           ? "bg-amber-400 text-amber-950 hover:bg-amber-300"
                           : isHighlight
@@ -1602,7 +1730,7 @@ export default function KiUmsetzungPage() {
               })}
             </div>
 
-            {/* Vergleichszeile */}
+            {/* Klartext-Strip unter den Karten */}
             <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-7">
               <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-300 mb-4">
                 Im Klartext
