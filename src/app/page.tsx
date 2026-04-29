@@ -898,13 +898,13 @@ export default function KiUmsetzungPage() {
                     </span>
                   </div>
 
-                  {/* Row 2: name */}
-                  <h3 className="mt-3 font-display text-xl text-white leading-snug md:min-h-[3.5rem]">
+                  {/* Row 2: name (Playfair @ 20px wraps "Done for You Lite" auf 2 Zeilen am schmalen md-Viewport) */}
+                  <h3 className="mt-3 font-display text-xl text-white leading-snug md:min-h-[3.75rem]">
                     {o.shortName}
                   </h3>
 
-                  {/* Row 3: short tagline */}
-                  <p className="mt-2 text-sm text-white/80 leading-relaxed md:min-h-[5.5rem]">
+                  {/* Row 3: short tagline (Inter @ 14px bis 4 Zeilen am schmalen md-Viewport) */}
+                  <p className="mt-2 text-sm text-white/80 leading-relaxed md:min-h-[6rem]">
                     {o.shortTagline ?? o.tagline}
                   </p>
 
@@ -913,8 +913,8 @@ export default function KiUmsetzungPage() {
                     {o.priceLabel}
                   </p>
 
-                  {/* Row 5: price text (forWho) */}
-                  <p className="mt-1 text-xs text-white/70 leading-relaxed md:min-h-[2.75rem]">
+                  {/* Row 5: price text (forWho) — bis 3 Zeilen am schmalen md-Viewport */}
+                  <p className="mt-1 text-xs text-white/70 leading-relaxed md:min-h-[3.75rem]">
                     {o.forWho}
                   </p>
                 </article>
@@ -1578,9 +1578,9 @@ export default function KiUmsetzungPage() {
                     key={o.id}
                     className={`relative flex h-full flex-col rounded-3xl p-6 sm:p-9 transition ${
                       isConcierge
-                        ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent"
+                        ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent shadow-[0_0_0_1px_rgba(252,211,77,0.18),0_30px_80px_-40px_rgba(252,211,77,0.35)]"
                         : isHighlight
-                          ? "border border-brand-400/50 bg-gradient-to-b from-brand-500/[0.12] to-brand-500/[0.02] lg:scale-[1.02]"
+                          ? "border-2 border-brand-400/70 bg-gradient-to-b from-brand-500/[0.14] to-brand-500/[0.03] shadow-[0_0_0_1px_rgba(155,111,198,0.35),0_30px_80px_-40px_rgba(155,111,198,0.55)]"
                           : "border border-white/10 bg-white/[0.02] hover:border-brand-400/40 hover:bg-brand-400/[0.04]"
                     }`}
                   >
@@ -1606,13 +1606,13 @@ export default function KiUmsetzungPage() {
                       </span>
                     </div>
 
-                    {/* Row 2: name */}
-                    <h4 className="mt-5 font-display text-xl sm:text-2xl text-white leading-[1.15] lg:min-h-[3.75rem]">
+                    {/* Row 2: name (Playfair @ 24px wraps "Digitale Umsetzungsmaschine With You" auf 3 Zeilen) */}
+                    <h4 className="mt-5 font-display text-xl sm:text-2xl text-white leading-[1.15] break-words hyphens-auto lg:min-h-[5.5rem]">
                       {o.name}
                     </h4>
 
-                    {/* Row 3: tagline */}
-                    <p className="mt-3 text-sm text-white/80 leading-relaxed lg:min-h-[6rem]">
+                    {/* Row 3: tagline (bis 4 Zeilen am unteren lg-Breakpoint) */}
+                    <p className="mt-3 text-sm text-white/80 leading-relaxed lg:min-h-[6.5rem]">
                       {o.tagline}
                     </p>
 
@@ -1626,37 +1626,33 @@ export default function KiUmsetzungPage() {
                       </p>
                     </div>
 
-                    {/* Row 5: plus-logic hint (immer reservierte Höhe für Alignment) */}
-                    <div className="mt-5 lg:min-h-[4rem]">
-                      {o.plusLogic ? (
-                        <div
-                          className={`inline-flex items-start gap-2 rounded-xl border px-3.5 py-2 text-[12px] font-medium leading-snug ${
-                            isConcierge
-                              ? "border-amber-300/40 bg-amber-500/[0.08] text-amber-100"
-                              : "border-brand-400/35 bg-brand-500/[0.08] text-brand-100"
-                          }`}
-                        >
-                          <span
-                            className={`mt-0.5 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
-                              isConcierge
-                                ? "bg-amber-400/30 text-amber-100"
-                                : "bg-brand-400/30 text-brand-100"
-                            }`}
-                            aria-hidden="true"
-                          >
-                            +
-                          </span>
-                          <span>{o.plusLogic}</span>
-                        </div>
-                      ) : (
-                        <span className="block text-[12px] uppercase tracking-[0.2em] text-white/40">
-                          Basis-Stufe
-                        </span>
-                      )}
+                    {/* Row 5: plus-logic hint — drei Karten, drei Tonalitäten, identische Höhe */}
+                    <div
+                      className={`mt-5 flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-[12px] font-medium leading-snug lg:min-h-[3.25rem] ${
+                        isConcierge
+                          ? "border-amber-300/40 bg-amber-500/[0.08] text-amber-100"
+                          : isHighlight
+                            ? "border-brand-400/40 bg-brand-500/[0.08] text-brand-100"
+                            : "border-white/10 bg-white/[0.03] text-white/65"
+                      }`}
+                    >
+                      <span
+                        className={`inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                          isConcierge
+                            ? "bg-amber-400/30 text-amber-100"
+                            : isHighlight
+                              ? "bg-brand-400/30 text-brand-100"
+                              : "bg-white/10 text-white/65"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        {isConcierge || isHighlight ? "+" : "·"}
+                      </span>
+                      <span>{o.plusLogic}</span>
                     </div>
 
-                    {/* Row 6: features (1fr — fills available space) */}
-                    <ul className="mt-7 flex-1 space-y-4">
+                    {/* Row 6: features — natürliche Höhe, Listenstart über alle Karten ausgerichtet */}
+                    <ul className="mt-7 space-y-4">
                       {features.map((f) => (
                         <li key={f.label} className="grid grid-cols-1 gap-1.5">
                           <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-300/85">
@@ -1670,61 +1666,62 @@ export default function KiUmsetzungPage() {
                       ))}
                     </ul>
 
-                    {/* Row 7: bonus features (nur gerendert, wenn Inhalt vorhanden) */}
-                    {bonusFeatures.length > 0 && (
-                      <div
-                        className={`mt-6 rounded-2xl border p-4 ${
-                          isConcierge
-                            ? "border-amber-300/30 bg-amber-500/[0.06]"
-                            : "border-brand-400/25 bg-brand-500/[0.05]"
-                        }`}
-                      >
-                        <p
-                          className={`text-[10px] font-semibold uppercase tracking-[0.18em] mb-3 ${
-                            isConcierge ? "text-amber-200" : "text-brand-300"
+                    {/* Row 7+8: Bonus + CTA als Block am Karten-Boden geankert (mt-auto) */}
+                    <div className="mt-auto pt-8">
+                      {bonusFeatures.length > 0 && (
+                        <div
+                          className={`mb-6 rounded-2xl border p-4 ${
+                            isConcierge
+                              ? "border-amber-300/30 bg-amber-500/[0.06]"
+                              : "border-brand-400/25 bg-brand-500/[0.05]"
                           }`}
                         >
-                          + Premium-Plus
-                        </p>
-                        <ul className="space-y-2.5">
-                          {bonusFeatures.map((f) => (
-                            <li
-                              key={f.label}
-                              className="grid grid-cols-1 gap-1"
-                            >
-                              <span
-                                className={`text-[10px] font-semibold uppercase tracking-[0.14em] ${
-                                  isConcierge
-                                    ? "text-amber-200/80"
-                                    : "text-brand-200/80"
-                                }`}
+                          <p
+                            className={`text-[10px] font-semibold uppercase tracking-[0.18em] mb-3 ${
+                              isConcierge ? "text-amber-200" : "text-brand-300"
+                            }`}
+                          >
+                            + Premium-Plus
+                          </p>
+                          <ul className="space-y-2.5">
+                            {bonusFeatures.map((f) => (
+                              <li
+                                key={f.label}
+                                className="grid grid-cols-1 gap-1"
                               >
-                                {f.label}
-                              </span>
-                              <span className="flex items-start gap-2.5 text-[13px] text-white/90 leading-snug">
-                                <GainCheck className="mt-0.5" />
-                                <span>{f.value}</span>
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                                <span
+                                  className={`text-[10px] font-semibold uppercase tracking-[0.14em] ${
+                                    isConcierge
+                                      ? "text-amber-200/80"
+                                      : "text-brand-200/80"
+                                  }`}
+                                >
+                                  {f.label}
+                                </span>
+                                <span className="flex items-start gap-2.5 text-[13px] text-white/90 leading-snug">
+                                  <GainCheck className="mt-0.5" />
+                                  <span>{f.value}</span>
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
-                    {/* Row 8: CTA — `flex-1` auf der Features-Liste schiebt diesen Block ans Karten-Ende */}
-                    <a
-                      href={`?paket=${o.id}#bewerbung`}
-                      className={`group mt-8 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition w-full ${
-                        isConcierge
-                          ? "bg-amber-400 text-amber-950 hover:bg-amber-300"
-                          : isHighlight
-                            ? "bg-white text-black hover:bg-brand-200"
-                            : "border border-white/20 text-white hover:bg-white hover:text-black"
-                      }`}
-                    >
-                      {o.cta}
-                      <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
-                    </a>
+                      <a
+                        href={`?paket=${o.id}#bewerbung`}
+                        className={`group inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition w-full ${
+                          isConcierge
+                            ? "bg-amber-400 text-amber-950 hover:bg-amber-300"
+                            : isHighlight
+                              ? "bg-white text-black hover:bg-brand-200"
+                              : "border border-white/20 text-white hover:bg-white hover:text-black"
+                        }`}
+                      >
+                        {o.cta}
+                        <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                      </a>
+                    </div>
                   </article>
                 );
               })}

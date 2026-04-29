@@ -85,6 +85,7 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
       "Sie profitieren von Bauplan, Grundjustierung und erster praktischer Umsetzung.",
     shortTagline:
       "Sie profitieren von Bauplan, Grundjustierung und erster Einrichtung.",
+    plusLogic: "Basis · Sie bauen danach selbst weiter",
     priceLabel: "1.990 € netto",
     priceNumeric: 1990,
     forWho: "Für alle, die selbst weiterbauen wollen — schlank und fokussiert.",
@@ -117,7 +118,7 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
       "Wir bauen gemeinsam Ihre Maschine und starten diese an echten Anwendungsfällen.",
     shortTagline:
       "Wir bauen gemeinsam Ihre Maschine und starten sie an echten Anwendungsfällen.",
-    plusLogic: "Alles aus Kompakt — plus volle Umsetzungsbegleitung.",
+    plusLogic: "+ Volle Umsetzungsbegleitung",
     priceLabel: "8.500 € netto",
     priceNumeric: 8500,
     forWho: "Für aktive Mit-Umsetzer, die wirklich tief einsteigen wollen.",
@@ -128,8 +129,7 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
       { label: "Umsetzung", value: "4 × 90 Minuten Umsetzungscalls" },
       {
         label: "Systemtiefe",
-        value:
-          "Alles aus Kompakt plus volle Musterreise vom Use Case bis zum Grundsystem",
+        value: "Volle Musterreise vom Use Case bis zum Grundsystem",
       },
       {
         label: "Praxisbezug",
@@ -169,8 +169,7 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
       "Sie erhalten eine benutzbare Maschine, die wir für Sie einrichten und auf Ihr Unternehmen individualisieren.",
     shortTagline:
       "Sie erhalten eine benutzbare Maschine, die wir einrichten und auf Ihr Unternehmen individualisieren.",
-    plusLogic:
-      "Alles aus With You — plus Einrichtung, Team-Schulung und 2 Monate Begleitung.",
+    plusLogic: "+ Einrichtung · Team-Schulung · 2 Monate Begleitung",
     priceLabel: "24.900 € netto",
     priceNumeric: 24900,
     forWho:
@@ -178,13 +177,12 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
     features: [
       {
         label: "Dauer & Modus",
-        value: "Alles aus With You plus 2 exklusive Team-Schulungswochen",
+        value: "+ 2 exklusive Team-Schulungswochen",
       },
-      { label: "Impuls & Feedback", value: "Voller Umfang aus With You enthalten" },
+      { label: "Impuls & Feedback", value: "Voller Umfang inklusive" },
       {
         label: "Umsetzung",
-        value:
-          "Alle Umsetzungscalls aus With You plus zusätzliche 1:1-Feinschliff-Phase",
+        value: "+ Zusätzliche 1:1-Feinschliff-Phase",
       },
       {
         label: "Systemtiefe",
