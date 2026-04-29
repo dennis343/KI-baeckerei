@@ -1578,9 +1578,9 @@ export default function KiUmsetzungPage() {
                     key={o.id}
                     className={`relative flex h-full flex-col rounded-3xl p-6 sm:p-9 transition ${
                       isConcierge
-                        ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent"
+                        ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent shadow-[0_0_0_1px_rgba(252,211,77,0.18),0_30px_80px_-40px_rgba(252,211,77,0.35)]"
                         : isHighlight
-                          ? "border border-brand-400/50 bg-gradient-to-b from-brand-500/[0.12] to-brand-500/[0.02] lg:scale-[1.02]"
+                          ? "border-2 border-brand-400/70 bg-gradient-to-b from-brand-500/[0.14] to-brand-500/[0.03] shadow-[0_0_0_1px_rgba(155,111,198,0.35),0_30px_80px_-40px_rgba(155,111,198,0.55)]"
                           : "border border-white/10 bg-white/[0.02] hover:border-brand-400/40 hover:bg-brand-400/[0.04]"
                     }`}
                   >
