@@ -1468,6 +1468,51 @@ export default function KiUmsetzungPage() {
             </p>
           </div>
 
+          {/* MAIN ANCHOR — Hauptprogramm */}
+          <div className="mt-20 relative rounded-[2rem] border border-brand-400/40 bg-gradient-to-br from-brand-500/[0.12] via-brand-500/[0.04] to-transparent p-1">
+            <div className="rounded-[1.85rem] bg-[#0A0A12]/80 backdrop-blur-sm p-8 sm:p-12 lg:p-14">
+              {/* Top ribbon */}
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+                <span className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                  Hauptprogramm · Einführungspreis
+                </span>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-white/85 font-semibold">
+                  Begrenzte Plätze · Kleingruppe
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                {/* Left: Title + stack */}
+                <div className="lg:col-span-7">
+                  <h3 className="font-display italic text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] text-white">
+                    Das Zweitsystem.
+                  </h3>
+                  <p className="mt-3 font-display text-xl sm:text-2xl text-white/85">
+                    4 Wochen · 8 Live-Termine · gemeinsamer Aufbau
+                  </p>
+
+                  <ul className="mt-10 space-y-4">
+                    {[
+                      "4 Wochen Live-Begleitung in der Kleingruppe",
+                      "8 Live-Termine: 4 × Impuls (60 min) + 4 × Umsetzung (90 min)",
+                      "Co-Build Ihres persönlichen Zweitsystems — mit Bauplan",
+                      "Schutz-, Zugriffs- und Use-Case-Architektur",
+                      "Echte Live-Arbeit an Ihren realen Vorhaben",
+                      "Laufende Tool-Kosten unter 100 €/Monat — ersetzen klassische Marketing- und Entwickleragenturen",
+                      "Bonus: Follow-up-Session ca. 4 Wochen nach Programmende",
+                      "Sie behalten das System nach den 4 Wochen — komplett",
+                    ].map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-[15px] sm:text-base text-white/85 leading-relaxed"
+                      >
+                        <Check className="w-4 h-4 mt-1.5 text-brand-300 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
           {/* EINSTIEGE */}
           <div className="mt-16">
             <div className="flex items-baseline gap-4 mb-6">
@@ -1751,6 +1796,109 @@ export default function KiUmsetzungPage() {
             </div>
           </div>
 
+          {/* Anti-cost framing */}
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 max-w-3xl">
+              <p className="font-display text-xl sm:text-2xl leading-[1.3] text-white/85">
+                Zum Vergleich: ein einzelner Agentur-Auftrag für eine
+                Angebotsseite, einen Funnel oder einen Prototyp liegt regelmäßig
+                jenseits dieser Investition —{" "}
+                <span className="text-brand-300">und endet, wenn er endet.</span>{" "}
+                Das Zweitsystem endet nicht. Es bleibt.
+              </p>
+            </div>
+
+            {/* Tool-cost punch box */}
+            <aside className="rounded-2xl border border-emerald-400/35 bg-gradient-to-br from-emerald-500/[0.10] via-emerald-500/[0.03] to-transparent p-7">
+              <p className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300 mb-4">
+                <GainCheck />
+                Laufende Kosten
+              </p>
+              <p className="font-display text-3xl sm:text-4xl leading-[1.05] text-white tabular-nums">
+                &lt; 100&nbsp;€<span className="text-white/70 text-2xl">/Monat</span>
+              </p>
+              <p className="mt-3 text-sm text-white/85 leading-relaxed">
+                Tool-Kosten danach. Damit ersetzen Sie ganze{" "}
+                <span className="text-emerald-300 font-semibold">
+                  Marketing- und Entwickleragenturen
+                </span>{" "}
+                — und behalten die Kontrolle.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ A12 · UMSETZUNGSWERKSTATT (CONTINUATION) ═══════════════════════ */}
+      <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden">
+        <SectionDivider tone="brand" />
+        <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>11 · Nach dem Programm — wenn Sie wollen</Eyebrow>
+            <h2 className="mt-6 font-display text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-[-0.015em] text-ink-900">
+              Die Umsetzungswerkstatt.
+              <br />
+              <span className="text-brand-700">
+                Damit Sie nicht in alte Muster zurückfallen.
+              </span>
+            </h2>
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-800">
+              Optional, kein Muss. Für alle, die nach den 4 Wochen weiterbauen
+              wollen — an echten Themen, mit Sparrings-Partner, ohne wieder
+              alleine im Wartezimmer zu sitzen.
+            </p>
+          </div>
+
+          {/* Continuation card */}
+          <div className="mt-20 rounded-[2rem] border border-ink-900/10 bg-gradient-to-br from-white/[0.04] to-transparent p-1">
+            <div className="rounded-[1.85rem] bg-white p-8 sm:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                {/* Left: name + features */}
+                <div className="lg:col-span-7">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-ink-900/15 bg-ink-900/5 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-800 mb-6">
+                    Continuation · Monatlich kündbar
+                  </span>
+                  <h3 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.05] text-ink-900">
+                    Umsetzungswerkstatt &amp; Community
+                  </h3>
+                  <p className="mt-4 text-[15px] text-ink-800 leading-relaxed max-w-xl">
+                    Ein Live-1:1-Slot pro Monat, eine ruhige Community im
+                    Hintergrund — und ein monatlicher Gruppen-Call, der den
+                    Kopf an den Markt anschließt.
+                  </p>
+
+                  <ul className="mt-10 space-y-4">
+                    {[
+                      {
+                        head: "1:1 Live-Umsetzungs-Call (bis 2 Stunden) pro Monat",
+                        sub: "Arbeit am konkreten Problem, Prioritäten, Technik und Marktvorteil. Review echter Ergebnisse, direkte Optimierung.",
+                      },
+                      {
+                        head: "Community-Zugang mit gemeinsamer Messenger-Gruppe",
+                        sub: "Updates, kurze Impulse, schnelle Sparring-Fragen — ohne Lärm, ohne Zwang.",
+                      },
+                      {
+                        head: "Bonus: monatlicher Gruppen-Call",
+                        sub: "Digitales Mindset, Trends und Neuerungen — eingeordnet, nicht hinterhergehetzt.",
+                      },
+                    ].map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-4 border-t border-ink-900/10 pt-4 first:border-0 first:pt-0"
+                      >
+                        <Check className="w-4 h-4 mt-1 text-brand-700 flex-shrink-0" />
+                        <div>
+                          <p className="text-[15px] font-semibold text-ink-900 leading-snug">
+                            {item.head}
+                          </p>
+                          <p className="mt-1 text-sm text-ink-800 leading-relaxed">
+                            {item.sub}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
           {/* ANSCHLUSS — Premium-Umsetzungsbegleitung */}
           <div className="mt-16">
             <div className="flex items-baseline gap-4 mb-6">
