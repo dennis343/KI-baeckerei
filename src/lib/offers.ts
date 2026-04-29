@@ -128,8 +128,7 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
       { label: "Umsetzung", value: "4 × 90 Minuten Umsetzungscalls" },
       {
         label: "Systemtiefe",
-        value:
-          "Alles aus Kompakt plus volle Musterreise vom Use Case bis zum Grundsystem",
+        value: "Volle Musterreise vom Use Case bis zum Grundsystem",
       },
       {
         label: "Praxisbezug",
@@ -178,13 +177,12 @@ export const IMPLEMENTATION_OFFERS: Offer[] = [
     features: [
       {
         label: "Dauer & Modus",
-        value: "Alles aus With You plus 2 exklusive Team-Schulungswochen",
+        value: "+ 2 exklusive Team-Schulungswochen",
       },
-      { label: "Impuls & Feedback", value: "Voller Umfang aus With You enthalten" },
+      { label: "Impuls & Feedback", value: "Voller Umfang inklusive" },
       {
         label: "Umsetzung",
-        value:
-          "Alle Umsetzungscalls aus With You plus zusätzliche 1:1-Feinschliff-Phase",
+        value: "+ Zusätzliche 1:1-Feinschliff-Phase",
       },
       {
         label: "Systemtiefe",
