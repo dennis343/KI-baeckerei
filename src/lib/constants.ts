@@ -19,7 +19,7 @@ export const BRAND = {
     address: "Weinsbergstraße 190",
     city: "50825 Köln",
     phone: "+49 221 800 06195",
-    email: "info@wissensreich.academy",
+    email: "concierge@wissensreich.academy",
     register: "HRB 123436 · Amtsgericht Köln (Nord)",
     taxId: "DE456244964",
     managingDirectors: ["Hermann Fürstenau", "Florian Domin"],

@@ -15,7 +15,7 @@ export const SITE_URL =
 export const PHONE = process.env.NEXT_PUBLIC_PHONE ?? "";
 export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP ?? "";
 export const CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "kontakt@wissensreich-academy.de";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "concierge@wissensreich.academy";
 
 /**
  * Build a wa.me URL from raw digits and an optional message.
