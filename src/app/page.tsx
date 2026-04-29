@@ -1626,33 +1626,29 @@ export default function KiUmsetzungPage() {
                       </p>
                     </div>
 
-                    {/* Row 5: plus-logic hint (immer reservierte Höhe für Alignment) */}
-                    <div className="mt-5 lg:min-h-[4rem]">
-                      {o.plusLogic ? (
-                        <div
-                          className={`inline-flex items-start gap-2 rounded-xl border px-3.5 py-2 text-[12px] font-medium leading-snug ${
-                            isConcierge
-                              ? "border-amber-300/40 bg-amber-500/[0.08] text-amber-100"
-                              : "border-brand-400/35 bg-brand-500/[0.08] text-brand-100"
-                          }`}
-                        >
-                          <span
-                            className={`mt-0.5 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
-                              isConcierge
-                                ? "bg-amber-400/30 text-amber-100"
-                                : "bg-brand-400/30 text-brand-100"
-                            }`}
-                            aria-hidden="true"
-                          >
-                            +
-                          </span>
-                          <span>{o.plusLogic}</span>
-                        </div>
-                      ) : (
-                        <span className="block text-[12px] uppercase tracking-[0.2em] text-white/40">
-                          Basis-Stufe
-                        </span>
-                      )}
+                    {/* Row 5: plus-logic hint — drei Karten, drei Tonalitäten, identische Höhe */}
+                    <div
+                      className={`mt-5 flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-[12px] font-medium leading-snug lg:min-h-[3.25rem] ${
+                        isConcierge
+                          ? "border-amber-300/40 bg-amber-500/[0.08] text-amber-100"
+                          : isHighlight
+                            ? "border-brand-400/40 bg-brand-500/[0.08] text-brand-100"
+                            : "border-white/10 bg-white/[0.03] text-white/65"
+                      }`}
+                    >
+                      <span
+                        className={`inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                          isConcierge
+                            ? "bg-amber-400/30 text-amber-100"
+                            : isHighlight
+                              ? "bg-brand-400/30 text-brand-100"
+                              : "bg-white/10 text-white/65"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        {isConcierge || isHighlight ? "+" : "·"}
+                      </span>
+                      <span>{o.plusLogic}</span>
                     </div>
 
                     {/* Row 6: features (1fr — fills available space) */}
