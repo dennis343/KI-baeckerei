@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
- * KI Bäckerei — Base Layer (Dark Premium)
- * Lesbarkeit zuerst, Editorial-Eleganz danach.
- * ============================================ */
-
 @layer base {
   :root {
     --bg: 7 7 12;             /* #07070C */

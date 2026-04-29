@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import { BRAND } from "./constants";
 import { SITE_URL } from "./utils";
 
-/**
- * Reusable metadata generator.
- * Produces OpenGraph, Twitter, Robots, Canonical, and Geo-Tags in one shot.
- */
 export function buildMetadata({
   title,
   description,
@@ -91,9 +87,6 @@ export function buildMetadata({
   };
 }
 
-/**
- * Organization JSON-LD — Hauptentität, auf die andere Schemas via @id referenzieren.
- */
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const WEBPAGE_ID = `${SITE_URL}/#webpage`;
