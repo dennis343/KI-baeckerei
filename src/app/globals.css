@@ -172,6 +172,11 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Spotlight-Pulse für Pricing-Detail-Card, wenn die URL #paket-{id} matcht. */
+  .pricing-card-target:target {
+    animation: pricing-spotlight 2.6s cubic-bezier(0.22, 1, 0.36, 1) 1;
+  }
 }
 
 @layer utilities {
@@ -195,6 +200,20 @@
     animation: float-soft 5.5s ease-in-out infinite;
   }
 
+  @keyframes pricing-spotlight {
+    0% {
+      box-shadow: 0 0 0 0 rgba(155, 111, 198, 0);
+    }
+    18% {
+      box-shadow:
+        0 0 0 4px rgba(155, 111, 198, 0.55),
+        0 0 80px 20px rgba(155, 111, 198, 0.35);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(155, 111, 198, 0);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .ring-glow-brand::before,
     .animate-float-soft {
@@ -204,6 +223,9 @@
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
+    }
+    .pricing-card-target:target {
+      animation: none !important;
     }
   }
 }

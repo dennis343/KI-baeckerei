@@ -878,12 +878,14 @@ export default function KiUmsetzungPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {IMPLEMENTATION_OFFERS.map((o) => (
-                <article
+                <a
                   key={o.id}
-                  className={`group relative flex flex-col rounded-2xl border p-6 sm:p-7 transition ${
+                  href={`#paket-${o.id}`}
+                  aria-label={`Details zu ${o.shortName} ansehen`}
+                  className={`group relative flex flex-col rounded-2xl border p-6 sm:p-7 transition duration-300 cursor-pointer hover:-translate-y-1 ${
                     o.highlight
-                      ? "border-brand-400/50 bg-gradient-to-b from-brand-500/[0.10] to-brand-500/[0.02]"
-                      : "border-white/10 bg-white/[0.02] hover:border-brand-400/40 hover:bg-brand-400/[0.04]"
+                      ? "border-brand-400/50 bg-gradient-to-b from-brand-500/[0.10] to-brand-500/[0.02] hover:border-brand-400/80 hover:shadow-[0_22px_50px_-25px_rgba(155,111,198,0.55)]"
+                      : "border-white/10 bg-white/[0.02] hover:border-brand-400/40 hover:bg-brand-400/[0.04] hover:shadow-[0_22px_50px_-30px_rgba(155,111,198,0.4)]"
                   }`}
                 >
                   {o.highlight && (
@@ -891,8 +893,17 @@ export default function KiUmsetzungPage() {
                       Empfohlen
                     </span>
                   )}
+
+                  {/* Klick-Indicator oben rechts */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute right-5 top-5 inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/50 transition group-hover:border-brand-400/60 group-hover:bg-brand-400/15 group-hover:text-brand-200"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 -rotate-45 transition group-hover:rotate-0" />
+                  </span>
+
                   {/* Row 1: category badge */}
-                  <div className="flex items-center min-h-[1.75rem]">
+                  <div className="flex items-center min-h-[1.75rem] pr-10">
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
                       {o.badge}
                     </span>
@@ -917,7 +928,13 @@ export default function KiUmsetzungPage() {
                   <p className="mt-1 text-xs text-white/70 leading-relaxed md:min-h-[3.75rem]">
                     {o.forWho}
                   </p>
-                </article>
+
+                  {/* Klick-Affordance unten */}
+                  <span className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55 transition group-hover:text-brand-300">
+                    Details ansehen
+                    <ArrowRight className="h-3 w-3 transition group-hover:translate-x-1" />
+                  </span>
+                </a>
               ))}
             </div>
           </div>
@@ -1576,7 +1593,8 @@ export default function KiUmsetzungPage() {
                 return (
                   <article
                     key={o.id}
-                    className={`relative flex h-full flex-col rounded-3xl p-6 sm:p-9 transition ${
+                    id={`paket-${o.id}`}
+                    className={`pricing-card-target relative flex h-full flex-col rounded-3xl p-6 sm:p-9 transition scroll-mt-32 ${
                       isConcierge
                         ? "border border-amber-300/40 bg-gradient-to-b from-amber-500/[0.10] via-amber-500/[0.03] to-transparent shadow-[0_0_0_1px_rgba(252,211,77,0.18),0_30px_80px_-40px_rgba(252,211,77,0.35)]"
                         : isHighlight
