@@ -1606,13 +1606,13 @@ export default function KiUmsetzungPage() {
                       </span>
                     </div>
 
-                    {/* Row 2: name */}
-                    <h4 className="mt-5 font-display text-xl sm:text-2xl text-white leading-[1.15] lg:min-h-[3.75rem]">
+                    {/* Row 2: name (Playfair @ 24px wraps "Digitale Umsetzungsmaschine With You" auf 3 Zeilen) */}
+                    <h4 className="mt-5 font-display text-xl sm:text-2xl text-white leading-[1.15] break-words hyphens-auto lg:min-h-[5.5rem]">
                       {o.name}
                     </h4>
 
-                    {/* Row 3: tagline */}
-                    <p className="mt-3 text-sm text-white/80 leading-relaxed lg:min-h-[6rem]">
+                    {/* Row 3: tagline (bis 4 Zeilen am unteren lg-Breakpoint) */}
+                    <p className="mt-3 text-sm text-white/80 leading-relaxed lg:min-h-[6.5rem]">
                       {o.tagline}
                     </p>
 
