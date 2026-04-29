@@ -90,11 +90,10 @@ export default function DatenschutzPage() {
                 3. Hosting und technische Bereitstellung
               </h2>
               <p>
-                Diese Website wird auf der Infrastruktur von Vercel Inc. (340 S
-                Lemon Ave #4133, Walnut, CA 91789, USA) bereitgestellt. Beim
-                Aufruf unserer Website werden durch den Hosting-Anbieter
-                automatisch technische Zugriffsdaten erfasst (sog.
-                Server-Logfiles):
+                Diese Website wird über einen externen Hosting-Anbieter
+                bereitgestellt. Beim Aufruf unserer Website werden durch den
+                Hosting-Anbieter automatisch technische Zugriffsdaten erfasst
+                (sog. Server-Logfiles):
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5">
                 <li>IP-Adresse des anfragenden Endgeräts</li>
@@ -112,18 +111,10 @@ export default function DatenschutzPage() {
                 dieser Daten mit anderen Datenquellen findet nicht statt.
               </p>
               <p className="mt-3">
-                Die Datenübermittlung in die USA erfolgt auf Grundlage des
-                EU-US Data Privacy Framework. Weitere Informationen finden Sie
-                unter{" "}
-                <a
-                  href="https://vercel.com/legal/privacy-policy"
-                  target="_blank"
-                  rel="noreferrer"
-                  className={linkClass}
-                >
-                  vercel.com/legal/privacy-policy
-                </a>
-                .
+                Sofern eine Datenübermittlung in Drittländer — insbesondere
+                die USA — stattfindet, erfolgt diese auf Grundlage des EU-US
+                Data Privacy Framework oder vergleichbarer Schutzmechanismen
+                gemäß Art.&nbsp;44 ff. DSGVO.
               </p>
             </section>
 

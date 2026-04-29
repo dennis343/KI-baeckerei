@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/ui/BreadcrumbJsonLd";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SITE_URL } from "@/lib/utils";
 import { ApplyForm } from "@/components/apply/ApplyForm";
-import { TidyCalEmbed } from "@/components/apply/TidyCalEmbed";
+import { BookingEmbed } from "@/components/apply/BookingEmbed";
 import {
   ENTRY_OFFERS,
   IMPLEMENTATION_OFFERS,
@@ -23,9 +23,6 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-// ────────────────────────────────────────────────────────────────
-// Reusable micro-primitives (local to this page)
-// ────────────────────────────────────────────────────────────────
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
@@ -96,9 +93,6 @@ function GainCheck({ className = "" }: { className?: string }) {
   );
 }
 
-// ────────────────────────────────────────────────────────────────
-// Page
-// ────────────────────────────────────────────────────────────────
 
 export default function KiUmsetzungPage() {
   return (
@@ -375,7 +369,6 @@ export default function KiUmsetzungPage() {
         }}
       />
 
-      {/* ═══════════════════════ S1 · HERO ═══════════════════════ */}
       <section className="relative z-10 min-h-[100svh] flex flex-col bg-[#07070C] overflow-hidden" aria-labelledby="section-hero">
         <div
           aria-hidden
@@ -492,7 +485,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S2 · PROBLEM ═══════════════════════ */}
       <section className="relative z-10 py-28 sm:py-36 bg-cream-100 overflow-hidden" aria-labelledby="section-problem">
         <SectionDivider tone="rose" />
         <div
@@ -592,7 +584,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S3 · NEUE REALITÄT ═══════════════════════ */}
       <section className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden" aria-labelledby="section-neue-realitaet">
         <SectionDivider tone="brand" />
         <div
@@ -786,7 +777,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S4 · PRICING-OVERVIEW (kompakt) ═══════════════════════ */}
       <section
         id="pakete"
         className="relative z-10 py-24 sm:py-32 bg-[#07070C] overflow-hidden scroll-mt-24"
@@ -902,29 +892,24 @@ export default function KiUmsetzungPage() {
                     <ArrowRight className="h-3.5 w-3.5 -rotate-45 transition group-hover:rotate-0" />
                   </span>
 
-                  {/* Row 1: category badge */}
                   <div className="flex items-center min-h-[1.75rem] pr-10">
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
                       {o.badge}
                     </span>
                   </div>
 
-                  {/* Row 2: name (Playfair @ 20px wraps "Done for You Lite" auf 2 Zeilen am schmalen md-Viewport) */}
                   <h3 className="mt-3 font-display text-xl text-white leading-snug md:min-h-[3.75rem]">
                     {o.shortName}
                   </h3>
 
-                  {/* Row 3: short tagline (Inter @ 14px bis 4 Zeilen am schmalen md-Viewport) */}
                   <p className="mt-2 text-sm text-white/80 leading-relaxed md:min-h-[6rem]">
                     {o.shortTagline ?? o.tagline}
                   </p>
 
-                  {/* Row 4: price */}
                   <p className="mt-5 font-display text-2xl text-white tabular-nums">
                     {o.priceLabel}
                   </p>
 
-                  {/* Row 5: price text (forWho) — bis 3 Zeilen am schmalen md-Viewport */}
                   <p className="mt-1 text-xs text-white/70 leading-relaxed md:min-h-[3.75rem]">
                     {o.forWho}
                   </p>
@@ -939,7 +924,6 @@ export default function KiUmsetzungPage() {
             </div>
           </div>
 
-          {/* CTA-Bar */}
           <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
             <div>
               <p className="font-display text-xl text-white leading-snug">
@@ -979,7 +963,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S5 · FÜR WEN ═══════════════════════ */}
       <section className="relative z-10 py-24 sm:py-32 bg-[#0B0B16] overflow-hidden" aria-labelledby="section-fuer-wen">
         <SectionDivider tone="brand" />
         <div
@@ -1071,7 +1054,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S6 · WAS DAMIT MÖGLICH WIRD ═══════════════════════ */}
       <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden" aria-labelledby="section-moeglich">
         <SectionDivider tone="brand" />
         <div
@@ -1099,7 +1081,7 @@ export default function KiUmsetzungPage() {
             </p>
           </div>
 
-          {/* Outcome showcase — keen-slider Free-Snap */}
+          {/* Outcome showcase */}
           <div className="mt-14 -mx-4 sm:-mx-6 lg:-mx-10 px-4 sm:px-6 lg:px-10">
             <div className="mb-5 flex items-center justify-between">
               <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-700">
@@ -1211,7 +1193,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S7 · WAS GEMEINSAM ENTSTEHT ═══════════════════════ */}
       <section className="relative z-10 py-24 sm:py-32 bg-[#0A0A14] overflow-hidden" aria-labelledby="section-was-entsteht">
         <SectionDivider tone="brand" />
         <div
@@ -1312,7 +1293,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S8 · WIRTSCHAFTLICHE RELATIVIERUNG ═══════════════════════ */}
       <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden" aria-labelledby="section-wirtschaftlich">
         <SectionDivider tone="brand" />
         <div
@@ -1454,7 +1434,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S9 · DETAIL-PRICING ═══════════════════════ */}
       <section
         id="pakete-detail"
         className="relative z-10 py-28 sm:py-36 bg-[#0A0A14] overflow-hidden scroll-mt-24"
@@ -1485,7 +1464,6 @@ export default function KiUmsetzungPage() {
             </p>
           </div>
 
-          {/* EINSTIEGE */}
           <div className="mt-16">
             <div className="flex items-baseline gap-4 mb-6">
               <span className="font-mono text-xs text-brand-300 tabular-nums">01</span>
@@ -1552,7 +1530,6 @@ export default function KiUmsetzungPage() {
             </p>
           </div>
 
-          {/* UMSETZUNGSPAKETE */}
           <div className="mt-20">
             <div className="flex items-baseline gap-4 mb-6">
               <span className="font-mono text-xs text-brand-300 tabular-nums">02</span>
@@ -1617,24 +1594,20 @@ export default function KiUmsetzungPage() {
                       </span>
                     )}
 
-                    {/* Row 1: category badge */}
                     <div className="flex items-center min-h-[1.875rem]">
                       <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/85">
                         {o.badge}
                       </span>
                     </div>
 
-                    {/* Row 2: name (Playfair @ 24px wraps "Digitale Umsetzungsmaschine With You" auf 3 Zeilen) */}
                     <h4 className="mt-5 font-display text-xl sm:text-2xl text-white leading-[1.15] break-words hyphens-auto lg:min-h-[5.5rem]">
                       {o.name}
                     </h4>
 
-                    {/* Row 3: tagline (bis 4 Zeilen am unteren lg-Breakpoint) */}
                     <p className="mt-3 text-sm text-white/80 leading-relaxed lg:min-h-[6.5rem]">
                       {o.tagline}
                     </p>
 
-                    {/* Row 4: price + forWho */}
                     <div className="mt-6 lg:min-h-[6.5rem]">
                       <p className="font-display text-3xl sm:text-4xl text-white tabular-nums">
                         {o.priceLabel}
@@ -1644,7 +1617,6 @@ export default function KiUmsetzungPage() {
                       </p>
                     </div>
 
-                    {/* Row 5: plus-logic hint — drei Karten, drei Tonalitäten, identische Höhe */}
                     <div
                       className={`mt-5 flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-[12px] font-medium leading-snug lg:min-h-[3.25rem] ${
                         isConcierge
@@ -1669,7 +1641,6 @@ export default function KiUmsetzungPage() {
                       <span>{o.plusLogic}</span>
                     </div>
 
-                    {/* Row 6: features — natürliche Höhe, Listenstart über alle Karten ausgerichtet */}
                     <ul className="mt-7 space-y-4">
                       {features.map((f) => (
                         <li key={f.label} className="grid grid-cols-1 gap-1.5">
@@ -1684,7 +1655,6 @@ export default function KiUmsetzungPage() {
                       ))}
                     </ul>
 
-                    {/* Row 7+8: Bonus + CTA als Block am Karten-Boden geankert (mt-auto) */}
                     <div className="mt-auto pt-8">
                       {bonusFeatures.length > 0 && (
                         <div
@@ -1769,7 +1739,6 @@ export default function KiUmsetzungPage() {
             </div>
           </div>
 
-          {/* ANSCHLUSS — Premium-Umsetzungsbegleitung */}
           <div className="mt-16">
             <div className="flex items-baseline gap-4 mb-6">
               <span className="font-mono text-xs text-brand-300 tabular-nums">03</span>
@@ -1827,7 +1796,6 @@ export default function KiUmsetzungPage() {
             </article>
           </div>
 
-          {/* CTA-Anker zum Bewerbungsformular */}
           <div className="mt-16 text-center">
             <p className="font-display text-[clamp(1.4rem,2.4vw,1.875rem)] leading-[1.25] text-white max-w-3xl mx-auto">
               Welcher Weg passt zu Ihnen?
@@ -1849,7 +1817,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S10 · FAQ ═══════════════════════ */}
       <section className="relative z-10 py-24 sm:py-32 bg-cream-100 overflow-hidden" aria-labelledby="section-faq">
         <SectionDivider tone="brand" />
         <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
@@ -1925,7 +1892,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ S11 · FINAL CTA ═══════════════════════ */}
       <section className="relative z-10 py-24 sm:py-32 bg-white overflow-hidden" aria-labelledby="section-final-cta">
         <SectionDivider tone="brand" />
         <div
@@ -1975,7 +1941,6 @@ export default function KiUmsetzungPage() {
         </div>
       </section>
 
-      {/* ═══════════════════════ APPLY FORM ═══════════════════════ */}
       <section
         id="bewerbung"
         className="relative z-10 py-24 sm:py-32 bg-[#050508] overflow-hidden scroll-mt-24"
@@ -2043,7 +2008,6 @@ export default function KiUmsetzungPage() {
 
           {/* Two lanes — Pfad A (Quickcheck, primary) clearly above Pfad B (Termin, alternative) */}
           <div className="mt-16 space-y-10 sm:space-y-12">
-            {/* PFAD A — QUICKCHECK · HERO (stacked: header on top, form full-width below) */}
             <Reveal as="article" className="relative">
               <div
                 aria-hidden
@@ -2077,7 +2041,6 @@ export default function KiUmsetzungPage() {
                   />
 
                   <div className="relative p-6 sm:p-9 lg:p-12">
-                    {/* HEADER STRIP — full width on top */}
                     <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_auto] gap-7 lg:gap-12 items-end">
                       <div>
                         <div className="flex flex-wrap items-center gap-3">
@@ -2157,7 +2120,6 @@ export default function KiUmsetzungPage() {
               </span>
             </div>
 
-            {/* PFAD B — TIDYCAL · SECONDARY (zentriert, kompakt — TidyCal rendert kompakter in moderater Breite) */}
             <Reveal as="article" delay={80} className="relative mx-auto w-full max-w-3xl">
               <div className="relative rounded-[1.75rem] border border-white/10 bg-white/[0.025] backdrop-blur-sm overflow-hidden">
                 <div
@@ -2169,7 +2131,6 @@ export default function KiUmsetzungPage() {
                   }}
                 />
                 <div className="relative p-6 sm:p-8">
-                  {/* HEADER STRIP — kompakt */}
                   <div className="flex items-start gap-4">
                     <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl border border-emerald-400/30 bg-emerald-500/10 text-emerald-300">
                       <CalendarClock aria-hidden="true" className="h-5 w-5" />
@@ -2194,7 +2155,7 @@ export default function KiUmsetzungPage() {
 
                   {/* CALENDAR — fixed-height embed, scrollt intern */}
                   <div className="mt-7 rounded-2xl border border-white/10 bg-white p-3 sm:p-4">
-                    <TidyCalEmbed />
+                    <BookingEmbed />
                   </div>
                 </div>
               </div>

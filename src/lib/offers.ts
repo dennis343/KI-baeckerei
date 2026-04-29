@@ -1,10 +1,3 @@
-/**
- * Angebotsarchitektur — Digitale Umsetzungsmaschine.
- *
- * Strukturierte Daten für die Pricing-Sections und das Bewerbungsformular.
- * Single source of truth, damit sich Pakete einmalig ändern lassen.
- */
-
 export type OfferTier = "entry" | "implementation" | "subscription";
 
 export type OfferFeature = {

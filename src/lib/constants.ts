@@ -1,11 +1,3 @@
-/**
- * KI Bäckerei — zentrale Brand- und Navigations-Konstanten.
- *
- * Die Marke „KI Bäckerei" ist ein Angebot der WissensReich Academy UG
- * (haftungsbeschränkt). Pflichtangaben für Impressum/Datenschutz liegen
- * unter `BRAND.legal` und gehören juristisch zur betreibenden Gesellschaft.
- */
-
 export const BRAND = {
   name: "KI Bäckerei",
   fullName: "KI Bäckerei",
@@ -31,10 +23,6 @@ export const BRAND = {
     },
   },
 } as const;
-
-/* ------------------------------------------------------------------
- * NAVIGATION — minimal, 4 Punkte
- * ------------------------------------------------------------------ */
 
 export type NavItem = {
   label: string;

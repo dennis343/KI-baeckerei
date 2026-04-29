@@ -1,20 +1,5 @@
 import type { Config } from "tailwindcss";
 
-/**
- * WissensReich Academy — Design Tokens
- *
- * Farblogik (Brand Manual Hybrid):
- *  - brand    = Lilaton (Primäraktion, Links, Highlights)
- *  - ink      = Navy #0F2C59 (dunkle Basis statt Vollschwarz)
- *  - cream    = Warmes Weiß für Sektionsflächen
- *  - line     = Trennlinien in ruhigem Grau
- *
- * Kontrast-Audit (alle WCAG AAA ≥ 7:1 auf weißem Grund):
- *  - ink-900 #0F2C59   → 14.8:1
- *  - ink-500 #4A5568   →  7.5:1
- *  - brand-600 #5B3389 →  8.1:1 (für Text-Links auf Weiß)
- *  - brand-700 #472868 → 10.2:1
- */
 const config: Config = {
   content: ["./src/**/*.{ts,tsx,mdx}"],
   theme: {
@@ -74,7 +59,6 @@ const config: Config = {
         ],
       },
       fontSize: {
-        // Fluid Type Scale (clamp)
         "display-xl": ["clamp(2.5rem, 5vw + 1rem, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
         "display-lg": ["clamp(2rem, 4vw + 0.5rem, 3.5rem)", { lineHeight: "1.1", letterSpacing: "-0.015em" }],
         "display-md": ["clamp(1.625rem, 3vw + 0.5rem, 2.5rem)", { lineHeight: "1.15", letterSpacing: "-0.01em" }],

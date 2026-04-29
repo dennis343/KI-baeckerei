@@ -73,11 +73,6 @@ const textareaBase =
   "w-full bg-white/[0.02] border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/45 " +
   "focus:border-brand-400 focus:bg-white/[0.04] focus:outline-none focus:ring-4 focus:ring-brand-400/15 transition resize-none";
 
-/**
- * Liest die paket-id aus URL-Search-Params (`?paket=kompakt#bewerbung`) oder
- * Hash (`#bewerbung?paket=kompakt`). Zuerst Search-Params, weil das die
- * primäre Verlinkung der Pricing-Cards ist; Hash als Fallback.
- */
 function readPaketFromUrl(): string | null {
   if (typeof window === "undefined") return null;
   const search = window.location.search;
@@ -105,7 +100,6 @@ export function ApplyForm({ layout = "default" }: ApplyFormProps = {}) {
   const [sending, setSending] = React.useState(false);
   const [sent, setSent] = React.useState(false);
 
-  // Paket aus URL übernehmen, wenn der Nutzer von einer Pricing-Card kommt.
   React.useEffect(() => {
     const initial = readPaketFromUrl();
     if (initial) {
