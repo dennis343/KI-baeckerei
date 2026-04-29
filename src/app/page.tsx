@@ -898,13 +898,13 @@ export default function KiUmsetzungPage() {
                     </span>
                   </div>
 
-                  {/* Row 2: name */}
-                  <h3 className="mt-3 font-display text-xl text-white leading-snug md:min-h-[3.5rem]">
+                  {/* Row 2: name (Playfair @ 20px wraps "Done for You Lite" auf 2 Zeilen am schmalen md-Viewport) */}
+                  <h3 className="mt-3 font-display text-xl text-white leading-snug md:min-h-[3.75rem]">
                     {o.shortName}
                   </h3>
 
-                  {/* Row 3: short tagline */}
-                  <p className="mt-2 text-sm text-white/80 leading-relaxed md:min-h-[5.5rem]">
+                  {/* Row 3: short tagline (Inter @ 14px bis 4 Zeilen am schmalen md-Viewport) */}
+                  <p className="mt-2 text-sm text-white/80 leading-relaxed md:min-h-[6rem]">
                     {o.shortTagline ?? o.tagline}
                   </p>
 
@@ -913,8 +913,8 @@ export default function KiUmsetzungPage() {
                     {o.priceLabel}
                   </p>
 
-                  {/* Row 5: price text (forWho) */}
-                  <p className="mt-1 text-xs text-white/70 leading-relaxed md:min-h-[2.75rem]">
+                  {/* Row 5: price text (forWho) — bis 3 Zeilen am schmalen md-Viewport */}
+                  <p className="mt-1 text-xs text-white/70 leading-relaxed md:min-h-[3.75rem]">
                     {o.forWho}
                   </p>
                 </article>
