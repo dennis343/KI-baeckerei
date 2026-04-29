@@ -1651,8 +1651,8 @@ export default function KiUmsetzungPage() {
                       <span>{o.plusLogic}</span>
                     </div>
 
-                    {/* Row 6: features (1fr — fills available space) */}
-                    <ul className="mt-7 flex-1 space-y-4">
+                    {/* Row 6: features — natürliche Höhe, Listenstart über alle Karten ausgerichtet */}
+                    <ul className="mt-7 space-y-4">
                       {features.map((f) => (
                         <li key={f.label} className="grid grid-cols-1 gap-1.5">
                           <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-brand-300/85">
@@ -1666,61 +1666,62 @@ export default function KiUmsetzungPage() {
                       ))}
                     </ul>
 
-                    {/* Row 7: bonus features (nur gerendert, wenn Inhalt vorhanden) */}
-                    {bonusFeatures.length > 0 && (
-                      <div
-                        className={`mt-6 rounded-2xl border p-4 ${
-                          isConcierge
-                            ? "border-amber-300/30 bg-amber-500/[0.06]"
-                            : "border-brand-400/25 bg-brand-500/[0.05]"
-                        }`}
-                      >
-                        <p
-                          className={`text-[10px] font-semibold uppercase tracking-[0.18em] mb-3 ${
-                            isConcierge ? "text-amber-200" : "text-brand-300"
+                    {/* Row 7+8: Bonus + CTA als Block am Karten-Boden geankert (mt-auto) */}
+                    <div className="mt-auto pt-8">
+                      {bonusFeatures.length > 0 && (
+                        <div
+                          className={`mb-6 rounded-2xl border p-4 ${
+                            isConcierge
+                              ? "border-amber-300/30 bg-amber-500/[0.06]"
+                              : "border-brand-400/25 bg-brand-500/[0.05]"
                           }`}
                         >
-                          + Premium-Plus
-                        </p>
-                        <ul className="space-y-2.5">
-                          {bonusFeatures.map((f) => (
-                            <li
-                              key={f.label}
-                              className="grid grid-cols-1 gap-1"
-                            >
-                              <span
-                                className={`text-[10px] font-semibold uppercase tracking-[0.14em] ${
-                                  isConcierge
-                                    ? "text-amber-200/80"
-                                    : "text-brand-200/80"
-                                }`}
+                          <p
+                            className={`text-[10px] font-semibold uppercase tracking-[0.18em] mb-3 ${
+                              isConcierge ? "text-amber-200" : "text-brand-300"
+                            }`}
+                          >
+                            + Premium-Plus
+                          </p>
+                          <ul className="space-y-2.5">
+                            {bonusFeatures.map((f) => (
+                              <li
+                                key={f.label}
+                                className="grid grid-cols-1 gap-1"
                               >
-                                {f.label}
-                              </span>
-                              <span className="flex items-start gap-2.5 text-[13px] text-white/90 leading-snug">
-                                <GainCheck className="mt-0.5" />
-                                <span>{f.value}</span>
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                                <span
+                                  className={`text-[10px] font-semibold uppercase tracking-[0.14em] ${
+                                    isConcierge
+                                      ? "text-amber-200/80"
+                                      : "text-brand-200/80"
+                                  }`}
+                                >
+                                  {f.label}
+                                </span>
+                                <span className="flex items-start gap-2.5 text-[13px] text-white/90 leading-snug">
+                                  <GainCheck className="mt-0.5" />
+                                  <span>{f.value}</span>
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
 
-                    {/* Row 8: CTA — `flex-1` auf der Features-Liste schiebt diesen Block ans Karten-Ende */}
-                    <a
-                      href={`?paket=${o.id}#bewerbung`}
-                      className={`group mt-8 inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition w-full ${
-                        isConcierge
-                          ? "bg-amber-400 text-amber-950 hover:bg-amber-300"
-                          : isHighlight
-                            ? "bg-white text-black hover:bg-brand-200"
-                            : "border border-white/20 text-white hover:bg-white hover:text-black"
-                      }`}
-                    >
-                      {o.cta}
-                      <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
-                    </a>
+                      <a
+                        href={`?paket=${o.id}#bewerbung`}
+                        className={`group inline-flex items-center justify-center gap-3 px-6 h-12 rounded-full text-[13px] font-semibold tracking-wide transition w-full ${
+                          isConcierge
+                            ? "bg-amber-400 text-amber-950 hover:bg-amber-300"
+                            : isHighlight
+                              ? "bg-white text-black hover:bg-brand-200"
+                              : "border border-white/20 text-white hover:bg-white hover:text-black"
+                        }`}
+                      >
+                        {o.cta}
+                        <ArrowRight aria-hidden="true" className="w-4 h-4 transition group-hover:translate-x-0.5" />
+                      </a>
+                    </div>
                   </article>
                 );
               })}
