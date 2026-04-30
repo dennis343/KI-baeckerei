@@ -10,12 +10,12 @@ export function cn(...inputs: ClassValue[]): string {
 }
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://wissensreich-academy.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ki-baeckerei.vercel.app";
 
 export const PHONE = process.env.NEXT_PUBLIC_PHONE ?? "";
 export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP ?? "";
 export const CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "kontakt@wissensreich-academy.de";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "office@eskalator.ag";
 
 /**
  * Build a wa.me URL from raw digits and an optional message.

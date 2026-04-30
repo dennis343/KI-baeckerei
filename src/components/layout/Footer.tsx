@@ -16,6 +16,12 @@ export function Footer() {
             <p className="mt-6 max-w-sm text-[14px] leading-relaxed text-white/90">
               {BRAND.description}
             </p>
+            <p className="mt-5 text-[12px] leading-relaxed text-white/65">
+              {BRAND.legal.operator}{" "}
+              <span className="text-white/85">{BRAND.legal.legalName}</span>{" "}
+              ({BRAND.legal.legalForm}), {BRAND.legal.city},{" "}
+              {BRAND.legal.country}.
+            </p>
           </div>
 
           {/* Navigation */}
@@ -72,10 +78,10 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
           <p className="text-xs text-white/85">
-            © {year} {BRAND.fullName}. {BRAND.legal.operator} {BRAND.legal.company}.
+            © {year} {BRAND.legal.legalName}. Alle Rechte vorbehalten.
           </p>
           <p className="text-xs text-white/85">
-            {BRAND.legal.city} · Deutschland
+            UID {BRAND.legal.uid} · {BRAND.legal.register}
           </p>
         </div>
       </div>

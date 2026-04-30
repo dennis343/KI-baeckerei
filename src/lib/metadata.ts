@@ -113,7 +113,7 @@ export function organizationJsonLd() {
     "@id": ORG_ID,
     name: BRAND.fullName,
     alternateName: BRAND.name,
-    legalName: BRAND.legal.company,
+    legalName: BRAND.legal.legalName,
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
@@ -125,11 +125,13 @@ export function organizationJsonLd() {
     description: BRAND.description,
     slogan: BRAND.tagline,
     email: BRAND.legal.email,
-    telephone: BRAND.legal.phone,
-    vatID: BRAND.legal.taxId,
+    telephone: [BRAND.legal.phone, BRAND.legal.phoneCh],
+    /** Schweizer Unternehmens-Identifikationsnummer (UID). */
+    taxID: BRAND.legal.uid,
+    foundingDate: BRAND.legal.foundedSince,
     foundingLocation: {
       "@type": "Place",
-      name: BRAND.legal.city,
+      name: `${BRAND.legal.locality}, ${BRAND.legal.country}`,
     },
     founders: BRAND.legal.managingDirectors.map((name) => ({
       "@type": "Person",
@@ -138,14 +140,15 @@ export function organizationJsonLd() {
     address: {
       "@type": "PostalAddress",
       streetAddress: BRAND.legal.address,
-      postalCode: BRAND.legal.city.split(" ")[0],
-      addressLocality: BRAND.legal.city.split(" ").slice(1).join(" "),
-      addressCountry: "DE",
+      postalCode: BRAND.legal.postalCode,
+      addressLocality: BRAND.legal.locality,
+      addressCountry: BRAND.legal.countryCode,
+      addressRegion: "Schwyz",
     },
     areaServed: [
+      { "@type": "Country", name: "Schweiz" },
       { "@type": "Country", name: "Deutschland" },
       { "@type": "Country", name: "Österreich" },
-      { "@type": "Country", name: "Schweiz" },
     ],
     knowsLanguage: ["de", "en"],
     knowsAbout: [
@@ -166,7 +169,15 @@ export function organizationJsonLd() {
         telephone: BRAND.legal.phone,
         contactType: "customer service",
         availableLanguage: ["German", "English"],
-        areaServed: ["DE", "AT", "CH"],
+        areaServed: ["DE", "AT"],
+      },
+      {
+        "@type": "ContactPoint",
+        email: BRAND.legal.email,
+        telephone: BRAND.legal.phoneCh,
+        contactType: "customer service",
+        availableLanguage: ["German", "English"],
+        areaServed: ["CH", "LI"],
       },
     ],
     sameAs: [],

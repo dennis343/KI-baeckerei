@@ -6,9 +6,8 @@ import { BRAND } from "@/lib/constants";
 export const metadata: Metadata = buildMetadata({
   title: "Datenschutzerklärung",
   description:
-    "Datenschutzerklärung der KI Bäckerei — Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
+    "Datenschutzerklärung der Eskalator AG (Schweiz) für die KI Bäckerei — Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO und revDSG.",
   path: "/datenschutz",
-  noIndex: true,
 });
 
 const linkClass =
@@ -31,29 +30,44 @@ export default function DatenschutzPage() {
               Datenschutzerklärung
             </h1>
             <p className="mt-5 text-lg text-white/85 leading-relaxed">
-              Wir verarbeiten personenbezogene Daten ausschließlich im Rahmen der
-              geltenden Gesetze, insbesondere der DSGVO und des BDSG.
+              Wir verarbeiten personenbezogene Daten ausschließlich im Rahmen
+              der geltenden Gesetze, insbesondere der DSGVO sowie des
+              schweizerischen Datenschutzgesetzes (revDSG).
             </p>
             <p className="mt-2 text-sm text-white/90">
-              {BRAND.fullName} ist ein Angebot der {BRAND.legal.company}.
+              {BRAND.fullName} ist ein Angebot der {BRAND.legal.legalName}{" "}
+              ({BRAND.legal.legalForm}), {BRAND.legal.country}.
             </p>
           </div>
 
           <div className="mt-14 max-w-3xl space-y-10 text-[15px] leading-relaxed text-white/90">
             <section>
               <h2 className="font-display text-lg font-semibold text-white mb-3">
-                1. Verantwortlicher
+                1. Verantwortliche Stelle
               </h2>
               <address className="not-italic">
-                {BRAND.legal.company}
+                {BRAND.legal.legalName}
                 <br />
                 {BRAND.legal.address}
                 <br />
                 {BRAND.legal.city}
                 <br />
-                Telefon:{" "}
-                <a href={`tel:${BRAND.legal.phone}`} className={linkClass}>
+                {BRAND.legal.country}
+                <br />
+                Telefon (DE):{" "}
+                <a
+                  href={`tel:${BRAND.legal.phone.replace(/\s/g, "")}`}
+                  className={linkClass}
+                >
                   {BRAND.legal.phone}
+                </a>
+                <br />
+                Telefon (CH):{" "}
+                <a
+                  href={`tel:${BRAND.legal.phoneCh.replace(/\s/g, "")}`}
+                  className={linkClass}
+                >
+                  {BRAND.legal.phoneCh}
                 </a>
                 <br />
                 E-Mail:{" "}
@@ -65,7 +79,10 @@ export default function DatenschutzPage() {
                 </a>
               </address>
               <p className="mt-3">
-                Vertreten durch: {BRAND.legal.managingDirector}
+                Vertreten durch: {BRAND.legal.managingDirector}.
+              </p>
+              <p className="mt-3 text-sm text-white/80">
+                UID: {BRAND.legal.uid} · {BRAND.legal.register}.
               </p>
             </section>
 
